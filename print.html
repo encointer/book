@@ -86,7 +86,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">2.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">2.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="testnets.html"><strong aria-hidden="true">3.</strong> Testnets</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">3.1.</strong> Gesell</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li></ol></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">2.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">2.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">3.</strong> Decentralization</a></li><li class="expanded "><a href="testnets.html"><strong aria-hidden="true">4.</strong> Testnets</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">4.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html"><strong aria-hidden="true">4.1.1.</strong> Tutorial</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">4.2.</strong> Cantillon</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -153,12 +153,61 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+                        <p><img src="./fig/encointer_logo_orig.svg" alt="logo" /></p>
+<h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
 <p>This is becoming the main documentation resource for Encointer. It is work in progress.</p>
 <p>For now, please refer to the <a href="https://github.com/encointer/whitepaper/raw/master/encointer_whitepaper.pdf">whitepaper</a></p>
+<h1><a class="header" href="#economics" id="economics">Economics</a></h1>
+<p>This chapter shall be an opinionated interpretation of the status quo and what we expect to acheive with Encointer.</p>
+<h1><a class="header" href="#the-cantillon-effect" id="the-cantillon-effect">The Cantillon Effect</a></h1>
+<p>Richard Cantillon is known for his analysis on the effects of a change in money supply in a state on inequality. Around the year 1730 he wrote in his <em>Essay sur la nature du commerce en général</em>:</p>
+<blockquote>
+<p>If the increase in actual money comes from the state's gold and silver mines, the mines' owner,  the entrepreneurs, the smelters, the refiners and generally all those who work in them will increase their expenditure in line with their gains. At home they will consume more meat and wine or beer than they used to, and they will become accustomed to having better clothes, finer linen, and more ornate houses and other sought-after commodities. Consequently they will give employment to some craftsmen who hitherto had not as much work and who, for the same reason will increase their expenditure. All if this increased expenditure on meat, wine, wool, and the like will necessarily reduce the share of other people  in the state who are not the initial beneficiaries from the wealth  of the mines in question. The bargaining in the market, with the demand for meat, wine, wool and the like being stronger than usual, will not fail to increase their prices.</p>
+</blockquote>
+<p>Nowadays, money supply isn't affected by mining gold and silver. It's the banks that issue money as credit - out of nothing. Translating Cantillon into our time, we should replace <em>miner</em> by <em>banker</em>. The rest of the story still applies. However, in spite of quantitative easing we don't see much price inflation for essential goods. This effect can be explained by observing that all this newly issued money never reaches the masses. </p>
+<p>Encointer aims at inverting the <em>Cantillon Effect</em>. Instead of issuing money <em>at the top</em>, as credit to businesses and creditworthy individuals, we issue money <em>at the bottom</em>. Every individual gets a universal basic income: freshly issued money.</p>
+<h1><a class="header" href="#universal-basic-income" id="universal-basic-income">Universal Basic Income</a></h1>
+<p>A universal basic income (UBI) is a modest amount of money paid unconditionally to individuals on a regular basis (<a href="https://www.penguin.co.uk/books/304/304706/basic-income/9780141985480.html">Standing</a>). Most advocates of UBI aim at introducing it at a national level, as a monthly income to all legal (fiscal) residents and paid out in cash (denominated in national currency). Usually, a UBI is suggested to be financed by some form of taxation. As <a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674052284">Van Parijs &amp; Vanderborght</a> explain, a national UBI may lead to justice among thieves (achieving more equality within a wealthy nation while there’s staggering inequality globally). They therefore argue for a global UBI, as do <a href="http://www.worldbasicincome.org.uk/">WBI</a> or <a href="http://www.globalincome.org/">GBI</a>.</p>
+<p>Encointer aims at providing a global UBI in terms of units of cryptocurrency created on a regular basis and distributed to individuals (almost) unconditionally. Let’s examine the characteristics of such an encointer-UBI:</p>
+<h2><a class="header" href="#universal" id="universal">universal</a></h2>
+<p>Encointer is paid out to every human being able and willing to attend encointer meetus every 41 days and in posession of a smartphone. This unfortunately excludes persons with certain disabilities as well as those without a smartphone. Also, the need to travel to meetups comes at varying cost, depending on local population densities – a disadvantage to people living in remote areas. While this is not exactly unconditional, we think it is less exclusive on a global scale than introducing national UBI schemes in few wealthy nations. Moreover, encointer might promote the concept of UBI and pave the way for institutionalized national or global UBI.</p>
+<h2><a class="header" href="#basic" id="basic">basic</a></h2>
+<p>Nothing in the definition of UBI defines a specific amount. However, it is often understood to be sufficient to cover basic needs and therefore provide economic security to its beneficiaries. In order to do so, it should also be stable. Encointer is a new cryptocurrency with algorithmically defined monetary supply. Only the (global) market can define its purchasing power.
+global vs local currency</p>
+<p>Cryptocurrencies based on public unpermissioned blockchains are global by nature. Encointer is such a cryptocurrency – with the important added feature of allowing local currencies to be issued, as will be discussed below. Encointer is paid out in equal nominal amounts to every individual. Technically, there is no decentralized way of doing otherwise as the P2P network has no awareness of national borders or the cost of living. As a means for UBI this is a mixed blessing. If UBI is expected to be suffient to cover basic needs there is no way to achieve this goal with a global currency. Purchasing power of one unit of global currency would vary hugely among different regions. The upside being that the UBI’s purchasing power is in that case expected to be higher in weaker economies, therefore reducing global inequality.</p>
+<p>Because Encointer issuance involves meetups with known geolocation, it is technically feasible to issue local currencies which are algorithmically bound to high-interaction communities (though ignorant of national borders). This would allow the UBI to be denominated in a currency which is meant to be used within local ecosystems yet freely tradable globally.
+real value</p>
+<p>The purchasing power of a unit of local encointer currency is market-based. It isn’t backed by gold or trust in some nations central bank. It’s value is determined by its usefulness as a store of value, medium of transfer or unit of account. Depending on national circumstances, the usefulness of encointer can vary. Where large parts of the populations are unbanked, encointer could complement national currency because it is accessible to everyone and more convenient to use and store than cash.</p>
+<p>Another angle from which to define value could be international development aid. Encointer would allow to distribute aid to individuals living in a specified area directly by buying their local currency. It would even be possible to buy such local currency at fixed rates, thereby ensuring a stable value of that local currency. Administrative cost and misappropriation of development aid could be reduced significantly.</p>
+<h2><a class="header" href="#income" id="income">income</a></h2>
+<p>Encointer delivers an income in a fixed nominal amount of digital currency, paid (or issued) in regular intervals (for every ceremony meetup attended, happening in fixed intervals of 41 days) to all participating individuals. This income is obligation free and is given to the rich and the poor alike.</p>
+<p>This income is paid for by issuing money and therefore by nominal inflation of encointer currency. The absolute nominal inflation rate depends on the number of ceremony meetup participants. And there is a correcting factor: Demurrage!</p>
+<h2><a class="header" href="#literature" id="literature">Literature</a></h2>
+<ul>
+<li><a href="https://www.penguin.co.uk/books/304/304706/basic-income/9780141985480.html">Guy Standing, Basic Income: And How We Can Make It Happen</a></li>
+<li><a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674052284">Van Parijs &amp; Vanderborght, Basic Income – A Radical Proposal for a Free Society and a Sane Economy</a></li>
+</ul>
+<h1><a class="header" href="#demurrage" id="demurrage">Demurrage</a></h1>
+<p>Encointer currencies feature <a href="https://en.wikipedia.org/wiki/Demurrage_(currency)">nominal demurrage</a>: All balances get devalued over time. The funds you’re holding lose 7% of their nominal value every month. Think of this devaluation like a payment to a solidarity fund that pays for the UBI. This way, Encointer can issue monthly UBI and still maintain stable money supply as shown by the simulation in the figure below. Another advantage of demurrage has been described by <a href="https://en.wikipedia.org/wiki/Silvio_Gesell">Silvio Gesell</a> when he proposed <a href="https://en.wikipedia.org/wiki/Freigeld">Freigeld</a> in 1916: Demurrage increases money velocity, which in turn fuels the local economy.</p>
+<p><img src="./fig/ubi-vs-demurrage-balance.svg" alt="demurrage" /></p>
+<p><em>Money supply for a stationary economy with a demurrage fee of 7% per month and a population of 10’000 participants. After an initial phase, the UBI of 1 token per ceremony maintains a constant ratio to the total money supply and therefore maintains a constant real value.</em></p>
+<h1><a class="header" href="#local-currencies" id="local-currencies">Local Currencies</a></h1>
+<p>Cryptocurrencies are fundamentally global in nature. Their networks are decentralized and don't care for national borders. But global currencies have a severe disadvantage: Their purchase value can evolve very differently in different regions. The Euro is such an example that is the official currency in many european countires with distinct fiscal policies and economic development. While there are political reasons to favor such a unifying currency, many economists doubt the concept. States with less economic growth have no option of devaluing their national currency. They can only get into debt - and then get forced into austerity, further weakening their economy.</p>
+<p>Local currencies on the other hand are mainly affected by local economy. </p>
+<p>TBC</p>
+<!-- ..TBC...medieval times...digitization eases exchange -->
+<h1><a class="header" href="#encointer-protocol" id="encointer-protocol">Encointer Protocol</a></h1>
+<p>The <em>Encointer protocol</em> is what ensures that</p>
+<ul>
+<li>only humans get a UBI</li>
+<li>every human can only get it once</li>
+</ul>
+<p>We call the result of this protocol a <em>unique proof of personhood</em>.</p>
+<p>Encointer leverages the fact that every person can only be in one place at one time. Every 41 days, participants are requested to attend physical key-signing meetups with small groups of random people. Because all meetups happen as one global ceremony all on the same day at the same local time, no one can attend two meetups.</p>
+<p>The formal definition of the protocol can be found in our <a href="https://github.com/encointer/whitepaper/raw/master/encointer_whitepaper.pdf">whitepaper</a></p>
 <h1><a class="header" href="#threat-model" id="threat-model">Threat Model</a></h1>
+<h2><a class="header" href="#actor-profiles" id="actor-profiles">Actor Profiles</a></h2>
 <p>We categorize users into the following psychological profiles for later scenario analysis:</p>
-<h2><a class="header" href="#fundamental-profiles" id="fundamental-profiles">Fundamental Profiles</a></h2>
 <h3><a class="header" href="#honest-img-srcfigemoji_innocent_1f607svg-width64" id="honest-img-srcfigemoji_innocent_1f607svg-width64">Honest <img src=./fig/emoji_innocent_1F607.svg width=64></a></h3>
 <p>Will comply with the rules</p>
 <h3><a class="header" href="#greedy-img-srcfigemoji_devil_1f47fsvg-width64" id="greedy-img-srcfigemoji_devil_1f47fsvg-width64">Greedy <img src=./fig/emoji_devil_1F47F.svg width=64></a></h3>
@@ -187,7 +236,7 @@
 <ul>
 <li>undermining randomization by sharing information and key pairs to allow collusion attacks at meetups</li>
 </ul>
-<h1><a class="header" href="#threat-model-1" id="threat-model-1">Threat Model</a></h1>
+<h1><a class="header" href="#assumptions" id="assumptions">Assumptions</a></h1>
 <p>We assume </p>
 <ol>
 <li>The majority of ceremony participants with reputation sending their signed claims to the blockchain location is honest.</li>
@@ -240,7 +289,7 @@
 <p>If celebrity meetup participants can be linked to their names and meetup locations in advance, they might get kidnapped</p>
 <p>Mitigation: </p>
 <ul>
-<li>Make sure meetup assignments are kept confidential until the meetup has passed.</li>
+<li>Make sure meetup assignments are kept confidential at least until the meetup has passed.</li>
 </ul>
 <h1><a class="header" href="#behavioural-meetup-scenario-analysis" id="behavioural-meetup-scenario-analysis">Behavioural Meetup Scenario Analysis</a></h1>
 <p>The scenario analysis is structured by the number of participants who were assigned to a meetup</p>
@@ -268,7 +317,7 @@ reciprocal edge connectedness = 2
 <ul>
 <li>randomized meetups should reduce the chance that someone could be assigned with his sybil to the same meetup. In weakly populated areas, this can happen easily though</li>
 </ul>
-<p><em>this scenario violates thread model assumptions</em></p>
+<p><em>this scenario violates threat model assumptions</em></p>
 <h4><a class="header" href="#exclusion" id="exclusion">Exclusion</a></h4>
 <p>Adversary B refuses to sign A and signs C instead</p>
 <p><img src="./fig/meetup_3r_1i1d1a.svg" alt="" /></p>
@@ -281,7 +330,7 @@ reciprocal edge connectedness = 1
 <li>randomized meetups should reduce the chance that someone could be assigned with his sybil to the same meetup. In weakly populated areas, this can happen easily though. evil.corp could also increase chances.</li>
 <li>Only allow meetups with more participants (&gt;=4?) in order to reduce the impact of a single participant on outcome.</li>
 </ul>
-<p><em>this scenario violates thread model assumptions</em></p>
+<p><em>this scenario violates threat model assumptions</em></p>
 <h2><a class="header" href="#4-registered-participants" id="4-registered-participants">4 Registered Participants</a></h2>
 <h3><a class="header" href="#oversigning" id="oversigning">Oversigning</a></h3>
 <p><img src="./fig/meetup_4r_1i2d1a.svg" alt="" /></p>
@@ -300,7 +349,7 @@ reciprocal edge connectedness = 2
 <li>(NEEDED?) quarantine non-consistent meetups</li>
 </ol>
 <p>At this meetup, 3/4 of registered participants are malicious.</p>
-<p><em>this scenario violates thread model assumptions</em></p>
+<p><em>this scenario violates threat model assumptions</em></p>
 <h3><a class="header" href="#oversigning-light" id="oversigning-light">Oversigning light</a></h3>
 <p><img src="./fig/meetup_4r_2i1d_1a.svg" alt="" /></p>
 <pre><code>reciprocity = 1.0
@@ -354,18 +403,45 @@ reciprocal edge connectedness = 1
 <p>Given the overall proportion of malicious actors , the probability that you (being an honest actor) will suffer from malicious behaviour at one specific meetup depending on the number of participants in your meetup <em>n</em> is</p>
 <p><a href="./fig/probability_of_malicious_majority.m">code</a>
 <img src="./fig/probability_of_malicious_majority.svg" alt="" /></p>
+<h1><a class="header" href="#decentralization" id="decentralization">Decentralization</a></h1>
+<p>TODO</p>
+<h2><a class="header" href="#blockchain" id="blockchain">Blockchain</a></h2>
+<h2><a class="header" href="#security" id="security">Security</a></h2>
+<h2><a class="header" href="#governance" id="governance">Governance</a></h2>
+<h2><a class="header" href="#privacy" id="privacy">Privacy</a></h2>
 <h1><a class="header" href="#testnets" id="testnets">Testnets</a></h1>
 <p>Encointer plans to deploy two testnets: Gesell and Cantillon. </p>
-<p>The </p>
+<p>The networks differ in their goals and designs:</p>
+<h2><a class="header" href="#gesell" id="gesell">Gesell</a></h2>
+<p>Aimed at automated testing of the protocol.</p>
+<ul>
+<li>Time-warping allows to script bot populations</li>
+<li>Complete transparency of all registries and balances</li>
+</ul>
+<h2><a class="header" href="#cantillon" id="cantillon">Cantillon</a></h2>
+<p>Aimed at experimenting with real ceremony meetups, physically meeting people.</p>
+<ul>
+<li>Accelerated ceremony schedule to avoid long wait times.</li>
+<li>Privacy enhancement through Trusted Execution environments</li>
+</ul>
+<h2><a class="header" href="#outlook-on-mainnet" id="outlook-on-mainnet">Outlook on Mainnet</a></h2>
+<p>The mainnet is planned to become a parachain of polkadot. The security will depend on polkadot relay chain. Governance will be sequentially decentralized: Starting with PoA, </p>
+<h2><a class="header" href="#time-warping-for-testnets" id="time-warping-for-testnets">Time Warping for Testnets</a></h2>
 <p><img src="./fig/phase-timing.svg" alt="Phase Timing" /></p>
-<h2><a class="header" href="#testnet-gesell" id="testnet-gesell">Testnet Gesell</a></h2>
-<h2><a class="header" href="#testnet-cantillon" id="testnet-cantillon">Testnet Cantillon</a></h2>
-<h3><a class="header" href="#usage" id="usage">Usage</a></h3>
-<h3><a class="header" href="#architecture" id="architecture">Architecture</a></h3>
-<p><img src="./fig/Testnet-Gesell-Component-Interactions.svg" alt="Gesell" /></p>
-<p><img src="./fig/Testnet-Cantillon-Component-Interactions.svg" alt="Cantillon" /></p>
-<h1><a class="header" href="#testnet-gesell-1" id="testnet-gesell-1">Testnet Gesell</a></h1>
+<h1><a class="header" href="#testnet-gesell" id="testnet-gesell">Testnet Gesell</a></h1>
 <p>Gesell is our first testnet. It allows you to bootstrap new local currencies and perform regular proof-of-personhood ceremonies that give participants a universal basic income. This network is meant for testing with bot populations in order to audit and stress-test the protocol. Gesell does not give you the privacy that later networks will provide. We do not expect real physical meetups to happen on this network except occasional demo meetups. </p>
+<h2><a class="header" href="#design" id="design">Design</a></h2>
+<p>Gesell is based on <a href="https://substrate.dev/">substrate</a> and its nodes consist of four <em>pallets</em></p>
+<p><img src="./fig/Testnet-Gesell-Component-Interactions.svg" alt="Gesell" /></p>
+<h3><a class="header" href="#scheduler" id="scheduler">Scheduler</a></h3>
+<p>Keeps track of time and maintains the ceremony state-machine phase changes.</p>
+<h3><a class="header" href="#currencies" id="currencies">Currencies</a></h3>
+<p>Registry for all local currencies with their properties and meetup locations</p>
+<h3><a class="header" href="#balances" id="balances">Balances</a></h3>
+<p>The individual's account balances in all currencies, featuring <a href="./economics-demurrage.html">demurrage</a>.</p>
+<h3><a class="header" href="#ceremonies" id="ceremonies">Ceremonies</a></h3>
+<p>Where participants register for ceremonies. Assignment of meetups and issuance of UBI upon proof-of-personhood.</p>
+<h1><a class="header" href="#testnet-gesell-tutorial" id="testnet-gesell-tutorial">Testnet Gesell Tutorial</a></h1>
 <h2><a class="header" href="#connect" id="connect">Connect!</a></h2>
 <p>You may watch Gesell working by navigating to <a href="https://polkadot.js.org/apps">polkadot.js.org/apps</a>. Then you connect to our node by setting our custom endpoint at Settings -&gt; General</p>
 <p><img src="./fig/polkadot-js-apps-custom-endpoint.png" alt="connect polkadot.js.org/apps to custom endpoint" /></p>
@@ -506,6 +582,10 @@ NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.999999323
 <p>Your new currency has a very special property called demurrage. This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a tax that you pay to the decentralized &quot;state&quot; that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.</p>
 <h2><a class="header" href="#whats-next" id="whats-next">What's next?</a></h2>
 <p>Now that you bootstrapped your community currency, you should grow your population. At every subsequent ceremony you can add a few participants more but it is important to maintain reputation. At least 3/4 of all participants need to have attended the previous ceremony. So you can only grow your population at a pace that allows to build reputation.</p>
+<h1><a class="header" href="#testnet-cantillon" id="testnet-cantillon">Testnet Cantillon</a></h1>
+<h2><a class="header" href="#design-1" id="design-1">Design</a></h2>
+<p>Cantillon will use the same pallets as Gesell, but the privacy-sensitive ones will be executed off-chain, inside a trusted execution environment (TEE). <a href="https://github.com/scs/substraTEE">SubstraTEE</a> will be the framework that isolates sensitive information inside Intel SGX enclaves (Alternative TEE technologies are being evaluated)</p>
+<p><img src="./fig/Testnet-Cantillon-Component-Interactions.svg" alt="Cantillon" /></p>
 
                     </main>
 
