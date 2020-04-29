@@ -266,8 +266,7 @@ MeetupRegistry[38, 1] participants are:
    5429da7a940f960b9a79cb1b7889142b8ee209b7f43ac5953df9c56f1bc0a726 (5Dy4K5eN...)
 </code></pre>
 <p>The ceremony phase will change to ATTESTING before the date of the ceremony. </p>
-<p>An encointer ceremony happens at high sun on the same day all over the world. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. For this testnet, however, we don't care about real time or physical presence as we're testing with bot communities. The following diagram shows the final vision and how it maps to this testnet </p>
-<p>TODO Link</p>
+<p>An encointer ceremony happens at high sun on the same day all over the world. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. For this testnet, however, we don't care about real time or physical presence as we're testing with bot communities. See <a href="./testnets.html#time-warping-for-testnets">Time Warping</a> to learn how the timing maps between mainnet and Gesell.</p>
 <p>Our bot communities can perform meetups simply with the following lines. In later networks, a mobile app will be used (similar to what we demonstrated in PoC1).</p>
 <pre><code class="language-bash"># each participant generates a claim of attendance including her vote on how many people N are actually physically present at that moment
 &gt; claim1=$(nctr new-claim $account1 3)
@@ -289,7 +288,7 @@ MeetupRegistry[38, 1] participants are:
 <pre><code class="language-bash">&gt; nctr get-balance $account1
 NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.99999932394375560185 in currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 </code></pre>
-<p>Your new currency has a very special property called demurrage. This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a tax that you pay to the decentralized &quot;state&quot; that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.</p>
+<p>Your new currency has a very special property called <a href="./eceonomy-demurrage.html">demurrage</a>. This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized &quot;state&quot; that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.</p>
 <h2><a class="header" href="#whats-next" id="whats-next">What's next?</a></h2>
 <p>Now that you bootstrapped your community currency, you should grow your population. At every subsequent ceremony you can add a few participants more but it is important to maintain reputation. At least 3/4 of all participants need to have attended the previous ceremony. So you can only grow your population at a pace that allows to build reputation.</p>
 
