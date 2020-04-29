@@ -1,9 +1,17 @@
 # Summary
 
-- [Introduction](./introduction.md)
+[Introduction](./introduction.md)
+- [Economics](./economics.md)
+  - [The Cantillon Effect](./economics-cantillon.md)
+  - [Universal Basic Income](./economics-ubi.md)
+  - [Demurrage](./economics-demurrage.md)
+  - [Local Currencies](./economics-local-currencies.md)
 - [The Encointer Protocol](./protocol.md)
   - [Threat Model](./protocol-threat-model.md)
+- [Decentralization](./decentralization.md)
 - [Testnets](./testnets.md)
   - [Gesell](./testnet-gesell.md)
+    - [Tutorial](./testnet-gesell-tutorial.md)
+  - [Cantillon](./testnet-cantillon.md)
 
 

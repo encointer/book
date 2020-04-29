@@ -1,8 +1,8 @@
 # Threat Model
 
+## Actor Profiles
 We categorize users into the following psychological profiles for later scenario analysis:
 
-## Fundamental Profiles
 ### Honest <img src=./fig/emoji_innocent_1F607.svg width=64> 
 
 Will comply with the rules
@@ -42,7 +42,7 @@ An organization of the greedy or saboteur participants.
 Strategies: 
 * undermining randomization by sharing information and key pairs to allow collusion attacks at meetups
 
-# Threat Model
+# Assumptions
 We assume 
 
 1. The majority of ceremony participants with reputation sending their signed claims to the blockchain location is honest.
@@ -98,7 +98,7 @@ Mitigation:
 If celebrity meetup participants can be linked to their names and meetup locations in advance, they might get kidnapped
 
 Mitigation: 
-* Make sure meetup assignments are kept confidential until the meetup has passed.
+* Make sure meetup assignments are kept confidential at least until the meetup has passed.
 
 
 # Behavioural Meetup Scenario Analysis
@@ -141,7 +141,7 @@ As there is no honest participant in this meetup, this attack is out of scope of
 Mitigation
 * randomized meetups should reduce the chance that someone could be assigned with his sybil to the same meetup. In weakly populated areas, this can happen easily though
 
-*this scenario violates thread model assumptions*
+*this scenario violates threat model assumptions*
 
 #### Exclusion
 
@@ -160,7 +160,7 @@ Mitigation **none**
 * randomized meetups should reduce the chance that someone could be assigned with his sybil to the same meetup. In weakly populated areas, this can happen easily though. evil.corp could also increase chances.
 * Only allow meetups with more participants (>=4?) in order to reduce the impact of a single participant on outcome.
 
-*this scenario violates thread model assumptions*
+*this scenario violates threat model assumptions*
 
 ## 4 Registered Participants
 
@@ -184,7 +184,7 @@ Mitigation:
   
 At this meetup, 3/4 of registered participants are malicious.
 
-*this scenario violates thread model assumptions*
+*this scenario violates threat model assumptions*
 
 ### Oversigning light
 
