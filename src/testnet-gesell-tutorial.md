@@ -30,7 +30,7 @@ But now you'd like to play with it, right? So get our cli client and start playi
 > cd test
 > wget https://github.com/encointer/encointer-node/releases/download/v0.2.0/encointer-client
 > chmod u+x encointer-client
-> ./encointer-client wss://gesell.encointer.org get_phase
+> ./encointer-client wss://gesell.encointer.org get-phase
 # you should see either of REGISTERING, ASSIGNING or ATTESTING
 # for simplicity, we'll create an alias for the client
 > alias nctr="./encointer-client wss://gesell.encointer.org"
