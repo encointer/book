@@ -86,7 +86,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li></ol></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">2.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">2.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">3.</strong> Decentralization</a></li><li class="expanded "><a href="testnets.html"><strong aria-hidden="true">4.</strong> Testnets</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">4.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html"><strong aria-hidden="true">4.1.1.</strong> Tutorial</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">4.2.</strong> Cantillon</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li></ol></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">2.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">2.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">3.</strong> Decentralization</a></li><li class="expanded "><a href="testnets.html"><strong aria-hidden="true">4.</strong> Testnets</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">4.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html"><strong aria-hidden="true">4.1.1.</strong> Tutorial</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">4.2.</strong> Cantillon</a></li><li><ol class="section"><li class="expanded "><a href="testnet-cantillon-tutorial.html"><strong aria-hidden="true">4.2.1.</strong> Tutorial</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -450,23 +450,28 @@ reciprocal edge connectedness = 1
 <h2><a class="header" href="#governance" id="governance">Governance</a></h2>
 <h2><a class="header" href="#privacy" id="privacy">Privacy</a></h2>
 <h1><a class="header" href="#testnets" id="testnets">Testnets</a></h1>
-<p>Encointer plans to deploy two testnets: Gesell and Cantillon. </p>
+<p>Encointer maintains two testnets: Gesell and Cantillon.</p>
 <p>The networks differ in their goals and designs:</p>
 <h2><a class="header" href="#gesell" id="gesell">Gesell</a></h2>
 <p>Aimed at automated testing of the protocol.</p>
 <ul>
-<li>Time-warping allows to script bot populations</li>
-<li>Complete transparency of all registries and balances</li>
+<li>Time-warping allows to script bot populations and hold ceremonies every 30min.</li>
+<li>Complete transparency of all registries and balances. Everything happens on-chain.</li>
 </ul>
 <h2><a class="header" href="#cantillon" id="cantillon">Cantillon</a></h2>
-<p>Aimed at experimenting with real ceremony meetups, physically meeting people.</p>
+<p>The main purpose of Cantillon is to test our mobile phone app and privacy features.
+Aimed at experimenting with real ceremony meetups, physically meeting people.
+Bot communities can still be grown but we expect them to be loctated in off-shore locations in order not to interfere with physical communities. </p>
 <ul>
-<li>Accelerated ceremony schedule to avoid long wait times.</li>
-<li>Privacy enhancement through Trusted Execution environments</li>
+<li>Accelerated ceremony schedule to avoid long wait times. Ceremonies every three days.</li>
+<li>Privacy enhancement through Trusted Execution environments (with enclaves still in development mode, so privacy is not guaranteed before we move to production mode)</li>
 </ul>
+<p>Cantillon is planned to become a parachain to <a href="https://kusama.network/">Kusama</a></p>
+<p>Watch our <a href="https://youtu.be/X1Zb68Z1fac">demo video on bootstrapping a bot community</a></p>
 <h2><a class="header" href="#outlook-on-mainnet" id="outlook-on-mainnet">Outlook on Mainnet</a></h2>
-<p>The mainnet is planned to become a parachain of polkadot. The security will depend on polkadot relay chain. Governance will be sequentially decentralized: Starting with PoA, </p>
+<p>The mainnet is planned to become a parachain of <a href="https://polkadot.network/">Polkadot</a>. The security will depend on polkadot relay chain. </p>
 <h2><a class="header" href="#time-warping-for-testnets" id="time-warping-for-testnets">Time Warping for Testnets</a></h2>
+<p>In order to understand the different timing on our networks, we offer the following figure:</p>
 <p><img src="./fig/phase-timing.svg" alt="Phase Timing" /></p>
 <h1><a class="header" href="#testnet-gesell" id="testnet-gesell">Testnet Gesell</a></h1>
 <p>Gesell is our first testnet. It allows you to bootstrap new local currencies and perform regular proof-of-personhood ceremonies that give participants a universal basic income. This network is meant for testing with bot populations in order to audit and stress-test the protocol. Gesell does not give you the privacy that later networks will provide. We do not expect real physical meetups to happen on this network except occasional demo meetups. </p>
@@ -623,8 +628,185 @@ NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.999999323
 <p>Now that you bootstrapped your community currency, you should grow your population. At every subsequent ceremony you can add a few participants more but it is important to maintain reputation. At least 3/4 of all participants need to have attended the previous ceremony. So you can only grow your population at a pace that allows to build reputation.</p>
 <h1><a class="header" href="#testnet-cantillon" id="testnet-cantillon">Testnet Cantillon</a></h1>
 <h2><a class="header" href="#design-1" id="design-1">Design</a></h2>
-<p>Cantillon will use the same pallets as Gesell, but the privacy-sensitive ones will be executed off-chain, inside a trusted execution environment (TEE). <a href="https://github.com/scs/substraTEE">SubstraTEE</a> will be the framework that isolates sensitive information inside Intel SGX enclaves (Alternative TEE technologies are being evaluated)</p>
+<p>Cantillon uses the same pallets as Gesell, but the privacy-sensitive ones will be executed off-chain, inside a trusted execution environment (TEE). <a href="https://github.com/scs/substraTEE">SubstraTEE</a> will be the framework that isolates sensitive information inside Intel SGX enclaves (Alternative TEE technologies are being evaluated)</p>
 <p><img src="./fig/Testnet-Cantillon-Component-Interactions.svg" alt="Cantillon" /></p>
+<h1><a class="header" href="#testnet-gesell-tutorial-1" id="testnet-gesell-tutorial-1">Testnet Gesell Tutorial</a></h1>
+<h2><a class="header" href="#connect-1" id="connect-1">Connect!</a></h2>
+<p>You may watch Cantillon working by navigating to <a href="https://polkadot.js.org/apps">polkadot.js.org/apps</a>. Then you connect to our node by setting our custom endpoint at Settings -&gt; General
+Set the endpoint to <code>wss://cantillon.encointer.org</code></p>
+<p>Hit &quot;save&quot; and you should see the explorer loading for Cantillon.</p>
+<p>If you're interested in node statistics, please refer to  <a href="https://telemetry.polkadot.io/#list/Encointer%20Testnet%20Cantillon">telemetry.polkadot.io</a></p>
+<p>Cantillon features regular ceremonies every 3 days (Whereas the vision for mainnet is every 41 days).
+You can either gather a few people and hold an actual meetup or you register a bot currency with virtual people like we will do in this tutorial.</p>
+<h2><a class="header" href="#client-setup" id="client-setup">Client Setup</a></h2>
+<p>Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to build the client yourself.</p>
+<pre><code class="language-bash">&gt; mkdir test
+&gt; cd test
+&gt; wget https://github.com/encointer/encointer-worker/releases/download/M1/encointer-client
+&gt; chmod u+x encointer-client
+&gt; ./encointer-client wss://cantillon.encointer.org get-phase
+# you should see either of REGISTERING, ASSIGNING or ATTESTING
+# for simplicity, we'll create an alias for the client
+# Cantillon node endpoint
+&gt; NURL=wss://cantillon.encointer.org
+&gt; NPORT=443
+# Cantillon worker endpoint
+&gt; WURL=wss://substratee03.scs.ch
+&gt; WPORT=443
+&gt; alias nctr=&quot;./encointer-client -u $NURL -p $NPORT -U $WURL -P $WPORT&quot;
+# let's create a new account
+&gt; nctr new-account
+5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+# you can now check that your local keystore has a new entry
+&gt; ls my_keystore
+73723235ae365cf166bab30448f25b3751b06d034be9c992a8ba5501d3adcde640ab9b1e
+# query on-chain ERT balance
+&gt; nctr get-balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+ERT balance for 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU 0
+</code></pre>
+<p>As with other blockchains, you'll need some funds in order to pay fees.
+As you can read in our whitepaper, we'll avoid this entry barrier in the future.
+We have a faucet in place that gets you started immediately:</p>
+<pre><code class="language-bash">&gt; nctr fund-account 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+</code></pre>
+<p>Should the faucet be exhausted, please post a message to our riot channel and friendly request some topup. Please be patient.</p>
+<pre><code class="language-bash">&gt; nctr get-balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+ERT balance for 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU is 998999854
+# now you could send around your new ERT
+&gt; nctr transfer 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU 5G18LaJA315RwJqtYYbWrbE52g9FEQCgBYN1A1XG66XnKAw5 123456789
+</code></pre>
+<p>Now let's see all the workers who have registered their enclaves:</p>
+<pre><code class="language-bash">&gt; nctr list-workers
+number of workers registered: 2
+Enclave 1
+   AccountId: 5DBXHQgjd6CVuzHnoyXVW8WatuDi2rfhH57yDwVZ3ZzMgYiX
+   MRENCLAVE: 5RqYVKwQdyvPqAPwauWz9oQMRcU9dw9M1vKfPWx81bgh
+   RA timestamp: 2020-06-10 11:42:53 UTC
+   URL: 127.0.0.1:2000
+Enclave 2
+   AccountId: 5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY
+   MRENCLAVE: HVmtypxe23ngaWWaRYmAtKWThuYeXL5V1nUALpQQvC3A
+   RA timestamp: 2020-06-11 09:14:32 UTC
+   URL: 127.0.0.1:19944
+</code></pre>
+<p>We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one:</p>
+<pre><code class="language-bash">MRENCLAVE=HVmtypxe23ngaWWaRYmAtKWThuYeXL5V1nUALpQQvC3A
+</code></pre>
+<h2><a class="header" href="#bootstrap-your-own-currency-1" id="bootstrap-your-own-currency-1">Bootstrap your own currency</a></h2>
+<p>Now that we have some funds to pay platform fees, we can start our own local currency and bootstrap a bot population! 
+Define Meetup Locations</p>
+<p>First of all, we need to define in what region the currency shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the currency. You can use geojson.io to select meetup places on a map (define a few &quot;Points&quot;). Make sure that you select places that are &gt;100m apart. You also need to keep this minimal distance from other registered currencies. You can list all registered currencies with</p>
+<pre><code class="language-bash">&gt; nctr list-currencies
+</code></pre>
+<p>The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. </p>
+<h2><a class="header" href="#trusted-setup-1" id="trusted-setup-1">Trusted Setup</a></h2>
+<p>Every local currency needs a trusted setup.
+A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly.
+These bootstrappers need to be defined in the metadata block.
+For improved privacy, we will use incognito accounts for this that will never be used on-chain.</p>
+<pre><code class="language-bash">&gt; nctr trusted new-account --mrenclave $MRENCLAVE
+5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+</code></pre>
+<p>Now we create our currency specification:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;FeatureCollection&quot;,
+  &quot;currency_meta&quot;: {
+    &quot;name&quot;: &quot;my minimal test currency&quot;,
+    &quot;bootstrappers&quot;: [
+      &quot;5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex&quot;,
+      &quot;5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7&quot;,
+      &quot;5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK&quot;
+    ]
+  },
+  &quot;features&quot;: [
+    {
+      &quot;type&quot;: &quot;Feature&quot;,
+      &quot;properties&quot;: {},
+      &quot;geometry&quot;: {
+        &quot;type&quot;: &quot;Point&quot;,
+        &quot;coordinates&quot;: [
+          11.25,
+          40.03182061333687
+        ]
+      }
+    }
+  ]
+}
+</code></pre>
+<p>You can now save the above to minimal.json and register your new currency. Store it to an env variable:</p>
+<pre><code class="language-bash">&gt; nctr new-currency minimal.json 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
+&gt; cid=HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
+</code></pre>
+<p>Your currency has been registered on-chain and the return value is your currency-identifier (cid). 
+Let's check the registry again:</p>
+<pre><code class="language-bash">&gt; nctr list-currencies
+number of currencies:  1
+currency with cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
+</code></pre>
+<p>In order to bootstrap your bot currency, You'll need to register all of them for the next ceremony. You can only start this procedure every 3 days!</p>
+<pre><code class="language-bash">#check if phase is REGISTERING
+&gt; nctr get-phase
+REGISTERING
+# ok, let's register, but first we will define a few variables and a new alias
+&gt; alias nctr=&quot;./encointer-client wss://gesell.encointer.org --cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES&quot;
+&gt; account1=5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+&gt; account2=5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
+&gt; account3=5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
+&gt; nctr trusted register-participant $account1 --mrenclave $MRENCLAVE --shard $cid
+&gt; nctr trusted register-participant $account2 --mrenclave $MRENCLAVE --shard $cid
+&gt; nctr trusted register-participant $account3 --mrenclave $MRENCLAVE --shard $cid
+# if everything goes well, you should be able to get your registration index &gt;0:
+&gt; nctr trusted get-registration $account1 --mrenclave $MRENCLAVE --shard $cid
+send TrustedGetter::get_registration for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+Participant index: 1
+</code></pre>
+<p>Now you'll have to wait until the ceremony phase turns to ASSIGNING. The worker enclave then assigns all participants to randomized groups that will have to meet at a random meetup locations at the upcoming ceremony.
+During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The Mobile phone app will.</p>
+<p>The ceremony phase will change to ATTESTING before the date of the ceremony.</p>
+<p>An encointer ceremony happens at high sun on the same day all over the world.
+This way, no single person can attend more than one meetup.
+At each meetup, participants attest each others personhood.
+For this tutorial, however, we don't care about real time or physical presence as 
+we're testing with bot communities.
+See <a href="./testnets.html#time-warping-for-testnets">Time Warping</a> to learn how the timing maps between mainnet and Cantillon.</p>
+<p>Our bot communities can perform meetups simply with the following lines. In our next tutorial, we will explain how to perform rela physical meetups with our mobile phone app.</p>
+<pre><code class="language-bash"># each participant generates a claim of attendance including her vote on how many people N are actually physically present at that moment
+&gt; claim1=$(nctr trusted new-claim $account1 3 --mrenclave $MRENCLAVE --shard $cid )
+&gt; claim2=$(nctr trusted new-claim $account2 3 --mrenclave $MRENCLAVE --shard $cid )
+&gt; claim3=$(nctr trusted new-claim $account3 3 --mrenclave $MRENCLAVE --shard $cid )
+# this claim is then sent to all other participants who will verify them and sign an attestation 
+&gt; witness1_2=$(nctr sign-claim $account1 $claim2)
+&gt; witness1_3=$(nctr sign-claim $account1 $claim3)
+&gt; witness2_1=$(nctr sign-claim $account2 $claim1)
+&gt; witness2_3=$(nctr sign-claim $account2 $claim3)
+&gt; witness3_1=$(nctr sign-claim $account3 $claim1)
+&gt; witness3_2=$(nctr sign-claim $account3 $claim2)
+# and send that attestation back to the claimant who assembles all attestations and sends them to the chain
+&gt; nctr trusted register-attestations $account1 $witness2_1 $witness3_1 --mrenclave $MRENCLAVE --shard $cid
+&gt; nctr trusted register-attestations $account2 $witness1_2 $witness3_2 --mrenclave $MRENCLAVE --shard $cid
+&gt; nctr trusted register-attestations $account3 $witness1_3 $witness2_3 --mrenclave $MRENCLAVE --shard $cid
+# each participant can verify that her own attestations have been registered
+&gt; nctr trusted get-attestations $account1 --mrenclave $MRENCLAVE --shard $cid
+&gt; nctr trusted get-attestations $account2 --mrenclave $MRENCLAVE --shard $cid
+&gt; nctr trusted get-attestations $account3 --mrenclave $MRENCLAVE --shard $cid
+</code></pre>
+<p>Now you have to wait for the ceremony phase to become REGISTERING.
+Then we can verify that our bootstrapping was successful and our bootstrappers
+have received their basic income issue on their accounts in units of the new currency</p>
+<pre><code class="language-bash">&gt; nctr trusted balance $account1 --mrenclave $MRENCLAVE --shard $cid
+arg_who = &quot;5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex&quot;
+1
+</code></pre>
+<p>Your new currency has a very special property called <a href="./economics-demurrage.html">demurrage</a>. 
+This means that the nominal value of your holdings decreases over time.
+Currently it is halving every year.
+You can observe this by waiting for a few blocks and checking your balance again.
+Think of this demurrage like a solidarity fee that you pay to the decentralized &quot;state&quot;
+that takes care of redistributing wealth among the local population at every ceremony
+as newly issued basic income.</p>
+<h2><a class="header" href="#whats-next-1" id="whats-next-1">What's next</a></h2>
+<p>Now that you bootstrapped your community currency, you should grow your population. At every subsequent ceremony you can add a few participants more but it is important to maintain reputation. At least 3/4 of all participants need to have attended the previous ceremony. So you can only grow your population at a pace that allows to build reputation.</p>
 
                     </main>
 
