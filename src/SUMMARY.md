@@ -13,5 +13,4 @@
   - [Gesell](./testnet-gesell.md)
     - [Tutorial](./testnet-gesell-tutorial.md)
   - [Cantillon](./testnet-cantillon.md)
-
-
+    - [Tutorial](./testnet-cantillon-tutorial.md)
