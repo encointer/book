@@ -21,7 +21,7 @@ Get our cli client and start playing! The following instructions start from preb
 > cd test
 > wget https://github.com/encointer/encointer-worker/releases/download/M1/encointer-client
 > chmod u+x encointer-client
-> ./encointer-client wss://cantillon.encointer.org get-phase
+> ./encointer-client -u wss://cantillon.encointer.org -p 443 get-phase
 # you should see either of REGISTERING, ASSIGNING or ATTESTING
 # for simplicity, we'll create an alias for the client
 # Cantillon node endpoint
@@ -38,7 +38,7 @@ Get our cli client and start playing! The following instructions start from preb
 > ls my_keystore
 73723235ae365cf166bab30448f25b3751b06d034be9c992a8ba5501d3adcde640ab9b1e
 # query on-chain ERT balance
-> nctr get-balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+> nctr balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
 ERT balance for 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU 0
 ```
 
@@ -47,13 +47,13 @@ As you can read in our whitepaper, we'll avoid this entry barrier in the future.
 We have a faucet in place that gets you started immediately:
 
 ```bash
-> nctr fund-account 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+> nctr faucet 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
 ```
 
 Should the faucet be exhausted, please post a message to our riot channel and friendly request some topup. Please be patient.
 
 ```bash
-> nctr get-balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+> nctr balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
 ERT balance for 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU is 998999854
 # now you could send around your new ERT
 > nctr transfer 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU 5G18LaJA315RwJqtYYbWrbE52g9FEQCgBYN1A1XG66XnKAw5 123456789
@@ -153,14 +153,13 @@ number of currencies:  1
 currency with cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 ```
 
-In order to bootstrap your bot currency, You'll need to register all of them for the next ceremony. You can only start this procedure every 3 days!
+In order to bootstrap your bot currency, You'll need to register all of them for the next ceremony during the 16h registering phase. You can only start this procedure every 3 days!
 
 ```bash
 #check if phase is REGISTERING
 > nctr get-phase
 REGISTERING
 # ok, let's register, but first we will define a few variables and a new alias
-> alias nctr="./encointer-client wss://gesell.encointer.org --cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES"
 > account1=5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 > account2=5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
 > account3=5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
@@ -174,18 +173,13 @@ Participant index: 1
 ```
 
 Now you'll have to wait until the ceremony phase turns to ASSIGNING. The worker enclave then assigns all participants to randomized groups that will have to meet at a random meetup locations at the upcoming ceremony.
-During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The Mobile phone app will.
+During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The mobile phone app will.
 
-The ceremony phase will change to ATTESTING before the date of the ceremony.
+The ceremony phase will change to ATTESTING on the date of the ceremony. The time of the ceremony will be high sun in your location. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. However, for a bot community this doesn't matter as they can jointly pretend to have met at the right time. (That's one of the reasons why we need a trusted *human* setup in the first place)
 
-An encointer ceremony happens at high sun on the same day all over the world.
-This way, no single person can attend more than one meetup.
-At each meetup, participants attest each others personhood.
-For this tutorial, however, we don't care about real time or physical presence as 
-we're testing with bot communities.
 See [Time Warping](./testnets.html#time-warping-for-testnets) to learn how the timing maps between mainnet and Cantillon.
 
-Our bot communities can perform meetups simply with the following lines. In our next tutorial, we will explain how to perform rela physical meetups with our mobile phone app.
+Our bot communities can perform meetups simply with the following lines. In our next tutorial, we will explain how to perform real physical meetups with our mobile phone app.
 
 ```bash
 # each participant generates a claim of attendance including her vote on how many people N are actually physically present at that moment

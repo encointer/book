@@ -10,7 +10,7 @@ Local currencies on the other hand are mainly affected by local economy.
 *TODO*
 
 ### AB-Schein Wörgl
-During the great depression, the austrian village of Wörgl attempted a monetary experiment: A complementary local currency.
+During the great depression, the austrian village of Wörgl attempted a monetary experiment to fight deflation: A complementary local currency.
 
 |||
 |:----------------|:----------------|

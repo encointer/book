@@ -70,6 +70,8 @@ First of all, we need to define in what region the currency shall be issued. For
 > nctr list-currencies
 ```
 
+Our [explorer](https://explorer.encointer.org) allows you to browse all regsitered currencies and their attributes on a map.
+
 The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. 
 
 ## Trusted Setup
