@@ -197,6 +197,7 @@ Define Meetup Locations</p>
 <p>First of all, we need to define in what region the currency shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the currency. You can use geojson.io to select meetup places on a map (define a few &quot;Points&quot;). Make sure that you select places that are &gt;100m apart. You also need to keep this minimal distance from other registered currencies. You can list all registered currencies with</p>
 <pre><code class="language-bash">&gt; nctr list-currencies
 </code></pre>
+<p>Our <a href="https://explorer.encointer.org">explorer</a> allows you to browse all regsitered currencies and their attributes on a map.</p>
 <p>The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. </p>
 <h2><a class="header" href="#trusted-setup" id="trusted-setup">Trusted Setup</a></h2>
 <p>Every local currency needs a trusted setup. A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly. These bootstrappers need to be defined in the metadata block:</p>

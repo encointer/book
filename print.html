@@ -198,7 +198,7 @@ real value</p>
 <h3><a class="header" href="#wära-schwanenkirchen" id="wära-schwanenkirchen">Wära Schwanenkirchen</a></h3>
 <p><em>TODO</em></p>
 <h3><a class="header" href="#ab-schein-wörgl" id="ab-schein-wörgl">AB-Schein Wörgl</a></h3>
-<p>During the great depression, the austrian village of Wörgl attempted a monetary experiment: A complementary local currency.</p>
+<p>During the great depression, the austrian village of Wörgl attempted a monetary experiment to fight deflation: A complementary local currency.</p>
 <table><thead><tr><th align="left"></th><th align="left"></th></tr></thead><tbody>
 <tr><td align="left">denomination</td><td align="left">Schilling (1:1 national currency)</td></tr>
 <tr><td align="left">issuance</td><td align="left">by the muncipality, as partial salary for infrastructure  work</td></tr>
@@ -532,6 +532,7 @@ Define Meetup Locations</p>
 <p>First of all, we need to define in what region the currency shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the currency. You can use geojson.io to select meetup places on a map (define a few &quot;Points&quot;). Make sure that you select places that are &gt;100m apart. You also need to keep this minimal distance from other registered currencies. You can list all registered currencies with</p>
 <pre><code class="language-bash">&gt; nctr list-currencies
 </code></pre>
+<p>Our <a href="https://explorer.encointer.org">explorer</a> allows you to browse all regsitered currencies and their attributes on a map.</p>
 <p>The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. </p>
 <h2><a class="header" href="#trusted-setup" id="trusted-setup">Trusted Setup</a></h2>
 <p>Every local currency needs a trusted setup. A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly. These bootstrappers need to be defined in the metadata block:</p>
@@ -644,7 +645,7 @@ You can either gather a few people and hold an actual meetup or you register a b
 &gt; cd test
 &gt; wget https://github.com/encointer/encointer-worker/releases/download/M1/encointer-client
 &gt; chmod u+x encointer-client
-&gt; ./encointer-client wss://cantillon.encointer.org get-phase
+&gt; ./encointer-client -u wss://cantillon.encointer.org -p 443 get-phase
 # you should see either of REGISTERING, ASSIGNING or ATTESTING
 # for simplicity, we'll create an alias for the client
 # Cantillon node endpoint
@@ -661,16 +662,16 @@ You can either gather a few people and hold an actual meetup or you register a b
 &gt; ls my_keystore
 73723235ae365cf166bab30448f25b3751b06d034be9c992a8ba5501d3adcde640ab9b1e
 # query on-chain ERT balance
-&gt; nctr get-balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+&gt; nctr balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
 ERT balance for 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU 0
 </code></pre>
 <p>As with other blockchains, you'll need some funds in order to pay fees.
 As you can read in our whitepaper, we'll avoid this entry barrier in the future.
 We have a faucet in place that gets you started immediately:</p>
-<pre><code class="language-bash">&gt; nctr fund-account 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+<pre><code class="language-bash">&gt; nctr faucet 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
 </code></pre>
 <p>Should the faucet be exhausted, please post a message to our riot channel and friendly request some topup. Please be patient.</p>
-<pre><code class="language-bash">&gt; nctr get-balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
+<pre><code class="language-bash">&gt; nctr balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
 ERT balance for 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU is 998999854
 # now you could send around your new ERT
 &gt; nctr transfer 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU 5G18LaJA315RwJqtYYbWrbE52g9FEQCgBYN1A1XG66XnKAw5 123456789
@@ -744,12 +745,11 @@ Let's check the registry again:</p>
 number of currencies:  1
 currency with cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 </code></pre>
-<p>In order to bootstrap your bot currency, You'll need to register all of them for the next ceremony. You can only start this procedure every 3 days!</p>
+<p>In order to bootstrap your bot currency, You'll need to register all of them for the next ceremony during the 16h registering phase. You can only start this procedure every 3 days!</p>
 <pre><code class="language-bash">#check if phase is REGISTERING
 &gt; nctr get-phase
 REGISTERING
 # ok, let's register, but first we will define a few variables and a new alias
-&gt; alias nctr=&quot;./encointer-client wss://gesell.encointer.org --cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES&quot;
 &gt; account1=5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 &gt; account2=5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
 &gt; account3=5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
@@ -762,15 +762,10 @@ send TrustedGetter::get_registration for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCk
 Participant index: 1
 </code></pre>
 <p>Now you'll have to wait until the ceremony phase turns to ASSIGNING. The worker enclave then assigns all participants to randomized groups that will have to meet at a random meetup locations at the upcoming ceremony.
-During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The Mobile phone app will.</p>
-<p>The ceremony phase will change to ATTESTING before the date of the ceremony.</p>
-<p>An encointer ceremony happens at high sun on the same day all over the world.
-This way, no single person can attend more than one meetup.
-At each meetup, participants attest each others personhood.
-For this tutorial, however, we don't care about real time or physical presence as 
-we're testing with bot communities.
-See <a href="./testnets.html#time-warping-for-testnets">Time Warping</a> to learn how the timing maps between mainnet and Cantillon.</p>
-<p>Our bot communities can perform meetups simply with the following lines. In our next tutorial, we will explain how to perform rela physical meetups with our mobile phone app.</p>
+During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The mobile phone app will.</p>
+<p>The ceremony phase will change to ATTESTING on the date of the ceremony. The time of the ceremony will be high sun in your location. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. However, for a bot community this doesn't matter as they can jointly pretend to have met at the right time. (That's one of the reasons why we need a trusted <em>human</em> setup in the first place)</p>
+<p>See <a href="./testnets.html#time-warping-for-testnets">Time Warping</a> to learn how the timing maps between mainnet and Cantillon.</p>
+<p>Our bot communities can perform meetups simply with the following lines. In our next tutorial, we will explain how to perform real physical meetups with our mobile phone app.</p>
 <pre><code class="language-bash"># each participant generates a claim of attendance including her vote on how many people N are actually physically present at that moment
 &gt; claim1=$(nctr trusted new-claim $account1 3 --mrenclave $MRENCLAVE --shard $cid )
 &gt; claim2=$(nctr trusted new-claim $account2 3 --mrenclave $MRENCLAVE --shard $cid )
