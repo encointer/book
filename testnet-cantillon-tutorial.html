@@ -163,8 +163,9 @@ You can either gather a few people and hold an actual meetup or you register a b
 <p>Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to build the client yourself.</p>
 <pre><code class="language-bash">&gt; mkdir test
 &gt; cd test
-&gt; wget https://github.com/encointer/encointer-worker/releases/download/M1/encointer-client
-&gt; chmod u+x encointer-client
+&gt;  wget https://github.com/encointer/encointer-worker/releases/download/v0.6.6-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.6
+&gt; chmod u+x encointer-client-teeproxy-0.6.6
+&gt; ln -s encointer-client-teeproxy-0.6.6 encointer-client
 &gt; ./encointer-client -u wss://cantillon.encointer.org -p 443 get-phase
 # you should see either of REGISTERING, ASSIGNING or ATTESTING
 # for simplicity, we'll create an alias for the client
@@ -206,12 +207,12 @@ Enclave 1
    URL: 127.0.0.1:2000
 Enclave 2
    AccountId: 5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY
-   MRENCLAVE: HVmtypxe23ngaWWaRYmAtKWThuYeXL5V1nUALpQQvC3A
-   RA timestamp: 2020-06-11 09:14:32 UTC
+   MRENCLAVE: CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
+   RA timestamp: 2020-07-22 07:06:56 UTC
    URL: 127.0.0.1:19944
 </code></pre>
 <p>We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one:</p>
-<pre><code class="language-bash">MRENCLAVE=HVmtypxe23ngaWWaRYmAtKWThuYeXL5V1nUALpQQvC3A
+<pre><code class="language-bash">MRENCLAVE=CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
 </code></pre>
 <h2><a class="header" href="#bootstrap-your-own-currency" id="bootstrap-your-own-currency">Bootstrap your own currency</a></h2>
 <p>Now that we have some funds to pay platform fees, we can start our own local currency and bootstrap a bot population! 
@@ -219,7 +220,7 @@ Define Meetup Locations</p>
 <p>First of all, we need to define in what region the currency shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the currency. You can use geojson.io to select meetup places on a map (define a few &quot;Points&quot;). Make sure that you select places that are &gt;100m apart. You also need to keep this minimal distance from other registered currencies. You can list all registered currencies with</p>
 <pre><code class="language-bash">&gt; nctr list-currencies
 </code></pre>
-<p>The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. </p>
+<p>The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12.</p>
 <h2><a class="header" href="#trusted-setup" id="trusted-setup">Trusted Setup</a></h2>
 <p>Every local currency needs a trusted setup.
 A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly.
