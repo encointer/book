@@ -19,8 +19,9 @@ Get our cli client and start playing! The following instructions start from preb
 ```bash
 > mkdir test
 > cd test
-> wget https://github.com/encointer/encointer-worker/releases/download/M1/encointer-client
-> chmod u+x encointer-client
+>  wget https://github.com/encointer/encointer-worker/releases/download/v0.6.6-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.6
+> chmod u+x encointer-client-teeproxy-0.6.6
+> ln -s encointer-client-teeproxy-0.6.6 encointer-client
 > ./encointer-client -u wss://cantillon.encointer.org -p 443 get-phase
 # you should see either of REGISTERING, ASSIGNING or ATTESTING
 # for simplicity, we'll create an alias for the client
@@ -71,15 +72,15 @@ Enclave 1
    URL: 127.0.0.1:2000
 Enclave 2
    AccountId: 5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY
-   MRENCLAVE: HVmtypxe23ngaWWaRYmAtKWThuYeXL5V1nUALpQQvC3A
-   RA timestamp: 2020-06-11 09:14:32 UTC
+   MRENCLAVE: CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
+   RA timestamp: 2020-07-22 07:06:56 UTC
    URL: 127.0.0.1:19944
 ```
 
 We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one:
 
 ```bash
-MRENCLAVE=HVmtypxe23ngaWWaRYmAtKWThuYeXL5V1nUALpQQvC3A
+MRENCLAVE=CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
 ```
 
 ## Bootstrap your own currency
@@ -93,7 +94,7 @@ First of all, we need to define in what region the currency shall be issued. For
 > nctr list-currencies
 ```
 
-The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. 
+The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12.
 
 ## Trusted Setup
 
