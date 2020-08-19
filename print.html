@@ -641,43 +641,24 @@ Set the endpoint to <code>wss://cantillon.encointer.org</code></p>
 You can either gather a few people and hold an actual meetup or you register a bot currency with virtual people like we will do in this tutorial.</p>
 <h2><a class="header" href="#client-setup" id="client-setup">Client Setup</a></h2>
 <p>Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to build the client yourself.</p>
-<pre><code class="language-bash">&gt; mkdir test
-&gt; cd test
-&gt;  wget https://github.com/encointer/encointer-worker/releases/download/v0.6.6-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.6
-&gt; chmod u+x encointer-client-teeproxy-0.6.6
-&gt; ln -s encointer-client-teeproxy-0.6.6 encointer-client
-&gt; ./encointer-client -u wss://cantillon.encointer.org -p 443 get-phase
-# you should see either of REGISTERING, ASSIGNING or ATTESTING
-# for simplicity, we'll create an alias for the client
-# Cantillon node endpoint
-&gt; NURL=wss://cantillon.encointer.org
-&gt; NPORT=443
+<pre><code class="language-console">mkdir test
+cd test
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.6-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.6
+chmod u+x encointer-client-teeproxy-0.6.6
+ln -s encointer-client-teeproxy-0.6.6 encointer-client
+./encointer-client -u wss://cantillon.encointer.org -p 443 get-phase
+</code></pre>
+<p>You should see either of REGISTERING, ASSIGNING or ATTESTING</p>
+<p>for simplicity, we'll create an alias for the client</p>
+<pre><code class="language-console"># Cantillon node endpoint
+NURL=wss://cantillon.encointer.org
+NPORT=443
 # Cantillon worker endpoint
-&gt; WURL=wss://substratee03.scs.ch
-&gt; WPORT=443
-&gt; alias nctr=&quot;./encointer-client -u $NURL -p $NPORT -U $WURL -P $WPORT&quot;
-# let's create a new account
-&gt; nctr new-account
-5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
-# you can now check that your local keystore has a new entry
-&gt; ls my_keystore
-73723235ae365cf166bab30448f25b3751b06d034be9c992a8ba5501d3adcde640ab9b1e
-# query on-chain ERT balance
-&gt; nctr balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
-ERT balance for 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU 0
+WURL=wss://substratee03.scs.ch
+WPORT=443
+alias nctr=&quot;./encointer-client -u $NURL -p $NPORT -U $WURL -P $WPORT&quot;
 </code></pre>
-<p>As with other blockchains, you'll need some funds in order to pay fees.
-As you can read in our whitepaper, we'll avoid this entry barrier in the future.
-We have a faucet in place that gets you started immediately:</p>
-<pre><code class="language-bash">&gt; nctr faucet 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
-</code></pre>
-<p>Should the faucet be exhausted, please post a message to our riot channel and friendly request some topup. Please be patient.</p>
-<pre><code class="language-bash">&gt; nctr balance 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU
-ERT balance for 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU is 998999854
-# now you could send around your new ERT
-&gt; nctr transfer 5GjmTbGuPPXwBSNvi6SVbTvwBxNTttiFyFvYAweZz221JESU 5G18LaJA315RwJqtYYbWrbE52g9FEQCgBYN1A1XG66XnKAw5 123456789
-</code></pre>
-<p>Now let's see all the workers who have registered their enclaves:</p>
+<p>Encointer Cantillon uses <em>workers</em> to confidentially process your calls inside TEEs. In order to use Encointer currencies, you will be interacting with <em>workers</em>. You can list all available workers as follows: </p>
 <pre><code class="language-bash">&gt; nctr list-workers
 number of workers registered: 2
 Enclave 1
@@ -694,21 +675,32 @@ Enclave 2
 <p>We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one:</p>
 <pre><code class="language-bash">MRENCLAVE=CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
 </code></pre>
+<h2><a class="header" href="#create-accounts" id="create-accounts">Create Accounts</a></h2>
+<p>Now we'll create three <em>incognito</em> accounts for three virtual people that we will use for the remainder of the tutorial. In a real setting, every user will at least need one <em>public</em> and one <em>incognito</em> account but we'll use the same <em>public</em> account for all users for simplicity. </p>
+<pre><code class="language-bash">nctr trusted new-account -m $MRENCLAVE
+nctr trusted new-account -m $MRENCLAVE
+nctr trusted new-account -m $MRENCLAVE
+</code></pre>
+<p>This will create three accounts, in our case being these:</p>
+<pre><code class="language-console">5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
+5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
+</code></pre>
+<p>You can observe that a new keystore has been created in your working directory below <code>my_trusted_keystore</code>. </p>
+<p><em>Incognito</em> keys do not need to be pre-funded as the Encointer STF does not charge fees. The underlying blockchain in fact does charge fees but for simplicity, our testnet client delegates all fee payments to Alice (with a well-known and hard-coded private key), who is very friendly and pays the fees for everyone. The Encointer Association will ensure that Alice doesn't run out of funds.</p>
+<p>The CLI uses the keyword <em>trusted</em> for all calls involving <em>incognito</em> accounts. Under the hood this means that you're acutually interacting with a worker TEE. The blockchain is merely a proxy in this case, forwarding your request to the worker enclave. See <a href="https://www.substratee.com/design.html#indirect-invocation-current-implementation">indirect invocation</a> for in-depth documentation.</p>
 <h2><a class="header" href="#bootstrap-your-own-currency-1" id="bootstrap-your-own-currency-1">Bootstrap your own currency</a></h2>
-<p>Now that we have some funds to pay platform fees, we can start our own local currency and bootstrap a bot population! 
-Define Meetup Locations</p>
-<p>First of all, we need to define in what region the currency shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the currency. You can use geojson.io to select meetup places on a map (define a few &quot;Points&quot;). Make sure that you select places that are &gt;100m apart. You also need to keep this minimal distance from other registered currencies. You can list all registered currencies with</p>
+<p>Now we can start our own local currency and bootstrap a bot population with our three users! </p>
+<h3><a class="header" href="#define-meetup-locations" id="define-meetup-locations">Define Meetup Locations</a></h3>
+<p>First of all, we need to define in what region the currency shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the currency. You can use <a href="http://geojson.io">geojson.io</a> to select meetup places on a map (define one or a few &quot;Points&quot;). Make sure that you select places that are &gt;100m apart. You also need to keep this minimal distance from other registered currencies. You can list all registered currencies with</p>
 <pre><code class="language-bash">&gt; nctr list-currencies
 </code></pre>
 <p>The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12.</p>
-<h2><a class="header" href="#trusted-setup-1" id="trusted-setup-1">Trusted Setup</a></h2>
+<h3><a class="header" href="#trusted-setup-1" id="trusted-setup-1">Trusted Setup</a></h3>
 <p>Every local currency needs a trusted setup.
 A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly.
 These bootstrappers need to be defined in the metadata block.
-For improved privacy, we will use incognito accounts for this that will never be used on-chain.</p>
-<pre><code class="language-bash">&gt; nctr trusted new-account --mrenclave $MRENCLAVE
-5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-</code></pre>
+For improved privacy, we will use our incognito accounts for this that will never be used on-chain.</p>
 <p>Now we create our currency specification:</p>
 <pre><code class="language-json">{
   &quot;type&quot;: &quot;FeatureCollection&quot;,
@@ -735,17 +727,21 @@ For improved privacy, we will use incognito accounts for this that will never be
   ]
 }
 </code></pre>
-<p>You can now save the above to minimal.json and register your new currency. Store it to an env variable:</p>
-<pre><code class="language-bash">&gt; nctr new-currency minimal.json 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
-&gt; cid=HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
+<p>Replace bootstrappers with your newly created accounts and replace the Point with your location of choice. Then save the above to minimal.json and register your new currency. Currencies are registered in public on-chain, so we'll ask Alice to pay for the fees.</p>
+<pre><code class="language-bash">nctr new-currency minimal.json //Alice
 </code></pre>
-<p>Your currency has been registered on-chain and the return value is your currency-identifier (cid). 
-Let's check the registry again:</p>
+<p>Your currency has been registered on-chain and the return value is your currency-identifier (cid). Store the cid to an env variable:</p>
+<pre><code class="language-console">cid=HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
+</code></pre>
+<p>Let's check the registry again:</p>
 <pre><code class="language-bash">&gt; nctr list-currencies
 number of currencies:  1
 currency with cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 </code></pre>
+<p>Cantillon features <a href="https://www.substratee.com/sharding.html">sharding</a> and every new currency will have its own shard. The CLI client allows you to use different accounts on different shards. For this tutorial we'd like to use exactly the same accounts that we just created for the default shard (identified by the mrenclave). So we need to link our sharded keystore to the default shard:</p>
+<pre><code class="language-console">ln -sd my_trusted_keystore/CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV my_trusted_keystore/HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
+</code></pre>
+<p>Now we will be able to use our keys for the new currency.</p>
 <p>In order to bootstrap your bot currency, You'll need to register all of them for the next ceremony during the 16h registering phase. You can only start this procedure every 3 days!</p>
 <pre><code class="language-bash">#check if phase is REGISTERING
 &gt; nctr get-phase
