@@ -175,6 +175,31 @@ Bot communities can still be grown but we expect them to be loctated in off-shor
 <h2><a class="header" href="#time-warping-for-testnets" id="time-warping-for-testnets">Time Warping for Testnets</a></h2>
 <p>In order to understand the different timing on our networks, we offer the following figure:</p>
 <p><img src="./fig/phase-timing.svg" alt="Phase Timing" /></p>
+<h2><a class="header" href="#testing-cantillons-teeproxy-system-locally" id="testing-cantillons-teeproxy-system-locally">Testing Cantillon's Teeproxy System Locally</a></h2>
+<p>You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.</p>
+<p>Build client and worker along the <a href="https://www.substratee.com/howto_worker.html">substraTEE-worker instructions</a>. With the following differences:</p>
+<pre><code class="language-console">git clone https://github.com/encointer/encointer-worker.git
+cd encointer-worker
+./ci/install-rust.sh
+make
+</code></pre>
+<p>Build node along the <a href="https://www.substratee.com/howto_node.html#build">substraTEE-node instructions</a>. With the following differences:</p>
+<pre><code class="language-console">git clone https://github.com/encointer/encointer-node.git
+cd encointer-node
+git checkout sgx-master
+cargo build --release
+</code></pre>
+<p>Run dev node locally</p>
+<pre><code class="language-console">..encointer-node# ./target/release/encointer-node-teeproxy --dev --ws-port 9979
+</code></pre>
+<p>Run dev worker with a few insightful logs locally</p>
+<pre><code class="language-bash">cd encointer-worker/bin
+./encointer-worker init-shard
+./encointer-worker shielding-key
+./encointer-worker signing-key
+export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug
+./encointer-worker -p 9979 run
+</code></pre>
 
                     </main>
 

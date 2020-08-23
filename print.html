@@ -473,6 +473,31 @@ Bot communities can still be grown but we expect them to be loctated in off-shor
 <h2><a class="header" href="#time-warping-for-testnets" id="time-warping-for-testnets">Time Warping for Testnets</a></h2>
 <p>In order to understand the different timing on our networks, we offer the following figure:</p>
 <p><img src="./fig/phase-timing.svg" alt="Phase Timing" /></p>
+<h2><a class="header" href="#testing-cantillons-teeproxy-system-locally" id="testing-cantillons-teeproxy-system-locally">Testing Cantillon's Teeproxy System Locally</a></h2>
+<p>You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.</p>
+<p>Build client and worker along the <a href="https://www.substratee.com/howto_worker.html">substraTEE-worker instructions</a>. With the following differences:</p>
+<pre><code class="language-console">git clone https://github.com/encointer/encointer-worker.git
+cd encointer-worker
+./ci/install-rust.sh
+make
+</code></pre>
+<p>Build node along the <a href="https://www.substratee.com/howto_node.html#build">substraTEE-node instructions</a>. With the following differences:</p>
+<pre><code class="language-console">git clone https://github.com/encointer/encointer-node.git
+cd encointer-node
+git checkout sgx-master
+cargo build --release
+</code></pre>
+<p>Run dev node locally</p>
+<pre><code class="language-console">..encointer-node# ./target/release/encointer-node-teeproxy --dev --ws-port 9979
+</code></pre>
+<p>Run dev worker with a few insightful logs locally</p>
+<pre><code class="language-bash">cd encointer-worker/bin
+./encointer-worker init-shard
+./encointer-worker shielding-key
+./encointer-worker signing-key
+export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug
+./encointer-worker -p 9979 run
+</code></pre>
 <h1><a class="header" href="#testnet-gesell" id="testnet-gesell">Testnet Gesell</a></h1>
 <p>Gesell is our first testnet. It allows you to bootstrap new local currencies and perform regular proof-of-personhood ceremonies that give participants a universal basic income. This network is meant for testing with bot populations in order to audit and stress-test the protocol. Gesell does not give you the privacy that later networks will provide. We do not expect real physical meetups to happen on this network except occasional demo meetups. </p>
 <h2><a class="header" href="#design" id="design">Design</a></h2>
@@ -640,7 +665,7 @@ Set the endpoint to <code>wss://cantillon.encointer.org</code></p>
 <p>Cantillon features regular ceremonies every 3 days (Whereas the vision for mainnet is every 41 days).
 You can either gather a few people and hold an actual meetup or you register a bot currency with virtual people like we will do in this tutorial.</p>
 <h2><a class="header" href="#client-setup" id="client-setup">Client Setup</a></h2>
-<p>Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to build the client yourself.</p>
+<p>Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to <a href="./testnets.html">build the client yourself</a>.</p>
 <pre><code class="language-console">mkdir test
 cd test
 wget https://github.com/encointer/encointer-worker/releases/download/v0.6.6-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.6
@@ -675,6 +700,12 @@ Enclave 2
 <p>We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one:</p>
 <pre><code class="language-bash">MRENCLAVE=CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
 </code></pre>
+<p>Now we'll connect to a worker and request some publicly available information on an existing currency (aggregated values from its confidential state)</p>
+<pre><code class="language-bash">cid=7eLSZLSMShw4ju9GvuMmoVgeZxZimtvsGTSvLEdvcRqQ
+nctr trusted info -m $MRENCLAVE --shard $cid
+</code></pre>
+<p>You should see something like</p>
+<p>TODO</p>
 <h2><a class="header" href="#create-accounts" id="create-accounts">Create Accounts</a></h2>
 <p>Now we'll create three <em>incognito</em> accounts for three virtual people that we will use for the remainder of the tutorial. In a real setting, every user will at least need one <em>public</em> and one <em>incognito</em> account but we'll use the same <em>public</em> account for all users for simplicity. </p>
 <pre><code class="language-bash">nctr trusted new-account -m $MRENCLAVE

@@ -160,7 +160,7 @@ Set the endpoint to <code>wss://cantillon.encointer.org</code></p>
 <p>Cantillon features regular ceremonies every 3 days (Whereas the vision for mainnet is every 41 days).
 You can either gather a few people and hold an actual meetup or you register a bot currency with virtual people like we will do in this tutorial.</p>
 <h2><a class="header" href="#client-setup" id="client-setup">Client Setup</a></h2>
-<p>Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to build the client yourself.</p>
+<p>Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to <a href="./testnets.html">build the client yourself</a>.</p>
 <pre><code class="language-console">mkdir test
 cd test
 wget https://github.com/encointer/encointer-worker/releases/download/v0.6.6-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.6
@@ -195,6 +195,12 @@ Enclave 2
 <p>We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one:</p>
 <pre><code class="language-bash">MRENCLAVE=CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
 </code></pre>
+<p>Now we'll connect to a worker and request some publicly available information on an existing currency (aggregated values from its confidential state)</p>
+<pre><code class="language-bash">cid=7eLSZLSMShw4ju9GvuMmoVgeZxZimtvsGTSvLEdvcRqQ
+nctr trusted info -m $MRENCLAVE --shard $cid
+</code></pre>
+<p>You should see something like</p>
+<p>TODO</p>
 <h2><a class="header" href="#create-accounts" id="create-accounts">Create Accounts</a></h2>
 <p>Now we'll create three <em>incognito</em> accounts for three virtual people that we will use for the remainder of the tutorial. In a real setting, every user will at least need one <em>public</em> and one <em>incognito</em> account but we'll use the same <em>public</em> account for all users for simplicity. </p>
 <pre><code class="language-bash">nctr trusted new-account -m $MRENCLAVE
