@@ -14,7 +14,7 @@ You can either gather a few people and hold an actual meetup or you register a b
 
 ## Client Setup
 
-Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to build the client yourself.
+Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to [build the client yourself](./testnets.md).
 
 ```console
 mkdir test
@@ -60,6 +60,17 @@ We see two enclaves and we have to know what is the most recent Encointer enclav
 ```bash
 MRENCLAVE=CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
 ```
+
+Now we'll connect to a worker and request some publicly available information on an existing currency (aggregated values from its confidential state)
+
+```bash
+cid=7eLSZLSMShw4ju9GvuMmoVgeZxZimtvsGTSvLEdvcRqQ
+nctr trusted info -m $MRENCLAVE --shard $cid
+```
+
+You should see something like
+
+TODO
 
 ## Create Accounts
 

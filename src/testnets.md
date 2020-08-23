@@ -33,3 +33,40 @@ The mainnet is planned to become a parachain of [Polkadot](https://polkadot.netw
 In order to understand the different timing on our networks, we offer the following figure:
 
 ![Phase Timing](./fig/phase-timing.svg)
+
+## Testing Cantillon's Teeproxy System Locally 
+
+You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.
+
+Build client and worker along the [substraTEE-worker instructions](https://www.substratee.com/howto_worker.html). With the following differences:
+```console 
+git clone https://github.com/encointer/encointer-worker.git
+cd encointer-worker
+./ci/install-rust.sh
+make
+```
+
+Build node along the [substraTEE-node instructions](https://www.substratee.com/howto_node.html#build). With the following differences:
+
+```console
+git clone https://github.com/encointer/encointer-node.git
+cd encointer-node
+git checkout sgx-master
+cargo build --release
+```
+
+Run dev node locally
+
+```console
+..encointer-node# ./target/release/encointer-node-teeproxy --dev --ws-port 9979
+```
+
+Run dev worker with a few insightful logs locally
+```bash
+cd encointer-worker/bin
+./encointer-worker init-shard
+./encointer-worker shielding-key
+./encointer-worker signing-key
+export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug
+./encointer-worker -p 9979 run
+```
