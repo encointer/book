@@ -59,6 +59,20 @@ ERT balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 998999854
 > nctr transfer 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex 5G18LaJA315RwJqtYYbWrbE52g9FEQCgBYN1A1XG66XnKAw5 123456789
 ```
 
+Let's create and fund two more accounts for later use:
+
+```console
+nctr new-account
+nctr new-account
+```
+
+giving us `5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7` and `5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK` which we will fund with
+
+```console
+nctr fund-account 5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
+nctr fund-account 5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
+```
+
 ## Bootstrap your own currency
 
 Now that we have some funds to pay platform fees, we can start our own local currency and bootstrap a bot population! 
