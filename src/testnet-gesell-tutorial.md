@@ -1,21 +1,9 @@
 # Testnet Gesell Tutorial
 ## Connect!
 
-You may watch Gesell working by navigating to [polkadot.js.org/apps](https://polkadot.js.org/apps). Then you connect to our node by setting our custom endpoint at Settings -> General
+You may watch Gesell working by navigating to [polkadot.js.org/apps](https://polkadot.js.org/apps//?rpc=wss://gesell.encointer.org#/explorer). 
 
-![connect polkadot.js.org/apps to custom endpoint](./fig/polkadot-js-apps-custom-endpoint.png)
-
-Hit "save" and you should see something like this in the upper left corner
-
-![polkadot.js.org/apps status](./fig/polkadot-js-apps-status.png)
-
-There we go!
-
-If you're interested in node statistics, please refer to  [telemetry.polkadot.io](https://telemetry.polkadot.io/#list/Encointer%20Testnet%20Gesell)
-
-## Explore!
-
-Gesell features regular ceremonies every 30min (Whereas the vision for mainnet is every 41 days). You can query the current ceremony phase below Chain State 
+Gesell features regular ceremonies every 30min (Whereas the vision for mainnet is every 41 days). You can query the current ceremony phase below the menu *Developer -> Chain State*
 
 ![query phase](./fig/polkadot-js-apps-query-phase.png)
 

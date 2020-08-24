@@ -1,11 +1,8 @@
-# Testnet Gesell Tutorial
+# Testnet Cantillon Tutorial
 
 ## Connect!
 
-You may watch Cantillon working by navigating to [polkadot.js.org/apps](https://polkadot.js.org/apps). Then you connect to our node by setting our custom endpoint at Settings -> General
-Set the endpoint to `wss://cantillon.encointer.org`
-
-Hit "save" and you should see the explorer loading for Cantillon.
+You may watch Cantillon working by navigating to [polkadot.js.org/apps](https://polkadot.js.org/apps//?rpc=wss://cantillon.encointer.org#/explorer). 
 
 If you're interested in node statistics, please refer to  [telemetry.polkadot.io](https://telemetry.polkadot.io/#list/Encointer%20Testnet%20Cantillon)
 
@@ -51,15 +48,15 @@ Enclave 1
    URL: 127.0.0.1:2000
 Enclave 2
    AccountId: 5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY
-   MRENCLAVE: CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
-   RA timestamp: 2020-07-22 07:06:56 UTC
+   MRENCLAVE: E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR
+   RA timestamp: 2020-08-22 18:43:23 UTC
    URL: 127.0.0.1:19944
 ```
 
-We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one:
+We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one which supplied remote attestation (RA) later. The URL is misleading due to an open issue but that worker is actually answering on wss://substratee03.scs.ch which we configured above. 
 
 ```bash
-MRENCLAVE=CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
+MRENCLAVE=E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR
 ```
 
 Now we'll connect to a worker and request some publicly available information on an existing currency (aggregated values from its confidential state)
@@ -180,7 +177,7 @@ Cantillon features [sharding](https://www.substratee.com/sharding.html) and ever
 
 ```console
 cd my_trusted_keystore
-ln -sd CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
+ln -sd E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 cd ..
 ```
 
@@ -205,7 +202,7 @@ send TrustedGetter::get_registration for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCk
 Participant index: 1
 ```
 
-The current client throws an irrelevant error about decoding events. Just ignore that!
+The current client may throw an irrelevant error about decoding events. Just ignore that!
 
 Now's a good time to check what public information is available about our currency at this time:
 
@@ -220,10 +217,10 @@ Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
   time tolerance: 600000m
 ```
 
-So, right now, there is nothing to see. Let's move on!
+So, right now, there is nothing to see. The participant count is deliberately undisclosed during REGISTERING to prevent information leakage about participants.
 
 You'll have to wait until the ceremony phase turns to ASSIGNING. The worker enclave then assigns all participants to randomized groups that will have to meet at a random meetup locations at the upcoming ceremony.
-During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The mobile phone app will. There is publicly available information though:
+During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The mobile phone app will. There is publicly available we can query on the CLI:
 
 ```console
 > nctr trusted info -m $MRENCLAVE --shard $cid
@@ -236,7 +233,7 @@ Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
   time tolerance: 600000m
 ```
 
-You can see your three participants have been assigned to one meetup. No money has ever been issued for this currency.Perfect.
+You can see your three participants have been assigned to one meetup. No money has ever been issued for this currency. Perfect.
 
 The ceremony phase will change to ATTESTING on the date of the ceremony. The time of the ceremony will be high sun in your location. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. However, for a bot community this doesn't matter as they can jointly pretend to have met at the right time. (That's one of the reasons why we need a trusted *human* setup in the first place)
 
