@@ -151,11 +151,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#testnet-gesell-tutorial" id="testnet-gesell-tutorial">Testnet Gesell Tutorial</a></h1>
+                        <h1><a class="header" href="#testnet-cantillon-tutorial" id="testnet-cantillon-tutorial">Testnet Cantillon Tutorial</a></h1>
 <h2><a class="header" href="#connect" id="connect">Connect!</a></h2>
-<p>You may watch Cantillon working by navigating to <a href="https://polkadot.js.org/apps">polkadot.js.org/apps</a>. Then you connect to our node by setting our custom endpoint at Settings -&gt; General
-Set the endpoint to <code>wss://cantillon.encointer.org</code></p>
-<p>Hit &quot;save&quot; and you should see the explorer loading for Cantillon.</p>
+<p>You may watch Cantillon working by navigating to <a href="https://polkadot.js.org/apps//?rpc=wss://cantillon.encointer.org#/explorer">polkadot.js.org/apps</a>. </p>
 <p>If you're interested in node statistics, please refer to  <a href="https://telemetry.polkadot.io/#list/Encointer%20Testnet%20Cantillon">telemetry.polkadot.io</a></p>
 <p>Cantillon features regular ceremonies every 3 days (Whereas the vision for mainnet is every 41 days).
 You can either gather a few people and hold an actual meetup or you register a bot currency with virtual people like we will do in this tutorial.</p>
@@ -188,12 +186,12 @@ Enclave 1
    URL: 127.0.0.1:2000
 Enclave 2
    AccountId: 5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY
-   MRENCLAVE: CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
-   RA timestamp: 2020-07-22 07:06:56 UTC
+   MRENCLAVE: E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR
+   RA timestamp: 2020-08-22 18:43:23 UTC
    URL: 127.0.0.1:19944
 </code></pre>
-<p>We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one:</p>
-<pre><code class="language-bash">MRENCLAVE=CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV
+<p>We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one which supplied remote attestation (RA) later. The URL is misleading due to an open issue but that worker is actually answering on wss://substratee03.scs.ch which we configured above. </p>
+<pre><code class="language-bash">MRENCLAVE=E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR
 </code></pre>
 <p>Now we'll connect to a worker and request some publicly available information on an existing currency (aggregated values from its confidential state)</p>
 <pre><code class="language-bash">cid=7eLSZLSMShw4ju9GvuMmoVgeZxZimtvsGTSvLEdvcRqQ
@@ -274,7 +272,7 @@ currency with cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 </code></pre>
 <p>Cantillon features <a href="https://www.substratee.com/sharding.html">sharding</a> and every new currency will have its own shard. The CLI client allows you to use different accounts on different shards. For this tutorial we'd like to use exactly the same accounts that we just created for the default shard (identified by the mrenclave). So we need to link our sharded keystore to the default shard:</p>
 <pre><code class="language-console">cd my_trusted_keystore
-ln -sd CCJdb3mKPnape3Q3mkHWVaXgSfDRz5JahQMkCB7xH6rV HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
+ln -sd E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 cd ..
 </code></pre>
 <p>Now we will be able to use our keys for the new currency.</p>
@@ -294,7 +292,7 @@ REGISTERING
 send TrustedGetter::get_registration for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 Participant index: 1
 </code></pre>
-<p>The current client throws an irrelevant error about decoding events. Just ignore that!</p>
+<p>The current client may throw an irrelevant error about decoding events. Just ignore that!</p>
 <p>Now's a good time to check what public information is available about our currency at this time:</p>
 <pre><code class="language-console">&gt; nctr trusted info -m $MRENCLAVE --shard $cid
 Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
@@ -305,9 +303,9 @@ Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
   location tolerance: 1000m
   time tolerance: 600000m
 </code></pre>
-<p>So, right now, there is nothing to see. Let's move on!</p>
+<p>So, right now, there is nothing to see. The participant count is deliberately undisclosed during REGISTERING to prevent information leakage about participants.</p>
 <p>You'll have to wait until the ceremony phase turns to ASSIGNING. The worker enclave then assigns all participants to randomized groups that will have to meet at a random meetup locations at the upcoming ceremony.
-During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The mobile phone app will. There is publicly available information though:</p>
+During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The mobile phone app will. There is publicly available we can query on the CLI:</p>
 <pre><code class="language-console">&gt; nctr trusted info -m $MRENCLAVE --shard $cid
 Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
   total issuance: 0
@@ -317,7 +315,7 @@ Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
   location tolerance: 1000m
   time tolerance: 600000m
 </code></pre>
-<p>You can see your three participants have been assigned to one meetup. No money has ever been issued for this currency.Perfect.</p>
+<p>You can see your three participants have been assigned to one meetup. No money has ever been issued for this currency. Perfect.</p>
 <p>The ceremony phase will change to ATTESTING on the date of the ceremony. The time of the ceremony will be high sun in your location. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. However, for a bot community this doesn't matter as they can jointly pretend to have met at the right time. (That's one of the reasons why we need a trusted <em>human</em> setup in the first place)</p>
 <p>See <a href="./testnets.html#time-warping-for-testnets">Time Warping</a> to learn how the timing maps between mainnet and Cantillon.</p>
 <p>Our bot communities can perform meetups simply with the following lines. In our next tutorial, we will explain how to perform real physical meetups with our mobile phone app.</p>
