@@ -177,13 +177,28 @@ Bot communities can still be grown but we expect them to be loctated in off-shor
 <p><img src="./fig/phase-timing.svg" alt="Phase Timing" /></p>
 <h2><a class="header" href="#testing-cantillons-teeproxy-system-locally" id="testing-cantillons-teeproxy-system-locally">Testing Cantillon's Teeproxy System Locally</a></h2>
 <p>You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.</p>
-<p>Build client and worker along the <a href="https://www.substratee.com/howto_worker.html">substraTEE-worker instructions</a>. With the following differences:</p>
+<h3><a class="header" href="#build-client-and-worker" id="build-client-and-worker">Build client and worker</a></h3>
+<p>along the <a href="https://www.substratee.com/howto_worker.html">substraTEE-worker instructions</a>. With the following differences:</p>
 <pre><code class="language-console">git clone https://github.com/encointer/encointer-worker.git
 cd encointer-worker
 ./ci/install-rust.sh
 make
 </code></pre>
-<p>Build node along the <a href="https://www.substratee.com/howto_node.html#build">substraTEE-node instructions</a>. With the following differences:</p>
+<p>Because the enclave cannot yet be built deterministically, you'll have to use our build if you intend to serve the same shards that we do (feel free to start new currencies on your own shard with different MRENCLAVE, but you won't be able to process the state of our/other shards):</p>
+<pre><code>cd bin
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.11-sub2.0.0-alpha.7/enclave-0.6.11-devsgx02.signed.so
+rm enclave.signed.so
+ln -s enclave-0.6.11-devsgx02.signed.so enclave.signed.so
+</code></pre>
+<p>Moreover, you will need to provision secrets (the <em>shielding key</em> and the <em>state encryption key</em>) to the enclave. In the future, this will be done by workers automatically mutually, as demonstrated in <a href="https://www.substratee.com/design.html#redundancy-m3-onwards">SubstraTEE M3</a>.</p>
+<pre><code># still inside ./bin
+# get our symmetric state encryption key
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub2.0.0-alpha.7/aes_key_sealed.bin
+# get our RSA shielding key
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub2.0.0-alpha.7/rsa3072_key_sealed.bin
+</code></pre>
+<h3><a class="header" href="#build-node" id="build-node">Build node</a></h3>
+<p>along the <a href="https://www.substratee.com/howto_node.html#build">substraTEE-node instructions</a>. With the following differences:</p>
 <pre><code class="language-console">git clone https://github.com/encointer/encointer-node.git
 cd encointer-node
 git checkout sgx-master
@@ -197,7 +212,7 @@ cargo build --release
 ./encointer-worker init-shard
 ./encointer-worker shielding-key
 ./encointer-worker signing-key
-export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug
+export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug,runtime=debug,substratee_worker_enclave::state=warn,substratee_stf::sgx=debug
 ./encointer-worker -p 9979 run
 </code></pre>
 

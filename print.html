@@ -475,13 +475,28 @@ Bot communities can still be grown but we expect them to be loctated in off-shor
 <p><img src="./fig/phase-timing.svg" alt="Phase Timing" /></p>
 <h2><a class="header" href="#testing-cantillons-teeproxy-system-locally" id="testing-cantillons-teeproxy-system-locally">Testing Cantillon's Teeproxy System Locally</a></h2>
 <p>You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.</p>
-<p>Build client and worker along the <a href="https://www.substratee.com/howto_worker.html">substraTEE-worker instructions</a>. With the following differences:</p>
+<h3><a class="header" href="#build-client-and-worker" id="build-client-and-worker">Build client and worker</a></h3>
+<p>along the <a href="https://www.substratee.com/howto_worker.html">substraTEE-worker instructions</a>. With the following differences:</p>
 <pre><code class="language-console">git clone https://github.com/encointer/encointer-worker.git
 cd encointer-worker
 ./ci/install-rust.sh
 make
 </code></pre>
-<p>Build node along the <a href="https://www.substratee.com/howto_node.html#build">substraTEE-node instructions</a>. With the following differences:</p>
+<p>Because the enclave cannot yet be built deterministically, you'll have to use our build if you intend to serve the same shards that we do (feel free to start new currencies on your own shard with different MRENCLAVE, but you won't be able to process the state of our/other shards):</p>
+<pre><code>cd bin
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.11-sub2.0.0-alpha.7/enclave-0.6.11-devsgx02.signed.so
+rm enclave.signed.so
+ln -s enclave-0.6.11-devsgx02.signed.so enclave.signed.so
+</code></pre>
+<p>Moreover, you will need to provision secrets (the <em>shielding key</em> and the <em>state encryption key</em>) to the enclave. In the future, this will be done by workers automatically mutually, as demonstrated in <a href="https://www.substratee.com/design.html#redundancy-m3-onwards">SubstraTEE M3</a>.</p>
+<pre><code># still inside ./bin
+# get our symmetric state encryption key
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub2.0.0-alpha.7/aes_key_sealed.bin
+# get our RSA shielding key
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub2.0.0-alpha.7/rsa3072_key_sealed.bin
+</code></pre>
+<h3><a class="header" href="#build-node" id="build-node">Build node</a></h3>
+<p>along the <a href="https://www.substratee.com/howto_node.html#build">substraTEE-node instructions</a>. With the following differences:</p>
 <pre><code class="language-console">git clone https://github.com/encointer/encointer-node.git
 cd encointer-node
 git checkout sgx-master
@@ -495,7 +510,7 @@ cargo build --release
 ./encointer-worker init-shard
 ./encointer-worker shielding-key
 ./encointer-worker signing-key
-export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug
+export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug,runtime=debug,substratee_worker_enclave::state=warn,substratee_stf::sgx=debug
 ./encointer-worker -p 9979 run
 </code></pre>
 <h1><a class="header" href="#testnet-gesell" id="testnet-gesell">Testnet Gesell</a></h1>
@@ -685,7 +700,7 @@ alias nctr=&quot;./encointer-client -u $NURL -p $NPORT -U $WURL -P $WPORT&quot;
 </code></pre>
 <p>Encointer Cantillon uses <em>workers</em> to confidentially process your calls inside TEEs. In order to use Encointer currencies, you will be interacting with <em>workers</em>. You can list all available workers as follows: </p>
 <pre><code class="language-bash">&gt; nctr list-workers
-number of workers registered: 2
+number of workers registered: 3
 Enclave 1
    AccountId: 5DBXHQgjd6CVuzHnoyXVW8WatuDi2rfhH57yDwVZ3ZzMgYiX
    MRENCLAVE: 5RqYVKwQdyvPqAPwauWz9oQMRcU9dw9M1vKfPWx81bgh
@@ -693,12 +708,17 @@ Enclave 1
    URL: 127.0.0.1:2000
 Enclave 2
    AccountId: 5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY
-   MRENCLAVE: E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR
-   RA timestamp: 2020-08-22 18:43:23 UTC
+   MRENCLAVE: HE4AURbrvvxzKJZckLEDkNSVZt2aUGxyVC2S2knvn13
+   RA timestamp: 2020-08-30 19:08:48 UTC
    URL: 127.0.0.1:19944
+Enclave 3
+   AccountId: 5C9mAPSTRrDwnttXLDF4NZjXzYN3wqZBMC5kzT5NZoZfejRS
+   MRENCLAVE: 6dn3j7jmStjyCzAwWNxbxXTnrqD4FXhrohBqqS2MJY4R
+   RA timestamp: 2020-08-26 12:48:38 UTC
+   URL: 127.0.0.1:9944
 </code></pre>
 <p>We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one which supplied remote attestation (RA) later. The URL is misleading due to an open issue but that worker is actually answering on wss://substratee03.scs.ch which we configured above. </p>
-<pre><code class="language-bash">MRENCLAVE=E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR
+<pre><code class="language-bash">MRENCLAVE=HE4AURbrvvxzKJZckLEDkNSVZt2aUGxyVC2S2knvn13
 </code></pre>
 <p>Now we'll connect to a worker and request some publicly available information on an existing currency (aggregated values from its confidential state)</p>
 <pre><code class="language-bash">cid=7eLSZLSMShw4ju9GvuMmoVgeZxZimtvsGTSvLEdvcRqQ
