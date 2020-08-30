@@ -40,7 +40,7 @@ Encointer Cantillon uses *workers* to confidentially process your calls inside T
 
 ```bash
 > nctr list-workers
-number of workers registered: 2
+number of workers registered: 3
 Enclave 1
    AccountId: 5DBXHQgjd6CVuzHnoyXVW8WatuDi2rfhH57yDwVZ3ZzMgYiX
    MRENCLAVE: 5RqYVKwQdyvPqAPwauWz9oQMRcU9dw9M1vKfPWx81bgh
@@ -48,15 +48,20 @@ Enclave 1
    URL: 127.0.0.1:2000
 Enclave 2
    AccountId: 5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY
-   MRENCLAVE: E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR
-   RA timestamp: 2020-08-22 18:43:23 UTC
+   MRENCLAVE: HE4AURbrvvxzKJZckLEDkNSVZt2aUGxyVC2S2knvn13
+   RA timestamp: 2020-08-30 19:08:48 UTC
    URL: 127.0.0.1:19944
+Enclave 3
+   AccountId: 5C9mAPSTRrDwnttXLDF4NZjXzYN3wqZBMC5kzT5NZoZfejRS
+   MRENCLAVE: 6dn3j7jmStjyCzAwWNxbxXTnrqD4FXhrohBqqS2MJY4R
+   RA timestamp: 2020-08-26 12:48:38 UTC
+   URL: 127.0.0.1:9944
 ```
 
 We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one which supplied remote attestation (RA) later. The URL is misleading due to an open issue but that worker is actually answering on wss://substratee03.scs.ch which we configured above. 
 
 ```bash
-MRENCLAVE=E9h2hi91jn8Y9taz3JynF82sLkaUREY13XAhRWeu1fiR
+MRENCLAVE=HE4AURbrvvxzKJZckLEDkNSVZt2aUGxyVC2S2knvn13
 ```
 
 Now we'll connect to a worker and request some publicly available information on an existing currency (aggregated values from its confidential state)

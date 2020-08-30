@@ -38,15 +38,36 @@ In order to understand the different timing on our networks, we offer the follow
 
 You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.
 
-Build client and worker along the [substraTEE-worker instructions](https://www.substratee.com/howto_worker.html). With the following differences:
+### Build client and worker 
+
+along the [substraTEE-worker instructions](https://www.substratee.com/howto_worker.html). With the following differences:
 ```console 
 git clone https://github.com/encointer/encointer-worker.git
 cd encointer-worker
 ./ci/install-rust.sh
 make
 ```
+Because the enclave cannot yet be built deterministically, you'll have to use our build if you intend to serve the same shards that we do (feel free to start new currencies on your own shard with different MRENCLAVE, but you won't be able to process the state of our/other shards):
 
-Build node along the [substraTEE-node instructions](https://www.substratee.com/howto_node.html#build). With the following differences:
+```
+cd bin
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.11-sub2.0.0-alpha.7/enclave-0.6.11-devsgx02.signed.so
+rm enclave.signed.so
+ln -s enclave-0.6.11-devsgx02.signed.so enclave.signed.so
+```
+Moreover, you will need to provision secrets (the *shielding key* and the *state encryption key*) to the enclave. In the future, this will be done by workers automatically mutually, as demonstrated in [SubstraTEE M3](https://www.substratee.com/design.html#redundancy-m3-onwards).
+
+```
+# still inside ./bin
+# get our symmetric state encryption key
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub2.0.0-alpha.7/aes_key_sealed.bin
+# get our RSA shielding key
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub2.0.0-alpha.7/rsa3072_key_sealed.bin
+```
+
+### Build node 
+
+along the [substraTEE-node instructions](https://www.substratee.com/howto_node.html#build). With the following differences:
 
 ```console
 git clone https://github.com/encointer/encointer-node.git
@@ -62,11 +83,12 @@ Run dev node locally
 ```
 
 Run dev worker with a few insightful logs locally
+
 ```bash
 cd encointer-worker/bin
 ./encointer-worker init-shard
 ./encointer-worker shielding-key
 ./encointer-worker signing-key
-export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug
+export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug,runtime=debug,substratee_worker_enclave::state=warn,substratee_stf::sgx=debug
 ./encointer-worker -p 9979 run
 ```
