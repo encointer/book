@@ -683,9 +683,9 @@ You can either gather a few people and hold an actual meetup or you register a b
 <p>Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to <a href="./testnets.html">build the client yourself</a>.</p>
 <pre><code class="language-console">mkdir test
 cd test
-wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.10
-chmod u+x encointer-client-teeproxy-0.6.10
-ln -s encointer-client-teeproxy-0.6.10 encointer-client
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.11-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.11
+chmod u+x encointer-client-teeproxy-0.6.11
+ln -s encointer-client-teeproxy-0.6.11 encointer-client
 ./encointer-client -u wss://cantillon.encointer.org -p 443 get-phase
 </code></pre>
 <p>You should see either of REGISTERING, ASSIGNING or ATTESTING</p>
@@ -731,7 +731,7 @@ nctr trusted info -m $MRENCLAVE --shard $cid
   meetup count: 0
   ceremony reward: 1
   location tolerance: 1000m
-  time tolerance: 600000m
+  time tolerance: 600000ms
 </code></pre>
 <p>If you get such a response that means that you are successfully talking to our worker. Don't worry about the contents too much for now.</p>
 <h2><a class="header" href="#create-accounts" id="create-accounts">Create Accounts</a></h2>
@@ -828,7 +828,7 @@ Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
   meetup count: 0
   ceremony reward: 1
   location tolerance: 1000m
-  time tolerance: 600000m
+  time tolerance: 600000ms
 </code></pre>
 <p>So, right now, there is nothing to see. The participant count is deliberately undisclosed during REGISTERING to prevent information leakage about participants.</p>
 <p>You'll have to wait until the ceremony phase turns to ASSIGNING. The worker enclave then assigns all participants to randomized groups that will have to meet at a random meetup locations at the upcoming ceremony.
@@ -881,7 +881,7 @@ Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
   meetup count: 0
   ceremony reward: 1
   location tolerance: 1000m
-  time tolerance: 600000m
+  time tolerance: 600000ms
 </code></pre>
 <p>Your new currency has a very special property called <a href="./economics-demurrage.html">demurrage</a>.
 This means that the nominal value of your holdings decreases over time.
