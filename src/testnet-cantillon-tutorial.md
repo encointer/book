@@ -16,9 +16,9 @@ Get our cli client and start playing! The following instructions start from preb
 ```console
 mkdir test
 cd test
-wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.10
-chmod u+x encointer-client-teeproxy-0.6.10
-ln -s encointer-client-teeproxy-0.6.10 encointer-client
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.11-sub2.0.0-alpha.7/encointer-client-teeproxy-0.6.11
+chmod u+x encointer-client-teeproxy-0.6.11
+ln -s encointer-client-teeproxy-0.6.11 encointer-client
 ./encointer-client -u wss://cantillon.encointer.org -p 443 get-phase
 ```
 
@@ -80,7 +80,7 @@ Public information about currency 7eLSZLSMShw4ju9GvuMmoVgeZxZimtvsGTSvLEdvcRqQ
   meetup count: 0
   ceremony reward: 1
   location tolerance: 1000m
-  time tolerance: 600000m
+  time tolerance: 600000ms
 ```
 
 If you get such a response that means that you are successfully talking to our worker. Don't worry about the contents too much for now.
@@ -219,7 +219,7 @@ Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
   meetup count: 0
   ceremony reward: 1
   location tolerance: 1000m
-  time tolerance: 600000m
+  time tolerance: 600000ms
 ```
 
 So, right now, there is nothing to see. The participant count is deliberately undisclosed during REGISTERING to prevent information leakage about participants.
@@ -288,7 +288,7 @@ Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
   meetup count: 0
   ceremony reward: 1
   location tolerance: 1000m
-  time tolerance: 600000m
+  time tolerance: 600000ms
 ```
 
 Your new currency has a very special property called [demurrage](./economics-demurrage.md).
