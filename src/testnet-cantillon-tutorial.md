@@ -58,7 +58,7 @@ Enclave 3
    URL: 127.0.0.1:9944
 ```
 
-We see two enclaves and we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. In this case, Enclave 1 is outdated, so we chose the second one which supplied remote attestation (RA) later. The URL is misleading due to an open issue but that worker is actually answering on wss://substratee03.scs.ch which we configured above. 
+We see a few enclaves and now we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. We suggest that you use our node which listens at https://substratee03.scs.ch as you have configured above. The URL in the registry is misleading due to an open issue. You will always be able to identify our node by its public signing key: `5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY`.
 
 ```bash
 MRENCLAVE=HE4AURbrvvxzKJZckLEDkNSVZt2aUGxyVC2S2knvn13
