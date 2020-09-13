@@ -6,6 +6,7 @@
   - [Universal Basic Income](./economics-ubi.md)
   - [Demurrage](./economics-demurrage.md)
   - [Local Currencies](./economics-local-currencies.md)
+- [Self-Sovereign Identity](./ssi.md)
 - [The Encointer Protocol](./protocol.md)
   - [Threat Model](./protocol-threat-model.md)
 - [Decentralization](./decentralization.md)
