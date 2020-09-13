@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Cantillon - The Encointer Book</title>
+        <title>Self-Sovereign Identity - The Encointer Book</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li></ol></li><li class="expanded "><a href="ssi.html"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li class="expanded "><a href="testnets.html"><strong aria-hidden="true">5.</strong> Testnets</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html"><strong aria-hidden="true">5.1.1.</strong> Tutorial</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html" class="active"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li><ol class="section"><li class="expanded "><a href="testnet-cantillon-tutorial.html"><strong aria-hidden="true">5.2.1.</strong> Tutorial</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li></ol></li><li class="expanded "><a href="ssi.html" class="active"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li class="expanded "><a href="testnets.html"><strong aria-hidden="true">5.</strong> Testnets</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html"><strong aria-hidden="true">5.1.1.</strong> Tutorial</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li><ol class="section"><li class="expanded "><a href="testnet-cantillon-tutorial.html"><strong aria-hidden="true">5.2.1.</strong> Tutorial</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -151,23 +151,46 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#testnet-cantillon" id="testnet-cantillon">Testnet Cantillon</a></h1>
-<h2><a class="header" href="#design" id="design">Design</a></h2>
-<p>Cantillon uses the same pallets as Gesell, but the privacy-sensitive ones will be executed off-chain, inside a trusted execution environment (TEE). <a href="https://github.com/scs/substraTEE">SubstraTEE</a> will be the framework that isolates sensitive information inside Intel SGX enclaves (Alternative TEE technologies are being evaluated)</p>
-<p><img src="./fig/Testnet-Cantillon-Component-Interactions.svg" alt="Cantillon" /></p>
+                        <h1><a class="header" href="#self-sovereign-identity" id="self-sovereign-identity">Self-Sovereign Identity</a></h1>
+<blockquote>
+<p>With self-sovereign identity (SSI) the individual identity holders can fully create and control their credentials, without being forced to request permission of an intermediary or centralised authority and gives control over how their personal data is shared and used. <em>Wikipedia</em></p>
+</blockquote>
+<p>The <a href="./protocol.html">Encointer protocol</a> provides a <a href="https://www.w3.org/TR/vc-data-model/#what-is-a-verifiable-credential">verifiable credential</a> (VC) of human uniqueness based on its unique-proof-of-personhood (uPoP). This VC is used as a <a href="https://en.wikipedia.org/wiki/Sybil_attack">sybil-attack</a> mitigation for <a href="./economics-ubi.html">Encointer's universal basic income</a>, but can also be useful for other use cases.</p>
+<h2><a class="header" href="#privacy-considerations" id="privacy-considerations">Privacy Considerations</a></h2>
+<p>If one person could only maintain one online identity, this would cause massive harm to privacy and therefore to human freedom because information could be linked across all platforms where such an identity is used. </p>
+<p>With Encointer SSI, users may maintain different identities on different platforms. The Encointer uPoP VC can be used to ensure one human only maintains one ID on one specific platform.</p>
+<h2><a class="header" href="#social-media-example" id="social-media-example">Social Media Example</a></h2>
+<p>Let's assume a decentralized social media platform like <a href="https://subsocial.network/">subsocial</a> enforces all its users to maintain only one account per human and prevents sybil attack with Encointer uPoP.</p>
+<p>Alice Smith registers on subsocial with an alter ego of Sophie Summers because she doesn't want her presence on subsocial to be easily linkable to her physical world identity. Upon registration, subsocial would send a challenge to Alice to provide a uPoP. This challenge includes </p>
+<ul>
+<li>a platform token identifying subsocial (must be unique for subsocial)</li>
+<li>a timestamp (or at least a ceremony index)</li>
+<li>a confidence threshold (like: <em>must prove attendance for N of the last M encointer ceremonies</em>)</li>
+<li>a list of trusted community identifers (can be restricted to a region to also provide plausibility of location of residence) Encointer will itself attempt to maintain a <a href="#Community-Web-of-Trust">web-of-trust score for communities</a> which can be referenced instead.</li>
+</ul>
+<p>Alice now requests her uPoP for subsocial from the Encointer platform. Encointer maintains a registry of attested attendance for all recent ceremonies. Alice is represented in this registry by changing pseudonyms for every ceremony. These pseudonyms are public keys and she now has to provide evidence that she knows all private keys for all pseudonyms she claims. </p>
+<p>Given that Alice can prove attendance of the requested N of the last M ceremonies, Encointer provides a uPoP to be sent to subsocial in the form of a verifiable credential signed by one encointer-worker enclave's signing-key. Encointer then stores the subsocial platform token along with Alice's ceremony attendance attestations. Should Alice attempt to claim the same ceremony attendances again for another account on subsocial, Encointer would deny to provide a uPoP VC.</p>
+<p>uPoP VC's need to be renewed over time because an adversary could register an additional account every few months otherwise.</p>
+<p>Now imagine Sophie Summers becomes a victim of cyberbullying and Alice wants to drop that identity and create a new one under the name of Maria Gonzales. She will have to attend a few encointer ceremonies without claiming the attendance with subsocial. After a few months, she can register a new account on subsocial because she has collected enough unlinked evidence.</p>
+<h2><a class="header" href="#community-web-of-trust" id="community-web-of-trust">Community Web of Trust</a></h2>
+<p>The <a href="./protocol.html">Encointer protocol</a> builds communities based on trusted setups involving well-known people in every community. On a community level, this trusted setup is the root of trust. On a global level, these people may not be known nor trusted and communities will trust each other blindly. Adversaries might maintain bot communities in the middle of the pacific. </p>
+<p>Encointer can leverage an economic incentive to build a web-of-trust (WoT) among communities: Encointer issues local currencies. Communities that trade with each other will exchange their local currencies frequently in both directions on a decentralized exchange (DEX). Based on a few trusted seed communities that act as a root of trust (one per country, continent, world), the whole world may become linkable in a single WoT given geographically dense adoption of Encointer.</p>
+<h2><a class="header" href="#polkadot-parachain-ssi-service" id="polkadot-parachain-ssi-service">Polkadot Parachain SSI Service</a></h2>
+<p>Should Encointer become a parachain or parathread of Polkadot, it could provide SSI services to other parachains. As uPoP VC will be signed by SGX enclaves, a client parachain needs a trustelss way to query the enclave registry to verify a VC.</p>
+<p><a href="https://wiki.polkadot.network/docs/en/learn-crosschain">XCMP</a> can be used to verify a certain enclave is registered as an encointer-worker and has passed remote attestation on the encointer platform.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="testnet-gesell-tutorial.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="economics-local-currencies.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="testnet-cantillon-tutorial.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="protocol.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -179,13 +202,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="testnet-gesell-tutorial.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="economics-local-currencies.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="testnet-cantillon-tutorial.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="protocol.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
