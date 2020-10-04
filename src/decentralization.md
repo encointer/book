@@ -39,7 +39,7 @@ Should this fail, it can still get finality for its PoA consensus by running as 
 
 Encointer is no static system. It shall evolve over time and different communities shall be able to adjust their local rules independently. Such a foederalistic governance is possible thanks to Encointers' [self-sovereign identity (SSI) features](./ssi.md).  Encointer's proof-of-personhood allows to have democratic voting. Its proof-of-location ensures that people can only vote on matters concerning their local community. This local governance shall rule over the parameters of individual community currencies, such as defining meetup locations, changing the [demurrage rate](./economics-demurrage.md), changing the [UBI](./economics-ubi.md) amount or the name of their currency.
 
-Global governance shall leverage the [web-of-trust among communities](./ssi.md#Community-Web-Of-Trust). Democratic votes are thus weighted with the trust score of each community. Global governance shall decide on updates to the blockchain logic and global parameter such as the ceremony period, the set of trusted TEE manufacturers or the distribution of fees.
+Global governance shall leverage the [web-of-trust among communities](./ssi.md#community-web-of-trust). Democratic votes are thus weighted with the trust score of each community. Global governance shall decide on updates to the blockchain logic and global parameter such as the ceremony period, the set of trusted TEE manufacturers or the distribution of fees.
 
 ## Privacy
 

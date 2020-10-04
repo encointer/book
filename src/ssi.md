@@ -31,7 +31,7 @@ Now imagine Sophie Summers becomes a victim of cyberbullying and Alice wants to 
 
 ## Community Web of Trust
 
-The [Encointer protocol](./protocol.md) builds communities based on trusted setups involving well-known people in every community. On a community level, this trusted setup is the root of trust. On a global level, these people may not be known nor trusted and communities will trust each other blindly. Adversaries might maintain bot communities in the middle of the pacific. 
+The [Encointer protocol](./protocol.md) builds communities based on trusted setups involving well-known people in every community. On a community level, this trusted setup is the root of trust. On a global level, these people may not be known nor trusted and communities will not trust each other blindly. Adversaries might maintain bot communities in the middle of the pacific. 
 
 Encointer can leverage an economic incentive to build a web-of-trust (WoT) among communities: Encointer issues local currencies. Communities that trade with each other will exchange their local currencies frequently in both directions on a decentralized exchange (DEX). Based on a few trusted seed communities that act as a root of trust (one per country, continent, world), the whole world may become linkable in a single WoT given geographically dense adoption of Encointer.
 
