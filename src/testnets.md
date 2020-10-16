@@ -13,7 +13,7 @@ Aimed at automated testing of the protocol.
 
 ## Cantillon
 
-The main purpose of Cantillon is to test our mobile phone app and privacy features.
+The main purpose of Cantillon is to test our [mobile phone app](./app.md) for physical meetups and to test privacy features.
 Aimed at experimenting with real ceremony meetups, physically meeting people.
 Bot communities can still be grown but we expect them to be loctated in off-shore locations in order not to interfere with physical communities. 
 

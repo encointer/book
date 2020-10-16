@@ -225,7 +225,7 @@ Public information about currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 So, right now, there is nothing to see. The participant count is deliberately undisclosed during REGISTERING to prevent information leakage about participants.
 
 You'll have to wait until the ceremony phase turns to ASSIGNING. The worker enclave then assigns all participants to randomized groups that will have to meet at a random meetup locations at the upcoming ceremony.
-During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The mobile phone app will. There is publicly available we can query on the CLI:
+During the ASSIGNING phase you can learn where and when exactly you will have to be for your meetup and how many people you're goint to meet. The CLI however, doesn't support that query. The [mobile phone app](./app.md) does, however. There is publicly available information we can query on the CLI:
 
 ```console
 > nctr trusted info -m $MRENCLAVE --shard $cid
