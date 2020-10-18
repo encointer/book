@@ -159,28 +159,34 @@
 <p>Registering means that participants can now register for the next ceremony</p>
 <h2><a class="header" href="#play" id="play">Play!</a></h2>
 <p>But now you'd like to play with it, right? So get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to build the client yourself.</p>
-<pre><code class="language-bash">&gt; mkdir test
-&gt; cd test
-&gt; wget https://github.com/encointer/encointer-node/releases/download/v0.2.0/encointer-client
-&gt; chmod u+x encointer-client
-&gt; ./encointer-client wss://gesell.encointer.org get-phase
-# you should see either of REGISTERING, ASSIGNING or ATTESTING
-# for simplicity, we'll create an alias for the client
-&gt; alias nctr=&quot;./encointer-client wss://gesell.encointer.org&quot;
-# let's create a new account
-&gt; nctr new-account
+<pre><code class="language-console">mkdir test
+cd test
+wget https://github.com/encointer/encointer-node/releases/download/v0.3.6/encointer-client-notee-0.3.6
+chmod u+x encointer-client-notee-0.3.6
+ln -s encointer-client-notee-0.3.6 encointer-client
+./encointer-client -u wss://gesell.encointer.org -p 443 get-phase
+</code></pre>
+<p>you should see either of REGISTERING, ASSIGNING or ATTESTING</p>
+<p>for simplicity, we'll create an alias for the client</p>
+<pre><code class="language-console"># Gesell node endpoint
+NURL=wss://gesell.encointer.org
+NPORT=443
+alias nctr=&quot;./encointer-client -u $NURL -p $NPORT&quot;
+</code></pre>
+<p>let's create a new account</p>
+<pre><code class="language-console">&gt; nctr new-account
 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 # you can now check that your local keystore has a new entry
 &gt; ls my_keystore
 73723235ae365cf166bab30448f25b3751b06d034be9c992a8ba5501d3adcde640ab9b1e
-&gt; nctr get-balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+&gt; nctr balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 ERT balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex 0
 </code></pre>
 <p>As with other blockchains, you'll need some funds in order to pay fees. As you can read in our whitepaper, we'll avoid this entry barrier in the future. We have a faucet in place that gets you started immediately:</p>
-<pre><code class="language-bash">&gt; nctr fund-account 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+<pre><code class="language-bash">&gt; nctr faucet 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 </code></pre>
-<p>Should the faucet be exhausted, please post a message to our riot channel and friendly request some topup. Please be patient. </p>
-<pre><code class="language-bash">&gt; nctr get-balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+<p>Should the faucet be exhausted, please post a message to our <a href="https://app.element.io/#/room/#encointer:matrix.org">element channel</a> and friendly request some topup. Please be patient. </p>
+<pre><code class="language-bash">&gt; nctr balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 ERT balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 998999854
 # now you could send around your new ERT
 &gt; nctr transfer 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex 5G18LaJA315RwJqtYYbWrbE52g9FEQCgBYN1A1XG66XnKAw5 123456789
@@ -190,8 +196,8 @@ ERT balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 998999854
 nctr new-account
 </code></pre>
 <p>giving us <code>5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7</code> and <code>5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK</code> which we will fund with</p>
-<pre><code class="language-console">nctr fund-account 5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
-nctr fund-account 5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
+<pre><code class="language-console">nctr faucet 5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7 \
+5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
 </code></pre>
 <h2><a class="header" href="#bootstrap-your-own-currency" id="bootstrap-your-own-currency">Bootstrap your own currency</a></h2>
 <p>Now that we have some funds to pay platform fees, we can start our own local currency and bootstrap a bot population! 
@@ -239,26 +245,28 @@ currency with cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 </code></pre>
 <p>In order to bootstrap your bot currency, You'll need to fund all bootstrappers and register all of them</p>
 <pre><code class="language-bash">#check if phase is REGISTERING
-&gt; nctr get-phase
-REGISTERING
+nctr get-phase
+# REGISTERING
 # ok, let's register, but first we will define a few variables and a new alias
-&gt; alias nctr=&quot;./encointer-client wss://gesell.encointer.org --cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES&quot;
-&gt; account1=5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-&gt; account2=5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
-&gt; account3=5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
-&gt; nctr register-participant $account1
-&gt; nctr register-participant $account2
-&gt; nctr register-participant $account3
+alias nctr=&quot;./encointer-client -u $NURL -p $NPORT --cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES&quot;
+account1=5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+account2=5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
+account3=5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
+nctr register-participant $account1
+nctr register-participant $account2
+nctr register-participant $account3
 # if everything goes well, you should find your registrations here:
-&gt; nctr list-participant-registry
-listing participants for cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES and ceremony nr 38
+nctr list-participants
+</code></pre>
+<p>giving us</p>
+<pre><code class="language-console">listing participants for cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES and ceremony nr 38
 number of participants assigned:  3
 ParticipantRegistry[38, 1] = 7080e1799d2e646d8b3f9e7eab53b2f011476d6fd4abe3ac69aa039bf3f11440 (5EcDWHsG...)
 ParticipantRegistry[38, 2] = b6fc46e65b3b24af03845fa12917668863db7b5bd46d6125643170400ca25c41 (5GCdWmdr...)
 ParticipantRegistry[38, 3] = 5429da7a940f960b9a79cb1b7889142b8ee209b7f43ac5953df9c56f1bc0a726 (5Dy4K5eN...)
 </code></pre>
 <p>Now you'll have to wait ~10min until the ceremony phase turns to ASSIGNING. The blockchain then assigns all participants to randomized groups that will have to meet at a random meetup location at a specific time. Participants can learn their assignment with:</p>
-<pre><code class="language-bash">&gt; nctr list-meetup-registry
+<pre><code class="language-bash">&gt; nctr list-meetups
 listing meetups for cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES and ceremony nr 38
 number of meetups assigned:  1
 MeetupRegistry[38, 1] location is Some(Location { lat: 40.0318206134, lon: 11.25 })
@@ -272,23 +280,23 @@ MeetupRegistry[38, 1] participants are:
 <p>An encointer ceremony happens at high sun on the same day all over the world. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. For this testnet, however, we don't care about real time or physical presence as we're testing with bot communities. See <a href="./testnets.html#time-warping-for-testnets">Time Warping</a> to learn how the timing maps between mainnet and Gesell.</p>
 <p>Our bot communities can perform meetups simply with the following lines. In later networks, a mobile app will be used (similar to what we demonstrated in PoC1).</p>
 <pre><code class="language-bash"># each participant generates a claim of attendance including her vote on how many people N are actually physically present at that moment
-&gt; claim1=$(nctr new-claim $account1 3)
-&gt; claim2=$(nctr new-claim $account2 3)
-&gt; claim3=$(nctr new-claim $account3 3)
+claim1=$(nctr new-claim $account1 3)
+claim2=$(nctr new-claim $account2 3)
+claim3=$(nctr new-claim $account3 3)
 # this claim is then sent to all other participants who will verify them and sign an attestation 
-&gt; witness1_2=$(nctr sign-claim $account1 $claim2)
-&gt; witness1_3=$(nctr sign-claim $account1 $claim3)
-&gt; witness2_1=$(nctr sign-claim $account2 $claim1)
-&gt; witness2_3=$(nctr sign-claim $account2 $claim3)
-&gt; witness3_1=$(nctr sign-claim $account3 $claim1)
-&gt; witness3_2=$(nctr sign-claim $account3 $claim2)
+witness1_2=$(nctr sign-claim $account1 $claim2)
+witness1_3=$(nctr sign-claim $account1 $claim3)
+witness2_1=$(nctr sign-claim $account2 $claim1)
+witness2_3=$(nctr sign-claim $account2 $claim3)
+witness3_1=$(nctr sign-claim $account3 $claim1)
+witness3_2=$(nctr sign-claim $account3 $claim2)
 # and send that attestation back to the claimant who assembles all attestations and sends them to the chain
-&gt; nctr register-attestations $account1 $witness2_1 $witness3_1
-&gt; nctr register-attestations $account2 $witness1_2 $witness3_2
-&gt; nctr register-attestations $account3 $witness1_3 $witness2_3
+nctr register-attestations $account1 $witness2_1 $witness3_1
+nctr register-attestations $account2 $witness1_2 $witness3_2
+nctr register-attestations $account3 $witness1_3 $witness2_3
 </code></pre>
 <p>Now you have to wait for the ceremony phase to become REGISTERING. Then we can verify that our bootstrapping was successful and our bootstrappers have received their basic income issue on their accounts in units of the new currency (beware that we still use the alais including our cid. This means we're not querying ERT token balance, but the balnce in your new local currency). </p>
-<pre><code class="language-bash">&gt; nctr get-balance $account1
+<pre><code class="language-bash">&gt; nctr balance $account1
 NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.99999932394375560185 in currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 </code></pre>
 <p>Your new currency has a very special property called <a href="./eceonomy-demurrage.html">demurrage</a>. This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized &quot;state&quot; that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.</p>
