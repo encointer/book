@@ -13,35 +13,47 @@ Registering means that participants can now register for the next ceremony
 
 But now you'd like to play with it, right? So get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to build the client yourself.
 
-```bash
-> mkdir test
-> cd test
-> wget https://github.com/encointer/encointer-node/releases/download/v0.2.0/encointer-client
-> chmod u+x encointer-client
-> ./encointer-client wss://gesell.encointer.org get-phase
-# you should see either of REGISTERING, ASSIGNING or ATTESTING
-# for simplicity, we'll create an alias for the client
-> alias nctr="./encointer-client wss://gesell.encointer.org"
-# let's create a new account
+```console
+mkdir test
+cd test
+wget https://github.com/encointer/encointer-node/releases/download/v0.3.6/encointer-client-notee-0.3.6
+chmod u+x encointer-client-notee-0.3.6
+ln -s encointer-client-notee-0.3.6 encointer-client
+./encointer-client -u wss://gesell.encointer.org -p 443 get-phase
+```
+
+you should see either of REGISTERING, ASSIGNING or ATTESTING
+
+for simplicity, we'll create an alias for the client
+
+```console
+# Gesell node endpoint
+NURL=wss://gesell.encointer.org
+NPORT=443
+alias nctr="./encointer-client -u $NURL -p $NPORT"
+```
+
+let's create a new account
+
+```console
 > nctr new-account
 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 # you can now check that your local keystore has a new entry
 > ls my_keystore
 73723235ae365cf166bab30448f25b3751b06d034be9c992a8ba5501d3adcde640ab9b1e
-> nctr get-balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+> nctr balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 ERT balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex 0
 ```
 
 As with other blockchains, you'll need some funds in order to pay fees. As you can read in our whitepaper, we'll avoid this entry barrier in the future. We have a faucet in place that gets you started immediately:
 
 ```bash
-> nctr fund-account 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+> nctr faucet 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 ```
-
-Should the faucet be exhausted, please post a message to our riot channel and friendly request some topup. Please be patient. 
+Should the faucet be exhausted, please post a message to our [element channel](https://app.element.io/#/room/#encointer:matrix.org) and friendly request some topup. Please be patient. 
 
 ```bash
-> nctr get-balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+> nctr balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
 ERT balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 998999854
 # now you could send around your new ERT
 > nctr transfer 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex 5G18LaJA315RwJqtYYbWrbE52g9FEQCgBYN1A1XG66XnKAw5 123456789
@@ -57,8 +69,8 @@ nctr new-account
 giving us `5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7` and `5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK` which we will fund with
 
 ```console
-nctr fund-account 5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
-nctr fund-account 5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
+nctr faucet 5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7 \
+5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
 ```
 
 ## Bootstrap your own currency
@@ -124,18 +136,23 @@ In order to bootstrap your bot currency, You'll need to fund all bootstrappers a
 
 ```bash
 #check if phase is REGISTERING
-> nctr get-phase
-REGISTERING
+nctr get-phase
+# REGISTERING
 # ok, let's register, but first we will define a few variables and a new alias
-> alias nctr="./encointer-client wss://gesell.encointer.org --cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES"
-> account1=5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-> account2=5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
-> account3=5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
-> nctr register-participant $account1
-> nctr register-participant $account2
-> nctr register-participant $account3
+alias nctr="./encointer-client -u $NURL -p $NPORT --cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES"
+account1=5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
+account2=5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
+account3=5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
+nctr register-participant $account1
+nctr register-participant $account2
+nctr register-participant $account3
 # if everything goes well, you should find your registrations here:
-> nctr list-participant-registry
+nctr list-participants
+```
+
+giving us
+
+```console
 listing participants for cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES and ceremony nr 38
 number of participants assigned:  3
 ParticipantRegistry[38, 1] = 7080e1799d2e646d8b3f9e7eab53b2f011476d6fd4abe3ac69aa039bf3f11440 (5EcDWHsG...)
@@ -146,7 +163,7 @@ ParticipantRegistry[38, 3] = 5429da7a940f960b9a79cb1b7889142b8ee209b7f43ac5953df
 Now you'll have to wait ~10min until the ceremony phase turns to ASSIGNING. The blockchain then assigns all participants to randomized groups that will have to meet at a random meetup location at a specific time. Participants can learn their assignment with:
 
 ```bash
-> nctr list-meetup-registry
+> nctr list-meetups
 listing meetups for cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES and ceremony nr 38
 number of meetups assigned:  1
 MeetupRegistry[38, 1] location is Some(Location { lat: 40.0318206134, lon: 11.25 })
@@ -165,26 +182,26 @@ Our bot communities can perform meetups simply with the following lines. In late
 
 ```bash
 # each participant generates a claim of attendance including her vote on how many people N are actually physically present at that moment
-> claim1=$(nctr new-claim $account1 3)
-> claim2=$(nctr new-claim $account2 3)
-> claim3=$(nctr new-claim $account3 3)
+claim1=$(nctr new-claim $account1 3)
+claim2=$(nctr new-claim $account2 3)
+claim3=$(nctr new-claim $account3 3)
 # this claim is then sent to all other participants who will verify them and sign an attestation 
-> witness1_2=$(nctr sign-claim $account1 $claim2)
-> witness1_3=$(nctr sign-claim $account1 $claim3)
-> witness2_1=$(nctr sign-claim $account2 $claim1)
-> witness2_3=$(nctr sign-claim $account2 $claim3)
-> witness3_1=$(nctr sign-claim $account3 $claim1)
-> witness3_2=$(nctr sign-claim $account3 $claim2)
+witness1_2=$(nctr sign-claim $account1 $claim2)
+witness1_3=$(nctr sign-claim $account1 $claim3)
+witness2_1=$(nctr sign-claim $account2 $claim1)
+witness2_3=$(nctr sign-claim $account2 $claim3)
+witness3_1=$(nctr sign-claim $account3 $claim1)
+witness3_2=$(nctr sign-claim $account3 $claim2)
 # and send that attestation back to the claimant who assembles all attestations and sends them to the chain
-> nctr register-attestations $account1 $witness2_1 $witness3_1
-> nctr register-attestations $account2 $witness1_2 $witness3_2
-> nctr register-attestations $account3 $witness1_3 $witness2_3
+nctr register-attestations $account1 $witness2_1 $witness3_1
+nctr register-attestations $account2 $witness1_2 $witness3_2
+nctr register-attestations $account3 $witness1_3 $witness2_3
 ```
 
 Now you have to wait for the ceremony phase to become REGISTERING. Then we can verify that our bootstrapping was successful and our bootstrappers have received their basic income issue on their accounts in units of the new currency (beware that we still use the alais including our cid. This means we're not querying ERT token balance, but the balnce in your new local currency). 
 
 ```bash
-> nctr get-balance $account1
+> nctr balance $account1
 NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.99999932394375560185 in currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 ```
 
