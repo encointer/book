@@ -40,28 +40,18 @@ Encointer Cantillon uses *workers* to confidentially process your calls inside T
 
 ```bash
 > nctr list-workers
-number of workers registered: 3
+number of workers registered: 1
 Enclave 1
-   AccountId: 5DBXHQgjd6CVuzHnoyXVW8WatuDi2rfhH57yDwVZ3ZzMgYiX
-   MRENCLAVE: 5RqYVKwQdyvPqAPwauWz9oQMRcU9dw9M1vKfPWx81bgh
-   RA timestamp: 2020-06-10 11:42:53 UTC
-   URL: 127.0.0.1:2000
-Enclave 2
-   AccountId: 5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY
-   MRENCLAVE: HE4AURbrvvxzKJZckLEDkNSVZt2aUGxyVC2S2knvn13
-   RA timestamp: 2020-08-30 19:08:48 UTC
+   AccountId: 5FBFhWyBgXsz6CtFzbgxprEmrtRLaiQBBsFHvK32vUeqUT7k
+   MRENCLAVE: 3YM1AH5qdQAsh6BjYqDeYKQbuKgyDgNiSoFmqSUJTYvV
+   RA timestamp: 2020-11-11 07:59:31 UTC
    URL: 127.0.0.1:19944
-Enclave 3
-   AccountId: 5C9mAPSTRrDwnttXLDF4NZjXzYN3wqZBMC5kzT5NZoZfejRS
-   MRENCLAVE: 6dn3j7jmStjyCzAwWNxbxXTnrqD4FXhrohBqqS2MJY4R
-   RA timestamp: 2020-08-26 12:48:38 UTC
-   URL: 127.0.0.1:9944
 ```
 
-We see a few enclaves and now we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. We suggest that you use our node which listens at https://substratee03.scs.ch as you have configured above. The URL in the registry is misleading due to an open issue. You will always be able to identify our node by its public signing key: `5Eztpox9YRidTCReasMep5m7x3vvXSFpmbjfHhihw7QqNyZY`.
+We may see a few enclaves and now we have to know what is the most recent Encointer enclave version as identified by MRENCLAVE. We suggest that you use our node which listens at https://substratee03.scs.ch as you have configured above. The URL in the registry is misleading due to an open issue. You will always be able to identify our node by its public signing key: `5FBFhWyBgXsz6CtFzbgxprEmrtRLaiQBBsFHvK32vUeqUT7k`.
 
 ```bash
-MRENCLAVE=HE4AURbrvvxzKJZckLEDkNSVZt2aUGxyVC2S2knvn13
+MRENCLAVE=3YM1AH5qdQAsh6BjYqDeYKQbuKgyDgNiSoFmqSUJTYvV
 ```
 
 Now we'll connect to a worker and request some publicly available information on an existing currency (aggregated values from its confidential state)
