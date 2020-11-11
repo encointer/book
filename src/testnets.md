@@ -17,7 +17,7 @@ The main purpose of Cantillon is to test our [mobile phone app](./app.md) for ph
 Aimed at experimenting with real ceremony meetups, physically meeting people.
 Bot communities can still be grown but we expect them to be loctated in off-shore locations in order not to interfere with physical communities. 
 
-* Accelerated ceremony schedule to avoid long wait times. Ceremonies every three days.
+* Accelerated ceremony schedule to avoid long wait times. Ceremonies every three days. *Temporarily, we will apply 30min ceremony cycle like Gesell*
 * Privacy enhancement through Trusted Execution environments (with enclaves still in development mode, so privacy is not guaranteed before we move to production mode)
 
 Cantillon is planned to become a parachain to [Kusama](https://kusama.network/)
@@ -33,6 +33,8 @@ The mainnet is planned to become a parachain of [Polkadot](https://polkadot.netw
 In order to understand the different timing on our networks, we offer the following figure:
 
 ![Phase Timing](./fig/phase-timing.svg)
+
+*Temporarily, we will apply 30min ceremony cycle to both Gesell and Cantillon*
 
 ## Testing Cantillon's Teeproxy System Locally 
 
@@ -51,9 +53,9 @@ Because the enclave cannot yet be built deterministically, you'll have to use ou
 
 ```
 cd bin
-wget https://github.com/encointer/encointer-worker/releases/download/v0.6.11-sub2.0.0-alpha.7/enclave-0.6.11-devsgx02.signed.so
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.12-sub2.0.0/enclave-0.6.12.signed.so
 rm enclave.signed.so
-ln -s enclave-0.6.11-devsgx02.signed.so enclave.signed.so
+ln -s enclave-0.6.12-devsgx02.signed.so enclave.signed.so
 ```
 Moreover, you will need to provision secrets (the *shielding key* and the *state encryption key*) to the enclave. In the future, this will be done by workers automatically mutually, as demonstrated in [SubstraTEE M3](https://www.substratee.com/design.html#redundancy-m3-onwards).
 
