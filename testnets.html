@@ -165,7 +165,7 @@
 Aimed at experimenting with real ceremony meetups, physically meeting people.
 Bot communities can still be grown but we expect them to be loctated in off-shore locations in order not to interfere with physical communities. </p>
 <ul>
-<li>Accelerated ceremony schedule to avoid long wait times. Ceremonies every three days.</li>
+<li>Accelerated ceremony schedule to avoid long wait times. Ceremonies every three days. <em>Temporarily, we will apply 30min ceremony cycle like Gesell</em></li>
 <li>Privacy enhancement through Trusted Execution environments (with enclaves still in development mode, so privacy is not guaranteed before we move to production mode)</li>
 </ul>
 <p>Cantillon is planned to become a parachain to <a href="https://kusama.network/">Kusama</a></p>
@@ -175,6 +175,7 @@ Bot communities can still be grown but we expect them to be loctated in off-shor
 <h2><a class="header" href="#time-warping-for-testnets" id="time-warping-for-testnets">Time Warping for Testnets</a></h2>
 <p>In order to understand the different timing on our networks, we offer the following figure:</p>
 <p><img src="./fig/phase-timing.svg" alt="Phase Timing" /></p>
+<p><em>Temporarily, we will apply 30min ceremony cycle to both Gesell and Cantillon</em></p>
 <h2><a class="header" href="#testing-cantillons-teeproxy-system-locally" id="testing-cantillons-teeproxy-system-locally">Testing Cantillon's Teeproxy System Locally</a></h2>
 <p>You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.</p>
 <h3><a class="header" href="#build-client-and-worker" id="build-client-and-worker">Build client and worker</a></h3>
@@ -186,9 +187,9 @@ make
 </code></pre>
 <p>Because the enclave cannot yet be built deterministically, you'll have to use our build if you intend to serve the same shards that we do (feel free to start new currencies on your own shard with different MRENCLAVE, but you won't be able to process the state of our/other shards):</p>
 <pre><code>cd bin
-wget https://github.com/encointer/encointer-worker/releases/download/v0.6.11-sub2.0.0-alpha.7/enclave-0.6.11-devsgx02.signed.so
+wget https://github.com/encointer/encointer-worker/releases/download/v0.6.12-sub2.0.0/enclave-0.6.12.signed.so
 rm enclave.signed.so
-ln -s enclave-0.6.11-devsgx02.signed.so enclave.signed.so
+ln -s enclave-0.6.12-devsgx02.signed.so enclave.signed.so
 </code></pre>
 <p>Moreover, you will need to provision secrets (the <em>shielding key</em> and the <em>state encryption key</em>) to the enclave. In the future, this will be done by workers automatically mutually, as demonstrated in <a href="https://www.substratee.com/design.html#redundancy-m3-onwards">SubstraTEE M3</a>.</p>
 <pre><code># still inside ./bin
