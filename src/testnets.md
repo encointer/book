@@ -94,3 +94,78 @@ cd encointer-worker/bin
 export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=debug,sp_io::misc=debug,runtime=debug,substratee_worker_enclave::state=warn,substratee_stf::sgx=debug
 ./encointer-worker -p 9979 run
 ```
+
+## Docker Demo
+
+```
+mkdir test
+cd test
+docker pull scssubstratee/substratee_dev:1804-2.12-1.1.3-001
+
+docker run -it -v $(pwd):/root/work -p 9979:9944 -p 2079:2000 -p 3079:3443 scssubstratee/substratee_dev:1804-2.12-1.1.3-001 /bin/bash
+
+cd work
+```
+
+Please observe that we are mapping the api ports to the host system. this way, you can expose the encointer demo to your home network and access it with our [mobile app](./app.md) too. 
+
+We suggest to use tmux in docker to split your docker bash into 3 terminals. minimal cheatsheet:
+* `Ctrl-B "` to split into one more terminal
+* `Ctrl-B <arrows>` to switch focus to another terminal 
+* `Ctrl-B d` detatch session. re-attach with `tmux a`
+
+### building
+
+in terminal 1 do
+```
+git clone https://github.com/encointer/encointer-node.git
+cd encointer-node
+git checkout sgx-master
+cargo build --release
+export RUST_LOG=INFO,parity_ws=WARN,encointer=debug
+./target/release/encointer-node-teeproxy --dev --ws-external -lencointer=debug,runtime=debug
+```
+Your chain should now start producing blocks.
+
+in terminal 2 do
+```
+git clone https://github.com/encointer/encointer-worker.git
+cd encointer-worker
+SGX_MODE=SW make
+cd bin
+./encointer-worker signing-key
+./encointer-worker shielding-key
+./encointer-worker init-shard
+./encointer-worker mrenclave > ~/mrenclave.b58
+export RUST_LOG=debug,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=info,sp_io::misc=debug,runtime=debug,substratee_worker_enclave::state=warn,substratee_stf::sgx=info,chain_relay=warn,rustls=warn,encointer=debug
+touch spid.txt key.txt
+./encointer-worker run --skip-ra
+```
+Your worker should sync blocks now.
+
+Now you have a running local Encointer system.
+
+### run a bot community
+
+in terminal 3 do
+```console
+cd encointer-worker/client/
+MRENCLAVE=$(cat ~/mrenclave.b58)
+nano bot-community.py
+```
+now edit the following lines to match your setup
+
+```
+cli = ["./encointer-client"]
+...
+MRENCLAVE = "<your mrenclave here>"
+```
+save and exit with Ctrl-X
+
+```console
+apt update
+apt install python3-geojson python3-pyproj
+./bot-community.py init
+./bot-community.py benchmark
+```
+now you can see how your bots register for ceremonies and get a UBI. More and more bots join the community for every ceremony.
