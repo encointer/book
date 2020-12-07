@@ -139,7 +139,7 @@ cd bin
 ./encointer-worker mrenclave > ~/mrenclave.b58
 export RUST_LOG=debug,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_worker=info,substratee_worker_enclave=info,sp_io::misc=debug,runtime=debug,substratee_worker_enclave::state=warn,substratee_stf::sgx=info,chain_relay=warn,rustls=warn,encointer=debug
 touch spid.txt key.txt
-./encointer-worker run --skip-ra
+./encointer-worker run --skip-ra --ws-external
 ```
 Your worker should sync blocks now.
 
