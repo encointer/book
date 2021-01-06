@@ -4,11 +4,37 @@ Cryptocurrencies are fundamentally global in nature. Their networks are decentra
 
 Local currencies on the other hand are mainly affected by local economy. 
 
-## Real Examples
+## Classification
 
-### Wära Schwanenkirchen
-*TODO*
+Known examples of local currencies can be divided into *mutual credit*,  *local fiat currencies* and *time banks*.
+### Mutual Credit
 
+[Mutual credit](https://en.wikipedia.org/wiki/Mutual_credit) is a membership based, cashless currency created by clearing positive and negative balances between members when they trade. Usually, the accounts are denominated in national currency.
+If Alice provides a service worth 100$ to Bob, Alices balance will be +100$, Bob's will be -100$. Alice can later spend her 100$ balance in a trade with Charlie, who may be interested in a service Bob is providing.
+Businesses are often allowed to have negative balances in the order of their usual turnover for a few months. These schemes rely on a local authority that performs due diligence when accepting new members and bans defaulters.
+
+Examples are barter networks like *Talent* or business exchange networks like *WIR*, *RES*.
+
+Mutual credit comes with high transaction costs. You might not always find the product you are looking for and it may be challenging to accept such currency for payment if you don't know where to spend it later.
+
+In an economic environment of deflation, when there is a shortage of money because banks are reluctant to issue credits, mutual credit has shown to be of great value [1]. But when there's an abundance of money, these networks are unattractive and they generally do little to further Encointer's goal of reducing inequality.
+### Local Fiat Currencies
+
+Currencies like Wörgl's AB Schein, Chiemgauer or Berkshares are denominated in national currency. Often they have circulating paper bills, sometimes featuring demurrage. What they all have in common: They are only circulating within a local community and are worthless elsewhere. Often, they are redeemable for national currency, sometimes subject to a small fee. Sometimes redemption is restricted to businesses. 
+
+On the bottom line, such currencies can be understood as a loyalty programme incentivizing local spending, sometimes incentivized with discounts. They are successful in strenghtening a spirit of local community [1] and they can mitigate unemployment in an environment of deflation (Wörgl). However, due to globalization, local goods are often more expensive than imported ones, therefore these currencies are not attractive for poorer members of the community if they have to buy the local currency for national currency in the first place.
+
+[Grassroots Economics'](https://www.grassrootseconomics.org/community-currencies) Sarafu Credit in Kenya evolved from earlier *BanglaPesa* is a very innovative approach that shows significant social impact by empowering poor neighbourhoods by issuing money to local businesses directly. However, their concept so far relies on careful engineering of money supply and distribution (by experts from outside the community) for each community specifically. Moreover, Sarafu Credit is backed by donation money. Still, it is not a cash transfer scheme: Foreign capital is used as a fractional reserve for the local currency. A very clever approach applying [bonding curves](https://medium.com/linum-labs/intro-to-bonding-curves-and-shapes-bf326bc4e11a).
+
+### Time Banks
+
+A very egalitarian category of local currencies are time banks. They proclaim that one hour's worth of service by one human has equal value to one hour's work by any other. Mostly, they work like mutual credit currencies, with the difference that the denomination is hours instead of national currency.
+
+Examples are Blaengarw Time Centre, Dane County Time Bank
+
+While the concept of time banks has shown to increase social capital [1], in practise they feature high transaction cost and liquid matchmaking showed to be challenging. The main benefactors end up to be the same individuals that also perform well on a free market based on national money. If your service is in high demand, you will be able collect more hours than you'll be able to spend on services you desire.
+
+## Examples
 ### AB-Schein Wörgl
 During the great depression, the austrian village of Wörgl attempted a monetary experiment to fight deflation: A complementary local currency.
 
@@ -16,7 +42,7 @@ During the great depression, the austrian village of Wörgl attempted a monetary
 |:----------------|:----------------|
 | denomination  | Schilling (1:1 national currency) |
 | issuance      | by the muncipality, as partial salary for infrastructure  work |
-| backing | full reserve in Schilling |
+| backing | (full?) reserve in Schilling, provided by wealthy individuals |
 | demurrage | 12% / year linear pro rata |
 | reimbursement fee | 2% |
 | date | 1932 until prohibited in 1933 |
@@ -53,7 +79,16 @@ WIR is rather a reciprocal exchange network (barter ring) - but it is an officia
 
 [source](https://archive.is/20130115184645/http://www.der-arbeitsmarkt.ch/arbeitsmarkt/de/themen/archiv/101176/WIR_sind_auch_Geld)
 
+### Blaengarw Time Centre
 
-## TBC....
-<!-- ..TBC...medieval times...digitization eases exchange -->
+|||
+|:----------------|:----------------|
+| denomination  | hours of work |
+| issuance      | reward for community work |
+| backing | community events that can be attended with time credits |
+| demurrage | none |
+| reimbursement fee | no reimbursement  |
+| date | 2006 until now |
 
+## References
+[1] People Money: The Promise of Regional Currencies, Margrit Kennedy, Bernard Lietaer, John Rogers, ISBN-13: 978-1908009760, 2012

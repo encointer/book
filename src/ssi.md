@@ -2,13 +2,13 @@
 
 > With self-sovereign identity (SSI) the individual identity holders can fully create and control their credentials, without being forced to request permission of an intermediary or centralised authority and gives control over how their personal data is shared and used. *Wikipedia*
 
-The [Encointer protocol](./protocol.md) provides a [verifiable credential](https://www.w3.org/TR/vc-data-model/#what-is-a-verifiable-credential) (VC) of human uniqueness based on its unique-proof-of-personhood (uPoP). This VC is used as a [sybil-attack](https://en.wikipedia.org/wiki/Sybil_attack) mitigation for [Encointer's universal basic income](./economics-ubi.md), but can also be useful for other use cases.
+The [Encointer protocol](./protocol.md) provides a [verifiable credential](https://www.w3.org/TR/vc-data-model/#what-is-a-verifiable-credential) (VC) of digital personhood and uniqueness based on its unique-proof-of-personhood (uPoP). This VC is used as a [sybil-attack](https://en.wikipedia.org/wiki/Sybil_attack) mitigation for [Encointer's universal basic income](./economics-ubi.md), but can also be useful for other use cases as described below.
 
 ## Privacy Considerations
 
 If one person could only maintain one online identity, this would cause massive harm to privacy and therefore to human freedom because information could be linked across all platforms where such an identity is used. 
 
-With Encointer SSI, users may maintain different identities on different platforms. The Encointer uPoP VC can be used to ensure one human only maintains one ID on one specific platform.
+With Encointer, users may maintain different identities on different platforms. The Encointer uPoP VC can be used to ensure one human only maintains one ID on one specific platform.
 
 ## Social Media Example
 
@@ -35,9 +35,9 @@ The [Encointer protocol](./protocol.md) builds communities based on trusted setu
 
 Encointer can leverage an economic incentive to build a web-of-trust (WoT) among communities: Encointer issues local currencies. Communities that trade with each other will exchange their local currencies frequently in both directions on a decentralized exchange (DEX). Based on a few trusted seed communities that act as a root of trust (one per country, continent, world), the whole world may become linkable in a single WoT given geographically dense adoption of Encointer.
 
-## Polkadot Parachain SSI Service
+## Polkadot Parachain Personhood Service
 
-Should Encointer become a parachain or parathread of Polkadot, it could provide SSI services to other parachains. As uPoP VC will be signed by SGX enclaves, a client parachain needs a trustelss way to query the enclave registry to verify a VC.
+Should Encointer become a system chain, parachain or parathread of Polkadot, it could provide proofs of digital personhood to other parachains through cross-chain communication. As uPoP VC will be signed by SGX enclaves, a client parachain needs a trustelss way to query the enclave registry to verify a VC.
 
 [XCMP](https://wiki.polkadot.network/docs/en/learn-crosschain) can be used to verify a certain enclave is registered as an encointer-worker and has passed remote attestation on the encointer platform.
 

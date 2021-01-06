@@ -6,6 +6,7 @@
   - [Universal Basic Income](./economics-ubi.md)
   - [Demurrage](./economics-demurrage.md)
   - [Local Currencies](./economics-local-currencies.md)
+  - [On Saving, Loans and Interest](./economics-interest.md)
 - [Self-Sovereign Identity](./ssi.md)
 - [The Encointer Protocol](./protocol.md)
   - [Threat Model](./protocol-threat-model.md)
@@ -15,4 +16,5 @@
     - [Tutorial](./testnet-gesell-tutorial.md)
   - [Cantillon](./testnet-cantillon.md)
     - [Tutorial](./testnet-cantillon-tutorial.md)
+- [Bazaar](./bazaar.md)
 - [App](./app.md)
