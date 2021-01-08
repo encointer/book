@@ -8,12 +8,8 @@ Encointer currencies feature [nominal demurrage](https://en.wikipedia.org/wiki/D
 
 ## Comparison
 
-Demurrage is mainly known as a means to increase money velocity and known [local currencies](economics-local-currencies.md) have chosen demurrage to be in the range of 2-8% per year. 
+Demurrage is mainly known as a means to increase money velocity. Known [local currencies](economics-local-currencies.md) have chosen demurrage to be in the range of 2-8% per year.
 
-Due to technical limitations (paying for demurrage by sticking stamps on paper bills in the case of Chiemgauer), demurrage is often charged linearly, like 2% of the face value per quarter (see Chiemgauer). Encointer has more technical freedom and charges *compound* demurrage, as a percentage of its current value. The difference between linear and compound demurrage becomes clear after 50 quarters: Your 100 Chiemgauer have cost 100€ in demurrage fees. With compound demurrage, your 100 Chiemgauer would still be worth 
+Due to technical limitations, demurrage is often charged linearly, like 2% of the face value per quarter as in the case Chiemgauer, where demurrage is applied by stamping paper bills. Encointer has more technical freedom and charges *compound* demurrage, as a percentage of its current value. The difference between linear and compound demurrage becomes clear after 50 quarters: Your 100 Chiemgauer have cost 100€ in demurrage fees. With compound demurrage, your 100 Chiemgauer would still be worth
 
 100€ * (1-0.02)^50 = 36.42€
-
-
-
-

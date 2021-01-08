@@ -6,21 +6,21 @@ said Olusegun Obasanjo, president of Nigeria, in August 2000 after the G8 Okinaw
 
 > All that we had borrowed up to 1985 or 1986 was around $5 billion and we have paid about $16 billion yet we are still being told that we owe about $28 billion. That $28 billion came about because of the injustice in the foreign creditors’ interest rates.
 
-Compound interest makes debt grow exponentially, but nothing in nature grows exponentially forever. Sooner or later there will always be a saturation effect (usually modeled with an [S-curve](https://en.wikipedia.org/wiki/S-curve_(math))). 
+Compound interest makes debt grow exponentially, but nothing in nature grows exponentially forever. Sooner or later there will always be a saturation effect (usually modeled with an [S-curve](https://en.wikipedia.org/wiki/S-curve_(math))).
 
 Even worse, our national money is *created* by commercial banks as credit, bearing compound interest. A priviledge for wealthy shareholders, which results in constantly growing debt and [growth imperative](https://en.wikipedia.org/wiki/Growth_imperative#Monetary_system_and_the_role_of_positive_interest_rates), an unsustainable way to design our economy.
 
-Compound interest is also a major cause of inequality [1]. It ensures that rich are getting richer while the poor are getting poorer. 
+Compound interest is also a major cause of inequality [1]. It ensures that rich are getting richer while the poor are getting poorer.
 
 ## Alternatives
 
 A Lender usually charges interest from the borrower. Besides giving the borrower an income, interest also covers opportunity costs and compensates for the risk of the borrower defaulting on the loan.
 
-It is beneficial to society if members with capital they can spare for a limited period of time provide their assets to members who need capital to build a business or suffer a temporary shortage. 
+It is beneficial to society if members with capital they can spare for a limited period of time provide their assets to members who need capital to build a business or suffer a temporary shortage.
 
 In a society with a lot of social capital, lenders often provide their assets without a monetary incentive (or do you charge interest when borrowing money to a friend?). But this way of social lending does not scale well to larger loans.
 
-Mutual credit is a way to better scale social credit beyond bilateral agreements (See WIR, LETS, RES). Interest-free credit is issued by clearing positive and negative balances when members trade, denominated in national currency. (See [local currencies](./economics-local-currencies.md)
+Mutual credit is a way to better scale social credit beyond bilateral agreements (See WIR, LETS, RES). Interest-free credit is issued by clearing positive and negative balances when members trade, denominated in national currency. (See [local currencies](./economics-local-currencies.md))
 
 ## Saving Is No Virtue
 
@@ -36,7 +36,7 @@ For all these reasons, the design of Encointer disincentivizes saving in favor o
 
 Holding Encointer currencies comes at high opportunity costs because of [demurrage](./economics-demurrage.md). This is an incentive to spend or lend money at no interest. However, it may appear more attractive to exchange all perishable money you don't immediately need for other assets outside the encointer ecosystem (national currency, shares, bonds, crypto assets). This investor flight would decrease the real value of encointer currencies.
 
-Encointer allows businesses the issuance of vouchers. Vouchers are a transferrable promise to deliver goods or services sometime in the future. If they are transferrable, vouchers are nothing less than self-issued money. Vouchers can be *valid after* a certain date and therefore become credit. This credit is paid back by goods and services, not by money. 
+Encointer allows businesses the issuance of vouchers that are not subject to demurrage. Vouchers are a transferrable promise to deliver goods or services sometime in the future. If they are transferrable, vouchers are nothing less than self-issued money. Vouchers can be *valid after* a certain date and therefore become credit. This credit is paid back by goods and services, not by money.
 
 The [story of the *Deli Dollar*](https://www.independent.co.uk/news/business/delidollar-offers-route-to-business-funding-1071370.html) tells us how vouchers can be credit:
 
