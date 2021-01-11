@@ -14,7 +14,7 @@ Compound interest is also a major cause of inequality [1]. It ensures that rich 
 
 ## Alternatives
 
-A Lender usually charges interest from the borrower. Besides giving the borrower an income, interest also covers opportunity costs and compensates for the risk of the borrower defaulting on the loan.
+A lender usually charges interest from the borrower. Besides giving the lender an income, interest also covers opportunity costs and compensates for the risk of the borrower defaulting on the loan.
 
 It is beneficial to society if members with capital they can spare for a limited period of time provide their assets to members who need capital to build a business or suffer a temporary shortage.
 
