@@ -1,4 +1,5 @@
 # Testnet Gesell Tutorial
+
 ## Connect!
 
 You may watch Gesell working by navigating to [polkadot.js.org/apps](https://polkadot.js.org/apps//?rpc=wss://gesell.encointer.org#/explorer). 
@@ -16,9 +17,9 @@ But now you'd like to play with it, right? So get our cli client and start playi
 ```console
 mkdir test
 cd test
-wget https://github.com/encointer/encointer-node/releases/download/v0.3.6/encointer-client-notee-0.3.6
-chmod u+x encointer-client-notee-0.3.6
-ln -s encointer-client-notee-0.3.6 encointer-client
+wget https://github.com/encointer/encointer-node/releases/download/v0.4.0/encointer-client-notee
+chmod u+x encointer-client-notee
+ln -s encointer-client-notee encointer-client
 ./encointer-client -u wss://gesell.encointer.org -p 443 get-phase
 ```
 
@@ -94,8 +95,12 @@ Every local currency needs a trusted setup. A trustworthy group of 3-12 local pe
 ```json
 {
   "type": "FeatureCollection",
-  "currency_meta": {
-    "name": "minimal mediterranean test currency",
+  "community": {
+    "meta": {
+      "name": "Mediterranea",
+      "symbol": "MTA",
+      "icons": "QmVmew4gZHyCK2Fv4UBgsvfLdf1Q6UiF9MD6wsfPCuNVQp"
+    },
     "bootstrappers": [
       "5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex",
       "5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7",
@@ -205,7 +210,7 @@ Now you have to wait for the ceremony phase to become REGISTERING. Then we can v
 NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.99999932394375560185 in currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
 ```
 
-Your new currency has a very special property called [demurrage](./eceonomy-demurrage.md). This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized "state" that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.
+Your new currency has a very special property called [demurrage](./economics-demurrage.md). This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized "state" that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.
 
 ## What's next?
 
