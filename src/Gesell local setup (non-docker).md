@@ -3,9 +3,6 @@
 ## Launch Gesell node
 
 ### Build node 
-
-along the [substraTEE-node instructions](https://www.substratee.com/howto_node.html#build). With the following differences:
-
 ```console
 git clone https://github.com/encointer/encointer-node.git
 cd encointer-node
@@ -17,7 +14,7 @@ Run dev node locally
 ```console
 ./target/release/encointer-node-notee --dev --tmp --enable-offchain-indexing true --ws-port 9945 --rpc-methods unsafe
 ```
-note that --tmp is responsible for erasing all previous data and start node at block 0, offchain-indexing is needed for the custom rpc `communities_getAll` and
+Note that --tmp is responsible for erasing all previous data and start node at block 0, offchain-indexing is needed for the custom rpc `communities_getAll` and
 `--rpc-methods unsafe` is needed for the bazaar's business and offering aggregation rpcs.
 The node is by default listening on port 9944, but you can add the option --ws-port xxxx to configure the node to listen to port xxxx.
 
