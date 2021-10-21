@@ -21,15 +21,23 @@ Run dev node locally
 The node is by default listening on port 9944, but you can add the option `--ws-port xxxx` to configure the node to listen to port xxxx.
 
 ## Initialize and populate bot-community
+First, go to the client folder and install all requirements:
 ```console
 cd client
 apt update
 pip3 install --upgrade pip
-pip3 install randomwords geojson pyproj
+pip3 install randomwords geojson pyproj flask
+```
+Then, insure that there are sufficient funds in the //Alice account by running the faucet service:
+```console
+./faucet.py
+```
+Finally, run the following script to initialize a community and let the community grow:
 ./bot-community.py --port 9945 init
 ./bot-community.py --port 9945 benchmark
 ```
-
+When benchmark is running, you can change the phase by running the ./phase.py
+script in another shell.
 Be sure to pass the same port to the python script that was configured for the node to listen to. If no port configured, than you can omit the port and the default port 9944 is used.
 
 To check, if a community is registered on the node, you can use the client with the command "list-communities": 
