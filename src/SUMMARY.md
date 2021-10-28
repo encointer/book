@@ -14,6 +14,7 @@
 - [Testnets](./testnets.md)
   - [Gesell](./testnet-gesell.md)
     - [Tutorial](./testnet-gesell-tutorial.md)
+    - [Explorer](./explorer.md)
     - [Benchmark Community Growth](gesell-community-growth-benchmark.md)
     - [Local Setup](gesell-local-setup.md)
   - [Cantillon](./testnet-cantillon.md)
