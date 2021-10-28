@@ -101,7 +101,7 @@ Another way is to run the phase script in a seperate shell which switches phase 
 
 Now you'll have to wait ~10min until the ceremony phase turns to ASSIGNING. The blockchain then assigns all participants to randomized groups that will have to meet at a random meetup location at a specific time. Participants can learn their assignment with:
 
-An encointer ceremony happens at high sun on the same day all over the world. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. For this testnet, however, we don't care about real time or physical presence as we're testing with bot communities. See [Time Warping](./testnets.html#time-warping-for-testnets) to learn how the timing maps between mainnet and Gesell.
+An encointer ceremony happens at high sun on the same day all over the world. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. For this testnet, however, we don't care about real time or physical presence as we're testing with bot communities. See [Time Warping](./testnets.md#time-warping-for-testnets) to learn how the timing maps between mainnet and Gesell.
 
 ## See Activity in Explorer
 Visit explorer.encointer.org to observe the growth of the community or set it up locally according to the [explorer](./explorer) section.
