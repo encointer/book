@@ -77,9 +77,22 @@ The benchmark function calls the run function in an infinite loop, where the run
 At Attesting it performs the meetup by getting each participants claims and attesting eachother. 
 
 Alternatively, you can do everything within the command line in [this section](#bootstrapping-a-community-in-the-cli)
+## Watch activity in explorer
+Checkout the [explorer repository](https://github.com/encointer/explorer). <br>
+In the terminal, go to the the root directory of the repo and enter: <br>
+```console
+yarn install
+yarn start
+```
+Then you should be able to view the explorer in your browser at http://localhost:8000/. <br>
+At the bottom, the registered chain is displayed. You can click on it and change between the local and remote chain.
+You can also set the rpc address via the query paramter, for example: <br>
+`localhost:8000?rpc=ws://127.0.0.1:9945` will connect to the chain on localhost with port 9945. <br>
+The registered community should be visible in the explorer.
 
+Alternatively, you can visit explorer.encointer.org
 ## Create Businesses and Offerings and Save the data on an IPFS node
-After a community is initialized, run the following script to create some random businesses and offerings:
+After a community is initialized, we can register businesses with offerings on the chain. Run the following script to create and register some random businesses and offerings:
 ```console
 ./register-businesses.py 
 ```
@@ -100,29 +113,6 @@ The business offerings can be obtained with the option `--cid` and arg `Account`
 ./target/release/encointer-node-notee list-business-offerings --cid COMMUNITY_IDENTIFIER //Alice
 ```
 Note: the cid option needs to be entered in the base58 format. </br>
-## Watch activity in explorer
-Checkout the [explorer repository](https://github.com/encointer/explorer). <br>
-In the terminal, go to the the root directory of the repo and enter: <br>
-```console
-yarn install
-yarn start
-```
-Then you should be able to view the explorer in your browser at http://localhost:8000/. <br>
-At the bottom, the registered chain is displayed. You can click on it and set the chain to be the local chain.
-You can also set the rpc address via the query paramter, for example: <br>
-`localhost:8000?rpc=ws://127.0.0.1:9945` will connect to the chain on localhost with port 9945. <br>
-The registered community should be visible in the explorer.
-
-Alternatively, you can visit explorer.encointer.org and configure the chain to be your local gesell chain with the predefined port.
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## ALAIN CODE
-
 ## Bootstrapping a Community in the CLI
 For simplicity, we'll create an alias for the chain client
 ```console
@@ -152,7 +142,7 @@ To register a community, you need to pass a specfile.json containing details abo
 
 Define Meetup Locations
 
-We need to define in what region the currency shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the currency. You can use geojson.io to select meetup places on a map (define a few "Points"). Make sure that you select places that are >100m apart. You also need to keep this minimal distance from other registered communities. 
+We need to define in what region the community shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the community. You can use geojson.io to select meetup places on a map (define a few "Points"). Make sure that you select places that are >100m apart. You also need to keep this minimal distance from other registered communities. 
 
 The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. 
 
@@ -162,7 +152,6 @@ You can list all registered communities with:
 > nctr list-communities
 ```
 Our [explorer](https://explorer.encointer.org) allows you to browse all regsitered communities and their attributes on a map.
-
 ## Trusted Setup
 
 Every local community needs a trusted setup. A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly. These bootstrappers need to be defined in the metadata block. 
@@ -289,11 +278,9 @@ Now you have to wait for the ceremony phase to become REGISTERING. Then we can v
 
 ```bash
 > nctr balance $account1
-NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.99999932394375560185 in currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
+NCTR balance for 5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG is 0.99999932394375560185 in community A9xSvDWnV351uKh5Ni59xFwU2Q3t37J7MMp8tN2Gya9D
 ```
 
-Your new currency has a very special property called [demurrage](./economics-demurrage.md). This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized "state" that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.
-
+Your new community has a very special property called [demurrage](./economics-demurrage.md). This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized "state" that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.
 ## What's next?
-
 Now that you bootstrapped your community currency, you should grow your population. At every subsequent ceremony you can add a few participants more but it is important to maintain reputation. At least 3/4 of all participants need to have attended the previous ceremony. So you can only grow your population at a pace that allows to build reputation.
