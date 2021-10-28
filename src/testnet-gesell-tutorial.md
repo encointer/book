@@ -64,7 +64,7 @@ The specfile is needed to register a community.
 4. A new community is registered by passing the specfile and one of the bootstrappers (with funds). 
 
 Note: 
-- Make sure, the faucet.py script is running in the background while running the bot-community.py script to enable the faucet.
+- Make sure, the faucet script is running in the background while running the bot-community script to enable the faucet.
 - As you can read in our whitepaper, we'll avoid the faucet as an entry barrier in the future. 
 - Should the faucet be exhausted, please post a message to our [element channel](https://app.element.io/#/room/#encointer:matrix.org) and friendly request some topup. Please be patient. 
 
@@ -76,7 +76,7 @@ To check, if a community is registered on the chain, you can use the client with
 The benchmark function calls the run function in an infinite loop, where the run function is responsible to handle the specific task depending on the phase. At REGISTERING, it registers participants. At ASSIGNING it gets the meetup location, time and participants.
 At Attesting it performs the meetup by getting each participants claims and attesting eachother. 
 
-Alternatively, you can do everything within the command line in [this section](#bootstrapping-a-community-in-the-cli)
+Alternatively, you can do everything within the command line in [this section](#how-to-bootstrap-an-encointer-community-manually)
 ## Watch activity in explorer
 Checkout the [explorer repository](https://github.com/encointer/explorer). <br>
 In the terminal, go to the the root directory of the repo and enter: <br>
@@ -113,7 +113,7 @@ The business offerings can be obtained with the option `--cid` and arg `Account`
 ./target/release/encointer-node-notee list-business-offerings --cid COMMUNITY_IDENTIFIER //Alice
 ```
 Note: the cid option needs to be entered in the base58 format. </br>
-## Bootstrapping a Community in the CLI
+## How to Bootstrap an Encointer Community (manually)
 For simplicity, we'll create an alias for the chain client
 ```console
 # Gesell node endpoint
@@ -209,11 +209,15 @@ First, check if phase is REGISTERING:
 nctr get-phase
 ```
 You should see either REGISTERING, ASSIGNING or ATTESTING. 
-Run the phase.py script in a seperate shell to see in what phase you are and how many blocks until the next phase (every 10 blocks the phase is changing). You can add the --node_url wss://gesell.encointer.org 
-option if you are working with the remote chain.
+A phase is ~10 min long so one whole cycle is 30 min. You can jump to the next phase on the local chain by running: 
+```bash
+>nctr next-phase
+```
+Another way is to run the phase script in a seperate shell which switches phase every 10 blocks. You can add the option: --node_url wss://gesell.encointer.org to the phase script
+if you are working with the remote chain.
 
 
-If phase is REGISTERING, then:
+## During Registration
 ```bash
 # ok, let's register, but first we will define a few variables and a new alias
 alias nctr="./target/release/encointer-client-notee -u $NURL -p $NPORT --cid A9xSvDWnV351uKh5Ni59xFwU2Q3t37J7MMp8tN2Gya9D"
@@ -249,8 +253,9 @@ MeetupRegistry[14, 1] participants are:
    5HB4kbo67Hgv846DNMRnt7i1xNMum66LLBFkqtghKsNwRknM
    5GxWKwbrPL88uH3Zv7zAiz6ozdpSFHzSfK1aXhVxDcNQYU8t
 ```
-
 The ceremony phase will change to ATTESTING before the date of the ceremony. 
+
+## During Attesting
 
 An encointer ceremony happens at high sun on the same day all over the world. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. For this testnet, however, we don't care about real time or physical presence as we're testing with bot communities. See [Time Warping](./testnets.html#time-warping-for-testnets) to learn how the timing maps between mainnet and Gesell.
 
