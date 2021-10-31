@@ -14,16 +14,8 @@ Registering means that participants can now register for the next ceremony
 To simplify the registration of a community, a python script was written to wrap up the chain client commands and automate the bootstrapping. 
 We will go through the process step by step. <br>
 First, setup the chain and client locally according to the [gesell local setup](gesell-local-setup). <br>
-After the setup, make sure the chain is running and try out the client (from the root folder of the encointer-node repository):
-```console
-./target/release/encointer-client-notee -h
-```
-This should output all possible client commands. Some of them will be used within the python scripts. Be sure to specify the correct port, if the local chain is listening to a port other than 9944. 
-If you want to use the client to communicate with the remote chain, add the chain url and specify the port. The following command will get the current phase from the remote chain.
-```console
-./target/release/encointer-client-notee -u wss://gesell.encointer.org -p 443 get-phase
-```
-After setting up the node and client, install all requirements for the python scripts (you'll need pip3 for that):
+
+Then, install all requirements for the python scripts (you'll need pip3 for that):
 ```console
 apt update
 pip3 install --upgrade pip
