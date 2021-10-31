@@ -19,4 +19,4 @@ jobs:
         with:
           mdbook-version: 'latest'
 
-      - run: mdbook test
+      - run: mdbook build
