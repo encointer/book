@@ -16,6 +16,7 @@
     - [Local Setup](gesell-local-setup.md)
     - [Explorer](./explorer.md)
     - [Tutorial](./testnet-gesell-tutorial.md)
+    - [Register Community Manually in CLI](./register-community-cli.md)
     - [Benchmark Community Growth](gesell-community-growth-benchmark.md)
   - [Cantillon](./testnet-cantillon.md)
     - [Tutorial](./testnet-cantillon-tutorial.md)
