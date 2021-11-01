@@ -26,7 +26,7 @@ Go to the client folder and run the faucet service in a seperate terminal which 
 cd client
 ./faucet.py
 ```
-The faucet service is a flask app which listens on port 5000 to incoming faucet requests.
+The faucet service is a flask app which runs on localhost and listens on port 5000 to incoming faucet requests.
 
 You can decide, if you want to register your community on the local chain or on the remote chain. <br>
 To work with the remote chain, you need to specify the node-url (see below). <br> 
@@ -71,7 +71,7 @@ The benchmark function calls the run function in an infinite loop, where the run
 
 At REGISTERING, it registers participants on the chain. 
 Additionally to registering participants, bootstrappers can endorse other accounts to speed up registration.
-After participants are registered for a ceremony, it can be checked in a seperate shell by calling:
+After participants are registered for a ceremony, the participatns can be verified in a seperate shell by calling:
 ```bash
 ./target/release/encointer-node-notee list-participants
 ```
@@ -81,16 +81,24 @@ Participants can learn their assignment with:
 ./target/release/encointer-node-notee list-meetups
 ```
 At ATTESTING, the run function performs the meetup by getting each participants claims and attesting eachother. 
+
 To know in what phase the chain is, you can call:
 ```bash
 ./target/release/encointer-node-notee get-phase
 ```
 You should see either REGISTERING, ASSIGNING or ATTESTING. 
+
 A phase is ~10 min long so one whole cycle is 30 min. You can jump to the next phase on the local chain by running: 
 ```bash
 ./target/release/encointer-node-notee next-phase
 ```
 Another way is to run the phase script in a seperate shell which switches phase every 10 blocks. You can add the option: --node_url wss://gesell.encointer.org to the phase script if you are working with the remote chain.
+
+To define in what region the community shall be issued, we use the geojson standard to define a set of meetup places and add some meta-information about the community. You can use geojson.io to select meetup places on a map (define a few "Points"). Make sure that you select places that are >100m apart. You also need to keep this minimal distance from other registered communities. 
+
+The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. 
+
+Every local community needs a trusted setup. A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly. These bootstrappers need to be defined in the metadata block of the specfile. 
 
 At every subsequent ceremony you can add a few participants more but it is important to maintain reputation. At least 3/4 of all participants need to have attended the previous ceremony. So you can only grow your population at a pace that allows to build reputation.
 

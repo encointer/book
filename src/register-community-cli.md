@@ -40,7 +40,7 @@ Our [explorer](https://explorer.encointer.org) allows you to browse all regsiter
 
 ## Trusted Setup
 
-Every local community needs a trusted setup. A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly. These bootstrappers need to be defined in the metadata block. 
+Every local community needs a trusted setup. A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly. These bootstrappers need to be defined in the metadata block of the specfile. 
 
 An example of the specfile.json is shown below with one meetup locations:  
 ```json
