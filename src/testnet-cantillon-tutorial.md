@@ -11,7 +11,7 @@ You can either gather a few people and hold an actual meetup or you register a b
 
 ## Client Setup
 
-Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to [build the client yourself](./testnets.md).
+Get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to [build the client yourself](./deployments.md).
 
 ```console
 mkdir test

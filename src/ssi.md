@@ -48,3 +48,4 @@ Should Encointer become a common good parachain of Polkadot, it could provide pr
 
 [XCMP](https://wiki.polkadot.network/docs/en/learn-crosschain) can be used to verify a certain enclave is registered as an encointer-worker and has passed remote attestation on the encointer platform.
 
+Please see our [sybil-defense demo video](https://www.youtube.com/watch?v=Fw2dalJO1hM) to learn how sybil defense works within the Polkadot ecosystem of parachains.
