@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li><li class="expanded "><a href="economics-interest.html"><strong aria-hidden="true">1.5.</strong> On Saving, Loans and Interest</a></li></ol></li><li class="expanded "><a href="ssi.html"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li class="expanded "><a href="testnets.html"><strong aria-hidden="true">5.</strong> Testnets</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html" class="active"><strong aria-hidden="true">5.1.1.</strong> Tutorial</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li><ol class="section"><li class="expanded "><a href="testnet-cantillon-tutorial.html"><strong aria-hidden="true">5.2.1.</strong> Tutorial</a></li></ol></li></ol></li><li class="expanded "><a href="bazaar.html"><strong aria-hidden="true">6.</strong> Bazaar</a></li><li class="expanded "><a href="app.html"><strong aria-hidden="true">7.</strong> App</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li><li class="expanded "><a href="economics-interest.html"><strong aria-hidden="true">1.5.</strong> On Saving, Loans and Interest</a></li></ol></li><li class="expanded "><a href="ssi.html"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li class="expanded "><a href="deployments.html"><strong aria-hidden="true">5.</strong> Deployments</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html" class="active"><strong aria-hidden="true">5.1.1.</strong> Tutorial</a></li><li class="expanded "><a href="deployments-register-community.html"><strong aria-hidden="true">5.1.2.</strong> Register Community Manually in CLI</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li class="expanded "><a href="parachain-kusama.html"><strong aria-hidden="true">5.3.</strong> Encointer Kusama Parachain</a></li><li class="expanded "><a href="deployments-register-community.html"><strong aria-hidden="true">5.4.</strong> Register a Community Manually</a></li></ol></li><li class="expanded "><a href="bazaar.html"><strong aria-hidden="true">6.</strong> Bazaar</a></li><li class="expanded "><a href="app.html"><strong aria-hidden="true">7.</strong> App</a></li><li class="expanded "><a href="explorer.html"><strong aria-hidden="true">8.</strong> Explorer</a></li><li class="expanded "><a href="developers.html"><strong aria-hidden="true">9.</strong> Developers</a></li><li><ol class="section"><li class="expanded "><a href="developers-notee-local-setup.html"><strong aria-hidden="true">9.1.</strong> Local notee Setup</a></li><li class="expanded "><a href="developers-bot-communities.html"><strong aria-hidden="true">9.2.</strong> Bot Communities</a></li><li class="expanded "><a href="developers-notee-multi-community-growth-benchmark.html"><strong aria-hidden="true">9.3.</strong> Benchmark Multi-Community Growth</a></li><li class="expanded "><a href="developers-teeproxy-local.html"><strong aria-hidden="true">9.4.</strong> Local TEEproxy setup</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -157,151 +157,10 @@
 <p>Gesell features regular ceremonies every 30min (Whereas the vision for mainnet is every 41 days). You can query the current ceremony phase below the menu <em>Developer -&gt; Chain State</em></p>
 <p><img src="./fig/polkadot-js-apps-query-phase.png" alt="query phase" /></p>
 <p>Registering means that participants can now register for the next ceremony</p>
-<h2><a class="header" href="#play" id="play">Play!</a></h2>
-<p>But now you'd like to play with it, right? So get our cli client and start playing! The following instructions start from prebuilt binaries for ubuntu 18.04. If you use some other OS, you will have to build the client yourself.</p>
-<pre><code class="language-console">mkdir test
-cd test
-wget https://github.com/encointer/encointer-node/releases/download/v0.3.6/encointer-client-notee-0.3.6
-chmod u+x encointer-client-notee-0.3.6
-ln -s encointer-client-notee-0.3.6 encointer-client
-./encointer-client -u wss://gesell.encointer.org -p 443 get-phase
-</code></pre>
-<p>you should see either of REGISTERING, ASSIGNING or ATTESTING</p>
-<p>for simplicity, we'll create an alias for the client</p>
-<pre><code class="language-console"># Gesell node endpoint
-NURL=wss://gesell.encointer.org
-NPORT=443
-alias nctr=&quot;./encointer-client -u $NURL -p $NPORT&quot;
-</code></pre>
-<p>let's create a new account</p>
-<pre><code class="language-console">&gt; nctr new-account
-5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-# you can now check that your local keystore has a new entry
-&gt; ls my_keystore
-73723235ae365cf166bab30448f25b3751b06d034be9c992a8ba5501d3adcde640ab9b1e
-&gt; nctr balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-ERT balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex 0
-</code></pre>
-<p>As with other blockchains, you'll need some funds in order to pay fees. As you can read in our whitepaper, we'll avoid this entry barrier in the future. We have a faucet in place that gets you started immediately:</p>
-<pre><code class="language-bash">&gt; nctr faucet 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-</code></pre>
-<p>Should the faucet be exhausted, please post a message to our <a href="https://app.element.io/#/room/#encointer:matrix.org">element channel</a> and friendly request some topup. Please be patient. </p>
-<pre><code class="language-bash">&gt; nctr balance 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-ERT balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 998999854
-# now you could send around your new ERT
-&gt; nctr transfer 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex 5G18LaJA315RwJqtYYbWrbE52g9FEQCgBYN1A1XG66XnKAw5 123456789
-</code></pre>
-<p>Let's create and fund two more accounts for later use:</p>
-<pre><code class="language-console">nctr new-account
-nctr new-account
-</code></pre>
-<p>giving us <code>5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7</code> and <code>5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK</code> which we will fund with</p>
-<pre><code class="language-console">nctr faucet 5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7 \
-5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
-</code></pre>
-<h2><a class="header" href="#bootstrap-your-own-currency" id="bootstrap-your-own-currency">Bootstrap your own currency</a></h2>
-<p>Now that we have some funds to pay platform fees, we can start our own local currency and bootstrap a bot population! 
-Define Meetup Locations</p>
-<p>First of all, we need to define in what region the currency shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the currency. You can use geojson.io to select meetup places on a map (define a few &quot;Points&quot;). Make sure that you select places that are &gt;100m apart. You also need to keep this minimal distance from other registered currencies. You can list all registered currencies with</p>
-<pre><code class="language-bash">&gt; nctr list-currencies
-</code></pre>
-<p>Our <a href="https://explorer.encointer.org">explorer</a> allows you to browse all regsitered currencies and their attributes on a map.</p>
-<p>The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. </p>
-<h2><a class="header" href="#trusted-setup" id="trusted-setup">Trusted Setup</a></h2>
-<p>Every local currency needs a trusted setup. A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly. These bootstrappers need to be defined in the metadata block:</p>
-<pre><code class="language-json">{
-  &quot;type&quot;: &quot;FeatureCollection&quot;,
-  &quot;currency_meta&quot;: {
-    &quot;name&quot;: &quot;minimal mediterranean test currency&quot;,
-    &quot;bootstrappers&quot;: [
-      &quot;5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex&quot;,
-      &quot;5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7&quot;,
-      &quot;5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK&quot;
-    ]
-  },
-  &quot;features&quot;: [
-    {
-      &quot;type&quot;: &quot;Feature&quot;,
-      &quot;properties&quot;: {},
-      &quot;geometry&quot;: {
-        &quot;type&quot;: &quot;Point&quot;,
-        &quot;coordinates&quot;: [
-          11.25,
-          40.03182061333687
-        ]
-      }
-    }
-  ]
-}
-</code></pre>
-<p>As one of the bootstrappers, you can now save the above to minimal.json and register your new currency:</p>
-<pre><code class="language-bash">&gt; nctr new-currency minimal.json 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
-</code></pre>
-<p>Your currency has been registered and the return value is your currency-identifier (cid). Let's check the registry again:</p>
-<pre><code class="language-bash">&gt; nctr list-currencies
-number of currencies:  1
-currency with cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
-</code></pre>
-<p>In order to bootstrap your bot currency, You'll need to fund all bootstrappers and register all of them</p>
-<pre><code class="language-bash">#check if phase is REGISTERING
-nctr get-phase
-# REGISTERING
-# ok, let's register, but first we will define a few variables and a new alias
-alias nctr=&quot;./encointer-client -u $NURL -p $NPORT --cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES&quot;
-account1=5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex
-account2=5Dy4K5eNr13D37NcMcq4ffQZBAmt9BZhkgi5kBGuUWwK8cB7
-account3=5GCdWmdr5eZRvRPx6XE8YxFD472EvSMSTK6GQCHyuiNnw7rK
-nctr register-participant $account1
-nctr register-participant $account2
-nctr register-participant $account3
-# if everything goes well, you should find your registrations here:
-nctr list-participants
-</code></pre>
-<p>giving us</p>
-<pre><code class="language-console">listing participants for cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES and ceremony nr 38
-number of participants assigned:  3
-ParticipantRegistry[38, 1] = 7080e1799d2e646d8b3f9e7eab53b2f011476d6fd4abe3ac69aa039bf3f11440 (5EcDWHsG...)
-ParticipantRegistry[38, 2] = b6fc46e65b3b24af03845fa12917668863db7b5bd46d6125643170400ca25c41 (5GCdWmdr...)
-ParticipantRegistry[38, 3] = 5429da7a940f960b9a79cb1b7889142b8ee209b7f43ac5953df9c56f1bc0a726 (5Dy4K5eN...)
-</code></pre>
-<p>Now you'll have to wait ~10min until the ceremony phase turns to ASSIGNING. The blockchain then assigns all participants to randomized groups that will have to meet at a random meetup location at a specific time. Participants can learn their assignment with:</p>
-<pre><code class="language-bash">&gt; nctr list-meetups
-listing meetups for cid HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES and ceremony nr 38
-number of meetups assigned:  1
-MeetupRegistry[38, 1] location is Some(Location { lat: 40.0318206134, lon: 11.25 })
-MeetupRegistry[38, 1] meeting time is Some(1586541900000)
-MeetupRegistry[38, 1] participants are:
-   7080e1799d2e646d8b3f9e7eab53b2f011476d6fd4abe3ac69aa039bf3f11440 (5EcDWHsG...)
-   b6fc46e65b3b24af03845fa12917668863db7b5bd46d6125643170400ca25c41 (5GCdWmdr...)
-   5429da7a940f960b9a79cb1b7889142b8ee209b7f43ac5953df9c56f1bc0a726 (5Dy4K5eN...)
-</code></pre>
-<p>The ceremony phase will change to ATTESTING before the date of the ceremony. </p>
-<p>An encointer ceremony happens at high sun on the same day all over the world. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. For this testnet, however, we don't care about real time or physical presence as we're testing with bot communities. See <a href="./testnets.html#time-warping-for-testnets">Time Warping</a> to learn how the timing maps between mainnet and Gesell.</p>
-<p>Our bot communities can perform meetups simply with the following lines. In later networks, a mobile app will be used (similar to what we demonstrated in PoC1).</p>
-<pre><code class="language-bash"># each participant generates a claim of attendance including her vote on how many people N are actually physically present at that moment
-claim1=$(nctr new-claim $account1 3)
-claim2=$(nctr new-claim $account2 3)
-claim3=$(nctr new-claim $account3 3)
-# this claim is then sent to all other participants who will verify them and sign an attestation 
-witness1_2=$(nctr sign-claim $account1 $claim2)
-witness1_3=$(nctr sign-claim $account1 $claim3)
-witness2_1=$(nctr sign-claim $account2 $claim1)
-witness2_3=$(nctr sign-claim $account2 $claim3)
-witness3_1=$(nctr sign-claim $account3 $claim1)
-witness3_2=$(nctr sign-claim $account3 $claim2)
-# and send that attestation back to the claimant who assembles all attestations and sends them to the chain
-nctr register-attestations $account1 $witness2_1 $witness3_1
-nctr register-attestations $account2 $witness1_2 $witness3_2
-nctr register-attestations $account3 $witness1_3 $witness2_3
-</code></pre>
-<p>Now you have to wait for the ceremony phase to become REGISTERING. Then we can verify that our bootstrapping was successful and our bootstrappers have received their basic income issue on their accounts in units of the new currency (beware that we still use the alais including our cid. This means we're not querying ERT token balance, but the balnce in your new local currency). </p>
-<pre><code class="language-bash">&gt; nctr balance $account1
-NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.99999932394375560185 in currency HKKAHQhLbLy8b84u1UjnHX9Pqk4FXebzKgtqSt8EKsES
-</code></pre>
-<p>Your new currency has a very special property called <a href="./eceonomy-demurrage.html">demurrage</a>. This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized &quot;state&quot; that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.</p>
-<h2><a class="header" href="#whats-next" id="whats-next">What's next?</a></h2>
-<p>Now that you bootstrapped your community currency, you should grow your population. At every subsequent ceremony you can add a few participants more but it is important to maintain reputation. At least 3/4 of all participants need to have attended the previous ceremony. So you can only grow your population at a pace that allows to build reputation.</p>
+<h2><a class="header" href="#test-physical-meetup" id="test-physical-meetup">Test Physical Meetup</a></h2>
+<p>First, install our <a href="app.html">app</a> on at least three mobile phones and create individual accounts</p>
+<p><a href="deployments-register-community.html">Register a new community</a> with the new accounts as bootstrappers</p>
+<p>Now, register all participants during REGISTERING phase and perform meetups during ATTESTATION phase. </p>
 
                     </main>
 
@@ -314,7 +173,7 @@ NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.999999323
                         
 
                         
-                            <a rel="next" href="testnet-cantillon.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="deployments-register-community.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -332,7 +191,7 @@ NCTR balance for 5EcDWHsGzERpiP3ZBoFfceHpinBeifq5Lh1VnCkzxca9f9ex is 0.999999323
                 
 
                 
-                    <a href="testnet-cantillon.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="deployments-register-community.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

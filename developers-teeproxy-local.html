@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Testnets - The Encointer Book</title>
+        <title>Local TEEproxy setup - The Encointer Book</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li><li class="expanded "><a href="economics-interest.html"><strong aria-hidden="true">1.5.</strong> On Saving, Loans and Interest</a></li></ol></li><li class="expanded "><a href="ssi.html"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li class="expanded "><a href="testnets.html" class="active"><strong aria-hidden="true">5.</strong> Testnets</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html"><strong aria-hidden="true">5.1.1.</strong> Tutorial</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li><ol class="section"><li class="expanded "><a href="testnet-cantillon-tutorial.html"><strong aria-hidden="true">5.2.1.</strong> Tutorial</a></li></ol></li></ol></li><li class="expanded "><a href="bazaar.html"><strong aria-hidden="true">6.</strong> Bazaar</a></li><li class="expanded "><a href="app.html"><strong aria-hidden="true">7.</strong> App</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li><li class="expanded "><a href="economics-interest.html"><strong aria-hidden="true">1.5.</strong> On Saving, Loans and Interest</a></li></ol></li><li class="expanded "><a href="ssi.html"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li class="expanded "><a href="deployments.html"><strong aria-hidden="true">5.</strong> Deployments</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html"><strong aria-hidden="true">5.1.1.</strong> Tutorial</a></li><li class="expanded "><a href="deployments-register-community.html"><strong aria-hidden="true">5.1.2.</strong> Register Community Manually in CLI</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li class="expanded "><a href="parachain-kusama.html"><strong aria-hidden="true">5.3.</strong> Encointer Kusama Parachain</a></li><li class="expanded "><a href="deployments-register-community.html"><strong aria-hidden="true">5.4.</strong> Register a Community Manually</a></li></ol></li><li class="expanded "><a href="bazaar.html"><strong aria-hidden="true">6.</strong> Bazaar</a></li><li class="expanded "><a href="app.html"><strong aria-hidden="true">7.</strong> App</a></li><li class="expanded "><a href="explorer.html"><strong aria-hidden="true">8.</strong> Explorer</a></li><li class="expanded "><a href="developers.html"><strong aria-hidden="true">9.</strong> Developers</a></li><li><ol class="section"><li class="expanded "><a href="developers-notee-local-setup.html"><strong aria-hidden="true">9.1.</strong> Local notee Setup</a></li><li class="expanded "><a href="developers-bot-communities.html"><strong aria-hidden="true">9.2.</strong> Bot Communities</a></li><li class="expanded "><a href="developers-notee-multi-community-growth-benchmark.html"><strong aria-hidden="true">9.3.</strong> Benchmark Multi-Community Growth</a></li><li class="expanded "><a href="developers-teeproxy-local.html" class="active"><strong aria-hidden="true">9.4.</strong> Local TEEproxy setup</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -151,33 +151,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#testnets" id="testnets">Testnets</a></h1>
-<p>Encointer maintains two testnets: Gesell and Cantillon.</p>
-<p>The networks differ in their goals and designs:</p>
-<h2><a class="header" href="#gesell" id="gesell">Gesell</a></h2>
-<p>Aimed at automated testing of the protocol.</p>
-<ul>
-<li>Time-warping allows to script bot populations and hold ceremonies every 30min.</li>
-<li>Complete transparency of all registries and balances. Everything happens on-chain.</li>
-</ul>
-<h2><a class="header" href="#cantillon" id="cantillon">Cantillon</a></h2>
-<p>The main purpose of Cantillon is to test our <a href="./app.html">mobile phone app</a> for physical meetups and to test privacy features.
-Aimed at experimenting with real ceremony meetups, physically meeting people.
-Bot communities can still be grown but we expect them to be loctated in off-shore locations in order not to interfere with physical communities. </p>
-<ul>
-<li>Accelerated ceremony schedule to avoid long wait times. Ceremonies every three days. <em>Temporarily, we will apply 30min ceremony cycle like Gesell</em></li>
-<li>Privacy enhancement through Trusted Execution environments (with enclaves still in development mode, so privacy is not guaranteed before we move to production mode)</li>
-</ul>
-<p>Cantillon is planned to become a parachain to <a href="https://kusama.network/">Kusama</a></p>
-<p>Watch our <a href="https://youtu.be/X1Zb68Z1fac">demo video on bootstrapping a bot community</a></p>
-<h2><a class="header" href="#outlook-on-mainnet" id="outlook-on-mainnet">Outlook on Mainnet</a></h2>
-<p>The mainnet is planned to become a parachain of <a href="https://polkadot.network/">Polkadot</a>. The security will depend on polkadot relay chain. </p>
-<h2><a class="header" href="#time-warping-for-testnets" id="time-warping-for-testnets">Time Warping for Testnets</a></h2>
-<p>In order to understand the different timing on our networks, we offer the following figure:</p>
-<p><img src="./fig/phase-timing.svg" alt="Phase Timing" /></p>
-<p><em>Temporarily, we will apply 30min ceremony cycle to both Gesell and Cantillon</em></p>
-<h2><a class="header" href="#testing-cantillons-teeproxy-system-locally" id="testing-cantillons-teeproxy-system-locally">Testing Cantillon's Teeproxy System Locally</a></h2>
-<p>You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.</p>
+                        <h1><a class="header" href="#local-teeproxy-setup" id="local-teeproxy-setup">Local TEEproxy setup</a></h1>
+<p>TEEproxy is the variant of Encointer that protects privacy. It has been deployed to <a href="testnet-cantillon.html">testnet Cantillon</a></p>
+<p>You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.
+If you do not have an SGX machine to test, please check our <a href="#docker-demo">dockerized demo in SW mode</a></p>
 <h3><a class="header" href="#build-client-and-worker" id="build-client-and-worker">Build client and worker</a></h3>
 <p>along the <a href="https://www.substratee.com/howto_worker.html">substraTEE-worker instructions</a>. With the following differences:</p>
 <pre><code class="language-console">git clone https://github.com/encointer/encointer-worker.git
@@ -217,6 +194,7 @@ export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_work
 ./encointer-worker -p 9979 run
 </code></pre>
 <h2><a class="header" href="#docker-demo" id="docker-demo">Docker Demo</a></h2>
+<p>To avoid the need for an SGX machine, we provide a dockerized demo in SW mode as well (with emulated SGX)</p>
 <pre><code>mkdir test
 cd test
 docker pull scssubstratee/substratee_dev:1804-2.12-1.1.3-001
@@ -225,11 +203,11 @@ docker run -it -v $(pwd):/root/work -p 9979:9944 -p 2079:2000 -p 3079:3443 scssu
 
 cd work
 </code></pre>
-<p>Please observe that we are mapping the api ports to the host system. this way, you can expose the encointer demo to your home network and access it with our <a href="./app.html">mobile app</a> too. </p>
+<p>Please observe that we are mapping the api ports to the host system. this way, you can expose the encointer demo to your home network and access it with our <a href="./app.html">mobile app</a> too.</p>
 <p>We suggest to use tmux in docker to split your docker bash into 3 terminals. minimal cheatsheet:</p>
 <ul>
 <li><code>Ctrl-B &quot;</code> to split into one more terminal</li>
-<li><code>Ctrl-B &lt;arrows&gt;</code> to switch focus to another terminal </li>
+<li><code>Ctrl-B &lt;arrows&gt;</code> to switch focus to another terminal</li>
 <li><code>Ctrl-B d</code> detatch session. re-attach with <code>tmux a</code></li>
 </ul>
 <h3><a class="header" href="#building" id="building">building</a></h3>
@@ -281,15 +259,11 @@ apt install python3-geojson python3-pyproj
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="decentralization.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="developers-notee-multi-community-growth-benchmark.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="testnet-gesell.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -299,15 +273,11 @@ apt install python3-geojson python3-pyproj
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="decentralization.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="developers-notee-multi-community-growth-benchmark.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a href="testnet-gesell.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 

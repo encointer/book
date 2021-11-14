@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bot Communities - The Encointer Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li><li class="expanded "><a href="economics-interest.html"><strong aria-hidden="true">1.5.</strong> On Saving, Loans and Interest</a></li></ol></li><li class="expanded "><a href="ssi.html"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.1.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li class="expanded "><a href="deployments.html"><strong aria-hidden="true">5.</strong> Deployments</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell-tutorial.html"><strong aria-hidden="true">5.1.1.</strong> Tutorial</a></li><li class="expanded "><a href="deployments-register-community.html"><strong aria-hidden="true">5.1.2.</strong> Register Community Manually in CLI</a></li></ol></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li class="expanded "><a href="parachain-kusama.html"><strong aria-hidden="true">5.3.</strong> Encointer Kusama Parachain</a></li><li class="expanded "><a href="deployments-register-community.html"><strong aria-hidden="true">5.4.</strong> Register a Community Manually</a></li></ol></li><li class="expanded "><a href="bazaar.html"><strong aria-hidden="true">6.</strong> Bazaar</a></li><li class="expanded "><a href="app.html"><strong aria-hidden="true">7.</strong> App</a></li><li class="expanded "><a href="explorer.html"><strong aria-hidden="true">8.</strong> Explorer</a></li><li class="expanded "><a href="developers.html"><strong aria-hidden="true">9.</strong> Developers</a></li><li><ol class="section"><li class="expanded "><a href="developers-notee-local-setup.html"><strong aria-hidden="true">9.1.</strong> Local notee Setup</a></li><li class="expanded "><a href="developers-bot-communities.html" class="active"><strong aria-hidden="true">9.2.</strong> Bot Communities</a></li><li class="expanded "><a href="developers-notee-multi-community-growth-benchmark.html"><strong aria-hidden="true">9.3.</strong> Benchmark Multi-Community Growth</a></li><li class="expanded "><a href="developers-teeproxy-local.html"><strong aria-hidden="true">9.4.</strong> Local TEEproxy setup</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The Encointer Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#bot-communities" id="bot-communities">Bot Communities</a></h1>
+<p>Bot communities are helpful to test the Encointer protocol and all the surrounding applications, apps and UI's</p>
+<p>To simplify the registration of a community, a python script was written to wrap up the chain client commands and automate the bootstrapping.
+We will go through the process step by step.</p>
+<p>If you'd rather learn how to register communities manually, visit <a href="#how-to-register-an-encointer-community-manually">this section</a></p>
+<h2><a class="header" href="#setup" id="setup">Setup</a></h2>
+<p>install all requirements for the python scripts (you'll need pip3 for that):</p>
+<pre><code class="language-console">apt update
+pip3 install --upgrade pip
+pip3 install randomwords geojson pyproj flask
+</code></pre>
+<h3><a class="header" href="#local-testing" id="local-testing">Local Testing</a></h3>
+<p>Setup the chain and client locally according to the <a href="developers-notee-local-setup.html">local setup</a>. </p>
+<p>Run a faucet. Go to the client folder and run the faucet service in a seperate terminal which will be used to drip funds to the bootstrapping accounts later on:</p>
+<pre><code class="language-console">cd client
+./faucet.py
+</code></pre>
+<p>The faucet service is a flask app which runs on localhost and listens on port 5000 to incoming faucet requests.</p>
+<p>In a local setup, we don't want to wait for the ceremony phase to change in fixed intervals. Instead, we use the <code>phase</code> service to watch extrinsic activity and forward the ceremony phase when the chain blocks are empty for a while indicating idleness.</p>
+<pre><code class="language-console">cd client
+./phase.py
+</code></pre>
+<p>By default, the scripts register your community on the local node listening on websocket port 9944. you can change that by adding the <code>--port 9945</code> argument</p>
+<pre><code>./bot-community.py --port 9945 init
+./bot-community.py --port 9945 benchmark
+</code></pre>
+<p>The benchmark command will watch for ceremony phase to change and act upon the new phase automatically. This command will run forever.</p>
+<p>Community branding information is stored on IPFS. You can save the community icons to a IPFS node by passing the <code>-l</code> or <code>--ipfs-local</code> flag to the init function.</p>
+<pre><code>ipfs init
+ipfs daemon
+./bot-community.py --port 9945 init -l
+</code></pre>
+<h3><a class="header" href="#testnet-gesell-bot-communities" id="testnet-gesell-bot-communities">Testnet Gesell Bot Communities</a></h3>
+<p>As community branding must be stored on IPFS, you'll need to specify credentials for a public IPFS gateway to be used to deploy content. For <a href="https://infura.io">Infura</a>, use:</p>
+<pre><code>export IPFS_ADD_URL=https://ipfs.infura.io:5001/api/v0/add
+export IPFS_API_KEY=&lt;project-id:password&gt;
+</code></pre>
+<p>To work with testnet Gesell you need to specify the node-url as follows:</p>
+<pre><code>./bot-community.py --node-url wss://gesell.encointer.org init
+</code></pre>
+<p><em>Note: the port 443 is automatically set when working with a remote chain using <code>wss://</code></em></p>
+<p>On Gesell, ceremony phases change every 10min. In order to continuously grow a bot community, 
+run the following command every 10min</p>
+<pre><code>./bot-community.py --node-url wss://gesell.encointer.org run
+</code></pre>
+<h2><a class="header" href="#explanations" id="explanations">Explanations</a></h2>
+<p>Let's look at what is happening in the init function:</p>
+<ol>
+<li>Bootstrapper accounts are created. They can be seen in the ./my_keystore folder.</li>
+<li>Funds are transfered to the bootstrappers via the faucet. As with other blockchains, funds are necessary in order to pay fees.</li>
+<li>A specfile is created with a community name, a symbol, the icon of the community, the list of bootstrappers and several random meetup locations around a specified point.
+You can see the community specfile in the client folder. It is a geojson file with the name of the community as filename.
+The specfile is needed to register a community.</li>
+<li>A new community is registered by passing the specfile and one of the bootstrappers (with funds) to the &quot;new_community&quot; function.</li>
+</ol>
+<p>Note:</p>
+<ul>
+<li>Make sure, the faucet script is running in the background while running the bot-community script to enable the faucet.</li>
+<li>As you can read in our whitepaper, we'll avoid the faucet as an entry barrier in the future.</li>
+<li>Should the faucet be exhausted, please post a message to our <a href="https://app.element.io/#/room/#encointer:matrix.org">element channel</a> and friendly request some topup. Please be patient.</li>
+</ul>
+<p>To check if a community is registered on the chain, you can use the client with the command &quot;list-communities&quot;:</p>
+<pre><code class="language-console">./target/release/encointer-node-notee list-communities
+</code></pre>
+<p>The benchmark function calls the run function in an infinite loop, where the run function is responsible to handle the specific task depending on the phase.</p>
+<p>At REGISTERING, it registers participants on the chain.
+Additionally to registering participants, bootstrappers can endorse other accounts to speed up registration.
+After participants are registered for a ceremony, the participatns can be verified in a seperate shell by calling:</p>
+<pre><code class="language-bash">./target/release/encointer-node-notee list-participants
+</code></pre>
+<p>At ASSIGNING, the blockchain assigns all participants to randomized groups that will have to meet at a random meetup location at a specific time.
+Participants can learn their assignment with:</p>
+<pre><code class="language-bash">./target/release/encointer-node-notee list-meetups
+</code></pre>
+<p>At ATTESTING, the run function performs the meetup by getting each participants claims and attesting eachother.</p>
+<p>To know in what phase the chain is, you can call:</p>
+<pre><code class="language-bash">./target/release/encointer-node-notee get-phase
+</code></pre>
+<p>You should see either REGISTERING, ASSIGNING or ATTESTING.</p>
+<p>A phase is ~10 min long so one whole cycle is 30 min. You can jump to the next phase on the local chain by running:</p>
+<pre><code class="language-bash">./target/release/encointer-node-notee next-phase
+</code></pre>
+<p>Another way is to run the phase script in a seperate shell which switches phase every 10 blocks. You can add the option: --node_url wss://gesell.encointer.org to the phase script if you are working with the remote chain.</p>
+<p>To define in what region the community shall be issued, we use the geojson standard to define a set of meetup places and add some meta-information about the community. You can use geojson.io to select meetup places on a map (define a few &quot;Points&quot;). Make sure that you select places that are &gt;100m apart. You also need to keep this minimal distance from other registered communities.</p>
+<p>The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12.</p>
+<p>Every local community needs a trusted setup. A trustworthy group of 3-12 local people will hold the bootstrapping ceremony publicly. These bootstrappers need to be defined in the metadata block of the specfile.</p>
+<p>At every subsequent ceremony you can add a few participants more but it is important to maintain reputation. At least 3/4 of all participants need to have attended the previous ceremony. So you can only grow your population at a pace that allows to build reputation.</p>
+<p>An encointer ceremony happens at high sun on the same day all over the world. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. For this testnet, however, we don't care about real time or physical presence as we're testing with bot communities. See <a href="./deployments.html#time-warping-for-testnets">Time Warping</a> to learn how the timing maps between mainnet and Gesell.</p>
+<p>Your new community has a very special property called <a href="./economics-demurrage.html">demurrage</a>. This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized &quot;state&quot; that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.</p>
+<h2><a class="header" href="#create-bazaar-businesses-and-offerings-and-save-the-data-on-an-ipfs-node" id="create-bazaar-businesses-and-offerings-and-save-the-data-on-an-ipfs-node">Create Bazaar Businesses and Offerings and Save the data on an IPFS node</a></h2>
+<p>After a community is initialized, we can register businesses with offerings on the chain. Run the following script to create and register some random businesses and offerings:</p>
+<pre><code class="language-console">./register-businesses.py 
+</code></pre>
+<p>You can save the businesses and offerings descriptions on the local IPFS node by passing the -l or --ipfs-local flag to the script. Otherwise, the data will be saved on a remote IPFS node.</p>
+<p>The businesses and offerings are stored in: </p>
+<ul>
+<li>./client/test-data/bazaar/businesses* </li>
+<li>./client/test-data/bazaar/offerings*</li>
+</ul>
+<p>You can check the registered businesses using the client:</p>
+<pre><code class="language-console">./target/release/encointer-node-notee list-businesses --cid COMMUNITY_IDENTIFIER 
+</code></pre>
+<p>The business offerings can be obtained with the option <code>--cid</code> and arg <code>Account</code>, which is the owner of the business. In this case we used the account <code>//Alice</code>:</p>
+<pre><code class="language-console">./target/release/encointer-node-notee list-business-offerings --cid COMMUNITY_IDENTIFIER //Alice
+</code></pre>
+<p>Note: the cid option needs to be entered in the base58 format. </br></p>
+<h2><a class="header" href="#see-activity-in-explorer" id="see-activity-in-explorer">See Activity in Explorer</a></h2>
+<p>Visit explorer.encointer.org to observe the growth of the community or run the explorer locally according to the <a href="./explorer">explorer</a> section.</p>
+<h2><a class="header" href="#browse-bazaar-businesses-and-offernings" id="browse-bazaar-businesses-and-offernings">Browse Bazaar Businesses and Offernings</a></h2>
+<p>See <a href="https://github.com/encointer/bazaar-web">Bazaar-web</a> repo and follow README to launch a web service that lists all businesses and offerings for a specified community</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="developers-notee-local-setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="developers-notee-multi-community-growth-benchmark.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="developers-notee-local-setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="developers-notee-multi-community-growth-benchmark.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
