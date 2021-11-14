@@ -1,46 +1,11 @@
-# Testnets
+# Local TEEproxy setup
 
-Encointer maintains two testnets: Gesell and Cantillon.
-
-The networks differ in their goals and designs:
-
-## Gesell
-
-Aimed at automated testing of the protocol.
-
-* Time-warping allows to script bot populations and hold ceremonies every 30min.
-* Complete transparency of all registries and balances. Everything happens on-chain.
-
-## Cantillon
-
-The main purpose of Cantillon is to test our [mobile phone app](./app.md) for physical meetups and to test privacy features.
-Aimed at experimenting with real ceremony meetups, physically meeting people.
-Bot communities can still be grown but we expect them to be loctated in off-shore locations in order not to interfere with physical communities. 
-
-* Accelerated ceremony schedule to avoid long wait times. Ceremonies every three days. *Temporarily, we will apply 30min ceremony cycle like Gesell*
-* Privacy enhancement through Trusted Execution environments (with enclaves still in development mode, so privacy is not guaranteed before we move to production mode)
-
-Cantillon is planned to become a parachain to [Kusama](https://kusama.network/)
-
-Watch our [demo video on bootstrapping a bot community](https://youtu.be/X1Zb68Z1fac)
-
-## Outlook on Mainnet
-
-The mainnet is planned to become a parachain of [Polkadot](https://polkadot.network/). The security will depend on polkadot relay chain. 
-
-## Time Warping for Testnets
-
-In order to understand the different timing on our networks, we offer the following figure:
-
-![Phase Timing](./fig/phase-timing.svg)
-
-*Temporarily, we will apply 30min ceremony cycle to both Gesell and Cantillon*
-
-## Testing Cantillon's Teeproxy System Locally 
+TEEproxy is the variant of Encointer that protects privacy. It has been deployed to [testnet Cantillon](testnet-cantillon.md)
 
 You can run an entire Demo locally on any properly set up SGX machine. This is for advanced users or developers. The instructions assume that you are able to build substrate blockchains.
+If you do not have an SGX machine to test, please check our [dockerized demo in SW mode](#docker-demo)
 
-### Build client and worker 
+### Build client and worker
 
 along the [substraTEE-worker instructions](https://www.substratee.com/howto_worker.html). With the following differences:
 ```console 
@@ -67,7 +32,7 @@ wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub
 wget https://github.com/encointer/encointer-worker/releases/download/v0.6.10-sub2.0.0-alpha.7/rsa3072_key_sealed.bin
 ```
 
-### Build node 
+### Build node
 
 along the [substraTEE-node instructions](https://www.substratee.com/howto_node.html#build). With the following differences:
 
@@ -97,6 +62,7 @@ export RUST_LOG=info,substrate_api_client=warn,sp_io=warn,ws=warn,encointer_work
 
 ## Docker Demo
 
+To avoid the need for an SGX machine, we provide a dockerized demo in SW mode as well (with emulated SGX)
 ```
 mkdir test
 cd test
@@ -107,11 +73,11 @@ docker run -it -v $(pwd):/root/work -p 9979:9944 -p 2079:2000 -p 3079:3443 scssu
 cd work
 ```
 
-Please observe that we are mapping the api ports to the host system. this way, you can expose the encointer demo to your home network and access it with our [mobile app](./app.md) too. 
+Please observe that we are mapping the api ports to the host system. this way, you can expose the encointer demo to your home network and access it with our [mobile app](./app.md) too.
 
 We suggest to use tmux in docker to split your docker bash into 3 terminals. minimal cheatsheet:
 * `Ctrl-B "` to split into one more terminal
-* `Ctrl-B <arrows>` to switch focus to another terminal 
+* `Ctrl-B <arrows>` to switch focus to another terminal
 * `Ctrl-B d` detatch session. re-attach with `tmux a`
 
 ### building

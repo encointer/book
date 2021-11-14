@@ -1,6 +1,6 @@
 # Explorer
 The explorer is a Web UI tool to visualize chain data such as the communities and bootstrappers, the phases and ceremonies around the world.
-A working example can be visited at explorer.encointer.org.
+A working example can be visited at [explorer.encointer.org](https://explorer.encointer.org).
 
 Checkout the [explorer repository](https://github.com/encointer/explorer). <br>
 In the terminal, go to the the root directory of the repo and enter: <br>

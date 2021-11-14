@@ -1,4 +1,5 @@
 # How to Register an Encointer Community (manually)
+
 For simplicity, we'll create an alias for the chain client
 ```console
 # Gesell node endpoint
@@ -27,7 +28,8 @@ To register a community, you need to pass a specfile.json containing details abo
 
 ## Meetup Locations
 
-We need to define in what region the community shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the community. You can use geojson.io to select meetup places on a map (define a few "Points"). Make sure that you select places that are >100m apart. You also need to keep this minimal distance from other registered communities. 
+We need to define in what region the community shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the community. You can use [geojson.io](https://geojson.io) to select meetup places on a map (define a few "Points"). Make sure that you select places that are >100m apart. You also need to keep this minimal distance from other registered communities. 
+If you want to be sure which location will be the bootstrapping location, please specify only a single location and register more locations after the bootstrapping ceremony
 
 The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N locations in order to guarantee reasonable randomization. As a maximum of 12 people can attend the same meetup the hard lower limit is N/12. 
 
