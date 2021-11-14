@@ -37,10 +37,12 @@ cd client
 
 By default, the scripts register your community on the local node listening on websocket port 9944. you can change that by adding the `--port 9945` argument
 ```
-./bot-community.py --port 9945 init
-./bot-community.py --port 9945 benchmark
+./bot-community.py init
+./bot-community.py benchmark
 ``` 
 The benchmark command will watch for ceremony phase to change and act upon the new phase automatically. This command will run forever.
+
+#### Branding on IPFS
 
 Community branding information is stored on IPFS. You can save the community icons to a IPFS node by passing the `-l` or `--ipfs-local` flag to the init function.
 
@@ -49,6 +51,34 @@ ipfs init
 ipfs daemon
 ./bot-community.py --port 9945 init -l
 ```
+
+#### Create Dummy Bazaar Businesses and Offerings and Save the data on an IPFS node
+
+After a community is initialized, we can register businesses with offerings on the chain. Run the following script to create and register some random businesses and offerings:
+
+```console
+./register-businesses.py -l
+```
+You can save the businesses and offerings descriptions on the local IPFS node by passing the -l or --ipfs-local flag to the script. Otherwise, the data will be saved on a remote IPFS node.
+
+The businesses and offerings are stored in:
+* ./client/test-data/bazaar/businesses*
+* ./client/test-data/bazaar/offerings*
+
+You can check the registered businesses and offerings using the client:
+
+```console
+./target/release/encointer-client-notee list-businesses --cid COMMUNITY_IDENTIFIER 
+./target/release/encointer-client-notee list-offerings --cid COMMUNITY_IDENTIFIER 
+```
+
+The business offerings can be obtained with the option `--cid` and arg `Account`, which is the owner of the business. In this case we used the account `//Alice`:
+
+```console
+./target/release/encointer-node-notee list-business-offerings --cid COMMUNITY_IDENTIFIER //Alice
+```
+Note: the cid option needs to be entered in the base58 format.
+
 ### Testnet Gesell Bot Communities
 
 As community branding must be stored on IPFS, you'll need to specify credentials for a public IPFS gateway to be used to deploy content. For [Infura](https://infura.io), use:
@@ -133,30 +163,7 @@ An encointer ceremony happens at high sun on the same day all over the world. Th
 Your new community has a very special property called [demurrage](./economics-demurrage.md). This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized "state" that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.
 
 
-## Create Bazaar Businesses and Offerings and Save the data on an IPFS node
 
-After a community is initialized, we can register businesses with offerings on the chain. Run the following script to create and register some random businesses and offerings:
-```console
-./register-businesses.py 
-```
-You can save the businesses and offerings descriptions on the local IPFS node by passing the -l or --ipfs-local flag to the script. Otherwise, the data will be saved on a remote IPFS node.
-
-The businesses and offerings are stored in: 
-* ./client/test-data/bazaar/businesses* 
-* ./client/test-data/bazaar/offerings*
-
-You can check the registered businesses using the client:
-
-```console
-./target/release/encointer-node-notee list-businesses --cid COMMUNITY_IDENTIFIER 
-```
-
-The business offerings can be obtained with the option `--cid` and arg `Account`, which is the owner of the business. In this case we used the account `//Alice`:
-
-```console
-./target/release/encointer-node-notee list-business-offerings --cid COMMUNITY_IDENTIFIER //Alice
-```
-Note: the cid option needs to be entered in the base58 format. </br>
 
 ## See Activity in Explorer
 
