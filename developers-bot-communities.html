@@ -174,15 +174,34 @@ pip3 install randomwords geojson pyproj flask
 ./phase.py
 </code></pre>
 <p>By default, the scripts register your community on the local node listening on websocket port 9944. you can change that by adding the <code>--port 9945</code> argument</p>
-<pre><code>./bot-community.py --port 9945 init
-./bot-community.py --port 9945 benchmark
+<pre><code>./bot-community.py init
+./bot-community.py benchmark
 </code></pre>
 <p>The benchmark command will watch for ceremony phase to change and act upon the new phase automatically. This command will run forever.</p>
+<h4><a class="header" href="#branding-on-ipfs" id="branding-on-ipfs">Branding on IPFS</a></h4>
 <p>Community branding information is stored on IPFS. You can save the community icons to a IPFS node by passing the <code>-l</code> or <code>--ipfs-local</code> flag to the init function.</p>
 <pre><code>ipfs init
 ipfs daemon
 ./bot-community.py --port 9945 init -l
 </code></pre>
+<h4><a class="header" href="#create-dummy-bazaar-businesses-and-offerings-and-save-the-data-on-an-ipfs-node" id="create-dummy-bazaar-businesses-and-offerings-and-save-the-data-on-an-ipfs-node">Create Dummy Bazaar Businesses and Offerings and Save the data on an IPFS node</a></h4>
+<p>After a community is initialized, we can register businesses with offerings on the chain. Run the following script to create and register some random businesses and offerings:</p>
+<pre><code class="language-console">./register-businesses.py -l
+</code></pre>
+<p>You can save the businesses and offerings descriptions on the local IPFS node by passing the -l or --ipfs-local flag to the script. Otherwise, the data will be saved on a remote IPFS node.</p>
+<p>The businesses and offerings are stored in:</p>
+<ul>
+<li>./client/test-data/bazaar/businesses*</li>
+<li>./client/test-data/bazaar/offerings*</li>
+</ul>
+<p>You can check the registered businesses and offerings using the client:</p>
+<pre><code class="language-console">./target/release/encointer-client-notee list-businesses --cid COMMUNITY_IDENTIFIER 
+./target/release/encointer-client-notee list-offerings --cid COMMUNITY_IDENTIFIER 
+</code></pre>
+<p>The business offerings can be obtained with the option <code>--cid</code> and arg <code>Account</code>, which is the owner of the business. In this case we used the account <code>//Alice</code>:</p>
+<pre><code class="language-console">./target/release/encointer-node-notee list-business-offerings --cid COMMUNITY_IDENTIFIER //Alice
+</code></pre>
+<p>Note: the cid option needs to be entered in the base58 format.</p>
 <h3><a class="header" href="#testnet-gesell-bot-communities" id="testnet-gesell-bot-communities">Testnet Gesell Bot Communities</a></h3>
 <p>As community branding must be stored on IPFS, you'll need to specify credentials for a public IPFS gateway to be used to deploy content. For <a href="https://infura.io">Infura</a>, use:</p>
 <pre><code>export IPFS_ADD_URL=https://ipfs.infura.io:5001/api/v0/add
@@ -240,23 +259,6 @@ Participants can learn their assignment with:</p>
 <p>At every subsequent ceremony you can add a few participants more but it is important to maintain reputation. At least 3/4 of all participants need to have attended the previous ceremony. So you can only grow your population at a pace that allows to build reputation.</p>
 <p>An encointer ceremony happens at high sun on the same day all over the world. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. For this testnet, however, we don't care about real time or physical presence as we're testing with bot communities. See <a href="./deployments.html#time-warping-for-testnets">Time Warping</a> to learn how the timing maps between mainnet and Gesell.</p>
 <p>Your new community has a very special property called <a href="./economics-demurrage.html">demurrage</a>. This means that the nominal value of your holdings decreases over time. Currently it is halving every year. You can observe this by waiting for a few blocks and checking your balance again. Think of this demurrage like a solidarity fee that you pay to the decentralized &quot;state&quot; that takes care of redistributing wealth among the local population at every ceremony as newly issued basic income.</p>
-<h2><a class="header" href="#create-bazaar-businesses-and-offerings-and-save-the-data-on-an-ipfs-node" id="create-bazaar-businesses-and-offerings-and-save-the-data-on-an-ipfs-node">Create Bazaar Businesses and Offerings and Save the data on an IPFS node</a></h2>
-<p>After a community is initialized, we can register businesses with offerings on the chain. Run the following script to create and register some random businesses and offerings:</p>
-<pre><code class="language-console">./register-businesses.py 
-</code></pre>
-<p>You can save the businesses and offerings descriptions on the local IPFS node by passing the -l or --ipfs-local flag to the script. Otherwise, the data will be saved on a remote IPFS node.</p>
-<p>The businesses and offerings are stored in: </p>
-<ul>
-<li>./client/test-data/bazaar/businesses* </li>
-<li>./client/test-data/bazaar/offerings*</li>
-</ul>
-<p>You can check the registered businesses using the client:</p>
-<pre><code class="language-console">./target/release/encointer-node-notee list-businesses --cid COMMUNITY_IDENTIFIER 
-</code></pre>
-<p>The business offerings can be obtained with the option <code>--cid</code> and arg <code>Account</code>, which is the owner of the business. In this case we used the account <code>//Alice</code>:</p>
-<pre><code class="language-console">./target/release/encointer-node-notee list-business-offerings --cid COMMUNITY_IDENTIFIER //Alice
-</code></pre>
-<p>Note: the cid option needs to be entered in the base58 format. </br></p>
 <h2><a class="header" href="#see-activity-in-explorer" id="see-activity-in-explorer">See Activity in Explorer</a></h2>
 <p>Visit explorer.encointer.org to observe the growth of the community or run the explorer locally according to the <a href="./explorer">explorer</a> section.</p>
 <h2><a class="header" href="#browse-bazaar-businesses-and-offernings" id="browse-bazaar-businesses-and-offernings">Browse Bazaar Businesses and Offernings</a></h2>

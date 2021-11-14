@@ -161,15 +161,12 @@ cd encointer-node
 <p>Install Rust: </p>
 <pre><code class="language-console">curl https://sh.rustup.rs -sSf | sh
 </code></pre>
-<p>Install required tools:</p>
-<pre><code class="language-console">./scripts/init.sh
-</code></pre>
 <p>Build the node:</p>
 <pre><code class="language-console">cargo build --release
 </code></pre>
 <h2><a class="header" href="#launch-gesell-node" id="launch-gesell-node">Launch Gesell node</a></h2>
 <p>Run dev node locally</p>
-<pre><code class="language-console">./target/release/encointer-node-notee --dev --tmp --enable-offchain-indexing true --ws-port 9945 --rpc-methods unsafe
+<pre><code class="language-console">./target/release/encointer-node-notee --dev --tmp --enable-offchain-indexing true --rpc-methods unsafe
 </code></pre>
 <p><code>--dev</code> sets up a developer node <a href="https://substrate.dev/docs/en/knowledgebase/integrate/chain-spec">chain specification</a> </br>
 <code>--tmp</code> saves all active data for the node (keys, blockchain database, networking info, ...) and is deleted as soon as you properly terminate your node. </br>
