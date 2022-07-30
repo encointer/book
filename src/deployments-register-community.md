@@ -129,7 +129,7 @@ Now that you have your bootstrapper accounts, you can define them in the metadat
   gesell list-communities
   ```
 
-  This should return your community identified (CID) followed by your community name and locations.
+  This should return your community identifier (CID) followed by your community name and locations.
 
 Congratulations, you have just registered your community.
 
