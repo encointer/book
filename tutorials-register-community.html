@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Register a New Community Manually - The Encointer Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li><li class="expanded "><a href="economics-interest.html"><strong aria-hidden="true">1.5.</strong> On Saving, Loans and Interest</a></li></ol></li><li class="expanded "><a href="ssi.html"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-ceremony-cycle.html"><strong aria-hidden="true">3.1.</strong> Ceremony Cycle</a></li><li class="expanded "><a href="protocol-reputation.html"><strong aria-hidden="true">3.2.</strong> Reputation</a></li><li class="expanded "><a href="protocol-cid.html"><strong aria-hidden="true">3.3.</strong> Community Identifiers</a></li><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.4.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li class="expanded "><a href="deployments.html"><strong aria-hidden="true">5.</strong> Deployments</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li class="expanded "><a href="parachain-kusama.html"><strong aria-hidden="true">5.3.</strong> Encointer Kusama Parachain</a></li></ol></li><li class="expanded "><a href="bazaar.html"><strong aria-hidden="true">6.</strong> Bazaar</a></li><li class="expanded "><a href="app.html"><strong aria-hidden="true">7.</strong> App</a></li><li><ol class="section"><li class="expanded "><a href="app-select-community.html"><strong aria-hidden="true">7.1.</strong> Select Community</a></li><li class="expanded "><a href="app-register.html"><strong aria-hidden="true">7.2.</strong> Register for a ceremony</a></li><li class="expanded "><a href="app-meetup.html"><strong aria-hidden="true">7.3.</strong> Perfrom a Ceremony Meetup</a></li></ol></li><li class="expanded "><a href="explorer.html"><strong aria-hidden="true">8.</strong> Explorer</a></li><li class="expanded "><a href="tutorials.html"><strong aria-hidden="true">9.</strong> Tutorials</a></li><li><ol class="section"><li class="expanded "><a href="tutorials-cli.html"><strong aria-hidden="true">9.1.</strong> Basic CLI usage</a></li><li class="expanded "><a href="tutorials-register-community.html" class="active"><strong aria-hidden="true">9.2.</strong> Register a New Community Manually</a></li></ol></li><li class="expanded "><a href="developers.html"><strong aria-hidden="true">10.</strong> Developers</a></li><li><ol class="section"><li class="expanded "><a href="developers-notee-local-setup.html"><strong aria-hidden="true">10.1.</strong> Local notee Setup</a></li><li class="expanded "><a href="developers-bot-communities.html"><strong aria-hidden="true">10.2.</strong> Bot Communities</a></li><li class="expanded "><a href="developers-notee-multi-community-growth-benchmark.html"><strong aria-hidden="true">10.3.</strong> Benchmark Multi-Community Growth</a></li><li class="expanded "><a href="developers-teeproxy-local.html"><strong aria-hidden="true">10.4.</strong> Local TEEproxy setup</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The Encointer Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#how-to-register-an-encointer-community-manually" id="how-to-register-an-encointer-community-manually">How to Register an Encointer Community (manually)</a></h1>
+<p>We assume you have <a href="./tutorials-cli.html">set up the CLI client previously</a></p>
+<p>This tutorial will guide you through the process of setting up a new community on any of our <a href="./deployments.html">networks</a></p>
+<p>If you haven't done so, please learn about the <a href="#TODO">ceremony cycle</a> of the Encointer Protocol</p>
+<h2><a class="header" href="#set-up-bootstrappers" id="set-up-bootstrappers">Set Up Bootstrappers</a></h2>
+<p>As Encointer is all about proof of personhood, you will need people to get started. We suggest to pick 10 diverse, dependable and trustworthy members of your community for a trusted setup. This first group of people performing the very first ceremony of a new community we call <em>Bootstrappers</em>.</p>
+<p>If you want to test all by yourself, we suggest you create 3 bootstrapper accounts using 3 phones and register your community on <a href="./testnet-gesell.html">Testnet Gesell</a>. In the following, we will assume you're just testing yourself, but the process is very similar if the accounts are for real bootstrappers. </p>
+<p>All the bootstrappers need to <a href="https://encointer.org/encointer-app/">install the mobile app</a> and set up a new account. You can then collect all the bootstrapper accounts by sharing them from within the app by going to <em>profile -&gt; tap account -&gt; share account -&gt; send link</em></p>
+<p>The bootstrapper accounts need initial funding. On our testnets, you can use the faucet, on Mainnet, you can supply KSM or any other existing community currency</p>
+<pre><code>nctr-gsl faucet 5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG 5HB4kbo67Hgv846DNMRnt7i1xNMum66LLBFkqtghKsNwRknM 5GxWKwbrPL88uH3Zv7zAiz6ozdpSFHzSfK1aXhVxDcNQYU8t
+</code></pre>
+<p><em>Note: the displayed account addresses will differ from yours when you follow the tutorial. They are just provided for readabiltiy. Use your account addresses instead of the ones used in the tutorial.</em></p>
+<p>To register a community, you need to create a specfile.json containing details about the community and an account with funds to the chain client. </p>
+<h2><a class="header" href="#define-ceremony-meetup-locations" id="define-ceremony-meetup-locations">Define Ceremony Meetup Locations</a></h2>
+<p>We need to define in what region the community shall be issued. For this we use the geojson standard to define a set of meetup places and add some meta-information about the community. You can use <a href="https://geojson.io">geojson.io</a> to select meetup places on a map (define a few &quot;Points&quot;). Make sure that you select places that are &gt;100m apart. You also need to keep this minimal distance from other registered communities. </p>
+<p>If you want to be sure which location will be the bootstrapping location, please specify only a single location and register more locations after the bootstrapping ceremony.</p>
+<p>The number of locations that you should define depends on the size of the population N you'd like to bootstrap. As a rule of thumb, there should be at least N/12 locations but the more locations, the better. </p>
+<h2><a class="header" href="#specfile" id="specfile">Specfile</a></h2>
+<p>The specfile defines the set of <a href="#set-up-bootstrappers">bootstrappers</a>, the initial set of <a href="#define-meetup-locations">ceremony locations</a> as well as metadata like name, symbol and icons stored on <a href="https://ipfs.io">IPFS</a>.</p>
+<p>An example of the specfile.json is shown below with one meetup locations:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;FeatureCollection&quot;,
+  &quot;community&quot;: {
+    &quot;meta&quot;: {
+      &quot;name&quot;: &quot;Mediterranea&quot;,
+      &quot;symbol&quot;: &quot;MTA&quot;,
+      &quot;icons&quot;: &quot;QmVmew4gZHyCK2Fv4UBgsvfLdf1Q6UiF9MD6wsfPCuNVQp&quot;
+    },
+    &quot;bootstrappers&quot;: [
+      &quot;5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG&quot;,
+      &quot;5HB4kbo67Hgv846DNMRnt7i1xNMum66LLBFkqtghKsNwRknM&quot;,
+      &quot;5GxWKwbrPL88uH3Zv7zAiz6ozdpSFHzSfK1aXhVxDcNQYU8t&quot;
+    ]
+  },
+  &quot;features&quot;: [
+    {
+      &quot;type&quot;: &quot;Feature&quot;,
+      &quot;geometry&quot;: {
+        &quot;type&quot;: &quot;Point&quot;,
+        &quot;coordinates&quot;: [
+          -28.102619,
+          31.141935
+        ]
+      },
+      &quot;properties&quot;: {}
+    }
+  ]
+}
+</code></pre>
+<p>Note: replace the account addresses in &quot;bootstrappers&quot; with the ones you have created and add additional meetup locations.</p>
+<h3><a class="header" href="#use-your-own-community-icon" id="use-your-own-community-icon">Use Your Own Community Icon</a></h3>
+<p>The example specfile features a dummy icon. You may want to brand your community with its own icon. You'll need a circular icon in SVG format.</p>
+<p>Place your icon into its own folder, i.e. <code>./leu.rococo/community-icon.svg</code></p>
+<p>Make sure your SVG community icon doesn't include <code>&lt;style&gt;</code> attributes</p>
+<pre><code>cargo install svgcleaner
+svgcleaner community_icon.svg community_icon.svg
+</code></pre>
+<p>Upload the entire folder to ipfs:</p>
+<ol>
+<li>using your own ipfs server</li>
+</ol>
+<pre><code>ipfs add -rw --pin ./leu.rococo
+</code></pre>
+<ol start="2">
+<li>using infura's <a href="https://github.com/INFURA/ipfs-upload-client">client</a>:</li>
+</ol>
+<pre><code>ipfs-upload-client --id &lt;your infura id&gt; --secret &lt;your infura secret&gt; --pin ./leu.rococo 
+</code></pre>
+<p>test if you can fetch the cid through the encointer gateway which will be used by the app</p>
+<pre><code>wget http://ipfs.encointer.org:8080/api/v0/object/get?arg=QmXydp7gdTGwxkCn24vEtvtSXbR7wSAGBDLQpc8buF6T92/community_icon.svg
+</code></pre>
+<p>It may take a while to sync from the server you used for uploading and pinning. IPFS routing isn't very reliable nor fast yet, unfortunately.</p>
+<p>Once you can fetch your icon, replace the IPFS cid in the community specfile with the cid of your icon folder</p>
+<h2><a class="header" href="#register-your-new-community" id="register-your-new-community">Register your new community</a></h2>
+<p><em>caveat: The following step is temporarily restricted to Encointer Association Council for all public networks. Please <a href="https://app.element.io/#/room/#encointer:matrix.org">contact us on Matrix/Element</a> to have this performed for you. However, if you use a <a href="./developers-notee-local-setup.html">local setup</a>, you can perform this yourself</em></p>
+<p>Register your new community with the specfile.json:</p>
+<pre><code class="language-bash">nctr-dev new-community specfile.json 
+</code></pre>
+<p>Your community has been registered and the return value is your community-identifier (cid). Let's check the registry again:</p>
+<pre><code class="language-bash">nctr-dev list-communities
+</code></pre>
+<p>Congratulations! You are ready to <a href="./app-select-community.html">select your community in the Encointer Wallet app</a> <a href="./app-meetup.html">perform your first Ceremony</a> with your bootstrappers.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="tutorials-cli.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="developers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="tutorials-cli.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="developers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
