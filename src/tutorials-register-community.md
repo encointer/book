@@ -69,6 +69,43 @@ An example of the specfile.json is shown below with one meetup locations:
 ```
 Note: replace the account addresses in "bootstrappers" with the ones you have created and add additional meetup locations.
 
+### Use Your Own Community Icon
+
+The example specfile features a dummy icon. You may want to brand your community with its own icon. You'll need a circular icon in SVG format.
+
+Place your icon into its own folder, i.e. `./leu.rococo/community-icon.svg`
+
+Make sure your SVG community icon doesn't include `<style>` attributes
+```
+cargo install svgcleaner
+svgcleaner community_icon.svg community_icon.svg
+```
+
+Upload the entire folder to ipfs:
+
+1. using your own ipfs server
+  ```
+  ipfs add -rw --pin ./leu.rococo
+  ```
+
+2. using infura's [client](https://github.com/INFURA/ipfs-upload-client):
+  ```
+  ipfs-upload-client --id <your infura id> --secret <your infura secret> --pin ./leu.rococo 
+  ```
+
+
+test if you can fetch the cid through the encointer gateway which will be used by the app
+
+```
+wget http://ipfs.encointer.org:8080/api/v0/object/get?arg=QmXydp7gdTGwxkCn24vEtvtSXbR7wSAGBDLQpc8buF6T92/community_icon.svg
+```
+
+It may take a while to sync from the server you used for uploading and pinning. IPFS routing isn't very reliable nor fast yet, unfortunately.
+
+Once you can fetch your icon, replace the IPFS cid in the community specfile with the cid of your icon folder
+
+## Register your new community
+
 *caveat: The following step is temporarily restricted to Encointer Association Council for all public networks. Please [contact us on Matrix/Element](https://app.element.io/#/room/#encointer:matrix.org) to have this performed for you. However, if you use a [local setup](./developers-notee-local-setup.md), you can perform this yourself*
 
 Register your new community with the specfile.json:
@@ -83,4 +120,4 @@ Your community has been registered and the return value is your community-identi
 nctr-dev list-communities
 ```
 
-Congratulations! You are ready to perform your first Ceremony with your bootstrappers.
+Congratulations! You are ready to [select your community in the Encointer Wallet app](./app-select-community.md) [perform your first Ceremony](./app-meetup.md) with your bootstrappers.
