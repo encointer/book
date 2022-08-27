@@ -28,6 +28,7 @@
   - [Basic CLI usage](./tutorials-cli.md)
   - [Register a New Community Manually](./tutorials-register-community.md) 
   - [Register new meetup locations](./tutorials-register-locations.md)
+  - [Create vouchers](./tutorials-vouchers.md)
 - [Developers](./developers.md)
   - [Local notee Setup](developers-notee-local-setup.md)
   - [Bot Communities](developers-bot-communities.md)
