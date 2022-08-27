@@ -23,7 +23,7 @@ NPORT=443
 alias nctr-r="./encointer-client-notee -u $NURL -p $NPORT"
 
 # Encointer Mainnet (on Kusama) endpoint
-NURL=wss://rococo.api.encointer.org
+NURL=wss://kusama.api.encointer.org
 NPORT=443
 alias nctr-k="./encointer-client-notee -u $NURL -p $NPORT"
 

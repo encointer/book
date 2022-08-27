@@ -106,12 +106,13 @@ Once you can fetch your icon, replace the IPFS cid in the community specfile wit
 
 ## Register your new community
 
-*caveat: The following step is temporarily restricted to Encointer Association Council for all public networks. Please [contact us on Matrix/Element](https://app.element.io/#/room/#encointer:matrix.org) to have this performed for you. However, if you use a [local setup](./developers-notee-local-setup.md), you can perform this yourself*
+Register your new community with the specfile.json. Signer should be an account in your keystore which is able to pay fees:
 
-Register your new community with the specfile.json:
+*caveat: The following step is possible to perform by anyone on out testnet Gesell. 
+But on our mainnet you'll need to pass our [onboarding process](https://trello.com/b/1Yhln6NT/encointer-community-leader-applications) to be able to register your new community*
 
 ```bash
-nctr-dev new-community specfile.json 
+nctr-dev new-community specfile.json --signer 5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG
 ```
 
 Your community has been registered and the return value is your community-identifier (cid). Let's check the registry again:
