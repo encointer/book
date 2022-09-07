@@ -14,6 +14,7 @@
   - [Community Identifiers](./protocol-cid.md)
   - [Threat Model](./protocol-threat-model.md)
 - [Decentralization](./decentralization.md)
+  - [Governance](./decentralization-governance.md) 
 - [Deployments](./deployments.md)
   - [Gesell](./testnet-gesell.md)
   - [Cantillon](./testnet-cantillon.md)
