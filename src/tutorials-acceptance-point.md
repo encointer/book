@@ -62,6 +62,8 @@ Caveat: with the current version we need to make sure there's no newline at the 
 head -c -1 payload.txt | qrencode -o test.png
 ```
 
+Alternatively, you can use web services that help you generate a QR code, like [this one](https://www.qr-code-generator.com/) (select "Text" mode and make sure there's no line at the end)
+
 Now, you can insert `test.png` into a design of your choice. For Leu we use [this pdf form](https://leu.zuerich/wp-content/uploads/2022/09/Leu_Steller.pdf)
 
 
