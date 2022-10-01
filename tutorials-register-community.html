@@ -177,13 +177,15 @@
     &quot;meta&quot;: {
       &quot;name&quot;: &quot;Mediterranea&quot;,
       &quot;symbol&quot;: &quot;MTA&quot;,
-      &quot;icons&quot;: &quot;QmVmew4gZHyCK2Fv4UBgsvfLdf1Q6UiF9MD6wsfPCuNVQp&quot;
+      &quot;assets&quot;: &quot;QmVmew4gZHyCK2Fv4UBgsvfLdf1Q6UiF9MD6wsfPCuNVQp&quot;
     },
     &quot;bootstrappers&quot;: [
       &quot;5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG&quot;,
       &quot;5HB4kbo67Hgv846DNMRnt7i1xNMum66LLBFkqtghKsNwRknM&quot;,
       &quot;5GxWKwbrPL88uH3Zv7zAiz6ozdpSFHzSfK1aXhVxDcNQYU8t&quot;
-    ]
+    ],
+    &quot;demurrage_halving_blocks&quot;: 2628000,
+    &quot;ceremony_income&quot;: 100
   },
   &quot;features&quot;: [
     {
@@ -200,7 +202,11 @@
   ]
 }
 </code></pre>
-<p>Note: replace the account addresses in &quot;bootstrappers&quot; with the ones you have created and add additional meetup locations.</p>
+<ul>
+<li>replace the account addresses in &quot;bootstrappers&quot; with the ones you have created and add additional meetup locations.</li>
+<li><code>demurrage_halving_blocks</code> of 2'628'000 corresponds to 1 year if block time is 12 seconds</li>
+<li><code>ceremony_income</code> in this example is set to 100.00 MTA</li>
+</ul>
 <h3><a class="header" href="#use-your-own-community-icon" id="use-your-own-community-icon">Use Your Own Community Icon</a></h3>
 <p>The example specfile features a dummy icon. You may want to brand your community with its own icon. You'll need a circular icon in SVG format.</p>
 <p>Place your icon into its own folder, i.e. <code>./leu.rococo/community-icon.svg</code></p>
