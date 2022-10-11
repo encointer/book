@@ -990,6 +990,22 @@ u33e0719fDB: Decoded Berlin locations: 3
 <li><code>demurrage_halving_blocks</code> of 2'628'000 corresponds to 1 year if block time is 12 seconds</li>
 <li><code>ceremony_income</code> in this example is set to 100.00 MTA</li>
 </ul>
+<blockquote>
+<p><strong>ADVANCED</strong></p>
+<p>ceremony income and demurrage rate are stored as a fixpoint type (I64F64 - or 64 signed integer bits before the decimal point and 64 bit thereafter). That is why the raw numbers in js/apps can be confusing. An income of 100.00 MTA will be represented as</p>
+<pre><code class="language-python">&gt;&gt;&gt; 100*2**64
+1844674407370955161600
+</code></pre>
+<p>demurrage halving blocks will first be translated to an exponential function coefficient:</p>
+<pre><code class="language-python">&gt;&gt;&gt; int(-1*np.log(0.5)*2**64/2628000)
+4865414248555
+</code></pre>
+<p>Applying demmurage of one block then becomes: balance * exp(-demurrage_rate). In the case of a balance of <code>100.0</code> demurrage for one block would decrease the balance to</p>
+<pre><code class="language-python">&gt;&gt;&gt; 100.0*np.exp(-1*4865414248555/2**64)
+99.99997362453999
+</code></pre>
+<p><em>explanatory code is provided in python syntax</em></p>
+</blockquote>
 <h3><a class="header" href="#use-your-own-community-icon" id="use-your-own-community-icon">Use Your Own Community Icon</a></h3>
 <p>The example specfile features a dummy icon. You may want to brand your community with its own icon. You'll need a circular icon in SVG format.</p>
 <p>Place your icon into its own folder, i.e. <code>./leu.rococo/community-icon.svg</code></p>
