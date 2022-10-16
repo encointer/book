@@ -12,6 +12,7 @@
   - [Ceremony Cycle](./protocol-ceremony-cycle.md)
   - [Reputation](./protocol-reputation.md)
   - [Community Identifiers](./protocol-cid.md)
+  - [Democracy](./protocol-democracy.md)
   - [Threat Model](./protocol-threat-model.md)
 - [Decentralization](./decentralization.md)
   - [Governance](./decentralization-governance.md) 
