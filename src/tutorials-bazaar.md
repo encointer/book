@@ -9,6 +9,10 @@ export IPFS_ADD_URL=https://ipfs.infura.io:5001/api/v0/add
 export IPFS_API_KEY=<KEY>:<SECRET>
 ```
 
+## create a pure proxy business account
+
+TODO
+
 ## create a business entry for Bazaar
 
 save the following as `my_business.json`
@@ -32,7 +36,9 @@ The owner of this business can no register the business entry with the follwoing
 ./bazaar.py -u wss://gesell.encointer.org -p 443 --cid u0qj94fxxJ6 --bizaccount //Alice register-business ./my_busyness.json 
 ```
 
-verify with
+This helper script will upload your json to IPFS and register its ipfs url on testnet gesell
+
+verify on-chain registry with
 
 ```
 ./bazaar.py -u wss://gesell.encointer.org -p 443 --cid u0qj94fxxJ6 list-businesses
@@ -57,6 +63,8 @@ Let's register this offering with product and price
 ```
 ./bazaar.py --client "../target/release/encointer-client-notee -u wss://gesell.encointer.org" --cid sqm1v79dF6b --bizaccount //Alice register-offering my_product.json --price 42
 ```
+This helper script will upload your json to IPFS and register its ipfs url on testnet gesell
+
 verify
 ```
 /bazaar.py -u wss://gesell.encointer.org -p 443 --cid u0qj94fxxJ6 list-offerings
