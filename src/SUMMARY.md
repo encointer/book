@@ -32,6 +32,7 @@
   - [Register new meetup locations](./tutorials-register-locations.md)
   - [Create vouchers](./tutorials-vouchers.md)
   - [Acceptance Point Setup](./tutorials-acceptance-point.md)
+  - [Faucets](./tutorials-faucets.md)
 - [Developers](./developers.md)
   - [Local notee Setup](developers-notee-local-setup.md)
   - [Bot Communities](developers-bot-communities.md)
