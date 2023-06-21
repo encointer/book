@@ -1,6 +1,6 @@
 # Faucets
 
-The Encointer faucet is a dispenser of arbitrary tokens. Every human is eligible to receive a small amount of tokens for every attendance in the Encointer protocol
+The Encointer faucet is a dispenser of arbitrary tokens. Every human is eligible to receive a small amount of tokens for every attendance in the Encointer protocol. This can be seen as an additional benefit of participating in the encointer protocol and as an onboarding route for new tokens. 
 
 Currently, the faucet only supports the native ERT token on our testnet Gesell and will support KSM as soon as deployed on our mainnet
 
@@ -47,7 +47,7 @@ Bob now has received 1 ERT. If we try to drip again with the same reputation, th
 > nctr-gsl drip-faucet //Bob 5HkReqcuDYcdZFEJzzy8ACATmx71nbNHunpPT6Vc3q4Y44nm 6 --cid sqm1v79dF6b
 [+] Couldn't execute the extrinsic due to Dispatch(Module(ModuleError { pallet: "EncointerReputationCommitments", error: "AlreadyCommited", description: ["Participant already commited their reputation for this purpose"], error_data: ModuleErrorData { pallet_index: 65, error: [0, 0, 0, 0] } }))
 ```
-
+Therefore, Bob needs to attend another cycle before he can drip again. 
 ## Replenish a Faucet
 
 If the faucet runs dry, anyone can send ERT to the faucet's address to fill it up again
