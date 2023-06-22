@@ -77,6 +77,8 @@ This command creates a faucet with name *TestFaucet4* and sends funds from Alice
 
 If you do not specify a whitelist, every community will be eligible to drip. 
 
+Be aware that registering a facet requires you to reserve a deposit. please check `encointerFaucet.reserveAmount` for the amount to be reserved. The reserved amount will be freed upon closing the faucet
+
 The new faucet will now appear in the global list of faucets:
 
 ```
