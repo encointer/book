@@ -4,7 +4,7 @@ The Encointer CLI is a low-level tool to interact with an Encointer chain. It al
 
 ## Setup
 
-We suggest you run the following in an Ubuntu 20.04 environment
+We suggest you run the following in an Ubuntu 22.04 environment
 
 Download the CLI for our latest release:
 
