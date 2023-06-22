@@ -2,9 +2,10 @@
 
 The Encointer faucet is a dispenser of arbitrary tokens. Every human is eligible to receive a small amount of tokens for every attendance in the Encointer protocol. This can be seen as an additional benefit of participating in the encointer protocol and as an onboarding route for new tokens. 
 
-Currently, the faucet only supports the native ERT token on our testnet Gesell and will support KSM as soon as deployed on our mainnet
+Currently, the faucet MVP only supports the native ERT token on our testnet Gesell and will support KSM as soon as deployed on our mainnet. Our final product will support any fungible token which can be transferred via XCM to the Encointer parachain, including stablecoins
 
-## Drip
+## Testnet Usage
+### Drip
 
 We assume you have [set up the CLI client previously](./tutorials-cli.md) and you have [bootstrapped your own community](./tutorials-register-community.md) with a few bootstrapper accounts
 
@@ -51,7 +52,7 @@ If we try to drip again with the same reputation, this will fail:
 ```
 Therefore, we need to attend another cycle before we can drip again.
 
-## Replenish a Faucet
+### Replenish a Faucet
 
 If the faucet runs dry, anyone can send ERT to the faucet's address to fill it up again
 
@@ -59,7 +60,7 @@ If the faucet runs dry, anyone can send ERT to the faucet's address to fill it u
 > nctr-gsl transfer //Sponsor 5Dq3XugU1atZM8QGHxg2KfZahm2CzuBUDp8XyxL9wn8Q8Yx3 30000000000000
 ```
 
-## Create a new faucet
+### Create a new faucet
 
 If you want to donate tokens to a specific set of communities, you can create your own faucet with an opional whitelist
 
