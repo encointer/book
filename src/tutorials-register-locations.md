@@ -5,7 +5,43 @@ Otherwise less people will be assigned to ceremonies and your community will sta
 
 As a rule of thumb, you should always have at least one location for every 8 ceremony participants.
 
-## define locations
+## selecting locations
+
+Meetup locations should be selected carefully. They should fulfill the following requirements:
+
+### accessibility
+
+Locations should be outside and publicly accessible at all times. Also for people in wheelchairs. Moreover, think about how people from around town will travel to a location. 
+
+### easy discoverability 
+
+Landmarks like crossroads, squares or monuments are helpful to discover the location if given just a pin on openstreetmaps
+
+### enough space
+
+Imagine 10 people standing in a circle. That's how much space your location should provide without hindering any traffic
+
+### medium crowdedness
+
+Don't force people to meet at a very secluded or remote place where no other people would ever go. This could frighten participants who are about to meet other people they don't know yet.
+
+Don't pick very busy locations neither, as this could disturb smooth meetup performance
+
+### shelter 
+
+In regions where rain is likely, consider picking locations that offer shelter nearby.
+
+Also, shade is a good feature for hot days. Moreover, bright sunlight may degrade QR code scanning performance
+
+### identity-shaping
+
+Think about what your community stands for and consider locations that have a meaning
+
+### close to acceptance points
+
+What a magic moment if you can attend your first ceremony and spend your income right away in a store nearby!
+
+## specify locations
 
 We assume you have set up your environment along [basic cli usage](./tutorials-cli.md). 
 Like you did when [registering your community](./tutorials-register-community.md), you can use geojson.io to define a geojson file with all the new locations you'd like to register

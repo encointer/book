@@ -44,13 +44,15 @@ An example of the specfile.json is shown below with one meetup locations:
     "meta": {
       "name": "Mediterranea",
       "symbol": "MTA",
-      "icons": "QmVmew4gZHyCK2Fv4UBgsvfLdf1Q6UiF9MD6wsfPCuNVQp"
+      "assets": "QmVmew4gZHyCK2Fv4UBgsvfLdf1Q6UiF9MD6wsfPCuNVQp"
     },
     "bootstrappers": [
       "5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG",
       "5HB4kbo67Hgv846DNMRnt7i1xNMum66LLBFkqtghKsNwRknM",
       "5GxWKwbrPL88uH3Zv7zAiz6ozdpSFHzSfK1aXhVxDcNQYU8t"
-    ]
+    ],
+    "demurrage_halving_blocks": 2628000,
+    "ceremony_income": 100
   },
   "features": [
     {
@@ -67,7 +69,31 @@ An example of the specfile.json is shown below with one meetup locations:
   ]
 }
 ```
-Note: replace the account addresses in "bootstrappers" with the ones you have created and add additional meetup locations.
+
+* replace the account addresses in "bootstrappers" with the ones you have created and add additional meetup locations.
+* `demurrage_halving_blocks` of 2'628'000 corresponds to 1 year if block time is 12 seconds
+* `ceremony_income` in this example is set to 100.00 MTA
+
+> **ADVANCED**
+>
+> ceremony income and demurrage rate are stored as a fixpoint type (I64F64 - or 64 signed integer bits before the decimal point and 64 bit thereafter). That is why the raw numbers in js/apps can be confusing. An income of 100.00 MTA will be represented as
+> ```python
+> >>> 100*2**64
+> 1844674407370955161600
+> ```
+>
+> demurrage halving blocks will first be translated to an exponential function coefficient:
+> ```python
+> >>> int(-1*np.log(0.5)*2**64/2628000)
+> 4865414248555
+> ```
+> Applying demmurage of one block then becomes: balance * exp(-demurrage_rate). In the case of a balance of `100.0` demurrage for one block would decrease the balance to
+> ```python
+> >>> 100.0*np.exp(-1*4865414248555/2**64)
+> 99.99997362453999
+> ```
+>
+> *explanatory code is provided in python syntax*
 
 ### Use Your Own Community Icon
 

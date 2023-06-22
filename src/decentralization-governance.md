@@ -19,7 +19,7 @@ Each community can decide on parameters that only concern itself. Such parameter
 
 ## Council
 
-Encointer aims at democratic governance based on one-person-one-vote. However, democracy requires a representative number of users and communities to be meaningful and legitimate.
+Encointer aims at [democratic governance based on one-person-one-vote](./protocol-democracy.md). However, democracy requires a representative number of users and communities to be meaningful and legitimate.
 Therefore, governance is delegated to a council until the community deems to be ready for democracy. 
 
 The council currently consists of 7 members of the Encointer Association. Each local community may elect a representative which shall join the council.

@@ -20,7 +20,7 @@ Usually, you will start with zero reputation as a newbie. You will need a tiny b
 
 #### Endorsement
 
-If you know the bootstrappers of your community currency, you can ask them for an endorsement. They can endorse you as a trusted contact and you get a guaranteed assignment for th upcoming ceremony.
+If you know the bootstrappers of your community currency, you can ask them for an endorsement. They can endorse you as a trusted contact and you get a guaranteed assignment for the upcoming ceremony.
 
 ### Reputable
 
