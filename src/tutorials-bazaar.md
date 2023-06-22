@@ -1,5 +1,8 @@
 # Bazaar
 
+*THIS IS WORK IN PROGRESS*
+*recommended for developers only*
+
 ## setup ipfs uploads
 
 In order to make our helper scripts work on our testnet, we need to upload metadata and assets to a public IPFS gateway. In this example we use infura.
@@ -11,7 +14,7 @@ export IPFS_API_KEY=<KEY>:<SECRET>
 
 ## create a pure proxy business account
 
-TODO
+*In the future, we will recommend that businesses create pure proxy accounts for their business accounts. This way, control over the account can be distributed, revoked and multisiged*
 
 ## create a business entry for Bazaar
 
@@ -71,6 +74,8 @@ verify
 ```
 
 ## Why IPFS?
+
+While IPFS isn't very reliable in terms of discovery and availability, it represents the only content distribution method currently available which has a potential of working in decentralized setups. It is also content-addressed which guarantees that the correct content is delivered in untampered state. 
 
 ## Bazaar-web
 
