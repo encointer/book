@@ -1317,13 +1317,15 @@ Encointer Association
 <p>Alternatively, you can use web services that help you generate a QR code, like <a href="https://www.qr-code-generator.com/">this one</a> (select &quot;Text&quot; mode and make sure there's no line at the end)</p>
 <p>Now, you can insert <code>test.png</code> into a design of your choice. For Leu we use <a href="https://leu.zuerich/wp-content/uploads/2022/09/Leu_Steller.pdf">this pdf form</a></p>
 <h1><a class="header" href="#bazaar-1" id="bazaar-1">Bazaar</a></h1>
+<p><em>THIS IS WORK IN PROGRESS</em>
+<em>recommended for developers only</em></p>
 <h2><a class="header" href="#setup-ipfs-uploads" id="setup-ipfs-uploads">setup ipfs uploads</a></h2>
 <p>In order to make our helper scripts work on our testnet, we need to upload metadata and assets to a public IPFS gateway. In this example we use infura.</p>
 <pre><code class="language-bash">export IPFS_ADD_URL=https://ipfs.infura.io:5001/api/v0/add
 export IPFS_API_KEY=&lt;KEY&gt;:&lt;SECRET&gt;
 </code></pre>
 <h2><a class="header" href="#create-a-pure-proxy-business-account" id="create-a-pure-proxy-business-account">create a pure proxy business account</a></h2>
-<p>TODO</p>
+<p><em>In the future, we will recommend that businesses create pure proxy accounts for their business accounts. This way, control over the account can be distributed, revoked and multisiged</em></p>
 <h2><a class="header" href="#create-a-business-entry-for-bazaar" id="create-a-business-entry-for-bazaar">create a business entry for Bazaar</a></h2>
 <p>save the following as <code>my_business.json</code></p>
 <pre><code class="language-json">{
@@ -1366,6 +1368,7 @@ export IPFS_API_KEY=&lt;KEY&gt;:&lt;SECRET&gt;
 <pre><code>/bazaar.py -u wss://gesell.encointer.org -p 443 --cid u0qj94fxxJ6 list-offerings
 </code></pre>
 <h2><a class="header" href="#why-ipfs" id="why-ipfs">Why IPFS?</a></h2>
+<p>While IPFS isn't very reliable in terms of discovery and availability, it represents the only content distribution method currently available which has a potential of working in decentralized setups. It is also content-addressed which guarantees that the correct content is delivered in untampered state. </p>
 <h2><a class="header" href="#bazaar-web" id="bazaar-web">Bazaar-web</a></h2>
 <p>You can visit <a href="http://bazaar.encointer.org/?rpc=wss%3A%2F%2Fgesell.encointer.org">bazaar.encointer.org</a> and browse you newly created businesses and offerings</p>
 <h1><a class="header" href="#faucets" id="faucets">Faucets</a></h1>
