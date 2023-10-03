@@ -97,3 +97,39 @@ whitelist: None
 ```
 
 Now, another reputable member of a whitelisted community (`e5dvt5mjcem` or `dpcm5272THU`) community could drip 5 ERT from the new faucet
+
+## Mainnet Faucets
+
+You can use the same tools and commands as explained above, but here we'll describe more accessible ways as an altrernative
+
+### create faucet
+
+Create a faucet called "PioneerPot" with 10 KSM initial balance and 100mKSM drip per cycle attendance. Another 10 KSM will be reserved as a deposit for the faucet and will be returned upon dissolving the faucet once it's empty
+
+[create faucet using js/apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.encointer.org#/extrinsics/decode/0x42002850696f6e656572506f7400a0724e1809000000000000000000000000e87648170000000000000000000000)
+
+This will yield an Event `encointerFaucet.FaucetCreated` which also mentions the faucet's account holding the funds: 
+
+PioneerPot: `GDcRrT5id2uFsYaE8NgfpnUkNKJpBWU4C2f5EFZQZiVZb9c`
+
+### Drip Faucet
+
+Use our Encointer Wallet app to drip. 
+
+1. Go to profile -> your account
+2. find *PioneerPot* below *benefits*
+3. If you have personhood reputation and unclaimed allowance, the *claim* button will be enabled. tap it
+4. 100 mKSM will be dripped to your account
+5. the wallet will show your new KSM balance
+
+The Encointer Wallet does not provide functionality to use KSM for other purposes than paying fees. If you'd like to use your KSM, please export your account and import it into one oif the popular wallets out there:
+
+1. See [Backing up and restoring account](https://encointer.org/encointer-app/)
+2. Import into a [Polkadot wallet](https://wiki.polkadot.network/docs/wallets-and-extensions)
+3. Find your KSM balance and use your dripped KSM!
+
+### Refill
+
+Simply send KSM to the faucet's address.
+
+
