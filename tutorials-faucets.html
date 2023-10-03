@@ -221,6 +221,30 @@ drip amount: 1000000000000
 whitelist: None
 </code></pre>
 <p>Now, another reputable member of a whitelisted community (<code>e5dvt5mjcem</code> or <code>dpcm5272THU</code>) community could drip 5 ERT from the new faucet</p>
+<h2><a class="header" href="#mainnet-faucets" id="mainnet-faucets">Mainnet Faucets</a></h2>
+<p>You can use the same tools and commands as explained above, but here we'll describe more accessible ways as an altrernative</p>
+<h3><a class="header" href="#create-faucet" id="create-faucet">create faucet</a></h3>
+<p>Create a faucet called &quot;PioneerPot&quot; with 10 KSM initial balance and 100mKSM drip per cycle attendance. Another 10 KSM will be reserved as a deposit for the faucet and will be returned upon dissolving the faucet once it's empty</p>
+<p><a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.encointer.org#/extrinsics/decode/0x42002850696f6e656572506f7400a0724e1809000000000000000000000000e87648170000000000000000000000">create faucet using js/apps</a></p>
+<p>This will yield an Event <code>encointerFaucet.FaucetCreated</code> which also mentions the faucet's account holding the funds: </p>
+<p>PioneerPot: <code>GDcRrT5id2uFsYaE8NgfpnUkNKJpBWU4C2f5EFZQZiVZb9c</code></p>
+<h3><a class="header" href="#drip-faucet" id="drip-faucet">Drip Faucet</a></h3>
+<p>Use our Encointer Wallet app to drip. </p>
+<ol>
+<li>Go to profile -&gt; your account</li>
+<li>find <em>PioneerPot</em> below <em>benefits</em></li>
+<li>If you have personhood reputation and unclaimed allowance, the <em>claim</em> button will be enabled. tap it</li>
+<li>100 mKSM will be dripped to your account</li>
+<li>the wallet will show your new KSM balance</li>
+</ol>
+<p>The Encointer Wallet does not provide functionality to use KSM for other purposes than paying fees. If you'd like to use your KSM, please export your account and import it into one oif the popular wallets out there:</p>
+<ol>
+<li>See <a href="https://encointer.org/encointer-app/">Backing up and restoring account</a></li>
+<li>Import into a <a href="https://wiki.polkadot.network/docs/wallets-and-extensions">Polkadot wallet</a></li>
+<li>Find your KSM balance and use your dripped KSM!</li>
+</ol>
+<h3><a class="header" href="#refill" id="refill">Refill</a></h3>
+<p>Simply send KSM to the faucet's address.</p>
 
                     </main>
 
