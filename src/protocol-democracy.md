@@ -98,3 +98,60 @@ If we want to relax this in the future, we would need to come up with a way to h
 
 In order to determine if a vote is passing, we use Positive Turnout Bias. In addition we enforce a minimum turnout of 5%.
 
+### Documentation
+Go to the encointer-node repo and open 2 terminals:
+
+Terminal 1:
+```cargo build --release
+./target/release/encointer-node-notee --dev --enable-offchain-indexing true -lencointer=debug,parity_ws=warn
+```
+
+Terminal 2:
+```
+cd client
+python -m venv env
+source env/bin.activate
+pip install requirements.txt
+python bootstrap_demo_community.py
+
+
+
+# Go to next cycle
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 next-phase
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 next-phase
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 next-phase
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 listen -b 1
+
+# Submitting proposal id 1, SetInactivityTimeout(8)
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 submit-set-inactivity-timeout-proposal //Alice 8
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 listen -b 1
+
+# Submitting proposal id 2, UpdateNominalIncome(cid, 44)
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 --cid sqm1v79dF6b submit-update-nominal-income-proposal //Alice 44
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 listen -b 1
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 list-proposals
+
+# Alice votes aye for proposal 1
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 vote //Alice 1 aye sqm1v79dF6b_1
+# Bob votes aye for proposal 1
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 vote //Bob 1 aye sqm1v79dF6b_1
+# Charlie votes aye for proposal 1
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 vote //Charlie 1 aye sqm1v79dF6b_1
+# Alice votes nay for proposal 2
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 vote //Alice 2 nay sqm1v79dF6b_1
+# Bob votes nay for proposal 2
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 vote //Bob 2 nay sqm1v79dF6b_1
+# Charlie votes aye for proposal 2
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 vote //Charlie 2 aye sqm1v79dF6b_1
+# Waiting 5 blocks...
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 listen -b 5
+# Alice updates proposal state of proposal 1
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 update-proposal-state //Alice 1
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 list-proposals
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 list-enactment-queue
+# Waiting 10 blocks...
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 listen -b 10
+# Alice updates proposal state of proposal 2
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 update-proposal-state //Alice 2
+../target/release/encointer-client-notee -u ws://127.0.0.1 -p 9944 list-proposals
+```
