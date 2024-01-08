@@ -92,6 +92,8 @@ Then, we let the users vote for the porposals:
 ```
 # Alice votes aye for proposal 1
 ../target/release/encointer-client-notee vote //Alice 1 aye sqm1v79dF6b_1
+# Alice votes again aye for proposal 1, this vote will not count as she has already voted
+../target/release/encointer-client-notee vote //Alice 1 aye sqm1v79dF6b_1
 # Bob votes aye for proposal 1
 ../target/release/encointer-client-notee vote //Bob 1 aye sqm1v79dF6b_1
 # Charlie votes aye for proposal 1
