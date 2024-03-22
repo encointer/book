@@ -44,7 +44,10 @@ An example of the specfile.json is shown below with one meetup locations:
     "meta": {
       "name": "Mediterranea",
       "symbol": "MTA",
-      "assets": "QmVmew4gZHyCK2Fv4UBgsvfLdf1Q6UiF9MD6wsfPCuNVQp"
+      "assets": "QmVmew4gZHyCK2Fv4UBgsvfLdf1Q6UiF9MD6wsfPCuNVQp",
+      "url": "",
+      "announcementSigner": null,
+      "rules": "loCoFlex"
     },
     "bootstrappers": [
       "5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG",
