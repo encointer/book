@@ -29,6 +29,7 @@
 - [Tutorials](./tutorials.md)
   - [Basic CLI usage](./tutorials-cli.md)
   - [Register a New Community Manually](./tutorials-register-community.md) 
+  - [Perform a testnet cycle](./tutorials-perform-cycle.md)
   - [Register new meetup locations](./tutorials-register-locations.md)
   - [Create vouchers](./tutorials-vouchers.md)
   - [Acceptance Point Setup](./tutorials-acceptance-point.md)
