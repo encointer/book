@@ -148,12 +148,14 @@ nctr-gsl list-purposes
 # 4: democracyProposal4
 ```
 
-As you can see, proposals are not the only possible purposes. Our [faucet](./tutorials-faucets.md) is its own purpose. If we want to learn more about the commitments for a specific proposal, we need to know its purpose index. we can use `list-proposals`and it will tell us each proposals' purpose_id: `Proposal id: 3 (reputation commitment purpose id: 3)` 
+As you can see, proposals are not the only possible purposes. Each [faucet](./tutorials-faucets.md) is its own purpose too. Any use case that requires sybil-resilience can use these commitments. See [our article on more use cases for social media](https://encointer.org/one-human-one-account-how-encointer-can-help-tackle-review-and-comment-fraud/). 
+
+If we want to learn more about the commitments for a specific purpose like our proposal above, we need to know its purpose index. we can use `list-proposals`and it will tell us each proposals' purpose_id: `Proposal id: 3 (reputation commitment purpose id: 3)` 
 
 ```bash
 nctr-gsl list-commitments 3 --cid srcq45PYNyD
 # srcq45PYNyD, 4943, 3, 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs, None
 ```
 
-This should now list your previous vote(s) and those of anyone else who voted on the same proposal. As you see, voting is not private (yet) because your pseudonymous account is visible to anyone. 
+This should list your previous vote(s) and those of anyone else who voted on the same proposal. As you see, voting is not private (yet) because your pseudonymous account is visible to anyone. 
 
