@@ -54,7 +54,7 @@ Anyone can submit a proposal anytime. See the [docs](./protocol-democracy.md#pro
 ```bash
 nctr-gsl submit-update-nominal-income-proposal 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3.14 --cid srcq45PYNyD
 nctr-gsl list-proposals
-# id: 3
+# id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
 # ends after: 2024-03-24 16:18:48 UTC
@@ -77,7 +77,7 @@ We have one vote in community srcq45PYNyD with our reputation from cindex 4943. 
 ```bash
 nctr-gsl vote 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3 aye srcq45PYNyD_4943
 nctr-gsl list-proposals
-# id: 3
+# id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
 # ends after: 2024-03-24 16:18:48 UTC
@@ -95,7 +95,7 @@ Proposals are lazily evaluated. after the end of the confirming phase you can ca
 ```bash
 nctr-gsl update-proposal-state 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3
 nctr-gsl list-proposals
-# id: 3
+# id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
 # ends after: 2024-03-24 16:18:48 UTC
@@ -117,7 +117,7 @@ After the start of the next *Registering* phase, let's verify the enactment:
 
 ```bash
 nctr-gsl list-proposals
-# id: 3
+# id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
 # ends after: 2024-03-24 16:18:48 UTC
@@ -132,3 +132,28 @@ nctr-gsl list-communities
 # ...
 # srcq45PYNyD: Adriana, locations: 5, nominal income: 3.14000000000000012434 ADR, demurrage: 0/block, CommunityRules::LoCo
 ```
+
+## Deep Dive
+
+How do we ensure that every cycle attendance can only be used once for voting on a proposal but the same reputation can be used to vote on other proposals?
+
+We solve this using *commitments* for *purposes*. Every proposal is its own purpose. Let's check purposes on Gesell:
+
+```bash
+nctr-gsl list-purposes
+# 0: ectrfct0GesellPioneerPot
+# 1: democracyProposal1
+# 2: democracyProposal2
+# 3: democracyProposal3
+# 4: democracyProposal4
+```
+
+As you can see, proposals are not the only possible purposes. Our [faucet](./tutorials-faucets.md) is its own purpose. If we want to learn more about the commitments for a specific proposal, we need to know its purpose index. we can use `list-proposals`and it will tell us each proposals' purpose_id: `Proposal id: 3 (reputation commitment purpose id: 3)` 
+
+```bash
+nctr-gsl list-commitments 3 --cid srcq45PYNyD
+# srcq45PYNyD, 4943, 3, 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs, None
+```
+
+This should now list your previous vote(s) and those of anyone else who voted on the same proposal. As you see, voting is not private (yet) because your pseudonymous account is visible to anyone. 
+
