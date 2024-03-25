@@ -25,14 +25,14 @@ First, how many different accounts have reputation?
 
 ```bash
 nctr-gsl list-reputables
-
-Listing the number of attested attendees for each community and ceremony for cycles [4607:4943]
-...
-Community ID: srcq45PYNyD
-...
-Cycle ID 4942: Total attested attendees: 3 (noshows: 0)
-Cycle ID 4943: Total attested attendees: 3 (noshows: 1)
-Reputables in srcq45PYNyD (unique accounts with at least one attendance) 4
+# Listing the number of attested attendees for each community and ceremony for cycles [4607:4943]
+# ...
+# Community ID: srcq45PYNyD
+# ...
+# Cycle ID 4942: Total attested attendees: 3 (noshows: 0)
+# Cycle ID 4943: Total attested attendees: 3 (noshows: 1)
+# ...
+# Reputables in srcq45PYNyD (unique accounts with at least one attendance) 4
 ```
 Our test community has 4 reputable members who are eligible to vote. The quorum of votes will be the sum of attested attendances, in this case 6. Two accounts will have a voting power of 2, because they attended both cycles 4942 and 4943. Another two accounts have a voting power of 1 
 
@@ -54,16 +54,15 @@ Anyone can submit a proposal anytime. See the [docs](./protocol-democracy.md#pro
 ```bash
 nctr-gsl submit-update-nominal-income-proposal 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3.14 --cid srcq45PYNyD
 nctr-gsl list-proposals
+# id: 3
+# action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
+# started at: 2024-03-24 15:58:48 UTC
+# ends after: 2024-03-24 16:18:48 UTC
+# start cindex: 4954
+# current electorate estimate: 6
+# state: ProposalState::Ongoing
 ```
-Let's inspect the details of our proposal
-```
-id: 3
-action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
-started at: 2024-03-24 15:58:48 UTC
-ends after: 2024-03-24 16:18:48 UTC
-start cindex: 4954
-state: ProposalState::Ongoing
-```
+
 So now we have at most 30min time to vote. 
 
 ## Vote
@@ -71,26 +70,24 @@ So now we have at most 30min time to vote.
 Let's check our voting power:
 ```bash
 nctr-gsl reputation 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs
-4943, srcq45PYNyD, Reputation::VerifiedUnlinked
+# 4943, srcq45PYNyD, Reputation::VerifiedUnlinked
 ```
 We have one vote in community srcq45PYNyD with our reputation from cindex 4943. We need this information to cast our vote:
 
 ```bash
 nctr-gsl vote 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3 aye srcq45PYNyD_4943
 nctr-gsl list-proposals
+# id: 3
+# action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
+# started at: 2024-03-24 15:58:48 UTC
+# ends after: 2024-03-24 16:18:48 UTC
+# start cindex: 4954
+# current electorate estimate: 6
+# state: ProposalState::Confirming { since: 1711296000000 }
+# confirming since: 2024-03-24 16:00:00 UTC until 2024-03-24 16:00:00 UTC
 ```
-
 The proposal will immediately enter the confirming phase which lasts 5min
 
-```
-id: 3
-action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
-started at: 2024-03-24 15:58:48 UTC
-ends after: 2024-03-24 16:18:48 UTC
-start cindex: 4954
-state: ProposalState::Confirming { since: 1711296000000 }
-confirming since: 2024-03-24 16:00:00 UTC until 2024-03-24 16:00:00 UTC
-```
 If no one else votes, it will be approved because in this case our vote is already more than 5% of the electorate. Please check [our docs on adaptive quorum biasing](./protocol-democracy.md#adaptive-quorum-biasing-aqb-and-minimum-approval)
 
 Proposals are lazily evaluated. after the end of the confirming phase you can call
@@ -98,27 +95,40 @@ Proposals are lazily evaluated. after the end of the confirming phase you can ca
 ```bash
 nctr-gsl update-proposal-state 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3
 nctr-gsl list-proposals
-```
-
-```
-id: 3
-action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
-started at: 2024-03-24 15:58:48 UTC
-ends after: 2024-03-24 16:18:48 UTC
-start cindex: 4954
-state: ProposalState::Approved
+# id: 3
+# action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
+# started at: 2024-03-24 15:58:48 UTC
+# ends after: 2024-03-24 16:18:48 UTC
+# start cindex: 4954
+# current electorate estimate: 6
+# state: ProposalState::Approved
 ```
 
 All approved proposals will be enacted automatically at the start of the next *Registering* phase. Let's check the enactment queue:
 
 ```bash
 nctr-gsl list-enactment-queue
-3
+# 3
 ```
 
-This returns all proposal id's which will be enacted. Please be aware that even approved proposals can be cancelled before enactment if another proposal for the same action passes before enactment.
+This returns all proposal id's which will be enacted. Please be aware that even approved proposals can be cancelled before enactment if another proposal for the same action passes before enactment. However, after the first proposal for an action type has been approved, submitting new proposals will fail with `encointerDemocracy.ProposalWaitingForEnactment` until the approved proposal has been enacted.
 
 After the start of the next *Registering* phase, let's verify the enactment:
-```bash
 
+```bash
+nctr-gsl list-proposals
+# id: 3
+# action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
+# started at: 2024-03-24 15:58:48 UTC
+# ends after: 2024-03-24 16:18:48 UTC
+# start cindex: 4954
+# current electorate estimate: 6
+# state: ProposalState::Enacted
+```
+And the community income has indeed changed:
+
+```bash
+nctr-gsl list-communities
+# ...
+# srcq45PYNyD: Adriana, locations: 5, nominal income: 3.14000000000000012434 ADR, demurrage: 0/block, CommunityRules::LoCo
 ```
