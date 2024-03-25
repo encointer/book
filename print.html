@@ -1565,7 +1565,7 @@ whitelist: None
 <p>Anyone can submit a proposal anytime. See the <a href="./protocol-democracy.html#proposals">docs</a> to learn about conflict resolution among proposals.</p>
 <pre><code class="language-bash">nctr-gsl submit-update-nominal-income-proposal 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3.14 --cid srcq45PYNyD
 nctr-gsl list-proposals
-# id: 3
+# id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
 # ends after: 2024-03-24 16:18:48 UTC
@@ -1582,7 +1582,7 @@ nctr-gsl list-proposals
 <p>We have one vote in community srcq45PYNyD with our reputation from cindex 4943. We need this information to cast our vote:</p>
 <pre><code class="language-bash">nctr-gsl vote 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3 aye srcq45PYNyD_4943
 nctr-gsl list-proposals
-# id: 3
+# id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
 # ends after: 2024-03-24 16:18:48 UTC
@@ -1596,7 +1596,7 @@ nctr-gsl list-proposals
 <p>Proposals are lazily evaluated. after the end of the confirming phase you can call</p>
 <pre><code class="language-bash">nctr-gsl update-proposal-state 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3
 nctr-gsl list-proposals
-# id: 3
+# id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
 # ends after: 2024-03-24 16:18:48 UTC
@@ -1611,7 +1611,7 @@ nctr-gsl list-proposals
 <p>This returns all proposal id's which will be enacted. Please be aware that even approved proposals can be cancelled before enactment if another proposal for the same action passes before enactment. However, after the first proposal for an action type has been approved, submitting new proposals will fail with <code>encointerDemocracy.ProposalWaitingForEnactment</code> until the approved proposal has been enacted.</p>
 <p>After the start of the next <em>Registering</em> phase, let's verify the enactment:</p>
 <pre><code class="language-bash">nctr-gsl list-proposals
-# id: 3
+# id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
 # ends after: 2024-03-24 16:18:48 UTC
@@ -1624,6 +1624,21 @@ nctr-gsl list-proposals
 # ...
 # srcq45PYNyD: Adriana, locations: 5, nominal income: 3.14000000000000012434 ADR, demurrage: 0/block, CommunityRules::LoCo
 </code></pre>
+<h2><a class="header" href="#deep-dive" id="deep-dive">Deep Dive</a></h2>
+<p>How do we ensure that every cycle attendance can only be used once for voting on a proposal but the same reputation can be used to vote on other proposals?</p>
+<p>We solve this using <em>commitments</em> for <em>purposes</em>. Every proposal is its own purpose. Let's check purposes on Gesell:</p>
+<pre><code class="language-bash">nctr-gsl list-purposes
+# 0: ectrfct0GesellPioneerPot
+# 1: democracyProposal1
+# 2: democracyProposal2
+# 3: democracyProposal3
+# 4: democracyProposal4
+</code></pre>
+<p>As you can see, proposals are not the only possible purposes. Our <a href="./tutorials-faucets.html">faucet</a> is its own purpose. If we want to learn more about the commitments for a specific proposal, we need to know its purpose index. we can use <code>list-proposals</code>and it will tell us each proposals' purpose_id: <code>Proposal id: 3 (reputation commitment purpose id: 3)</code> </p>
+<pre><code class="language-bash">nctr-gsl list-commitments 3 --cid srcq45PYNyD
+# srcq45PYNyD, 4943, 3, 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs, None
+</code></pre>
+<p>This should now list your previous vote(s) and those of anyone else who voted on the same proposal. As you see, voting is not private (yet) because your pseudonymous account is visible to anyone. </p>
 <h1><a class="header" href="#developers" id="developers">Developers</a></h1>
 <p>This chapter includes information for developers who want to test the tech locally on their machines</p>
 <h1><a class="header" href="#gesell-local-setup" id="gesell-local-setup">Gesell local setup</a></h1>
