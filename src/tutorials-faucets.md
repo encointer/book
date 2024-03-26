@@ -132,4 +132,50 @@ The Encointer Wallet does not provide functionality to use KSM for other purpose
 
 Simply send KSM to the faucet's address.
 
+### Monitor Usage
 
+Of course, we'd like to know how many people are using the faucets and from which communities. You can fetch this information as follows:
+
+First, we need to look up the *purpose id* of the faucet we're interested in
+
+```bash
+nctr-k list-purposes
+# 0: ectrfct0PioneerPot
+```
+On mainnet, there's a single faucet right now with index `0`
+
+```bash
+nctr-k list-commitments 0 --cid u0qj944rhWE
+# u0qj944rhWE, 68, 0, 5EZHGkM4NZhbR9AxnWsc9tmzNNMLQJntx1874Y7RSXKw6crw, None
+# u0qj944rhWE, 68, 0, 5FLbYHux2SUmo1EB3qtmLMvdicDff4yWDZPgriJU8qqyNWVR, None
+# u0qj944rhWE, 69, 0, 5Cm38saAbnwrxvnGCp4Pqff5K3rKy4awYQnrdqDeHfvW2ZUM, None
+# u0qj944rhWE, 69, 0, 5EZHGkM4NZhbR9AxnWsc9tmzNNMLQJntx1874Y7RSXKw6crw, None
+# u0qj944rhWE, 71, 0, 5C7ru3m9eWEEZgcYghYa5uRhUrG5EiWoRgcR2JuBLmUnKr4w, None
+# u0qj944rhWE, 71, 0, 5CV1NRrFvpoma3NRDG8iZCYnTcTCuAJSUnT4ym5Wc8fL86aD, None
+# u0qj944rhWE, 72, 0, 5FLbYHux2SUmo1EB3qtmLMvdicDff4yWDZPgriJU8qqyNWVR, None
+```
+
+this will only list the drips which happened withing the current reputation lifetime. To query older drips, add the `--at <block hash>` argument. When interpreting the results, be aware that drips can happen up to reputation lifetime later than the reputation being committed. 
+
+If you want to know, how many accounts have use the faucet how many times, use this:
+
+```bash
+nctr-k list-commitments 0 --cid kygch5kVGq7 | awk -F',' '{print $4}' | sort | uniq -c | tee >(wc -l | awk '{print "Total unique accounts:", $1}')
+#      1  5CXuNeCvhb3qbPw2TjcKYdghamJcfkq6SavKmN5fQ1beUDH5
+#      2  5DceiYnUBdRx2bPjPFN2EjYm7VvaVnCB6Sp4qSjuYP4Qbd65
+#      1  5Dhb315DK5T5f5Y59CsfCApv5HBb1CFzCv4zPMfsvW1t52JF
+#      2  5EhLWoCguV193dDQYnTYWG21nAnYZA5R1Heedd7ejGoStBgr
+#      3  5Eqm2XfZ5F18tjbDM523kTUhLrqJiXTaLsDGjKgSkrQeaU7M
+#      1  5EU4mJ2tKfADXutnoJ3FsEBFsf3XxjmxLXM1xhvyGWAXh94F
+#      4  5F6amYgeXNWQ7QYjvAjdiFsn2dCZ77XLp5MAFoH4GF9QacWN
+#      1  5FcVT8yqHcsR59kq6fLREm4HV1Qv9hNTvDMPaWPeSJ4bCE3A
+#      2  5FgcVajvdogedL4kiq4iFZ9x7Cx3ZcdCtf61qWB8fV7UP8qN
+#      1  5FhB9k35bqpjc8dYrkKnMtkTVfBg9nKjgPirZWGZEZA31jQw
+#      2  5FHEfaNVa82BdMDXm7NUKecy3VPThCPHycSCTqBBK9HG5nNT
+#      3  5FnxT7z3mCzcNV95fEi73y6pduZzfMQ1dbBRamvWP8NfcHMi
+#      4  5G3dA2sc4ytrW2NE7FLz1JTdzveXAmXii4ryiYQhTVyBAuuf
+#      5  5G7AsczRMrV1kSv2btw9FSh7CwoRzaYdjaadHHZU4cFKTcfN
+#      4  5GhKkMhoTHtsoxD3muqhug795znXCsiu4Tq4iBiWfpKX6e4g
+#      1  5Hmi6Xr4kPeZMjRWz2aeCawdZ7riJ4Lf46VRxv8iqAwcHdNm
+# Total unique accounts: 16
+```
