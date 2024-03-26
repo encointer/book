@@ -1543,7 +1543,7 @@ whitelist: None
 </code></pre>
 <p>this will only list the drips which happened withing the current reputation lifetime. To query older drips, add the <code>--at &lt;block hash&gt;</code> argument. When interpreting the results, be aware that drips can happen up to reputation lifetime later than the reputation being committed. </p>
 <p>If you want to know, how many accounts have use the faucet how many times, use this:</p>
-<pre><code class="language-bash">nctr-k list-commitments 0 --cid kygch5kVGq7 | awk -F',' '{print $4}' | sort | uniq -c | tee &gt;(wc -l | awk '{print &quot;Total unique accounts:&quot;, $1}')
+<pre><code class="language-bash">nctr-k list-commitments 0 --cid kygch5kVGq7 | awk -F',' '{print $4}' | sort | uniq -c | sort -nr | tee &gt;(wc -l | awk '{print &quot;Total unique accounts:&quot;, $1}')
 #      1  5CXuNeCvhb3qbPw2TjcKYdghamJcfkq6SavKmN5fQ1beUDH5
 #      2  5DceiYnUBdRx2bPjPFN2EjYm7VvaVnCB6Sp4qSjuYP4Qbd65
 #      1  5Dhb315DK5T5f5Y59CsfCApv5HBb1CFzCv4zPMfsvW1t52JF
