@@ -160,7 +160,7 @@ this will only list the drips which happened withing the current reputation life
 If you want to know, how many accounts have use the faucet how many times, use this:
 
 ```bash
-nctr-k list-commitments 0 --cid kygch5kVGq7 | awk -F',' '{print $4}' | sort | uniq -c | tee >(wc -l | awk '{print "Total unique accounts:", $1}')
+nctr-k list-commitments 0 --cid kygch5kVGq7 | awk -F',' '{print $4}' | sort | uniq -c | sort -nr | tee >(wc -l | awk '{print "Total unique accounts:", $1}')
 #      1  5CXuNeCvhb3qbPw2TjcKYdghamJcfkq6SavKmN5fQ1beUDH5
 #      2  5DceiYnUBdRx2bPjPFN2EjYm7VvaVnCB6Sp4qSjuYP4Qbd65
 #      1  5Dhb315DK5T5f5Y59CsfCApv5HBb1CFzCv4zPMfsvW1t52JF
