@@ -29,8 +29,6 @@ The council currently consists of 7 members of the Encointer Association. Each l
 The council currently governs the Global Operative Scope and the Local Community Scope. Through [propsals](https://encointer.subscan.io/event?module=collective&event=all), it can execute the following actions:
 
 * Adjust ceremony schedule
-    * [`next_phase`](https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/scheduler/src/lib.rs#L151): force progress to next ceremony phase
-    * [`push_by_one_day`](push_by_one_day): postpone next phase change by one day push_by_one_day
     * [`set_phase_duration`](https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/scheduler/src/lib.rs#L173): adjust ceremony schedule phase durations
     * [`set_next_phase_timestamp`](https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/scheduler/src/lib.rs#L184): arbitrarily define the time for next phase change
 * Manage communities
