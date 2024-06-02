@@ -61,6 +61,8 @@ This section describes the powers of Encointer's onchain democracy (post-V0.1) a
 
 Changes to the Encointer protocol are out of scope because they need to be decided by Kusama Relay-Chain Governance as Encointer is a common good parachain. Upgrades to the Encointer Protocol must pass a public [referendum on Kusama](https://guide.kusama.network/docs/learn-governance/#referenda), where KSM token holders decide.
 
+For a vision of how Encointer could execute global democratic protocol governance in the future, we refer to this [research blog post](https://encointer.org/towards-a-global-web-of-trust-for-web3-voting/)
+
 #### Global Actions
 
 These actions can only be decided upon by the quorum of all encointer communities globally
