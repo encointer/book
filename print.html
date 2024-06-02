@@ -400,11 +400,35 @@ With these vouchers, investors pay 8$ today instead of 10$ at some defined point
 </blockquote>
 <p>The democracy module will bring decentralized governance to Encointer, facilitating participants to take decisions. Such a <strong>universal human suffrage</strong> (one person one vote) governance shall render the current Encointer council obsolete. Examples of such decisions are the addition of new meetup locations to a community, an adjustment of the Demurrage rate or changes in the ceremony schdeule.</p>
 <p>The decision making process should follow the subsidiarity principle, meaning that decisions should be taken on the lowest possible level. So for example, if a community wants to extend their region by adding some new meetup locations, only community members should be allowed to participate in the vote.</p>
-<h2><a class="header" href="#scope-of-democracy" id="scope-of-democracy">Scope of Democracy</a></h2>
-<p>This section describes the powers of Encointer's onchain democracy and at what level decisions are to be made.</p>
-<h3><a class="header" href="#protocol-changes" id="protocol-changes">Protocol Changes</a></h3>
+<h2><a class="header" href="#proposals" id="proposals">Proposals</a></h2>
+<p>There is a set of predefined proposal <em>actions</em> that can be voted on. Everyone can start a proposal on an <em>action</em> (ie. set basic income to 48 LEU) at any time. There can even be multiple proposals ongoing in parallel.</p>
+<p>Every member of the community can use their reputation to vote on each proposal (the more reputation, the more voting power. Capped at <em>reputation_lifetime</em>)
+A proposal gets approved if it stays in a passing state (enough <em>Aye</em> votes) continuously for a long enough time period (<em>confirmation period</em>).</p>
+<h3><a class="header" href="#practical-examples" id="practical-examples">Practical Examples</a></h3>
+<p>Let's assume a proposal has been submitted at the end of the last <em>registering</em> phase. During the first day, the proposal doesn't reach the minimal turnout yet, but on day two it enters the passing state and the confirmation period starts. More people make up their mind and vote <em>Nay</em>, so the proposal drops out of confirming state before the end of the confirmation period. Over time, more <em>Aye</em> votes are coming in and the approval threshold is surpassed. This time, the proposal stays in the passing state during the entire confirmation period gets approved. 
+Any community member can call the lazy evaluation and the proposal action will be scheduled for enaction at the start of the upcoming <em>registering</em> phase. </p>
+<p><img src="./fig/democracy-proposal-lifetime-approved.drawio.svg" alt="lifetime approved" /></p>
+<p>Another example shows a proposal with insufficient approval. After an initial boost, it stays in the <em>failing</em> state until the the end of its lifetime. Any community member can request lazy evaluation and the proposal will be cancelled.</p>
+<p><img src="./fig/democracy-proposal-lifetime-rejected.drawio.svg" alt="lifetime rejected" /></p>
+<h2><a class="header" href="#voting" id="voting">Voting</a></h2>
+<h3><a class="header" href="#eligible-reputations" id="eligible-reputations">Eligible Reputations</a></h3>
+<p>Each successful cycle attendance for a set of eligible cycles gives you one vote. We currently allow only reputations older than the previous cycle (relative to proposal submission) to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes (the <em>electorate</em>), which is required for AQB and to determine the minimum turnout. </p>
+<p><img src="./fig/democracy-electorate.drawio.svg" alt="electorate" /></p>
+<p>Your own voting power depends on the number of cycles you have attended during the eligible period. The more cycles you have attended during this period, the more voting power you have. This is a sybil-resilient approximation of universal suffrage which rewards your dedication to participate in community cycles regularly.</p>
+<h3><a class="header" href="#adaptive-quorum-biasing-aqb-and-minimum-approval" id="adaptive-quorum-biasing-aqb-and-minimum-approval">Adaptive Quorum Biasing (AQB) and Minimum Approval</a></h3>
+<p>In order to determine if a proposal is passing, we use <em>positive turnout bias</em>. The approval threshold follows the formula: \(thrs = \frac{1}{1+\sqrt{turnout}}\) where \(turnout \in [0, 1]\) and \(thrs \in [0, 1]\)</p>
+<p>In addition we enforce a minimum turnout of 5%.</p>
+<p>The goal of AQB is to ensure proposals can be approved even if turnout is low. Especially noncontroversial proposals may suffer from low turnout as they fail to mobilize the crowd. However, low turnout should require a higher approval rate to pass.</p>
+<p><img src="./fig/democracy-aqb.drawio.svg" alt="AQB" /></p>
+<p>The blue trace depicts a possible turnout over time. It can be expected that the initiators of a proposal will immediately vote <em>Aye</em>, leading to very high approval at start. Nevertheless, as long as less than 5% of the elecorate have cast their vote, the proposal is in <em>failing</em> state. Over time, more people will make up their mind and the proposal may flip between passing and failing state several times before eventually staying in the passing state for the confirmation period. The end of the confirmation period is depicted by the blue dot.</p>
+<h2><a class="header" href="#tutorial" id="tutorial">Tutorial</a></h2>
+<p>For a tutorial about hands-on testing the democracy module, please see the <a href="./tutorials-democracy.html">Democracy Tutorial</a></p>
+<h2><a class="header" href="#deep-dive" id="deep-dive">Deep Dive</a></h2>
+<h3><a class="header" href="#scope-of-democracy" id="scope-of-democracy">Scope of Democracy</a></h3>
+<p>This section describes the powers of Encointer's onchain democracy (post-V0.1) and at what level decisions are to be made.</p>
+<h4><a class="header" href="#protocol-changes" id="protocol-changes">Protocol Changes</a></h4>
 <p>Changes to the Encointer protocol are out of scope because they need to be decided by Kusama Relay-Chain Governance as Encointer is a common good parachain. Upgrades to the Encointer Protocol must pass a public <a href="https://guide.kusama.network/docs/learn-governance/#referenda">referendum on Kusama</a>, where KSM token holders decide.</p>
-<h3><a class="header" href="#global-actions" id="global-actions">Global Actions</a></h3>
+<h4><a class="header" href="#global-actions" id="global-actions">Global Actions</a></h4>
 <p>These actions can only be decided upon by the quorum of all encointer communities globally</p>
 <ul>
 <li>Adjust ceremony schedule (can be adjusted anytime)
@@ -433,7 +457,7 @@ With these vouchers, investors pay 8$ today instead of 10$ at some defined point
 </li>
 <li>Decide on Treasury Proposals</li>
 </ul>
-<h3><a class="header" href="#community-actions" id="community-actions">Community Actions</a></h3>
+<h4><a class="header" href="#community-actions" id="community-actions">Community Actions</a></h4>
 <p>These actions can be decided per community for themselves</p>
 <p>Only to be changed during <em>Registering</em> phase</p>
 <ul>
@@ -446,18 +470,15 @@ With these vouchers, investors pay 8$ today instead of 10$ at some defined point
 <li><a href="https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/communities/src/lib.rs#L214"><code>update_community_metadata</code></a>: change name, currency, artwork IPFS cid for community</li>
 <li><a href="https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/communities/src/lib.rs#L238"><code>update_demurrage</code></a>: change how fast balances are demurraged per community</li>
 </ul>
-<h3><a class="header" href="#petitions" id="petitions">Petitions</a></h3>
+<h4><a class="header" href="#petitions" id="petitions">Petitions</a></h4>
 <p>Petitions are votes on matters that cannot automatically be enforced by the Encointer protocol. Therefore, they are non-binding for the network. They can have global or local scope. Petitions can be used to signal the network or community leaders about the will of the community.</p>
-<h2><a class="header" href="#proposals" id="proposals">Proposals</a></h2>
-<p>There is a set of predefined proposal <em>actions</em> that can be voted on (ie. set basic income to XY)</p>
-<p>Everyone can start a proposal on an <em>action</em> (ie. set basic income to 48 LEU)</p>
-<p>Every member of the community can use their reputation to vote on a proposal (the more reputation, the more voting power. Capped at <em>reputation_lifetime</em>)</p>
-<p>A proposal gets approved if it is in a passing state (enough aye votes) for a long enough time period (confirmation period)</p>
+<h3><a class="header" href="#detailed-proposal-states-and-lifetime" id="detailed-proposal-states-and-lifetime">Detailed Proposal States and Lifetime</a></h3>
+<p>Let's look a bit closer at more complex cases:</p>
 <p>There can be multiple proposals up for vote simultaneously, even on the same action</p>
 <p>When a proposal gets approved, all other proposals on the same <em>action</em> get cancelled, to avoid conflicts</p>
-<p>When a proposal A gets approved, its enactment will be scheduled to the beginning of the next ceremony cycle. Should another proposal B get approved after proposal A’s approval but before it’s enactment, proposal B will be scheduled for enactment and proposal A will be cancelled.</p>
+<p>When a proposal A gets approved, its enactment will be scheduled to the beginning of the next ceremony cycle. </p>
 <p><img src="./fig/democracy-proposal-state-machine.drawio.svg" alt="Proposal state machine" /></p>
-<h3><a class="header" href="#proposal-lifetime" id="proposal-lifetime">Proposal Lifetime</a></h3>
+<h4><a class="header" href="#proposal-lifetime" id="proposal-lifetime">Proposal Lifetime</a></h4>
 <p>The following examples will describe examples of how proposals change their state over time based on a changing number of votes and on other proposals.</p>
 <p>Let</p>
 <ul>
@@ -472,26 +493,6 @@ With these vouchers, investors pay 8$ today instead of 10$ at some defined point
 <p>For the sake of simplicity, we assume that just a simple majority is needed for a proposal to pass and there is no minimum vote required.</p>
 <p>In the case of multiple proposals, all proposals shall be of the same action.</p>
 <p><img src="./fig/democracy-voting.drawio.svg" alt="Democracy Voting" /></p>
-<h3><a class="header" href="#practical-examples" id="practical-examples">Practical Examples</a></h3>
-<p>Let's assume a proposal has been submitted at the end of the last <em>registering</em> phase. During the first day, the proposal doesn't reach the minimal turnout yet, but on day two it enters the passing state and the confirmation period starts. More people make up their mind and vote <em>Nay</em>, so the proposal fall out of confirming state before the end of the confirmation period. Over time, more <em>Aye</em> votes are coming in and the approval threshold is surpassed. This time, the proposal stays in the passing state during the entire confirmation period gets approved. 
-Any community member can call the lazy evaluation and the proposal action will be scheduled for enaction at the start of the upcoming <em>registering</em> phase. </p>
-<p><img src="./fig/democracy-proposal-lifetime-approved.drawio.svg" alt="lifetime approved" /></p>
-<p>Another example shows a proposal with insufficient approval. After an initial boost, it stays in the <em>failing</em> state until the the end of its lifetime. Any community member can request lazy evaluation and the proposal will be cancelled.</p>
-<p><img src="./fig/democracy-proposal-lifetime-rejected.drawio.svg" alt="lifetime rejected" /></p>
-<h2><a class="header" href="#voting" id="voting">Voting</a></h2>
-<h3><a class="header" href="#eligible-reputations" id="eligible-reputations">Eligible Reputations</a></h3>
-<p>We currently allow only reputations older than the ceremony cycle of the proposal start - 2 to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes, which is required 1. for AQB and 2. to determine the minimum turnout.</p>
-<p>If we want to relax this in the future, we would need to come up with a way to handle the dynamic change of the electorate while a proposal is running. This is not trivial.</p>
-<p><img src="./fig/democracy-electorate.drawio.svg" alt="electorate" /></p>
-<p>Your own voting power depends on the number of cycles you have attended during the eligible period. The more cycles you have attended, the more voting power you have. This is a sybil-resilient approximation of universal suffrage.</p>
-<h3><a class="header" href="#adaptive-quorum-biasing-aqb-and-minimum-approval" id="adaptive-quorum-biasing-aqb-and-minimum-approval">Adaptive Quorum Biasing (AQB) and Minimum Approval</a></h3>
-<p>In order to determine if a proposal is passing, we use positive turnout bias. The approval threshold follows the formula: \(thrs = \frac{1}{1+\sqrt{turnout}}\) where \(turnout \in [0, 1]\) and \(thrs \in [0, 1]\)</p>
-<p>In addition we enforce a minimum turnout of 5%.</p>
-<p>The goal of AQB is to ensure proposals can be approved even if turnout is low. Especially noncontroversial proposals may suffer from low turnout as they fail to mobilize the crowd. However, low turnout should require a higher approval rate to pass.</p>
-<p><img src="./fig/democracy-aqb.drawio.svg" alt="AQB" /></p>
-<p>The blue trace depicts a possible turnout over time. It can be expected that the initiators of a proposal will immediately vote <em>Aye</em>, leading to very high approval at start. As long as less than 5% of the elecorate have cast their vote, the proposal is in <em>failing</em> state. Over time, more people will make up their mind and the proposal may flip between passing and failing state several times before eventually staying in the passing state for the confirmation period. The end of the confirmation period is depicted by the blue dot.</p>
-<h2><a class="header" href="#tutorial" id="tutorial">Tutorial</a></h2>
-<p>For a tutorial of the democracy module, please see the <a href="./tutorials-democracy.html">Democracy Tutorial</a></p>
 <h1><a class="header" href="#threat-model" id="threat-model">Threat Model</a></h1>
 <h2><a class="header" href="#actor-profiles" id="actor-profiles">Actor Profiles</a></h2>
 <p>We categorize users into the following psychological profiles for later scenario analysis:</p>
@@ -1674,7 +1675,7 @@ nctr-gsl list-proposals
 # ...
 # srcq45PYNyD: Adriana, locations: 5, nominal income: 3.14000000000000012434 ADR, demurrage: 0/block, CommunityRules::LoCo
 </code></pre>
-<h2><a class="header" href="#deep-dive" id="deep-dive">Deep Dive</a></h2>
+<h2><a class="header" href="#deep-dive-1" id="deep-dive-1">Deep Dive</a></h2>
 <p>How do we ensure that every cycle attendance can only be used once for voting on a proposal but the same reputation can be used to vote on other proposals?</p>
 <p>We solve this using <em>commitments</em> for <em>purposes</em>. Every proposal is its own purpose. Let's check purposes on Gesell:</p>
 <pre><code class="language-bash">nctr-gsl list-purposes
