@@ -29,11 +29,11 @@ Another example shows a proposal with insufficient approval. After an initial bo
 
 ### Eligible Reputations
 
-Each successful cycle attendance for a set of eligible cycles gives you one vote. We currently allow only reputations older than the previous cycle (relative to proposal submission) to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes (the *electorate*), which is required for AQB and to determine the minimum turnout. 
+Each successful cycle attendance for a set of eligible cycles gives you one vote. We currently allow only reputations older than the previous cycle but younger than the *reputation lifetime* (relative to proposal submission) to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes (the *electorate*), which is required for AQB and to determine the minimum turnout. 
 
 ![electorate](./fig/democracy-electorate.drawio.svg)
 
-Your own voting power depends on the number of cycles you have attended during the eligible period. The more cycles you have attended during this period, the more voting power you have. This is a sybil-resilient approximation of universal suffrage which rewards your dedication to participate in community cycles regularly.
+Your own voting power depends on the number of cycles you have attended during the eligible period. The more cycles you have attended during this period, the more voting power you have. This is a sybil-resilient approximation of universal suffrage which rewards your dedication to participate in community cycles regularly. Thanks to the reputation lifetime, however, there is no undue bias towards longtime community members as only recent reputation is eligible for voting. 
 
 ### Adaptive Quorum Biasing (AQB) and Minimum Approval
 
