@@ -1,8 +1,10 @@
-# Democracy
+# Democracy V0.1
 
-> _this feature is work in progress and not yet released. See [Governance](./decentralization-governance.md) to learn how it currently works_
+> this feature is work in progress and currently only deployed on [testnet Gesell](./testnet-gesell.md). See [Governance](./decentralization-governance.md) to learn how it currently works_on mainnet
+>
+> V0.1 only encompasses a subset of local community governance actions
 
-The democracy module will bring decentralized governance to Encointer facilitating participants to take decisions. Such a **universal human suffrage** (one person one vote) governance shall render the current Encointer council obsolete. Examples of such decisions are the addition of new meetup locations to a community, an adjustment of the Demurrage rate or changes in the ceremony schdeule.
+The democracy module will bring decentralized governance to Encointer, facilitating participants to take decisions. Such a **universal human suffrage** (one person one vote) governance shall render the current Encointer council obsolete. Examples of such decisions are the addition of new meetup locations to a community, an adjustment of the Demurrage rate or changes in the ceremony schdeule.
 
 The decision making process should follow the subsidiarity principle, meaning that decisions should be taken on the lowest possible level. So for example, if a community wants to extend their region by adding some new meetup locations, only community members should be allowed to participate in the vote.
 
@@ -50,6 +52,10 @@ Not strictly related to a particular ceremony phase. could be adjusted anytime.
 -   [`update_community_metadata`](https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/communities/src/lib.rs#L214): change name, currency, artwork IPFS cid for community
 -   [`update_demurrage`](https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/communities/src/lib.rs#L238): change how fast balances are demurraged per community
 
+### Petitions
+
+Petitions are votes on matters that cannot automatically be enforced by the Encointer protocol. Therefore, they are non-binding for the network. They can have global or local scope. Petitions can be used to signal the network or community leaders about the will of the community.   
+
 ## Proposals
 
 There is a set of predefined proposal _actions_ that can be voted on (ie. set basic income to XY)
@@ -88,17 +94,41 @@ In the case of multiple proposals, all proposals shall be of the same action.
 
 ![Democracy Voting](./fig/democracy-voting.drawio.svg)
 
+### Practical Examples
+
+Let's assume a proposal has been submitted at the end of the last *registering* phase. During the first day, the proposal doesn't reach the minimal turnout yet, but on day two it enters the passing state and the confirmation period starts. More people make up their mind and vote *Nay*, so the proposal fall out of confirming state before the end of the confirmation period. Over time, more *Aye* votes are coming in and the approval threshold is surpassed. This time, the proposal stays in the passing state during the entire confirmation period gets approved. 
+Any community member can call the lazy evaluation and the proposal action will be scheduled for enaction at the start of the upcoming *registering* phase. 
+
+![lifetime approved](./fig/democracy-proposal-lifetime-approved.drawio.svg)
+
+Another example shows a proposal with insufficient approval. After an initial boost, it stays in the *failing* state until the the end of its lifetime. Any community member can request lazy evaluation and the proposal will be cancelled.
+
+![lifetime rejected](./fig/democracy-proposal-lifetime-rejected.drawio.svg)
+
 ## Voting
 
 ### Eligible Reputations
 
-We currently allow only reputations older that the ceremony cycle of the proposal start - 2 to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes, which is required 1. for AQB and 2. to determine the minimum turnout.
+We currently allow only reputations older than the ceremony cycle of the proposal start - 2 to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes, which is required 1. for AQB and 2. to determine the minimum turnout.
 
 If we want to relax this in the future, we would need to come up with a way to handle the dynamic change of the electorate while a proposal is running. This is not trivial.
 
+![electorate](./fig/democracy-electorate.drawio.svg)
+
+Your own voting power depends on the number of cycles you have attended during the eligible period. The more cycles you have attended, the more voting power you have. This is a sybil-resilient approximation of universal suffrage.
+
 ### Adaptive Quorum Biasing (AQB) and Minimum Approval
 
-In order to determine if a vote is passing, we use Positive Turnout Bias. In addition we enforce a minimum turnout of 5%.
+In order to determine if a proposal is passing, we use positive turnout bias. The approval threshold follows the formula: \\(thrs = \frac{1}{1+\sqrt{turnout}}\\) where \\(turnout \in [0, 1]\\) and \\(thrs \in [0, 1]\\)
 
-### Tutorial
+In addition we enforce a minimum turnout of 5%.
+
+The goal of AQB is to ensure proposals can be approved even if turnout is low. Especially noncontroversial proposals may suffer from low turnout as they fail to mobilize the crowd. However, low turnout should require a higher approval rate to pass.
+
+![AQB](./fig/democracy-aqb.drawio.svg)
+
+The blue trace depicts a possible turnout over time. It can be expected that the initiators of a proposal will immediately vote *Aye*, leading to very high approval at start. As long as less than 5% of the elecorate have cast their vote, the proposal is in *failing* state. Over time, more people will make up their mind and the proposal may flip between passing and failing state several times before eventually staying in the passing state for the confirmation period. The end of the confirmation period is depicted by the blue dot.  
+
+## Tutorial
+
 For a tutorial of the democracy module, please see the [Democracy Tutorial](./tutorials-democracy.md)
