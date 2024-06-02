@@ -10,10 +10,9 @@ The decision making process should follow the subsidiarity principle, meaning th
 
 ## Proposals
 
-There is a set of predefined proposal _actions_ that can be voted on. Everyone can start a proposal on an _action_ (ie. set basic income to 48 LEU) at any time. There can even be multiple proposals ongoing in parallel.
+There is a set of predefined proposal _actions_ that can be proposed and voted on. Everyone can start a proposal on any _action_ (ie. set basic income to 48 LEU) at any time. There can even be multiple proposals ongoing in parallel.
 
-Every member of the community can use their reputation to vote on each proposal (the more reputation, the more voting power. Capped at _reputation_lifetime_)
-A proposal gets approved if it stays in a passing state (enough *Aye* votes) continuously for a long enough time period (*confirmation period*).
+Every member of the community can use their personhood reputation to vote on each proposal. A proposal gets approved if has enough *Aye* votes continuously for a long enough time period.
 
 ### Practical Examples
 
