@@ -12,7 +12,7 @@ The decision making process should follow the subsidiarity principle, meaning th
 
 There is a set of predefined proposal _actions_ that can be proposed and voted on. Everyone can start a proposal on any _action_ (ie. set basic income to 48 LEU) at any time. There can even be multiple proposals ongoing in parallel.
 
-Every member of the community can use their personhood reputation to vote on each proposal. A proposal gets approved if has enough *Aye* votes continuously for a long enough time period.
+Every member of the community can use their personhood reputation to vote on each proposal. A proposal gets approved if it has enough *Aye* votes continuously for a long enough time period.
 
 ### Practical Examples
 
@@ -29,7 +29,7 @@ Another example shows a proposal with insufficient approval. After an initial bo
 
 ### Eligible Reputations
 
-Each successful cycle attendance for a set of eligible cycles gives you one vote. We currently allow only reputations older than the previous cycle but younger than the *reputation lifetime* (relative to proposal submission) to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes (the *electorate*), which is required for AQB and to determine the minimum turnout. 
+Each successful cycle attendance for a set of eligible cycles gives you one vote. We currently allow only reputations older than the previous cycle but younger than the *reputation lifetime* (relative to proposal submission) to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes (the *electorate*), which is required for Adaptive Quorum Biasing (AQB) and to determine the minimum turnout. 
 
 ![electorate](./fig/democracy-electorate.drawio.svg)
 
