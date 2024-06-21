@@ -13,7 +13,7 @@ Encointer’s aura consensus is based on a quasi-static set of authorities which
 
 #### Incentives
 
-As Encointer is a systemchain on Kusama, collator operators can join the [IBP](https://ibp.network/) and get rewarded from the Kusama Treasury, subject to multiple conditions.
+As Encointer is a systemchain on Kusama, collator operators can request compensation from [Kusama Bounty 20](https://kusama.subsquare.io/treasury/bounties/20) and get rewarded from the Kusama Treasury, subject to multiple conditions.
 
 Moreover, collators collect extrinsic fees on the network. On Encointer, fees are paid in either KSM or any of the community currencies. As a collator you will, therefore, also receive community currencies from all around the world.
 
