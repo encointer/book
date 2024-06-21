@@ -152,6 +152,56 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#full-node-setup" id="full-node-setup">Full Node Setup</a></h1>
+<p>This document describes how to set up a full Encointer node. A full node is a node that validates the entire blockchain history. Interacting with a full node you run yourself is the most secure and most privacy-preserving way to interact with the Encointer network.</p>
+<h2><a class="header" href="#hw-requirements" id="hw-requirements">HW requirements</a></h2>
+<p>Full nodes can be run on very affordable HW. The minimum requirements are</p>
+<ul>
+<li>1TB NVMe SSD</li>
+<li>16GB RAM (8GB currently works, but is not recommended)</li>
+<li>CPU won't matter much, but go for maximum single-core performance rather than many cores.</li>
+</ul>
+<h2><a class="header" href="#os-requirements" id="os-requirements">OS requirements</a></h2>
+<p>In the following, we'll assume you're using ubuntu 22.04</p>
+<h2><a class="header" href="#install-dependencies" id="install-dependencies">Install dependencies</a></h2>
+<p>The recommended way to setup a full node is to start with the <a href="https://github.com/w3f/polkadot-validator-setup">ansible setup</a> provided 
+by w3f. </p>
+<p>Should you wish to do it manually, we'll redirect you to the polkadot docs</p>
+<ul>
+<li><a href="https://wiki.polkadot.network/docs/maintain-guides-how-to-validate-polkadot">run a validator</a></li>
+<li><a href="https://wiki.polkadot.network/docs/maintain-guides-secure-validator">secure validator</a></li>
+</ul>
+<h2><a class="header" href="#systemd-service" id="systemd-service">systemd service</a></h2>
+<p>We assume you'd like to use your node for rpc queries from outside and monitor it with prometheus</p>
+<pre><code>[Unit]
+Description=Encointer Kusama Collator
+
+[Service]
+User=encointer
+Group=collators
+
+ExecStart=/home/encointer/encointer-kusama/encointer-collator \
+  --rpc-cors all \
+  --name &lt;a name that will appear in telemetry&gt;&gt; \
+  --telemetry-url 'wss://telemetry.polkadot.io/submit 1' \
+  --base-path &lt;your large volume&gt; \
+  --state-pruning archive \
+  --blocks-pruning archive \
+  --chain=encointer-kusama \
+  --rpc-methods=Unsafe \
+  --prometheus-external \
+  --enable-offchain-indexing true \
+    -- \
+  --sync=warp \
+  --chain kusama \
+  --prometheus-external \
+  --base-path &lt;your large volume&gt; \
+
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
 
                     </main>
 
