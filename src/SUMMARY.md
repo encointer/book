@@ -41,3 +41,6 @@
   - [Bot Communities](developers-bot-communities.md)
   - [Benchmark Multi-Community Growth](developers-notee-multi-community-growth-benchmark.md)
   - [Local TEEproxy setup](developers-teeproxy-local.md)
+- [Infrastructure](./infrastructure.md)
+  - [Full Node Setup](./infrastructure-full-node-setup.md)
+  - [Collator Setup](./infrastructure-collator-setup.md)
