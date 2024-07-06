@@ -133,6 +133,14 @@ nctr-gsl list-communities
 # srcq45PYNyD: Adriana, locations: 5, nominal income: 3.14000000000000012434 ADR, demurrage: 0/block, CommunityRules::LoCo
 ```
 
+### Vote Using the Mobile App
+
+We have implemented a first mininimum viable product in the Encointer Wallet app. 
+
+To access this beta feature, you need to enable developer mode and connect to testnet Gesell or your local instance which you could populate with bot-communities.
+
+![vote in mobile app](./fig/democracy-app-prototype.png)
+
 ## Deep Dive
 
 How do we ensure that every cycle attendance can only be used once for voting on a proposal but the same reputation can be used to vote on other proposals?

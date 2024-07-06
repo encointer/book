@@ -16,6 +16,6 @@ curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method":
 
 ```
 
-## Announcing you Public RPC
+## Announcing Your Public RPC
 
 If you'd like to support the Encointer Network, the world should know about your rpc node. The best way to publish it is through [Polkadot js apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.encointer.org#/chainstate). Please submit a PR on their Github repo like [this one](https://github.com/polkadot-js/apps/pull/10451)
