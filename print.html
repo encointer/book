@@ -1675,6 +1675,10 @@ nctr-gsl list-proposals
 # ...
 # srcq45PYNyD: Adriana, locations: 5, nominal income: 3.14000000000000012434 ADR, demurrage: 0/block, CommunityRules::LoCo
 </code></pre>
+<h3><a class="header" href="#vote-using-the-mobile-app" id="vote-using-the-mobile-app">Vote Using the Mobile App</a></h3>
+<p>We have implemented a first mininimum viable product in the Encointer Wallet app. </p>
+<p>To access this beta feature, you need to enable developer mode and connect to testnet Gesell or your local instance which you could populate with bot-communities.</p>
+<p><img src="./fig/democracy-app-prototype.png" alt="vote in mobile app" /></p>
 <h2><a class="header" href="#deep-dive-1" id="deep-dive-1">Deep Dive</a></h2>
 <p>How do we ensure that every cycle attendance can only be used once for voting on a proposal but the same reputation can be used to vote on other proposals?</p>
 <p>We solve this using <em>commitments</em> for <em>purposes</em>. Every proposal is its own purpose. Let's check purposes on Gesell:</p>
@@ -2051,7 +2055,7 @@ WantedBy=multi-user.target
 # {&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;result&quot;:[{&quot;lat&quot;:&quot;47.3860442609734562325&quot;,&quot;lon&quot;:&quot;8.5167555883526802063&quot;},{&quot;lat&quot;:&quot;47.3863389067466229676&quot;,&quot;lon&quot;:&quot;8.5233766213059425354&quot;},{&quot;lat&quot;:&quot;47.3869987892637922755&quot;,&quot;lon&quot;:&quot;8.51989746093749822364&quot;},{&quot;lat&quot;:&quot;47.3885922795468204072&quot;,&quot;lon&quot;:&quot;8.51957626640796661377&quot;},{&quot;lat&quot;:&quot;47.3891715535333091225&quot;,&quot;lon&quot;:&quot;8.5129961371421813965&quot;},{&quot;lat&quot;:&quot;47.3895923857361651699&quot;,&quot;lon&quot;:&quot;8.5164836794137954712&quot;},{&quot;lat&quot;:&quot;47.3896700146103739826&quot;,&quot;lon&quot;:&quot;8.52360427379608154297&quot;},{&quot;lat&quot;:&quot;47.39043449402448260344&quot;,&quot;lon&quot;:&quot;8.51080611348152160645&quot;},{&quot;lat&quot;:&quot;47.3922230783101596785&quot;,&quot;lon&quot;:&quot;8.51907670497894109474&quot;},{&quot;lat&quot;:&quot;47.39408059955918872674&quot;,&quot;lon&quot;:&quot;8.5130444169044494629&quot;},{&quot;lat&quot;:&quot;47.38784547884539222196&quot;,&quot;lon&quot;:&quot;8.52683097124099731445&quot;}],&quot;id&quot;:1}
 
 </code></pre>
-<h2><a class="header" href="#announcing-you-public-rpc" id="announcing-you-public-rpc">Announcing you Public RPC</a></h2>
+<h2><a class="header" href="#announcing-your-public-rpc" id="announcing-your-public-rpc">Announcing Your Public RPC</a></h2>
 <p>If you'd like to support the Encointer Network, the world should know about your rpc node. The best way to publish it is through <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.encointer.org#/chainstate">Polkadot js apps</a>. Please submit a PR on their Github repo like <a href="https://github.com/polkadot-js/apps/pull/10451">this one</a></p>
 
                     </main>
