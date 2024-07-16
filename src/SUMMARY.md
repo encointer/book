@@ -44,4 +44,7 @@
 - [Infrastructure](./infrastructure.md)
   - [Full Node Setup](./infrastructure-full-node-setup.md)
   - [Collator Setup](./infrastructure-collator-setup.md)
-  - [Public Rpc Setup](./infrastructure-rpc-setup.md)
+  - [Public Rpc Setup](./infrastructure-rpc-setup.md) 
+- [Support Us](./support-us.md)
+  - [Donate](./support-us-donate.md)
+  - [Nominate](./support-us-nominate.md)
