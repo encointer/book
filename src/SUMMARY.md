@@ -36,6 +36,7 @@
   - [Bazaar](./tutorials-bazaar.md)
   - [Faucets](./tutorials-faucets.md)
   - [Democracy](./tutorials-democracy.md)
+  - [Community Treasury Spending](./tutorials-treasuries.md)
 - [Developers](./developers.md)
   - [Local notee Setup](developers-notee-local-setup.md)
   - [Bot Communities](developers-bot-communities.md)
