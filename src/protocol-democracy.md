@@ -1,12 +1,10 @@
 # Democracy V0.1
 
-> this feature is work in progress and currently only deployed on [testnet Gesell](./testnet-gesell.md). See [Governance](./decentralization-governance.md) to learn how it currently works_on mainnet
->
-> V0.1 only encompasses a subset of local community governance actions
+> Democracy is live on mainnet since runtime 1003003
 
-The democracy module will bring decentralized governance to Encointer, facilitating participants to take decisions. Such a **universal human suffrage** (one person one vote) governance shall render the current Encointer council obsolete. Examples of such decisions are the addition of new meetup locations to a community, an adjustment of the Demurrage rate or changes in the ceremony schdeule.
+The democracy module brings decentralized governance to Encointer, facilitating participants to take decisions. Such a **universal human suffrage** (one person one vote) governance shall render the current Encointer council or any other centralized body obsolete. Examples of such decisions are the addition of new meetup locations to a community, an adjustment of the Demurrage rate or changes in the ceremony schedule.
 
-The decision making process should follow the subsidiarity principle, meaning that decisions should be taken on the lowest possible level. So for example, if a community wants to extend their region by adding some new meetup locations, only community members should be allowed to participate in the vote.
+The decision-making process should follow the subsidiarity principle, meaning that decisions should be taken on the lowest possible level by the individuals affect by it. For example, if a community wants to extend their region by adding some new meetup locations, only community members should be allowed to participate in the vote.
 
 ## Proposals
 
