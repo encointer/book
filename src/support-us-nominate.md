@@ -1,5 +1,9 @@
 # Nominate
 
+Our validators have a proven track record and we have been selected for the first cohort of the [decentralized nodes programme](https://nodes.web3.foundation/) by the web3foundation. Stake your DOT and KSM with us and chill!
+
+While earning staking rewards, you're supporting Encointer at the same time because our validator operation gives us recurring income through commissions.
+
 ## Easy: Nominate with our Pools
 
 Starting from 1 DOT or 1.66 mKSM you can earn staking rewards by joining our nomination pools.
