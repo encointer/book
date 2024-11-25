@@ -179,3 +179,23 @@ nctr-k list-commitments 0 --cid kygch5kVGq7 | awk -F',' '{print $4}' | sort | un
 #      1  5CXuNeCvhb3qbPw2TjcKYdghamJcfkq6SavKmN5fQ1beUDH5
 #Total unique accounts: 16
 ```
+
+### Moving KSM
+
+As a recipient of KSM from the faucet, you may want to move them to stake  or to swap on other chains. The first step will always be to teleport your KSM to the Kusama relaychain. The following instructions will show you how to do this using talisman browser extension for desktop and Polkadot js apps:
+
+1. Install [talisman wallet](https://talisman.xyz/) extension for your desktop browser 
+2. [Export your mnemonic phrase](https://encointer.org/encointer-app/#Backing-up-and-restoring-your-account) from Encointer Wallet
+3. [Import your mnemonic phrase](https://support.polkadot.network/support/solutions/articles/65000185624-talisman-wallet-how-to-restore-an-account) to talisman
+4. Visit [PJS apps](https://dotapps-io.ipns.dweb.link/?rpc=wss%3A%2F%2Fkusama.api.encointer.org#/explorer) for Encointer Network
+5. Accounts -> Teleport
+   * send from: your account
+   * destination chain: Kusama
+   * send to: your account (always teleport to your own account first before sending to an exchange or another party)
+   * amount: try with a small account first (like 0.1 KSM)
+6. Hit "teleport" and confirm your action in talisman
+
+Do note:
+* Never send KSM to an exchange on Encointer Network. The funds will be lost because Exchanges do not support KSM deposits on Encointer Network. Teleport them to Kusama first (to your own account) and then send them to the deposit address of the exchange from there. 
+
+We have also prepared a [video tutorial](https://youtu.be/w0raQokr-2M?si) on how to do this on mobile and stake or swap KSM
