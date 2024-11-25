@@ -1572,6 +1572,28 @@ whitelist: None
 #      1  5CXuNeCvhb3qbPw2TjcKYdghamJcfkq6SavKmN5fQ1beUDH5
 #Total unique accounts: 16
 </code></pre>
+<h3><a class="header" href="#moving-ksm" id="moving-ksm">Moving KSM</a></h3>
+<p>As a recipient of KSM from the faucet, you may want to move them to stake  or to swap on other chains. The first step will always be to teleport your KSM to the Kusama relaychain. The following instructions will show you how to do this using talisman browser extension for desktop and Polkadot js apps:</p>
+<ol>
+<li>Install <a href="https://talisman.xyz/">talisman wallet</a> extension for your desktop browser </li>
+<li><a href="https://encointer.org/encointer-app/#Backing-up-and-restoring-your-account">Export your mnemonic phrase</a> from Encointer Wallet</li>
+<li><a href="https://support.polkadot.network/support/solutions/articles/65000185624-talisman-wallet-how-to-restore-an-account">Import your mnemonic phrase</a> to talisman</li>
+<li>Visit <a href="https://dotapps-io.ipns.dweb.link/?rpc=wss%3A%2F%2Fkusama.api.encointer.org#/explorer">PJS apps</a> for Encointer Network</li>
+<li>Accounts -&gt; Teleport
+<ul>
+<li>send from: your account</li>
+<li>destination chain: Kusama</li>
+<li>send to: your account (always teleport to your own account first before sending to an exchange or another party)</li>
+<li>amount: try with a small account first (like 0.1 KSM)</li>
+</ul>
+</li>
+<li>Hit &quot;teleport&quot; and confirm your action in talisman</li>
+</ol>
+<p>Do note:</p>
+<ul>
+<li>Never send KSM to an exchange on Encointer Network. The funds will be lost because Exchanges do not support KSM deposits on Encointer Network. Teleport them to Kusama first (to your own account) and then send them to the deposit address of the exchange from there. </li>
+</ul>
+<p>We have also prepared a <a href="https://youtu.be/w0raQokr-2M?si">video tutorial</a> on how to do this on mobile and stake or swap KSM</p>
 <h1><a class="header" href="#democracy-tutorial" id="democracy-tutorial">Democracy Tutorial</a></h1>
 <p>Encointer is about distribution of power - both economically and in terms of governance. Therefore, communities can govern their own protocol parameters with an approximation of universal suffrance. This tutorial takes you through the process of proposing a change and voting on proposals.</p>
 <p>We assume you already have </p>
