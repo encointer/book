@@ -24,8 +24,8 @@ Reasoning:
 Out of the unpermissioned set of candidates, collators can apply for an invulnerable slot. The following criteria should be considered:
 
 * **stable operation** over a longer period with high availability
-* performant **public rpc services**: collator operators who also run [Encointer's collator binary](https://github.com/encointer/encointer-parachain/releases) exposing custom rpc methods used by the *Encointer Wallet* app and other dApps should be prioritized.
-* other contributions to the platform showing commitment to the cause like documentation, tutorials, community building, fundraising support etc.
+* performant [**public rpc services**](./infrastructure-rpc-setup.md): collator operators who also run [Encointer's collator binary](https://github.com/encointer/encointer-parachain/releases) exposing custom rpc methods used by the *Encointer Wallet* app and other dApps should be prioritized.
+* other contributions to the platform showing commitment to the cause like documentation, tutorials, community building etc.
 
 ## Compensation
 
