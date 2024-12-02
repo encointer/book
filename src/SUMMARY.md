@@ -45,6 +45,7 @@
 - [Infrastructure](./infrastructure.md)
   - [Full Node Setup](./infrastructure-full-node-setup.md)
   - [Collator Setup](./infrastructure-collator-setup.md)
+  - [Invulnerable Collators](./infrastructure-invulnerable-collators.md)
   - [Public Rpc Setup](./infrastructure-rpc-setup.md) 
   - [Indexer](./infrastructure-indexer.md)
 - [Support Us](./support-us.md)
