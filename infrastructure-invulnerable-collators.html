@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Invulnerable Collators - The Encointer Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li><li class="expanded "><a href="economics-interest.html"><strong aria-hidden="true">1.5.</strong> On Saving, Loans and Interest</a></li></ol></li><li class="expanded "><a href="ssi.html"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-ceremony-cycle.html"><strong aria-hidden="true">3.1.</strong> Ceremony Cycle</a></li><li class="expanded "><a href="protocol-reputation.html"><strong aria-hidden="true">3.2.</strong> Reputation</a></li><li class="expanded "><a href="protocol-cid.html"><strong aria-hidden="true">3.3.</strong> Community Identifiers</a></li><li class="expanded "><a href="protocol-democracy.html"><strong aria-hidden="true">3.4.</strong> Democracy</a></li><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.5.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li><ol class="section"><li class="expanded "><a href="decentralization-governance.html"><strong aria-hidden="true">4.1.</strong> Governance</a></li></ol></li><li class="expanded "><a href="deployments.html"><strong aria-hidden="true">5.</strong> Deployments</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li class="expanded "><a href="parachain-kusama.html"><strong aria-hidden="true">5.3.</strong> Encointer Kusama Parachain</a></li></ol></li><li class="expanded "><a href="bazaar.html"><strong aria-hidden="true">6.</strong> Bazaar</a></li><li class="expanded "><a href="app.html"><strong aria-hidden="true">7.</strong> App</a></li><li><ol class="section"><li class="expanded "><a href="app-select-community.html"><strong aria-hidden="true">7.1.</strong> Select Community</a></li><li class="expanded "><a href="app-register.html"><strong aria-hidden="true">7.2.</strong> Register for a ceremony</a></li><li class="expanded "><a href="app-meetup.html"><strong aria-hidden="true">7.3.</strong> Perfrom a Ceremony Meetup</a></li></ol></li><li class="expanded "><a href="explorer.html"><strong aria-hidden="true">8.</strong> Explorer</a></li><li class="expanded "><a href="tutorials.html"><strong aria-hidden="true">9.</strong> Tutorials</a></li><li><ol class="section"><li class="expanded "><a href="tutorials-cli.html"><strong aria-hidden="true">9.1.</strong> Basic CLI usage</a></li><li class="expanded "><a href="tutorials-register-community.html"><strong aria-hidden="true">9.2.</strong> Register a New Community Manually</a></li><li class="expanded "><a href="tutorials-perform-cycle.html"><strong aria-hidden="true">9.3.</strong> Perform a testnet cycle</a></li><li class="expanded "><a href="tutorials-register-locations.html"><strong aria-hidden="true">9.4.</strong> Register new meetup locations</a></li><li class="expanded "><a href="tutorials-vouchers.html"><strong aria-hidden="true">9.5.</strong> Create vouchers</a></li><li class="expanded "><a href="tutorials-acceptance-point.html"><strong aria-hidden="true">9.6.</strong> Acceptance Point Setup</a></li><li class="expanded "><a href="tutorials-bazaar.html"><strong aria-hidden="true">9.7.</strong> Bazaar</a></li><li class="expanded "><a href="tutorials-faucets.html"><strong aria-hidden="true">9.8.</strong> Faucets</a></li><li class="expanded "><a href="tutorials-democracy.html"><strong aria-hidden="true">9.9.</strong> Democracy</a></li><li class="expanded "><a href="tutorials-treasuries.html"><strong aria-hidden="true">9.10.</strong> Community Treasury Spending</a></li></ol></li><li class="expanded "><a href="developers.html"><strong aria-hidden="true">10.</strong> Developers</a></li><li><ol class="section"><li class="expanded "><a href="developers-notee-local-setup.html"><strong aria-hidden="true">10.1.</strong> Local notee Setup</a></li><li class="expanded "><a href="developers-bot-communities.html"><strong aria-hidden="true">10.2.</strong> Bot Communities</a></li><li class="expanded "><a href="developers-notee-multi-community-growth-benchmark.html"><strong aria-hidden="true">10.3.</strong> Benchmark Multi-Community Growth</a></li><li class="expanded "><a href="developers-teeproxy-local.html"><strong aria-hidden="true">10.4.</strong> Local TEEproxy setup</a></li></ol></li><li class="expanded "><a href="infrastructure.html"><strong aria-hidden="true">11.</strong> Infrastructure</a></li><li><ol class="section"><li class="expanded "><a href="infrastructure-full-node-setup.html"><strong aria-hidden="true">11.1.</strong> Full Node Setup</a></li><li class="expanded "><a href="infrastructure-collator-setup.html"><strong aria-hidden="true">11.2.</strong> Collator Setup</a></li><li class="expanded "><a href="infrastructure-invulnerable-collators.html" class="active"><strong aria-hidden="true">11.3.</strong> Invulnerable Collators</a></li><li class="expanded "><a href="infrastructure-rpc-setup.html"><strong aria-hidden="true">11.4.</strong> Public Rpc Setup</a></li><li class="expanded "><a href="infrastructure-indexer.html"><strong aria-hidden="true">11.5.</strong> Indexer</a></li></ol></li><li class="expanded "><a href="support-us.html"><strong aria-hidden="true">12.</strong> Support Us</a></li><li><ol class="section"><li class="expanded "><a href="support-us-donate.html"><strong aria-hidden="true">12.1.</strong> Donate</a></li><li class="expanded "><a href="support-us-nominate.html"><strong aria-hidden="true">12.2.</strong> Nominate</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The Encointer Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#invulnerable-collators" id="invulnerable-collators">Invulnerable Collators</a></h1>
+<p>Block production on Encointer Network is done by two kinds of collators. The <em>unpermissioned</em> set is open to anyone who bonds at least 5 KSM. Currently there are 5 slots and candidates can compete by bonding more KSM. The set of <em>Invulnerables</em>, on the other hand,  is selected manually by criteria we consider important for the network's security, inclusivity and availability.</p>
+<h2><a class="header" href="#selection-criteria" id="selection-criteria">Selection Criteria</a></h2>
+<p>The Encointer Council has the power to change the set of invulnerables as well as the number of desired unpermissioned slots. The following criteria shall guide their decisions.</p>
+<h3><a class="header" href="#maintainers" id="maintainers">Maintainers</a></h3>
+<p>The Encointer Association are the maintainers of the Encointer Network and are running invulnerable collators.</p>
+<h3><a class="header" href="#encointer-communities" id="encointer-communities">Encointer Communities</a></h3>
+<p>Active Encointer communities should be granted one invulnerable slot each - up to a reasonable number of communities.</p>
+<p>Reasoning: </p>
+<ul>
+<li>Encointer communities in the global south can't easily afford to compete with their KSM bond. They simply don't have the capital and shall have priority. Power outages and internet service interruptions may happen frequently in some regions. Encointer shall exercise reasonable tolerance for such downtimes. </li>
+<li>Geographical decentralization: Only very few nodes will be operated on i.e. the African continent if they have to compete with bonded capital. </li>
+<li>Encointer communities are the main stakeholders of this network and are it's raison-d'être. They should be able to run their own infrastructure to ensure censorship-resistance and availability.</li>
+</ul>
+<h3><a class="header" href="#candidates-with-stable-performance-and-contributions" id="candidates-with-stable-performance-and-contributions">Candidates with Stable Performance and Contributions</a></h3>
+<p>Out of the unpermissioned set of candidates, collators can apply for an invulnerable slot. The following criteria should be considered:</p>
+<ul>
+<li><strong>stable operation</strong> over a longer period with high availability</li>
+<li>performant <strong>public rpc services</strong>: collator operators who also run <a href="https://github.com/encointer/encointer-parachain/releases">Encointer's collator binary</a> exposing custom rpc methods used by the <em>Encointer Wallet</em> app and other dApps should be prioritized.</li>
+<li>other contributions to the platform showing commitment to the cause like documentation, tutorials, community building, fundraising support etc.</li>
+</ul>
+<h2><a class="header" href="#compensation" id="compensation">Compensation</a></h2>
+<p>The Encointer Association does not compensate collators. However, the Kusama Network may compensate collator operators for their services to all systemchains - including Encointer - whether they are in the invulnerable or unpermissioned set. A <a href="https://kusama.polkassembly.io/bounty/20">bounty</a> is live on Kusama for this purpose and is curated by a selection of individuals unrelated to Encointer. </p>
+<p>The current understanding is that all systemchain collator operators except the main maintainer team are eligible for compensation.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="infrastructure-collator-setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="infrastructure-rpc-setup.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="infrastructure-collator-setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="infrastructure-rpc-setup.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
