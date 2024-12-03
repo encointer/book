@@ -19,6 +19,11 @@ Reasoning:
 * Geographical decentralization: Only very few nodes will be operated on i.e. the African continent if they have to compete with bonded capital. 
 * Encointer communities are the main stakeholders of this network and are it's raison-d'être. They should be able to run their own infrastructure to ensure censorship-resistance and availability.
 
+Recommendations for community collators:
+* Run the collator in the physical location of the community to improve geographical distribution
+* Register an identity on-chain with the community's name and a matrix handle.
+* Use a recognizable name for telemetry, including the community name
+
 ### Candidates with Stable Performance and Contributions
 
 Out of the unpermissioned set of candidates, collators can apply for an invulnerable slot. The following criteria should be considered:
