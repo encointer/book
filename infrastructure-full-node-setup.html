@@ -156,12 +156,20 @@
 <h2><a class="header" href="#hw-requirements" id="hw-requirements">HW requirements</a></h2>
 <p>Full nodes can be run on very affordable HW. The minimum requirements are</p>
 <ul>
-<li>1TB NVMe SSD</li>
+<li>1TB NVMe SSD. 
+<ul>
+<li>seq. write performance should be &gt; 1000 MB/s. Consider that SSD's get slower the more full they get. Also, they wear out with intense usage)</li>
+</ul>
+</li>
 <li>16GB RAM (8GB currently works, but is not recommended)</li>
 <li>CPU won't matter much, but go for maximum single-core performance rather than many cores.</li>
 </ul>
 <h2><a class="header" href="#os-requirements" id="os-requirements">OS requirements</a></h2>
 <p>In the following, we'll assume you're using ubuntu 22.04</p>
+<h2><a class="header" href="#internet-connection-requirements" id="internet-connection-requirements">Internet Connection Requirements</a></h2>
+<p>If you run your node in a datacenter, you can skip this section. If you run consumer HW and &quot;fair-use&quot; internet connections like cellular, this is for you:</p>
+<p>The initial sync of the chain will cause significant data volume of several 100 GB. If you run on a metered internet connection you may want to check your tariffs.</p>
+<p>Once your chain is synced you should expect a constant data bandwidth in the order of 0.2-1.0 MB/s up and down. If you need to throttle that you may want to look into restricting the number of peers <code>--in-peers</code>, <code>--in-peers-light</code>, <code>--out-peers</code> .</p>
 <h2><a class="header" href="#install-dependencies" id="install-dependencies">Install dependencies</a></h2>
 <p>The recommended way to setup a full node is to start with the <a href="https://github.com/w3f/polkadot-validator-setup">ansible setup</a> provided 
 by w3f. </p>
@@ -172,6 +180,7 @@ by w3f. </p>
 </ul>
 <h2><a class="header" href="#systemd-service" id="systemd-service">systemd service</a></h2>
 <p>We assume you'd like to use your node for rpc queries from outside and monitor it with prometheus</p>
+<p>The settings are optimized to minimize resource consumption</p>
 <pre><code>[Unit]
 Description=Encointer Kusama Collator
 
@@ -184,8 +193,8 @@ ExecStart=/home/encointer/encointer-kusama/encointer-collator \
   --name &lt;a name that will appear in telemetry&gt;&gt; \
   --telemetry-url 'wss://telemetry.polkadot.io/submit 1' \
   --base-path &lt;your large volume&gt; \
-  --state-pruning archive \
-  --blocks-pruning archive \
+  --state-pruning 100 \
+  --blocks-pruning 100 \
   --chain=encointer-kusama \
   --rpc-methods=Unsafe \
   --prometheus-external \
@@ -195,6 +204,9 @@ ExecStart=/home/encointer/encointer-kusama/encointer-collator \
   --chain kusama \
   --prometheus-external \
   --base-path &lt;your large volume&gt; \
+  --database paritydb \
+  --state-pruning 100 \
+  --blocks-pruning 100 \
 
 Restart=always
 RestartSec=60
