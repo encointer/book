@@ -22,6 +22,8 @@ The initial sync of the chain will cause significant data volume of several 100 
 
 Once your chain is synced you should expect a constant data bandwidth in the order of 0.2-1.0 MB/s up and down. If you need to throttle that you may want to look into restricting the number of peers `--in-peers`, `--in-peers-light`, `--out-peers` .
 
+You should also check your networking latency with `ping telemetry.polkadot.io`. The result depends on your geographical location, obviously. If your ping time exceeds 500ms you may have networking issues. If you want to run a collator, latency is critical. 
+
 ## Install dependencies
 
 The recommended way to setup a full node is to start with the [ansible setup](https://github.com/w3f/polkadot-validator-setup) provided 
