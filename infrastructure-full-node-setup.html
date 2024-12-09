@@ -170,6 +170,7 @@
 <p>If you run your node in a datacenter, you can skip this section. If you run consumer HW and &quot;fair-use&quot; internet connections like cellular, this is for you:</p>
 <p>The initial sync of the chain will cause significant data volume of several 100 GB. If you run on a metered internet connection you may want to check your tariffs.</p>
 <p>Once your chain is synced you should expect a constant data bandwidth in the order of 0.2-1.0 MB/s up and down. If you need to throttle that you may want to look into restricting the number of peers <code>--in-peers</code>, <code>--in-peers-light</code>, <code>--out-peers</code> .</p>
+<p>You should also check your networking latency with <code>ping telemetry.polkadot.io</code>. The result depends on your geographical location, obviously. If your ping time exceeds 500ms you may have networking issues. If you want to run a collator, latency is critical. </p>
 <h2><a class="header" href="#install-dependencies" id="install-dependencies">Install dependencies</a></h2>
 <p>The recommended way to setup a full node is to start with the <a href="https://github.com/w3f/polkadot-validator-setup">ansible setup</a> provided 
 by w3f. </p>
