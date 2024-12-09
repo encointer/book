@@ -2,7 +2,9 @@
 
 This document describes how to set up a full Encointer node. A full node is a node that validates the entire blockchain history. Interacting with a full node you run yourself is the most secure and most privacy-preserving way to interact with the Encointer network.
 
-## HW requirements
+## Requirements
+
+### HW Requirements
 
 Full nodes can be run on very affordable HW. The minimum requirements are
 * 1TB NVMe SSD. 
@@ -10,11 +12,11 @@ Full nodes can be run on very affordable HW. The minimum requirements are
 * 16GB RAM (8GB currently works, but is not recommended)
 * CPU won't matter much, but go for maximum single-core performance rather than many cores.
 
-## OS requirements
+### OS Requirements
 
 In the following, we'll assume you're using ubuntu 22.04
 
-## Internet Connection Requirements
+### Internet Connection Requirements
 
 If you run your node in a datacenter, you can skip this section. If you run consumer HW and "fair-use" internet connections like cellular, this is for you:
   
@@ -24,7 +26,7 @@ Once your chain is synced you should expect a constant data bandwidth in the ord
 
 You should also check your networking latency with `ping telemetry.polkadot.io`. The result depends on your geographical location, obviously. If your ping time exceeds 500ms you may have networking issues. If you want to run a collator, latency is critical. 
 
-## Install dependencies
+## Install Dependencies
 
 The recommended way to setup a full node is to start with the [ansible setup](https://github.com/w3f/polkadot-validator-setup) provided 
 by w3f. 
@@ -33,7 +35,7 @@ Should you wish to do it manually, we'll redirect you to the polkadot docs
 * [run a validator](https://wiki.polkadot.network/docs/maintain-guides-how-to-validate-polkadot)
 * [secure validator](https://wiki.polkadot.network/docs/maintain-guides-secure-validator)
 
-## systemd service
+## Systemd Service
 
 We assume you'd like to use your node for rpc queries from outside and monitor it with prometheus
 
@@ -48,15 +50,16 @@ User=encointer
 Group=collators
 
 ExecStart=/home/encointer/encointer-kusama/encointer-collator \
-  --rpc-cors all \
-  --name <a name that will appear in telemetry>> \
-  --telemetry-url 'wss://telemetry.polkadot.io/submit 1' \
+  --chain=encointer-kusama \
   --base-path <your large volume> \
+  --database paritydb \
   --state-pruning 100 \
   --blocks-pruning 100 \
-  --chain=encointer-kusama \
-  --rpc-methods=Unsafe \
+  --name <a name that will appear in telemetry>> \
+  --telemetry-url 'wss://telemetry.polkadot.io/submit 1' \
   --prometheus-external \
+  --rpc-cors all \
+  --rpc-methods=Unsafe \
   --enable-offchain-indexing true \
     -- \
   --sync=warp \
