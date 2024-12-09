@@ -2025,7 +2025,8 @@ apt install python3-geojson python3-pyproj
 <p>Encointer needs IT infrastructure to operate. All infrastructure can be run by anyone, thereby contributing to the network availability and decentralization.</p>
 <h1><a class="header" href="#full-node-setup" id="full-node-setup">Full Node Setup</a></h1>
 <p>This document describes how to set up a full Encointer node. A full node is a node that validates the entire blockchain history. Interacting with a full node you run yourself is the most secure and most privacy-preserving way to interact with the Encointer network.</p>
-<h2><a class="header" href="#hw-requirements" id="hw-requirements">HW requirements</a></h2>
+<h2><a class="header" href="#requirements" id="requirements">Requirements</a></h2>
+<h3><a class="header" href="#hw-requirements" id="hw-requirements">HW Requirements</a></h3>
 <p>Full nodes can be run on very affordable HW. The minimum requirements are</p>
 <ul>
 <li>1TB NVMe SSD. 
@@ -2036,14 +2037,14 @@ apt install python3-geojson python3-pyproj
 <li>16GB RAM (8GB currently works, but is not recommended)</li>
 <li>CPU won't matter much, but go for maximum single-core performance rather than many cores.</li>
 </ul>
-<h2><a class="header" href="#os-requirements" id="os-requirements">OS requirements</a></h2>
+<h3><a class="header" href="#os-requirements" id="os-requirements">OS Requirements</a></h3>
 <p>In the following, we'll assume you're using ubuntu 22.04</p>
-<h2><a class="header" href="#internet-connection-requirements" id="internet-connection-requirements">Internet Connection Requirements</a></h2>
+<h3><a class="header" href="#internet-connection-requirements" id="internet-connection-requirements">Internet Connection Requirements</a></h3>
 <p>If you run your node in a datacenter, you can skip this section. If you run consumer HW and &quot;fair-use&quot; internet connections like cellular, this is for you:</p>
 <p>The initial sync of the chain will cause significant data volume of several 100 GB. If you run on a metered internet connection you may want to check your tariffs.</p>
 <p>Once your chain is synced you should expect a constant data bandwidth in the order of 0.2-1.0 MB/s up and down. If you need to throttle that you may want to look into restricting the number of peers <code>--in-peers</code>, <code>--in-peers-light</code>, <code>--out-peers</code> .</p>
 <p>You should also check your networking latency with <code>ping telemetry.polkadot.io</code>. The result depends on your geographical location, obviously. If your ping time exceeds 500ms you may have networking issues. If you want to run a collator, latency is critical. </p>
-<h2><a class="header" href="#install-dependencies" id="install-dependencies">Install dependencies</a></h2>
+<h2><a class="header" href="#install-dependencies" id="install-dependencies">Install Dependencies</a></h2>
 <p>The recommended way to setup a full node is to start with the <a href="https://github.com/w3f/polkadot-validator-setup">ansible setup</a> provided 
 by w3f. </p>
 <p>Should you wish to do it manually, we'll redirect you to the polkadot docs</p>
@@ -2051,7 +2052,7 @@ by w3f. </p>
 <li><a href="https://wiki.polkadot.network/docs/maintain-guides-how-to-validate-polkadot">run a validator</a></li>
 <li><a href="https://wiki.polkadot.network/docs/maintain-guides-secure-validator">secure validator</a></li>
 </ul>
-<h2><a class="header" href="#systemd-service" id="systemd-service">systemd service</a></h2>
+<h2><a class="header" href="#systemd-service" id="systemd-service">Systemd Service</a></h2>
 <p>We assume you'd like to use your node for rpc queries from outside and monitor it with prometheus</p>
 <p>The settings are optimized to minimize resource consumption</p>
 <pre><code>[Unit]
@@ -2062,15 +2063,16 @@ User=encointer
 Group=collators
 
 ExecStart=/home/encointer/encointer-kusama/encointer-collator \
-  --rpc-cors all \
-  --name &lt;a name that will appear in telemetry&gt;&gt; \
-  --telemetry-url 'wss://telemetry.polkadot.io/submit 1' \
+  --chain=encointer-kusama \
   --base-path &lt;your large volume&gt; \
+  --database paritydb \
   --state-pruning 100 \
   --blocks-pruning 100 \
-  --chain=encointer-kusama \
-  --rpc-methods=Unsafe \
+  --name &lt;a name that will appear in telemetry&gt;&gt; \
+  --telemetry-url 'wss://telemetry.polkadot.io/submit 1' \
   --prometheus-external \
+  --rpc-cors all \
+  --rpc-methods=Unsafe \
   --enable-offchain-indexing true \
     -- \
   --sync=warp \
@@ -2091,7 +2093,7 @@ WantedBy=multi-user.target
 <p>Collators are parachain <a href="./infrastructure-full-node-setup.html">full nodes</a> which additionally collect pending transactions, order them and propose new blocks on Encointer Network. Their operation is critical for availability, but not for security. The latter is provided by the validators of the Kusama relay chain. </p>
 <h3><a class="header" href="#who-can-run-collators" id="who-can-run-collators">Who can run collators?</a></h3>
 <p>Encointer’s aura consensus is based on a quasi-static set of authorities which can be mutated every 6 hours. This collator set consists of permanent, <em>invulnerable</em> nodes and a dynamic, unpermissioned set of nodes. Invulnerables are currently run by the Encointer Association and partners. Anyone can join the set of unpermissioned collators by submitting a candidacy and bonding some stake in KSM. Candidates are selected based on their stake until the desired set is full.</p>
-<h4><a class="header" href="#requirements" id="requirements">Requirements</a></h4>
+<h4><a class="header" href="#requirements-1" id="requirements-1">Requirements</a></h4>
 <ul>
 <li>a full node running with high availability</li>
 <li>5 KSM to bond</li>
