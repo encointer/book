@@ -52,6 +52,7 @@ Group=collators
 ExecStart=/home/encointer/encointer-kusama/encointer-collator \
   --chain=encointer-kusama \
   --base-path <your large volume> \
+  --sync=warp \
   --database paritydb \
   --state-pruning 100 \
   --blocks-pruning 100 \
@@ -62,13 +63,13 @@ ExecStart=/home/encointer/encointer-kusama/encointer-collator \
   --rpc-methods=Unsafe \
   --enable-offchain-indexing true \
     -- \
-  --sync=warp \
   --chain kusama \
-  --prometheus-external \
   --base-path <your large volume> \
+  --sync=warp \
   --database paritydb \
   --state-pruning 100 \
   --blocks-pruning 100 \
+  --prometheus-external \
 
 Restart=always
 RestartSec=60
