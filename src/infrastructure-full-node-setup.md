@@ -52,10 +52,11 @@ Group=collators
 ExecStart=/home/encointer/encointer-kusama/encointer-collator \
   --chain=encointer-kusama \
   --base-path <your large volume> \
-  --sync=warp \
+  --sync=full \
   --database paritydb \
-  --state-pruning 100 \
-  --blocks-pruning 100 \
+  --state-pruning 256 \
+  --blocks-pruning 256 \
+  --db-cache 512 \
   --name <a name that will appear in telemetry>> \
   --telemetry-url 'wss://telemetry.polkadot.io/submit 1' \
   --prometheus-external \
@@ -67,8 +68,9 @@ ExecStart=/home/encointer/encointer-kusama/encointer-collator \
   --base-path <your large volume> \
   --sync=warp \
   --database paritydb \
-  --state-pruning 100 \
-  --blocks-pruning 100 \
+  --state-pruning 256 \
+  --blocks-pruning 256 \
+  --db-cache 512 \
   --prometheus-external \
 
 Restart=always
