@@ -9,6 +9,7 @@ This document describes how to set up a full Encointer node. A full node is a no
 Full nodes can be run on very affordable HW. The minimum requirements are
 * 1TB NVMe SSD. 
    * seq. write performance should be > 1000 MB/s. Consider that SSD's get slower the more full they get. Also, they wear out with intense usage)
+   * if you want to run the collator in archive mode for indexing and bootstrapping, you'll currently need at least a 2 TB SSD
 * 16GB RAM (8GB currently works, but is not recommended)
 * CPU won't matter much, but go for maximum single-core performance rather than many cores.
 
