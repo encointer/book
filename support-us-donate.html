@@ -152,7 +152,29 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#donate" id="donate">Donate</a></h1>
-<p>For donations, please reach out to us: info@encointer.org</p>
+<p>For donations to the Encointer Association, please reach out to us: info@encointer.org</p>
+<h2><a class="header" href="#donate-directly-to-encointer-communities" id="donate-directly-to-encointer-communities">Donate directly to Encointer communities</a></h2>
+<p>Encointer communities all have a treasury which can hold funds and enables <a href="./protocol-democracy.html">democratic decisions on spending proposals</a>. No single person or entity can control the treasury. The community members decide democratically how to spend the funds. This is a great way to support local communities and their projects. The Encointer Association has no way to intercept these donations or influence spending decisions.</p>
+<p>Please make sure to donate to the correct community treasury on the Encointer Network. The following list contains the addresses of all communities that are currently active on the
+Encointer Mainnet:</p>
+<ul>
+<li>Leu Zurich, Switzerland: <code>HNJDzJEGaBgWRXz7bjERsRidJFQBnj1AZ2Tn3Q9uRGynhwq</code></li>
+<li>Nyota, Dar-es-Salaam, Tanzania: <code>E9KVuDLEtBBWSqhCiKn31VPBBLe33CbYJTrnWAbjszwskWH</code></li>
+<li>Paynuq, Zaria, Nigeria: <code>E2mZ1u2xepTF8nuEQVkrimPVwqtqq1joC56cUwYPftXAEQL</code></li>
+</ul>
+<p>How to donate:</p>
+<ol>
+<li>obtain <a href="https://www.kraken.com/learn/what-is-kusama-ksm">KSM tokens</a></li>
+<li><a href="./tutorials-faucets.html#moving-ksm">teleport KSM</a> to Encointer Network</li>
+<li>transfer KSM to the community treasury address</li>
+</ol>
+<h3><a class="header" href="#verify-addresses" id="verify-addresses">Verify addresses</a></h3>
+<p>Community treasury addresses have no associated private key. They are <a href="https://github.com/encointer/pallets/blob/0c0307df120144cd1200243d2198a2e41baa09bb/treasuries/src/lib.rs#L150-L159">generated deterministically</a> from community identifiers and can be queried for all communities from an rpc endpoint</p>
+<p>using our cli and subkey</p>
+<pre><code class="language-bash">nctr-k list-communities
+nctr-k get-treasury --cid kygch5kVGq7
+subkey inspect --network kusama 5DdhqasTcXAFko2FS1Wj948P2b4QENPR5vd7PqteG5nT8jxs
+</code></pre>
 
                     </main>
 
