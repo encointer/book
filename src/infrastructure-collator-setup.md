@@ -9,7 +9,7 @@ Encointer’s aura consensus is based on a quasi-static set of authorities which
 #### Requirements
 
 * a full node running with high availability
-* 5 KSM to bond
+* enough KSM to bond (more than the lowest active bid by other collators). For [invulnerables](infrastructure-invulnerable-collators.md) such a bond is not necessary.
 
 #### Incentives
 
@@ -31,6 +31,15 @@ Collators need to manage two types of keys:
 
 To generate an authority key, please choose a [polkadot wallet](https://polkadot.network/ecosystem/wallets/) and follow the steps to generate and secure a new account. In the following, we assume that you use a browser extension to keep your authority key safe.
 
+Caveats:
+* Do not use pure proxies as authorities if you want to claim compensation from the collator bounty [Kusama Bounty 20](https://kusama.subsquare.io/treasury/bounties/20) because payouts will go to asset hub, where your pure proxy won't exist.
+
+### Set Onchain Identity
+
+It is good practice to identify yourself on-chain, at least with some recognizable pseudonym. If you aspire for an invulnerable slot, this is mandatory. Encointer community collators must identify themselves with the community name. Moreover, we expect invulnerables to provide a [matrix handle](https://matrix.org/) as a way to contact you.
+
+Use [Kusama People Identity](https://wiki.polkadot.com/learn/learn-identity/) for this. You're free to use sub-identities for your collator authorities if you prefer. We do not require judgement for collator identities. You'll need at least 0.1 KSM on your authority account on Kusama People Chain to pay for the fees and deposits. Learn how to [teleport KSM](https://wiki.polkadot.com/learn/learn-teleport/) to Kusama People.
+
 ### Rotate Session Key
 
 The best way to rotate session keys is to let the collator itself do this. The `author_rotateKeys` rpc call will generate a new key and print the public key. On your collator machine, run the following command:
@@ -43,9 +52,11 @@ Take note of the fresh public key in hex format which is returned returned as js
 
 ### Register Session Key
 
-Use the [session.setKeys](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fsys.ibp.network%2Fencointer-kusama#/extrinsics/decode/0x1600000000000000000000000000000000000000000000000000000000000000000000 ) call to register your key.
+Use the [session.setKeys](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fsys.ibp.network%2Fencointer-kusama#/extrinsics/decode/0x1600000000000000000000000000000000000000000000000000000000000000000000 ) call to register your key, signing with your authority key.
 * `keys`: your session key in hex format with `0x` prefix
 * `proof`: not needed. just put `0x` 
+
+Your authority account should have at least a balance of 0.02 KSM on Encointer Network to pay for the transaction fees. Learn how to [teleport KSM](https://wiki.polkadot.com/learn/learn-teleport/) to Encointer Network.
 
 ### Submit Candidacy
 
