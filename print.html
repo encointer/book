@@ -2100,7 +2100,7 @@ WantedBy=multi-user.target
 <h4><a class="header" href="#requirements-1" id="requirements-1">Requirements</a></h4>
 <ul>
 <li>a full node running with high availability</li>
-<li>5 KSM to bond</li>
+<li>enough KSM to bond (more than the lowest active bid by other collators). For <a href="infrastructure-invulnerable-collators.html">invulnerables</a> such a bond is not necessary.</li>
 </ul>
 <h4><a class="header" href="#incentives" id="incentives">Incentives</a></h4>
 <p>As Encointer is a systemchain on Kusama, collator operators can request compensation from <a href="https://kusama.subsquare.io/treasury/bounties/20">Kusama Bounty 20</a> and get rewarded from the Kusama Treasury, subject to multiple conditions.</p>
@@ -2115,17 +2115,25 @@ WantedBy=multi-user.target
 <li>An <em>authority key</em> which used to submit candidacy, bond funds and change session keys. This key isn't needed very often and should be kept secure.</li>
 </ul>
 <p>To generate an authority key, please choose a <a href="https://polkadot.network/ecosystem/wallets/">polkadot wallet</a> and follow the steps to generate and secure a new account. In the following, we assume that you use a browser extension to keep your authority key safe.</p>
+<p>Caveats:</p>
+<ul>
+<li>Do not use pure proxies as authorities if you want to claim compensation from the collator bounty <a href="https://kusama.subsquare.io/treasury/bounties/20">Kusama Bounty 20</a> because payouts will go to asset hub, where your pure proxy won't exist.</li>
+</ul>
+<h3><a class="header" href="#set-onchain-identity" id="set-onchain-identity">Set Onchain Identity</a></h3>
+<p>It is good practice to identify yourself on-chain, at least with some recognizable pseudonym. If you aspire for an invulnerable slot, this is mandatory. Encointer community collators must identify themselves with the community name. Moreover, we expect invulnerables to provide a <a href="https://matrix.org/">matrix handle</a> as a way to contact you.</p>
+<p>Use <a href="https://wiki.polkadot.com/learn/learn-identity/">Kusama People Identity</a> for this. You're free to use sub-identities for your collator authorities if you prefer. We do not require judgement for collator identities. You'll need at least 0.1 KSM on your authority account on Kusama People Chain to pay for the fees and deposits. Learn how to <a href="https://wiki.polkadot.com/learn/learn-teleport/">teleport KSM</a> to Kusama People.</p>
 <h3><a class="header" href="#rotate-session-key" id="rotate-session-key">Rotate Session Key</a></h3>
 <p>The best way to rotate session keys is to let the collator itself do this. The <code>author_rotateKeys</code> rpc call will generate a new key and print the public key. On your collator machine, run the following command:</p>
 <pre><code class="language-bash">curl -H &quot;Content-Type: application/json&quot; -d '{&quot;id&quot;:1, &quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;: &quot;author_rotateKeys&quot;, &quot;params&quot;:[]}' http://localhost:9944
 </code></pre>
 <p>Take note of the fresh public key in hex format which is returned returned as json response.</p>
 <h3><a class="header" href="#register-session-key" id="register-session-key">Register Session Key</a></h3>
-<p>Use the <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fsys.ibp.network%2Fencointer-kusama#/extrinsics/decode/0x1600000000000000000000000000000000000000000000000000000000000000000000">session.setKeys</a> call to register your key.</p>
+<p>Use the <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fsys.ibp.network%2Fencointer-kusama#/extrinsics/decode/0x1600000000000000000000000000000000000000000000000000000000000000000000">session.setKeys</a> call to register your key, signing with your authority key.</p>
 <ul>
 <li><code>keys</code>: your session key in hex format with <code>0x</code> prefix</li>
 <li><code>proof</code>: not needed. just put <code>0x</code> </li>
 </ul>
+<p>Your authority account should have at least a balance of 0.02 KSM on Encointer Network to pay for the transaction fees. Learn how to <a href="https://wiki.polkadot.com/learn/learn-teleport/">teleport KSM</a> to Encointer Network.</p>
 <h3><a class="header" href="#submit-candidacy" id="submit-candidacy">Submit Candidacy</a></h3>
 <p>Use your authority key to call <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fsys.ibp.network%2Fencointer-kusama#/extrinsics/decode/0x1503">collatorSelection.registerAsCandidate</a>. This will bond 5 KSM. Please make sure your free balance is higher than that.</p>
 <p>Your collator should appear on the <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fsys.ibp.network%2Fencointer-kusama#/collators">collator dashboard</a>. In any case, you'll need to wait for the next session (up to 6 hours)</p>
