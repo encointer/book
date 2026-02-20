@@ -64,7 +64,7 @@ save the following as `my_product.json`
 
 Let's register this offering with product and price
 ```
-./bazaar.py --client "../target/release/encointer-client-notee -u wss://gesell.encointer.org" --cid sqm1v79dF6b --bizaccount //Alice register-offering my_product.json --price 42
+./bazaar.py --client "../target/release/encointer-cli -u wss://gesell.encointer.org" --cid sqm1v79dF6b --bizaccount //Alice register-offering my_product.json --price 42
 ```
 This helper script will upload your json to IPFS and register its ipfs url on testnet gesell
 

@@ -1,6 +1,6 @@
 # Basic CLI usage
 
-The Encointer CLI is a low-level tool to interact with an Encointer chain. It allows to query state and to send extrinsics. 
+The Encointer CLI is a low-level tool to interact with an Encointer chain. It allows to query state and to send extrinsics.
 
 ## Setup
 
@@ -9,26 +9,26 @@ We suggest you run the following in an Ubuntu 22.04 environment
 Download the CLI for our latest release:
 
 ```
-wget https://github.com/encointer/encointer-node/releases/latest/download/encointer-client-notee
-chmod +x encointer-client-notee
+wget https://github.com/encointer/encointer-node/releases/latest/download/encointer-cli
+chmod +x encointer-cli
 
 # Testnet Gesell node endpoint
 NURL=wss://gesell.encointer.org
 NPORT=443
-alias nctr-gsl="./encointer-client-notee -u $NURL -p $NPORT"
+alias nctr-gsl="./encointer-cli -u $NURL -p $NPORT"
 
 # Testnet Lietaer (on Rococo) node endpoint
 NURL=wss://rococo.api.encointer.org
 NPORT=443
-alias nctr-r="./encointer-client-notee -u $NURL -p $NPORT"
+alias nctr-r="./encointer-cli -u $NURL -p $NPORT"
 
 # Encointer Mainnet (on Kusama) endpoint
 NURL=wss://kusama.api.encointer.org
 NPORT=443
-alias nctr-k="./encointer-client-notee -u $NURL -p $NPORT"
+alias nctr-k="./encointer-cli -u $NURL -p $NPORT"
 
 # local dev node
-alias nctr-dev="./encointer-client-notee"
+alias nctr-dev="./encointer-cli"
 ```
 
 In the following, we will show usage with testnet Gesell, using our alias `nctr-gsl`. But You can use any of the aliases above to interact with the other chains in the same way (caveat: deployed versions of the CLI API can vary)
@@ -36,20 +36,20 @@ In the following, we will show usage with testnet Gesell, using our alias `nctr-
 ### Get Ceremony Phase
 
 ```
-nctr-gsl get-phase
+nctr-gsl ceremony phase
 ```
 
-This will return any of 
-* `Registering`: you can register participants, communities, locations 
+This will return any of
+* `Registering`: you can register participants, communities, locations
 * `Assigning`: ceremony meetup assignments can be queried
 * `Attesting`: ceremony meetups can be performed
 
 ### List Communities
 
 ```
-nctr-gsl list-communities
+nctr-gsl community list
 ```
-will yield something like 
+will yield something like
 
 ```
 number of communities:  5
@@ -59,7 +59,7 @@ srcq45PYNyD: Adriana locations: 5
 u33e0719fDB: Decoded Berlin locations: 3
 69y7j4ZEXmy: Decoded Buenos Aires locations: 8
 ```
-Each community is shown with  
+Each community is shown with
 * its community identifier (cid) which is a 11-character string
 * its Name, given by community lead
 * its number of ceremony meetup locations
@@ -73,14 +73,14 @@ The CLI offers very basic wallet functionality, managing a keystore in a local s
 #### Create a New Account
 
 ```
-nctr-gsl new-account
+nctr-gsl account new
 ```
-The printed result will be your new account address 
+The printed result will be your new account address
 
 #### List Accounts in Keystore
 
 ```
-nctr-gsl list-accounts
+nctr-gsl account list
 ```
 
 ### Query Account Balances
@@ -101,11 +101,11 @@ or get all balances (first, the native token balance, then all community balance
 nctr-gsl balance 5ChwkE8kd2qagyiCikP2Ns2T6vWh7dbURx54gXcPKw8NotNp --all
 ```
 
-### Faucet
+### Fund Account
 
 Testnet Gesell features a faucet, so you can pre-fund your [new account](#create-a-new-account)
 
 ```
-nctr-gsl faucet <Account>
+nctr-gsl account fund <Account>
 ```
 

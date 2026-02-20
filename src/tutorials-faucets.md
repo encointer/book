@@ -16,7 +16,7 @@ Let's learn how you can request to receive ERT.
 First, let's check what faucets exist on Gesell already:
 
 ```bash
-> nctr-gsl list-faucets -v
+> nctr-gsl faucet list -v
 address: 5Dq3XugU1atZM8QGHxg2KfZahm2CzuBUDp8XyxL9wn8Q8Yx3
 name: FaucetNumberOne
 creator: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
@@ -32,14 +32,14 @@ In our example, two faucets exist and they have the following properties:
 
 Let's now check our reputation
 ```
-> nctr-gsl reputation 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e | sort
+> nctr-gsl ceremony participant reputation 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e | sort
 ....
 1744, e5dvt5mjcem, Reputation::VerifiedUnlinked
 ```
 It looks like we have valid reputation for cycle 1744, so let's drip:
 
 ```bash
-> nctr-gsl drip-faucet 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e 5Dq3XugU1atZM8QGHxg2KfZahm2CzuBUDp8XyxL9wn8Q8Yx3 1744 --cid e5dvt5mjcem
+> nctr-gsl faucet drip 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e 5Dq3XugU1atZM8QGHxg2KfZahm2CzuBUDp8XyxL9wn8Q8Yx3 1744 --cid e5dvt5mjcem
 Faucet dripped to 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e
 ```
 
@@ -47,7 +47,7 @@ Our account now [has received 1 ERT](https://polkadot.js.org/apps/?rpc=wss%3A%2F
 If we try to drip again with the same reputation, this will fail:
 
 ```
-> nctr-gsl drip-faucet 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e 5Dq3XugU1atZM8QGHxg2KfZahm2CzuBUDp8XyxL9wn8Q8Yx3 1744 --cid e5dvt5mjcem
+> nctr-gsl faucet drip 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e 5Dq3XugU1atZM8QGHxg2KfZahm2CzuBUDp8XyxL9wn8Q8Yx3 1744 --cid e5dvt5mjcem
 [+] Couldn't execute the extrinsic due to Dispatch(Module(ModuleError { pallet: "EncointerReputationCommitments", error: "AlreadyCommited", description: ["Participant already commited their reputation for this purpose"], error_data: ModuleErrorData { pallet_index: 65, error: [0, 0, 0, 0] } }))
 ```
 Therefore, we need to attend another cycle before we can drip again.
@@ -65,7 +65,7 @@ If the faucet runs dry, anyone can send ERT to the faucet's address to fill it u
 If you want to donate tokens to a specific set of communities, you can create your own faucet with an opional whitelist
 
 ```
-> nctr-gsl create-faucet 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e FaucetForMyBuddies 100000000000000 5000000000000 e5dvt5mjcem,dpcm5272THU
+> nctr-gsl faucet create 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e FaucetForMyBuddies 100000000000000 5000000000000 e5dvt5mjcem,dpcm5272THU
 5CTxhG3NJjhwti8kQRR9FYTT53Jq41We3MHdoJZa4RymAKhq
 ```
 
@@ -78,7 +78,7 @@ The reserved amount will be freed upon closing the faucet. Closing the faucet is
 The new faucet will now appear in the global list of faucets:
 
 ```
-> nctr-gsl list-faucets -v
+> nctr-gsl faucet list -v
 address: 5CTxhG3NJjhwti8kQRR9FYTT53Jq41We3MHdoJZa4RymAKhq
 name: FaucetForMyBuddies
 creator: 5HdLw7t5LjjZ9vSeFiYRbcJf6uFX9xqzv3QappFBy9P8pR9e
@@ -139,13 +139,13 @@ Of course, we'd like to know how many people are using the faucets and from whic
 First, we need to look up the *purpose id* of the faucet we're interested in
 
 ```bash
-nctr-k list-purposes
+nctr-k personhood commitment purposes
 # 0: ectrfct0PioneerPot
 ```
 On mainnet, there's a single faucet right now with index `0`
 
 ```bash
-nctr-k list-commitments 0 --cid u0qj944rhWE
+nctr-k personhood commitment list --purpose-id 0 --cid u0qj944rhWE
 # u0qj944rhWE, 68, 0, 5EZHGkM4NZhbR9AxnWsc9tmzNNMLQJntx1874Y7RSXKw6crw, None
 # u0qj944rhWE, 68, 0, 5FLbYHux2SUmo1EB3qtmLMvdicDff4yWDZPgriJU8qqyNWVR, None
 # u0qj944rhWE, 69, 0, 5Cm38saAbnwrxvnGCp4Pqff5K3rKy4awYQnrdqDeHfvW2ZUM, None
@@ -160,7 +160,7 @@ this will only list the drips which happened within the current reputation lifet
 If you want to know how many accounts have use the faucet how many times, use this:
 
 ```bash
-nctr-k list-commitments 0 --cid kygch5kVGq7 | awk -F',' '{print $4}' | sort | uniq -c | sort -nr | tee >(wc -l | awk '{print "Total unique accounts:", $1}')
+nctr-k personhood commitment list --purpose-id 0 --cid kygch5kVGq7 | awk -F',' '{print $4}' | sort | uniq -c | sort -nr | tee >(wc -l | awk '{print "Total unique accounts:", $1}')
 #      5  5G7AsczRMrV1kSv2btw9FSh7CwoRzaYdjaadHHZU4cFKTcfN
 #      4  5GhKkMhoTHtsoxD3muqhug795znXCsiu4Tq4iBiWfpKX6e4g
 #      4  5G3dA2sc4ytrW2NE7FLz1JTdzveXAmXii4ryiYQhTVyBAuuf

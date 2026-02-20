@@ -25,7 +25,7 @@ Initially, treasuries are intended for grants and donations. Donors can transfer
 First, we need to find out the treasury account address of our community. This is the account that will receive the funds. Please replace the CID with your community's CID.
 
 ```bash
-nctr-gsl get-treasury --cid sqm1v79dF6b
+nctr-gsl community treasury get-account --cid sqm1v79dF6b
 # 5CWoc3mGF9VEnuZzBbPWxhKPvY743AGwxUbvkYQHS8yWZbem
 nctr-gsl transfer //Alice 5CWoc3mGF9VEnuZzBbPWxhKPvY743AGwxUbvkYQHS8yWZbem 1000000000000
 nctr-gsl balance 5CWoc3mGF9VEnuZzBbPWxhKPvY743AGwxUbvkYQHS8yWZbem
@@ -38,8 +38,8 @@ We will let Alice propose a spend of 0.123 ERT to Bob.
 Replace Alice and Bob with accounts you control. 
 
 ```bash
-nctr-dev submit-spend-native-proposal //Alice //Bob 123456789012 --cid sqm1v79dF6b
-nctr-dev list-proposals
+nctr-dev democracy propose spend-native //Alice //Bob 123456789012 --cid sqm1v79dF6b
+nctr-dev democracy proposal list
 ```
 
 Verify that your proposal is listed and the electorate is correct. Remember that reputation is only counted for the electorate after one full cycle has passed.
@@ -53,7 +53,7 @@ This is best done with the [mobile app](./tutorials-democracy.md#vote-using-the-
 Alice will vote *Aye* with her reputation from cycle index 1 attendance in community sqm1v79dF6b.
 
 ```bash
-nctr-gsl vote //Alice 1 aye sqm1v79dF6b_1
+nctr-gsl democracy vote //Alice 1 aye sqm1v79dF6b_1
 ```
 For more details how to obtain your reputation information, see the [democracy tutorial](./tutorials-democracy.md#vote).
 
@@ -62,8 +62,8 @@ For more details how to obtain your reputation information, see the [democracy t
 As Encointer democracy is evaluated lazily, we need to trigger vote tallying manually. This is done by updating the proposal.
 
 ```bash
-nctr-gsl update-proposal-state //Alice 1
-nctr-gsl list-proposals
+nctr-gsl democracy proposal update-state //Alice 1
+nctr-gsl democracy proposal list
 ```
 
 If the proposal has been accepted, the enactment will be scheduled for the upcoming [assigning phase](./protocol-ceremony-cycle.md#assigning).
