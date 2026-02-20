@@ -11,7 +11,7 @@ We assume you already have
 
 - **Bandersnatch key** — Each participant registers an elliptic-curve public key (on the Bandersnatch curve) linked to their account. This key is used for ring signatures.
 - **Ring** — After each ceremony, the chain computes a ring: the set of all Bandersnatch keys belonging to participants who attended. The ring computation happens on-chain, triggered during the ceremony phase change.
-- **Ring-VRF proof** — A participant can produce a verifiable random function (VRF) output that proves they are *some* member of the ring without revealing *which* member. The VRF output is deterministic per participant, preventing double-claims.
+- **Ring-VRF proof** — A participant can produce a verifiable random function (VRF) output that proves they are *some* member of the ring without revealing *which* member. The VRF input binds to `(context, cid, ceremony_index, level, sub_ring)`. Within the same context, the pseudonym is deterministic (preventing double-claims). Different `--context` values yield unlinkable pseudonyms for the same person, enabling contextual pseudonymity across applications.
 
 ## Testnet Gesell Tutorial
 
@@ -57,11 +57,22 @@ Once a ring exists for a ceremony you attended, you can produce an anonymous pro
 nctr-dev personhood prove-ring-membership //Alice --ceremony-index 1
 ```
 
-This outputs a hex-encoded ring-VRF signature. The signature proves that:
+This outputs a hex-encoded ring-VRF signature and a pseudonym. The signature proves that:
 1. The signer is *some* member of the ring for ceremony 1
-2. The VRF output is unique to this signer (preventing double-claims)
+2. The pseudonym is unique to this signer within this context (preventing double-claims)
 
-You can adjust the attendance level requirement (default 1):
+### Contextual pseudonymity
+
+Each application should use a unique `--context` string. The default is `encointer-pop`, but a voting app might use `my-vote-2025` and a token airdrop might use `airdrop-campaign-3`. The same person gets a different, unlinkable pseudonym in each context:
+
+```bash
+nctr-dev personhood prove-ring-membership //Alice --ceremony-index 1 --context "my-vote-2025"
+nctr-dev personhood prove-ring-membership //Alice --ceremony-index 1 --context "airdrop-campaign-3"
+```
+
+These two proofs cannot be linked to the same person.
+
+You can also adjust the attendance level requirement (default 1):
 
 ```bash
 nctr-dev personhood prove-ring-membership //Alice --ceremony-index 1 --level 3
@@ -69,10 +80,10 @@ nctr-dev personhood prove-ring-membership //Alice --ceremony-index 1 --level 3
 
 ### Verify a proof
 
-Anyone can verify a ring-VRF proof without knowing the prover's identity:
+Anyone can verify a ring-VRF proof without knowing the prover's identity. The verifier must use the same `--context` that was used for signing:
 
 ```bash
-nctr-dev personhood verify-ring-membership --signature 0xabcd... --ceremony-index 1
+nctr-dev personhood verify-ring-membership --signature 0xabcd... --ceremony-index 1 --context "my-vote-2025"
 ```
 
 A successful verification confirms the signer is a unique, real person who attended ceremony 1.
