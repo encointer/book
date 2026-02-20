@@ -14,6 +14,6 @@ Registering means that participants can now register for the next ceremony
 
 First, install our [app](app.md) on at least three mobile phones and create individual accounts
 
-[Register a new community](deployments-register-community.md) with the new accounts as bootstrappers
+[Register a new community](tutorials-register-community.md) with the new accounts as bootstrappers
 
 Now, register all participants during REGISTERING phase and perform meetups during ATTESTATION phase. 

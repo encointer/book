@@ -4,7 +4,7 @@ We assume you have [set up the CLI client previously](./tutorials-cli.md)
 
 This tutorial will guide you through the process of setting up a new community on any of our [networks](./deployments.md)
 
-If you haven't done so, please learn about the [ceremony cycle](#TODO) of the Encointer Protocol
+If you haven't done so, please learn about the [ceremony cycle](./protocol-ceremony-cycle.md) of the Encointer Protocol
 
 ## Set Up Bootstrappers
 

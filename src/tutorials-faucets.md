@@ -2,7 +2,7 @@
 
 The Encointer faucet is a dispenser of arbitrary tokens. Every human is eligible to receive a small amount of tokens for every attendance in the Encointer protocol. This can be seen as an additional benefit of participating in the encointer protocol and as an onboarding route for new tokens. 
 
-Currently, the faucet MVP only supports the native ERT token on our testnet Gesell and will support KSM as soon as deployed on our mainnet. Our final product will support any fungible token which can be transferred via XCM to the Encointer parachain, including stablecoins
+The faucet supports the native ERT token on our testnet Gesell and KSM on our mainnet (Encointer Network on Kusama). In the future it will support any fungible token which can be transferred via XCM to the Encointer parachain, including stablecoins
 
 ## Testnet Usage
 ### Drip
