@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Reputation Rings (Proof of Personhood) - The Encointer Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="introduction.html">Introduction</a></li><li class="expanded "><a href="economics.html"><strong aria-hidden="true">1.</strong> Economics</a></li><li><ol class="section"><li class="expanded "><a href="economics-cantillon.html"><strong aria-hidden="true">1.1.</strong> The Cantillon Effect</a></li><li class="expanded "><a href="economics-ubi.html"><strong aria-hidden="true">1.2.</strong> Universal Basic Income</a></li><li class="expanded "><a href="economics-demurrage.html"><strong aria-hidden="true">1.3.</strong> Demurrage</a></li><li class="expanded "><a href="economics-local-currencies.html"><strong aria-hidden="true">1.4.</strong> Local Currencies</a></li><li class="expanded "><a href="economics-interest.html"><strong aria-hidden="true">1.5.</strong> On Saving, Loans and Interest</a></li></ol></li><li class="expanded "><a href="ssi.html"><strong aria-hidden="true">2.</strong> Self-Sovereign Identity</a></li><li class="expanded "><a href="protocol.html"><strong aria-hidden="true">3.</strong> The Encointer Protocol</a></li><li><ol class="section"><li class="expanded "><a href="protocol-ceremony-cycle.html"><strong aria-hidden="true">3.1.</strong> Ceremony Cycle</a></li><li class="expanded "><a href="protocol-reputation.html"><strong aria-hidden="true">3.2.</strong> Reputation</a></li><li class="expanded "><a href="protocol-cid.html"><strong aria-hidden="true">3.3.</strong> Community Identifiers</a></li><li class="expanded "><a href="protocol-democracy.html"><strong aria-hidden="true">3.4.</strong> Democracy</a></li><li class="expanded "><a href="protocol-threat-model.html"><strong aria-hidden="true">3.5.</strong> Threat Model</a></li></ol></li><li class="expanded "><a href="decentralization.html"><strong aria-hidden="true">4.</strong> Decentralization</a></li><li><ol class="section"><li class="expanded "><a href="decentralization-governance.html"><strong aria-hidden="true">4.1.</strong> Governance</a></li></ol></li><li class="expanded "><a href="deployments.html"><strong aria-hidden="true">5.</strong> Deployments</a></li><li><ol class="section"><li class="expanded "><a href="testnet-gesell.html"><strong aria-hidden="true">5.1.</strong> Gesell</a></li><li class="expanded "><a href="testnet-cantillon.html"><strong aria-hidden="true">5.2.</strong> Cantillon</a></li><li class="expanded "><a href="parachain-kusama.html"><strong aria-hidden="true">5.3.</strong> Encointer Kusama Parachain</a></li></ol></li><li class="expanded "><a href="bazaar.html"><strong aria-hidden="true">6.</strong> Bazaar</a></li><li class="expanded "><a href="app.html"><strong aria-hidden="true">7.</strong> App</a></li><li><ol class="section"><li class="expanded "><a href="app-select-community.html"><strong aria-hidden="true">7.1.</strong> Select Community</a></li><li class="expanded "><a href="app-register.html"><strong aria-hidden="true">7.2.</strong> Register for a ceremony</a></li><li class="expanded "><a href="app-meetup.html"><strong aria-hidden="true">7.3.</strong> Perfrom a Ceremony Meetup</a></li></ol></li><li class="expanded "><a href="explorer.html"><strong aria-hidden="true">8.</strong> Explorer</a></li><li class="expanded "><a href="tutorials.html"><strong aria-hidden="true">9.</strong> Tutorials</a></li><li><ol class="section"><li class="expanded "><a href="tutorials-cli.html"><strong aria-hidden="true">9.1.</strong> Basic CLI usage</a></li><li class="expanded "><a href="tutorials-register-community.html"><strong aria-hidden="true">9.2.</strong> Register a New Community Manually</a></li><li class="expanded "><a href="tutorials-perform-cycle.html"><strong aria-hidden="true">9.3.</strong> Perform a testnet cycle</a></li><li class="expanded "><a href="tutorials-register-locations.html"><strong aria-hidden="true">9.4.</strong> Register new meetup locations</a></li><li class="expanded "><a href="tutorials-vouchers.html"><strong aria-hidden="true">9.5.</strong> Create vouchers</a></li><li class="expanded "><a href="tutorials-acceptance-point.html"><strong aria-hidden="true">9.6.</strong> Acceptance Point Setup</a></li><li class="expanded "><a href="tutorials-bazaar.html"><strong aria-hidden="true">9.7.</strong> Bazaar</a></li><li class="expanded "><a href="tutorials-faucets.html"><strong aria-hidden="true">9.8.</strong> Faucets</a></li><li class="expanded "><a href="tutorials-democracy.html"><strong aria-hidden="true">9.9.</strong> Democracy</a></li><li class="expanded "><a href="tutorials-treasuries.html"><strong aria-hidden="true">9.10.</strong> Community Treasury Spending</a></li><li class="expanded "><a href="tutorials-offline-payments.html"><strong aria-hidden="true">9.11.</strong> Offline Payments</a></li><li class="expanded "><a href="tutorials-reputation-rings.html" class="active"><strong aria-hidden="true">9.12.</strong> Reputation Rings (Proof of Personhood)</a></li><li class="expanded "><a href="tutorials-swap-options.html"><strong aria-hidden="true">9.13.</strong> Swap Options</a></li></ol></li><li class="expanded "><a href="developers.html"><strong aria-hidden="true">10.</strong> Developers</a></li><li><ol class="section"><li class="expanded "><a href="developers-notee-local-setup.html"><strong aria-hidden="true">10.1.</strong> Local notee Setup</a></li><li class="expanded "><a href="developers-bot-communities.html"><strong aria-hidden="true">10.2.</strong> Bot Communities</a></li><li class="expanded "><a href="developers-notee-multi-community-growth-benchmark.html"><strong aria-hidden="true">10.3.</strong> Benchmark Multi-Community Growth</a></li><li class="expanded "><a href="developers-teeproxy-local.html"><strong aria-hidden="true">10.4.</strong> Local TEEproxy setup</a></li></ol></li><li class="expanded "><a href="infrastructure.html"><strong aria-hidden="true">11.</strong> Infrastructure</a></li><li><ol class="section"><li class="expanded "><a href="infrastructure-full-node-setup.html"><strong aria-hidden="true">11.1.</strong> Full Node Setup</a></li><li class="expanded "><a href="infrastructure-collator-setup.html"><strong aria-hidden="true">11.2.</strong> Collator Setup</a></li><li class="expanded "><a href="infrastructure-invulnerable-collators.html"><strong aria-hidden="true">11.3.</strong> Invulnerable Collators</a></li><li class="expanded "><a href="infrastructure-rpc-setup.html"><strong aria-hidden="true">11.4.</strong> Public Rpc Setup</a></li><li class="expanded "><a href="infrastructure-indexer.html"><strong aria-hidden="true">11.5.</strong> Indexer</a></li></ol></li><li class="expanded "><a href="support-us.html"><strong aria-hidden="true">12.</strong> Support Us</a></li><li><ol class="section"><li class="expanded "><a href="support-us-donate.html"><strong aria-hidden="true">12.1.</strong> Donate</a></li><li class="expanded "><a href="support-us-nominate.html"><strong aria-hidden="true">12.2.</strong> Nominate</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The Encointer Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#reputation-rings-proof-of-personhood" id="reputation-rings-proof-of-personhood">Reputation Rings (Proof of Personhood)</a></h1>
+<blockquote>
+<p>this is a feature-preview which is not yet available on mainnet</p>
+</blockquote>
+<p>Reputation rings allow Encointer participants to prove their personhood anonymously using ring-VRF signatures. After attending a ceremony, participants can prove they are a unique human without revealing which specific person they are or which account they use. This enables privacy-preserving applications like anonymous voting, sybil-resistant access control, and more.</p>
+<p>We assume you already have</p>
+<ul>
+<li><a href="./tutorials-cli.html">set up the CLI client</a></li>
+<li><a href="./tutorials-register-community.html">registered a community</a></li>
+<li><a href="./tutorials-perform-cycle.html">performed a virtual cycle gathering</a> (at least one ceremony with reputables)</li>
+</ul>
+<h2><a class="header" href="#concepts" id="concepts">Concepts</a></h2>
+<ul>
+<li><strong>Bandersnatch key</strong> — Each participant registers an elliptic-curve public key (on the Bandersnatch curve) linked to their account. This key is used for ring signatures.</li>
+<li><strong>Ring</strong> — After each ceremony, the chain computes a ring: the set of all Bandersnatch keys belonging to participants who attended. The ring computation happens on-chain, triggered during the ceremony phase change.</li>
+<li><strong>Ring-VRF proof</strong> — A participant can produce a verifiable random function (VRF) output that proves they are <em>some</em> member of the ring without revealing <em>which</em> member. The VRF input binds to <code>(context, cid, ceremony_index, level, sub_ring)</code>. Within the same context, the pseudonym is deterministic (preventing double-claims). Different <code>--context</code> values yield unlinkable pseudonyms for the same person, enabling contextual pseudonymity across applications.</li>
+</ul>
+<h2><a class="header" href="#testnet-gesell-tutorial" id="testnet-gesell-tutorial">Testnet Gesell Tutorial</a></h2>
+<h3><a class="header" href="#register-a-bandersnatch-key" id="register-a-bandersnatch-key">Register a Bandersnatch key</a></h3>
+<p>Before participating in rings, each account must register a Bandersnatch public key. This should be done once, before attending a ceremony:</p>
+<pre><code class="language-bash">nctr-dev account bandersnatch-pubkey register //Alice
+</code></pre>
+<p>If no key is provided, one is automatically derived from the account's seed.</p>
+<h3><a class="header" href="#attend-a-ceremony" id="attend-a-ceremony">Attend a ceremony</a></h3>
+<p>Follow the <a href="./tutorials-perform-cycle.html">ceremony tutorial</a> to register, attend, and earn reputation. After the ceremony completes, the on-chain ring computation is triggered automatically during the next <em>Assigning</em> phase transition.</p>
+<h3><a class="header" href="#check-ring-computation" id="check-ring-computation">Check ring computation</a></h3>
+<p>When the REGISTERING phase transitions to ASSIGNING, rings are automatically queued for the previous ceremony and computed in the background. Check the ring for a given ceremony index:</p>
+<pre><code class="language-bash">nctr-dev personhood ring get --ceremony-index 1
+</code></pre>
+<p>If the ring hasn't been computed yet, you can trigger computation manually:</p>
+<pre><code class="language-bash">nctr-dev personhood ring initiate //Alice --ceremony-index 1
+</code></pre>
+<p>For large communities, ring computation may require multiple transactions:</p>
+<pre><code class="language-bash">nctr-dev personhood ring continue //Alice
+</code></pre>
+<h3><a class="header" href="#prove-personhood" id="prove-personhood">Prove personhood</a></h3>
+<p>Once a ring exists for a ceremony you attended, you can produce an anonymous proof of personhood:</p>
+<pre><code class="language-bash">nctr-dev personhood prove-ring-membership //Alice --ceremony-index 1
+</code></pre>
+<p>This outputs a hex-encoded ring-VRF signature and a pseudonym. The signature proves that:</p>
+<ol>
+<li>The signer is <em>some</em> member of the ring for ceremony 1</li>
+<li>The pseudonym is unique to this signer within this context (preventing double-claims)</li>
+</ol>
+<h3><a class="header" href="#contextual-pseudonymity" id="contextual-pseudonymity">Contextual pseudonymity</a></h3>
+<p>Each application should use a unique <code>--context</code> string. The default is <code>encointer-pop</code>, but a voting app might use <code>my-vote-2025</code> and a token airdrop might use <code>airdrop-campaign-3</code>. The same person gets a different, unlinkable pseudonym in each context:</p>
+<pre><code class="language-bash">nctr-dev personhood prove-ring-membership //Alice --ceremony-index 1 --context &quot;my-vote-2025&quot;
+nctr-dev personhood prove-ring-membership //Alice --ceremony-index 1 --context &quot;airdrop-campaign-3&quot;
+</code></pre>
+<p>These two proofs cannot be linked to the same person.</p>
+<p>You can also adjust the attendance level requirement (default 1):</p>
+<pre><code class="language-bash">nctr-dev personhood prove-ring-membership //Alice --ceremony-index 1 --level 3
+</code></pre>
+<h3><a class="header" href="#verify-a-proof" id="verify-a-proof">Verify a proof</a></h3>
+<p>Anyone can verify a ring-VRF proof without knowing the prover's identity. The verifier must use the same <code>--context</code> that was used for signing:</p>
+<pre><code class="language-bash">nctr-dev personhood verify-ring-membership --signature 0xabcd... --ceremony-index 1 --context &quot;my-vote-2025&quot;
+</code></pre>
+<p>A successful verification confirms the signer is a unique, real person who attended ceremony 1.</p>
+<h3><a class="header" href="#reputation-commitments" id="reputation-commitments">Reputation commitments</a></h3>
+<p>The reputation commitment system tracks which ceremony attendances have been &quot;used&quot; for specific purposes (like <a href="./tutorials-faucets.html">faucet drips</a>). This prevents the same attendance from being claimed multiple times for the same purpose.</p>
+<p>List all registered purposes:</p>
+<pre><code class="language-bash">nctr-gsl personhood commitment purposes
+# 0: ectrfct0PioneerPot
+</code></pre>
+<p>List commitments for a specific purpose and community:</p>
+<pre><code class="language-bash">nctr-gsl personhood commitment list --purpose-id 0 --cid u0qj944rhWE
+</code></pre>
+<h2><a class="header" href="#anonymity-guarantees" id="anonymity-guarantees">Anonymity guarantees</a></h2>
+<p>Ring-VRF proofs provide <strong>k-anonymity</strong>: the prover is indistinguishable from any of the k members in their ring. The anonymity set size depends on several factors:</p>
+<p><strong>Ring size = k.</strong> If 200 people attended a ceremony, the level-1 ring has k=200. A verifier learns that the prover is one of those 200 people, but not which one.</p>
+<p><strong>Levels reduce k.</strong> Level N/5 includes only accounts that attended &gt;= N of the last 5 ceremonies. Higher levels prove stronger commitment but shrink the anonymity set. A community with 200 attendees at level 1 might only have 30 at level 5.</p>
+<p><strong>Sub-rings reduce k.</strong> When a ring exceeds MaxRingSize (255), it is split into sub-rings of 128–255 members each. Each sub-ring is an independent anonymity set. The prover's sub-ring assignment is deterministic (sorted by key), so the verifier knows which sub-ring the prover belongs to. This means k &lt;= 255 per sub-ring, even for very large communities.</p>
+<p><strong>Small communities have weak anonymity.</strong> If only 5 people attended, k=5. The prover is one of 5 known people. Applications requiring strong anonymity should enforce a minimum ring size.</p>
+<p><strong>Context separation does not increase k.</strong> The <code>--context</code> flag ensures unlinkability across applications, but within one context the prover is still hidden among the same k ring members. An adversary who controls the ring membership list always knows the anonymity set.</p>
+<p><strong>Practical guidance for application developers:</strong></p>
+<ul>
+<li>Require <code>k &gt;= 20</code> for meaningful anonymity (reject proofs from rings smaller than your threshold)</li>
+<li>Use level 1 unless you specifically need to filter for committed long-term participants</li>
+<li>Use a unique <code>--context</code> per application to prevent cross-application linkability</li>
+</ul>
+<h2><a class="header" href="#mainnet-usage" id="mainnet-usage">Mainnet usage</a></h2>
+<p>On mainnet, the same commands apply. Bandersnatch keys are registered at account creation and rings are computed automatically after each ceremony cycle. Third-party applications can verify personhood proofs off-chain using the ring data and standard ring-VRF verification.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="tutorials-offline-payments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="tutorials-swap-options.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="tutorials-offline-payments.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="tutorials-swap-options.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
