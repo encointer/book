@@ -1,6 +1,7 @@
 # Offline Payments
+> this is a feature-preview which is not yet available on mainnet
 
-Encointer's offline payment system allows community currency transfers without an active internet connection. It uses zero-knowledge proofs (Groth16 on BN254) so a buyer can generate a payment proof offline and present it as a QR code. A seller (or any third party) can later settle the payment on-chain.
+Encointer's offline payment system allows community currency transfers without an active internet connection. It uses zero-knowledge proofs (Groth16 on BN254) so a buyer can generate a payment proof offline and present it as a QR code. A seller (or anyone who has the proof) can later settle the payment on-chain.
 
 We assume you already have
 * [set up the CLI client](./tutorials-cli.md)
@@ -163,4 +164,4 @@ nctr-dev offline-payment admin inspect-key --file proving_key.bin
 
 ## Mainnet deployment
 
-On Encointer's mainnet, the verification key is set via council governance (not sudo). A council member would propose setting the key through a democracy proposal. The trusted setup ceremony should involve multiple independent participants from different organizations to maximize the trust assumption.
+On Encointer's mainnet, the verification key is set via council governance (not sudo). The trusted setup ceremony should involve multiple independent participants from different organizations to maximize the trust assumption; at least one honest member is enough for a sound setup.

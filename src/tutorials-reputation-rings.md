@@ -1,6 +1,8 @@
 # Reputation Rings (Proof of Personhood)
 
-Reputation rings allow Encointer participants to prove their personhood anonymously using ring-VRF signatures. After attending a ceremony, participants can prove they are a unique human without revealing which specific person they are. This enables privacy-preserving applications like anonymous voting, sybil-resistant access control, and more.
+> this is a feature-preview which is not yet available on mainnet
+
+Reputation rings allow Encointer participants to prove their personhood anonymously using ring-VRF signatures. After attending a ceremony, participants can prove they are a unique human without revealing which specific person they are or which account they use. This enables privacy-preserving applications like anonymous voting, sybil-resistant access control, and more.
 
 We assume you already have
 * [set up the CLI client](./tutorials-cli.md)
@@ -27,7 +29,7 @@ If no key is provided, one is automatically derived from the account's seed.
 
 ### Attend a ceremony
 
-Follow the [ceremony tutorial](./tutorials-perform-cycle.md) to register, attend, and earn reputation. After the ceremony completes, the on-chain ring computation is triggered automatically during the phase transition.
+Follow the [ceremony tutorial](./tutorials-perform-cycle.md) to register, attend, and earn reputation. After the ceremony completes, the on-chain ring computation is triggered automatically during the next *Assigning* phase transition.
 
 ### Check ring computation
 
