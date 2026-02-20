@@ -68,14 +68,14 @@ The businesses and offerings are stored in:
 You can check the registered businesses and offerings using the client:
 
 ```console
-./target/release/encointer-client-notee list-businesses --cid COMMUNITY_IDENTIFIER 
-./target/release/encointer-client-notee list-offerings --cid COMMUNITY_IDENTIFIER 
+./target/release/encointer-cli bazaar list-businesses --cid COMMUNITY_IDENTIFIER
+./target/release/encointer-cli bazaar list-offerings --cid COMMUNITY_IDENTIFIER
 ```
 
 The business offerings can be obtained with the option `--cid` and arg `Account`, which is the owner of the business. In this case we used the account `//Alice`:
 
 ```console
-./target/release/encointer-node-notee list-business-offerings --cid COMMUNITY_IDENTIFIER //Alice
+./target/release/encointer-cli bazaar list-business-offerings --cid COMMUNITY_IDENTIFIER //Alice
 ```
 Note: the cid option needs to be entered in the base58 format.
 
@@ -117,10 +117,10 @@ Note:
 - As you can read in our whitepaper, we'll avoid the faucet as an entry barrier in the future.
 - Should the faucet be exhausted, please post a message to our [element channel](https://app.element.io/#/room/#encointer:matrix.org) and friendly request some topup. Please be patient.
 
-To check if a community is registered on the chain, you can use the client with the command "list-communities":
+To check if a community is registered on the chain, you can use the client with the command `community list`:
 
 ```console
-./target/release/encointer-node-notee list-communities
+./target/release/encointer-cli community list
 ```
 
 The benchmark function calls the run function in an infinite loop, where the run function is responsible to handle the specific task depending on the phase.
@@ -129,24 +129,24 @@ At REGISTERING, it registers participants on the chain.
 Additionally to registering participants, bootstrappers can endorse other accounts to speed up registration.
 After participants are registered for a ceremony, the participatns can be verified in a seperate shell by calling:
 ```bash
-./target/release/encointer-node-notee list-participants
+./target/release/encointer-cli ceremony participant list
 ```
 At ASSIGNING, the blockchain assigns all participants to randomized groups that will have to meet at a random meetup location at a specific time.
 Participants can learn their assignment with:
 ```bash
-./target/release/encointer-node-notee list-meetups
+./target/release/encointer-cli ceremony list-meetups
 ```
 At ATTESTING, the run function performs the meetup by getting each participants claims and attesting eachother.
 
 To know in what phase the chain is, you can call:
 ```bash
-./target/release/encointer-node-notee get-phase
+./target/release/encointer-cli ceremony phase
 ```
 You should see either REGISTERING, ASSIGNING or ATTESTING.
 
 A phase is ~10 min long so one whole cycle is 30 min. You can jump to the next phase on the local chain by running:
 ```bash
-./target/release/encointer-node-notee next-phase
+./target/release/encointer-cli ceremony admin next-phase
 ```
 Another way is to run the phase script in a seperate shell which switches phase every 10 blocks. You can add the option: --node_url wss://gesell.encointer.org to the phase script if you are working with the remote chain.
 

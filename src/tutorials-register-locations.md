@@ -106,13 +106,13 @@ newlocations.json
 Registering locations is only possible during the *registering* phase of the [ceremony cycle](./protocol-ceremony-cycle.md). Check the current phase with
 
 ```
-nctr-gsl get-phase
+nctr-gsl ceremony phase
 ```
 
 Register locations with
 
 ```
-nctr-gsl add-locations newlocations.json --cid srcq45PYNyD --signer 5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG
+nctr-gsl community location add newlocations.json --cid srcq45PYNyD --signer 5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG
 ```
 
 You should see `encointerCommunities.LocationAdded` events for each of your added locations
@@ -126,7 +126,7 @@ On Encointer's production network, no single person is allowed to register new l
 
 In order to prepare a proposal for council, you can use
 ```
-nctr-k add-locations newlocations.json --cid u0qj944rhWE  --dryrun
+nctr-k community location add newlocations.json --cid u0qj944rhWE  --dryrun
 ```
 
 The `--dryrun` flag will disable sending the extrinsic but will print the encoded call to *stdout* instead

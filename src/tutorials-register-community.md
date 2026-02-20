@@ -17,7 +17,7 @@ All the bootstrappers need to [install the mobile app](https://encointer.org/enc
 The bootstrapper accounts need initial funding. On our testnets, you can use the faucet, on Mainnet, you can supply KSM or any other existing community currency
 
 ```
-nctr-gsl faucet 5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG 5HB4kbo67Hgv846DNMRnt7i1xNMum66LLBFkqtghKsNwRknM 5GxWKwbrPL88uH3Zv7zAiz6ozdpSFHzSfK1aXhVxDcNQYU8t
+nctr-gsl account fund 5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG 5HB4kbo67Hgv846DNMRnt7i1xNMum66LLBFkqtghKsNwRknM 5GxWKwbrPL88uH3Zv7zAiz6ozdpSFHzSfK1aXhVxDcNQYU8t
 ```
 
 *Note: the displayed account addresses will differ from yours when you follow the tutorial. They are just provided for readabiltiy. Use your account addresses instead of the ones used in the tutorial.*
@@ -141,13 +141,13 @@ Register your new community with the specfile.json. Signer should be an account 
 But on our mainnet you'll need to pass our [onboarding process](https://trello.com/b/1Yhln6NT/encointer-community-leader-applications) to be able to register your new community*
 
 ```bash
-nctr-dev new-community specfile.json --signer 5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG
+nctr-dev community new specfile.json --signer 5D5V3couq7o42FYkLG4vVhaqQPrfk4NT3kWzZJH66ZeHr3iG
 ```
 
 Your community has been registered and the return value is your community-identifier (cid). Let's check the registry again:
 
 ```bash
-nctr-dev list-communities
+nctr-dev community list
 ```
 
 Congratulations! You are ready to [select your community in the Encointer Wallet app](./app-select-community.md) [perform your first Ceremony](./app-meetup.md) with your bootstrappers.

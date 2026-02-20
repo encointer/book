@@ -31,11 +31,11 @@ The node is by default listening on port 9944, but you can add the option `--ws-
 ## CLI Client
 After the node is running, try out the client (from the root folder of the encointer-node repository):
 ```console
-./target/release/encointer-client-notee -h
+./target/release/encointer-cli -h
 ```
 This should output all possible client commands. 
 
 If you want to use the client to communicate with the remote chain, add the chain url and specify the port. The following command will get the current phase from the remote chain.
 ```console
-./target/release/encointer-client-notee -u wss://gesell.encointer.org -p 443 get-phase
+./target/release/encointer-cli -u wss://gesell.encointer.org -p 443 ceremony phase
 ```

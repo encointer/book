@@ -24,8 +24,8 @@ Community treasury addresses have no associated private key. They are [generated
 
 using our cli and subkey
 ```bash
-nctr-k list-communities
-nctr-k get-treasury --cid kygch5kVGq7
+nctr-k community list
+nctr-k community treasury get-account --cid kygch5kVGq7
 subkey inspect --network kusama 5DdhqasTcXAFko2FS1Wj948P2b4QENPR5vd7PqteG5nT8jxs
 ```
 

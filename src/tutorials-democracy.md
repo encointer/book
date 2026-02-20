@@ -24,7 +24,7 @@ Let's find out how many votes can maximally be cast for our community
 First, how many different accounts have reputation?
 
 ```bash
-nctr-gsl list-reputables
+nctr-gsl ceremony list-reputables
 # Listing the number of attested attendees for each community and ceremony for cycles [4607:4943]
 # ...
 # Community ID: srcq45PYNyD
@@ -52,8 +52,8 @@ For later reference, we list the 4 reputables here with their eligible votes:
 Anyone can submit a proposal anytime. See the [docs](./protocol-democracy.md#proposals) to learn about conflict resolution among proposals.
 
 ```bash
-nctr-gsl submit-update-nominal-income-proposal 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3.14 --cid srcq45PYNyD
-nctr-gsl list-proposals
+nctr-gsl democracy propose update-nominal-income 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3.14 --cid srcq45PYNyD
+nctr-gsl democracy proposal list
 # id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
@@ -69,14 +69,14 @@ So now we have at most 30min time to vote.
 
 Let's check our voting power:
 ```bash
-nctr-gsl reputation 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs
+nctr-gsl ceremony participant reputation 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs
 # 4943, srcq45PYNyD, Reputation::VerifiedUnlinked
 ```
 We have one vote in community srcq45PYNyD with our reputation from cindex 4943. We need this information to cast our vote:
 
 ```bash
-nctr-gsl vote 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3 aye srcq45PYNyD_4943
-nctr-gsl list-proposals
+nctr-gsl democracy vote 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3 aye srcq45PYNyD_4943
+nctr-gsl democracy proposal list
 # id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
@@ -93,8 +93,8 @@ If no one else votes, it will be approved because in this case our vote is alrea
 Proposals are lazily evaluated. after the end of the confirming phase you can call
 
 ```bash
-nctr-gsl update-proposal-state 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3
-nctr-gsl list-proposals
+nctr-gsl democracy proposal update-state 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs 3
+nctr-gsl democracy proposal list
 # id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
@@ -107,7 +107,7 @@ nctr-gsl list-proposals
 All approved proposals will be enacted automatically at the start of the next *Registering* phase. Let's check the enactment queue:
 
 ```bash
-nctr-gsl list-enactment-queue
+nctr-gsl democracy enactment-queue
 # 3
 ```
 
@@ -116,7 +116,7 @@ This returns all proposal id's which will be enacted. Please be aware that even 
 After the start of the next *Registering* phase, let's verify the enactment:
 
 ```bash
-nctr-gsl list-proposals
+nctr-gsl democracy proposal list
 # id: 3 (reputation commitment purpose id: 3)
 # action: ProposalAction::UpdateNominalIncome(srcq45PYNyD, 3.14000000000000012434)
 # started at: 2024-03-24 15:58:48 UTC
@@ -128,7 +128,7 @@ nctr-gsl list-proposals
 And the community income has indeed changed:
 
 ```bash
-nctr-gsl list-communities
+nctr-gsl community list
 # ...
 # srcq45PYNyD: Adriana, locations: 5, nominal income: 3.14000000000000012434 ADR, demurrage: 0/block, CommunityRules::LoCo
 ```
@@ -148,7 +148,7 @@ How do we ensure that every cycle attendance can only be used once for voting on
 We solve this using *commitments* for *purposes*. Every proposal is its own purpose. Let's check purposes on Gesell:
 
 ```bash
-nctr-gsl list-purposes
+nctr-gsl personhood commitment purposes
 # 0: ectrfct0GesellPioneerPot
 # 1: democracyProposal1
 # 2: democracyProposal2
@@ -161,7 +161,7 @@ As you can see, proposals are not the only possible purposes. Each [faucet](./tu
 If we want to learn more about the commitments for a specific purpose like our proposal above, we need to know its purpose index. we can use `list-proposals`and it will tell us each proposals' purpose_id: `Proposal id: 3 (reputation commitment purpose id: 3)` 
 
 ```bash
-nctr-gsl list-commitments 3 --cid srcq45PYNyD
+nctr-gsl personhood commitment list --purpose-id 3 --cid srcq45PYNyD
 # srcq45PYNyD, 4943, 3, 5FH44YdjmxbXJCAn9DuwpXuz5h2S8zLn752Vn5CyDa3quwEs, None
 ```
 
