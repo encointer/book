@@ -232,7 +232,7 @@ You can see your three participants have been assigned to one meetup. No money h
 
 The ceremony phase will change to ATTESTING on the date of the ceremony. The time of the ceremony will be high sun in your location. This way, no single person can attend more than one meetup. At each meetup, participants attest each others personhood. However, for a bot community this doesn't matter as they can jointly pretend to have met at the right time. (That's one of the reasons why we need a trusted *human* setup in the first place)
 
-See [Time Warping](./testnets.html#time-warping-for-testnets) to learn how the timing maps between mainnet and Cantillon.
+See [Time Warping](./deployments.md#time-warping-for-testnets) to learn how the timing maps between mainnet and Cantillon.
 
 Our bot communities can perform meetups simply with the following lines. In our next tutorial, we will explain how to perform real physical meetups with our mobile phone app.
 

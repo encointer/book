@@ -91,7 +91,9 @@ These actions can be decided per community for themselves
 -   [`update_nominal_income`](https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/communities/src/lib.rs#L258): the amount of basic income per ceremony per person per community
 -   [`update_community_metadata`](https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/communities/src/lib.rs#L214): change name, currency, artwork IPFS cid for community
 -   [`update_demurrage`](https://github.com/encointer/pallets/blob/91cbd7c9c0d47c4a80c096d3b2b501625a6bb724/communities/src/lib.rs#L238): change how fast balances are demurraged per community
--   Decide on community treasury spending proposals
+-   `spend_native`: transfer native tokens from the [community treasury](./protocol-treasuries.md) to a beneficiary
+-   `issue_swap_native_option`: grant someone the right to [exchange CC for native tokens](./tutorials-swap-options.md) from the treasury at a specified rate
+-   `issue_swap_asset_option`: grant someone the right to exchange CC for XCM-transferable assets from the treasury
 
 #### Petitions
 
