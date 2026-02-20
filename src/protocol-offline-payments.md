@@ -39,7 +39,8 @@ A compromised setup would allow forging proofs (spending without authorization),
 - **Soundness** — A valid proof can only be produced by someone who knows the secret behind a registered commitment
 - **Double-spend prevention** — The nullifier ensures each proof can only be settled once
 - **Offline capability** — Proof generation requires no network access; only settlement needs chain access
-- **Privacy** — The ZK proof reveals nothing about the secret; only the public commitment, recipient, amount, and nullifier are visible on-chain
+
+Note: Offline payments are **not private**. The sender, recipient, amount, community and nullifier are all visible on-chain upon settlement. The ZK proof only serves to authenticate the sender without requiring their signing key to be online — it does not hide any transaction details.
 
 ## Limitations
 
