@@ -20,7 +20,7 @@ cargo build --release
 Run dev node locally
 
 ```console
-./target/release/encointer-node-notee --dev --tmp --enable-offchain-indexing true --rpc-methods unsafe
+./target/release/encointer-node --dev --tmp --enable-offchain-indexing true --rpc-methods unsafe
 ```
 `--dev` sets up a developer node [chain specification](https://substrate.dev/docs/en/knowledgebase/integrate/chain-spec) </br>
 `--tmp` saves all active data for the node (keys, blockchain database, networking info, ...) and is deleted as soon as you properly terminate your node. </br>

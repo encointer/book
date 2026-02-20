@@ -18,7 +18,7 @@ pip3 install randomwords geojson pyproj flask
 
 ### Local Testing
 
-Setup the chain and client locally according to the [local setup](developers-notee-local-setup.md). 
+Setup the chain and client locally according to the [local setup](developers-local-setup.md). 
 
 Run a faucet. Go to the client folder and run the faucet service in a seperate terminal which will be used to drip funds to the bootstrapping accounts later on:
 
