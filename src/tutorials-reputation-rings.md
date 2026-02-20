@@ -31,7 +31,7 @@ Follow the [ceremony tutorial](./tutorials-perform-cycle.md) to register, attend
 
 ### Check ring computation
 
-After the ATTESTING phase transitions to REGISTERING (i.e., a new cycle begins), rings are computed for the completed ceremony. Check the ring for a given ceremony index:
+When the REGISTERING phase transitions to ASSIGNING, rings are automatically queued for the previous ceremony and computed in the background. Check the ring for a given ceremony index:
 
 ```bash
 nctr-dev personhood ring get --ceremony-index 1
