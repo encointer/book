@@ -28,7 +28,13 @@ In the long term, Encointer's proof of personhood could enable democratic consen
 
 ## Governance
 
-Encointer is governed on multiple levels following the principle of subsidiarity. Community-level parameters (income, demurrage, locations) are decided by community members through [on-chain democracy](./protocol-democracy.md) based on one-person-one-vote. Global protocol changes require approval by Kusama governance. See [Governance](./decentralization-governance.md) for details.
+Encointer is governed on three levels following the principle of subsidiarity:
+
+- **Protocol level** — Changes to the Encointer runtime must be approved by Kusama relay chain governance (KSM holders via OpenGov), since Encointer is a common good parachain.
+- **Global operative level** — Global parameters (ceremony schedule, community onboarding, reputation lifetime) are currently managed by the [Encointer council](./decentralization-governance.md), which consists of members of the Encointer Association. The council acts as an interim governance body until Encointer's own democracy reaches sufficient adoption to take over.
+- **Community level** — Each community governs its own parameters (income, demurrage, locations, treasury spending) through [on-chain democracy](./protocol-democracy.md) based on one-person-one-vote.
+
+See [Governance](./decentralization-governance.md) for details.
 
 ## Privacy
 
