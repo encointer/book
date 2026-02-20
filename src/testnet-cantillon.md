@@ -1,6 +1,6 @@
 # Testnet Cantillon
 
-** DISCONTINUED **
+> **DISCONTINUED**
 
 Cantillon was the testnet to showcase the privacy features using trusted execution environments with [Integritee technology](https://integritee.network)
 
