@@ -105,6 +105,25 @@ List commitments for a specific purpose and community:
 nctr-gsl personhood commitment list --purpose-id 0 --cid u0qj944rhWE
 ```
 
+## Anonymity guarantees
+
+Ring-VRF proofs provide **k-anonymity**: the prover is indistinguishable from any of the k members in their ring. The anonymity set size depends on several factors:
+
+**Ring size = k.** If 200 people attended a ceremony, the level-1 ring has k=200. A verifier learns that the prover is one of those 200 people, but not which one.
+
+**Levels reduce k.** Level N/5 includes only accounts that attended >= N of the last 5 ceremonies. Higher levels prove stronger commitment but shrink the anonymity set. A community with 200 attendees at level 1 might only have 30 at level 5.
+
+**Sub-rings reduce k.** When a ring exceeds MaxRingSize (255), it is split into sub-rings of 128–255 members each. Each sub-ring is an independent anonymity set. The prover's sub-ring assignment is deterministic (sorted by key), so the verifier knows which sub-ring the prover belongs to. This means k <= 255 per sub-ring, even for very large communities.
+
+**Small communities have weak anonymity.** If only 5 people attended, k=5. The prover is one of 5 known people. Applications requiring strong anonymity should enforce a minimum ring size.
+
+**Context separation does not increase k.** The `--context` flag ensures unlinkability across applications, but within one context the prover is still hidden among the same k ring members. An adversary who controls the ring membership list always knows the anonymity set.
+
+**Practical guidance for application developers:**
+- Require `k >= 20` for meaningful anonymity (reject proofs from rings smaller than your threshold)
+- Use level 1 unless you specifically need to filter for committed long-term participants
+- Use a unique `--context` per application to prevent cross-application linkability
+
 ## Mainnet usage
 
 On mainnet, the same commands apply. Bandersnatch keys are registered at account creation and rings are computed automatically after each ceremony cycle. Third-party applications can verify personhood proofs off-chain using the ring data and standard ring-VRF verification.
