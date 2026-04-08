@@ -27,7 +27,7 @@ Another example shows a proposal with insufficient approval. After an initial bo
 
 ### Eligible Reputations
 
-Each successful cycle attendance for a set of eligible cycles gives you one vote. We currently allow only reputations older than the previous cycle but younger than the *reputation lifetime* (relative to proposal submission) to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes (the *electorate*), which is required for Adaptive Quorum Biasing (AQB) and to determine the minimum turnout. 
+Each successful cycle attendance for a set of eligible cycles gives you one vote. We currently allow only reputations older than the previous two cycles but younger than the *reputation lifetime* (relative to proposal submission) to participate in the vote. This is because the count of those reputations is not subject to change anymore. We need a reliable count of all eligible reputations in order to determine the maximum amount of possible votes (the *electorate*), which is required for Adaptive Quorum Biasing (AQB) and to determine the minimum turnout. 
 
 ![electorate](./fig/democracy-electorate.drawio.svg)
 
